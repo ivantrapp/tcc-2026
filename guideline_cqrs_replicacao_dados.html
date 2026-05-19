@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Guideline — CQRS com Replicação de Dados</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --bg2: #161b27;
+    --bg3: #1e2535;
+    --border: #2a3348;
+    --text: #e2e8f0;
+    --text2: #94a3b8;
+    --text3: #64748b;
+    --accent: #0ea5e9;
+    --accent2: #38bdf8;
+    --teal: #2dd4bf;
+    --teal2: #99f6e4;
+    --amber: #f59e0b;
+    --amber2: #fcd34d;
+    --coral: #f43f5e;
+    --coral2: #fda4af;
+    --green: #22c55e;
+    --green2: #86efac;
+    --purple: #a855f7;
+    --purple2: #d8b4fe;
+    --mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+  }
+  aside {
+    background: var(--bg2);
+    border-right: 1px solid var(--border);
+    padding: 2rem 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  .aside-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text3);
+    padding: 0 1.5rem 1rem;
+  }
+  nav a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: .4rem 1.5rem;
+    font-size: 13px;
+    color: var(--text2);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: all .15s;
+  }
+  nav a:hover { color: var(--text); background: var(--bg3); }
+  nav a.active { color: var(--accent2); border-left-color: var(--accent); background: rgba(14,165,233,.08); }
+  nav .nav-section {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text3);
+    padding: .9rem 1.5rem .3rem;
+  }
+  nav .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  main { padding: 3rem 4rem 6rem; max-width: 900px; }
+  .hero {
+    padding: 2rem 0 3rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(14,165,233,.15);
+    border: 1px solid rgba(14,165,233,.3);
+    color: var(--accent2);
+    font-size: 11px; font-weight: 600; letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 3px 10px; border-radius: 99px;
+    margin-bottom: 1.2rem;
+  }
+  h1 { font-size: 2rem; font-weight: 700; line-height: 1.2; margin-bottom: .5rem; }
+  .subtitle { color: var(--text2); font-size: 15px; }
+  h2 {
+    font-size: 1.3rem; font-weight: 600;
+    margin: 2.5rem 0 1rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 1rem;
+  }
+  h3 { font-size: 1rem; font-weight: 600; margin: 1.8rem 0 .6rem; }
+  h4 { font-size: .875rem; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: .06em; margin: 1.4rem 0 .5rem; }
+  p { margin-bottom: .8rem; }
+  ul, ol { padding-left: 1.4rem; margin-bottom: 1rem; }
+  li { margin-bottom: .3rem; }
+  li::marker { color: var(--text3); }
+  code {
+    font-family: var(--mono);
+    font-size: .82em;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--accent2);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+  .section { margin-bottom: 3rem; }
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1rem;
+  }
+  .card-title {
+    font-size: .8rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .07em;
+    margin-bottom: .7rem;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .dot-accent { width:8px;height:8px;border-radius:50%;flex-shrink:0; }
+
+  .aggregate-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.2rem;
+  }
+  .aggregate-header {
+    padding: .9rem 1.2rem;
+    display: flex; align-items: center; gap: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .aggregate-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; flex-shrink: 0;
+  }
+  .aggregate-name { font-weight: 600; font-size: .95rem; }
+  .aggregate-sub { font-size: .78rem; color: var(--text2); }
+  .aggregate-body { padding: 1rem 1.2rem; }
+  .aggregate-body .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .agg-section-title {
+    font-size: .72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .08em;
+    margin-bottom: .5rem;
+  }
+  .pill {
+    display: inline-block;
+    font-size: .75rem; font-weight: 500;
+    padding: 2px 9px; border-radius: 99px;
+    margin: 2px 2px 2px 0;
+  }
+  .pill-cmd { background: rgba(14,165,233,.15); color: var(--accent2); border: 1px solid rgba(14,165,233,.25); }
+  .pill-evt { background: rgba(45,212,191,.12); color: var(--teal); border: 1px solid rgba(45,212,191,.2); }
+  .pill-inv { background: rgba(245,158,11,.12); color: var(--amber); border: 1px solid rgba(245,158,11,.2); }
+  .pill-state { background: rgba(168,85,247,.12); color: var(--purple); border: 1px solid rgba(168,85,247,.2); }
+  .pill-db { background: rgba(34,197,94,.12); color: var(--green); border: 1px solid rgba(34,197,94,.2); }
+
+  .flow { display: flex; flex-direction: column; gap: 0; margin: 1rem 0; }
+  .flow-step {
+    display: flex; gap: 1rem;
+    padding: .7rem 1rem;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 1px;
+    font-size: .875rem;
+  }
+  .flow-step:first-child { border-radius: 8px 8px 0 0; margin-bottom: 0; border-bottom: none; }
+  .flow-step:last-child { border-radius: 0 0 8px 8px; margin-bottom: 0; }
+  .flow-step:not(:first-child):not(:last-child) { border-radius: 0; border-bottom: none; }
+  .step-num {
+    width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .7rem; font-weight: 700;
+    background: rgba(14,165,233,.2); color: var(--accent2);
+    margin-top: 1px;
+  }
+  .step-content { flex: 1; }
+  .step-actor { font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text3); margin-bottom: 2px; }
+  .step-desc { color: var(--text); }
+  .step-detail { font-size: .8rem; color: var(--text2); margin-top: 2px; }
+
+  .alert {
+    border-radius: 8px; padding: .9rem 1.1rem;
+    margin: 1.2rem 0; font-size: .875rem;
+    display: flex; gap: .7rem;
+  }
+  .alert-warning { background: rgba(245,158,11,.1); border: 1px solid rgba(245,158,11,.2); }
+  .alert-info { background: rgba(14,165,233,.1); border: 1px solid rgba(14,165,233,.2); }
+  .alert-success { background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.2); }
+  .alert-danger { background: rgba(244,63,94,.1); border: 1px solid rgba(244,63,94,.2); }
+  .alert-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .alert-warning .alert-icon { color: var(--amber); }
+  .alert-info .alert-icon { color: var(--accent2); }
+  .alert-success .alert-icon { color: var(--green); }
+  .alert-danger .alert-icon { color: var(--coral); }
+  .alert-body { color: var(--text2); line-height: 1.6; }
+  .alert-body strong { color: var(--text); }
+
+  table { width: 100%; border-collapse: collapse; font-size: .86rem; margin: 1rem 0; }
+  th { text-align: left; padding: .6rem .8rem; font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text3); border-bottom: 1px solid var(--border); }
+  td { padding: .55rem .8rem; border-bottom: 1px solid rgba(42,51,72,.5); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,.02); }
+
+  .spec {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1rem 0;
+  }
+  .spec-header {
+    padding: .55rem 1rem;
+    background: var(--bg3);
+    border-bottom: 1px solid var(--border);
+    font-size: .75rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .06em;
+    color: var(--text2);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .spec-body { padding: .9rem 1rem; font-size: .86rem; }
+  .spec-body ul { margin-bottom: 0; }
+  .spec-body li { color: var(--text2); margin-bottom: .2rem; }
+  .spec-body li strong { color: var(--text); }
+
+  .sql-block {
+    background: #0d1117;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1rem 0;
+    font-family: var(--mono);
+    font-size: .78rem;
+    line-height: 1.9;
+  }
+  .sql-header {
+    padding: .45rem 1rem;
+    background: var(--bg3);
+    border-bottom: 1px solid var(--border);
+    font-size: .7rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .07em;
+    color: var(--text3);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .sql-db-write { color: var(--accent2); }
+  .sql-db-read { color: var(--teal); }
+  .sql-body { padding: .9rem 1.1rem; overflow-x: auto; }
+  .kw { color: #ff79c6; }
+  .fn { color: #50fa7b; }
+  .str { color: #f1fa8c; }
+  .cm { color: var(--text3); font-style: italic; }
+  .tbl { color: var(--amber2); }
+  .col { color: #8be9fd; }
+  .num { color: #bd93f9; }
+
+  .arch-diagram {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 2rem;
+    margin: 1.5rem 0;
+  }
+  .arch-row { display: flex; gap: 1rem; align-items: stretch; margin-bottom: 1rem; }
+  .arch-box {
+    flex: 1; border: 1px solid var(--border); border-radius: 8px;
+    padding: .8rem 1rem; text-align: center; font-size: .82rem;
+  }
+  .arch-box .ab-title { font-weight: 600; font-size: .9rem; margin-bottom: .3rem; }
+  .arch-box .ab-sub { font-size: .75rem; color: var(--text2); }
+  .ab-write { border-color: rgba(14,165,233,.35); background: rgba(14,165,233,.07); }
+  .ab-write .ab-title { color: var(--accent2); }
+  .ab-read { border-color: rgba(45,212,191,.35); background: rgba(45,212,191,.07); }
+  .ab-read .ab-title { color: var(--teal); }
+  .ab-db-write { border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.07); }
+  .ab-db-write .ab-title { color: var(--amber); }
+  .ab-db-read { border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.07); }
+  .ab-db-read .ab-title { color: var(--green); }
+  .ab-wal { border-color: rgba(168,85,247,.35); background: rgba(168,85,247,.07); }
+  .ab-wal .ab-title { color: var(--purple); }
+  .arch-arrow {
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text3); font-size: .75rem; flex-direction: column;
+    gap: 2px; min-width: 40px;
+  }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+  .compare-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem; margin: 1rem 0;
+  }
+  .compare-box {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+  }
+  .compare-box .cb-title {
+    font-size: .75rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .07em;
+    margin-bottom: .6rem;
+  }
+  .compare-box ul { margin: 0; padding-left: 1.2rem; }
+  .compare-box li { font-size: .82rem; color: var(--text2); margin-bottom: .2rem; }
+  .compare-box li strong { color: var(--text); }
+
+  .checklist li {
+    list-style: none;
+    display: flex; align-items: flex-start; gap: 7px;
+    padding: .25rem 0;
+    color: var(--text2);
+  }
+  .checklist li::before {
+    content: '';
+    width: 16px; height: 16px; border-radius: 50%;
+    border: 1.5px solid var(--border);
+    flex-shrink: 0; margin-top: 3px; display: block;
+  }
+  .checklist li span { flex: 1; }
+  .checklist li strong { color: var(--text); }
+
+  .tag {
+    display: inline-block;
+    font-size: .7rem; font-weight: 600;
+    padding: 1px 7px; border-radius: 4px;
+    vertical-align: middle; margin-left: 4px;
+  }
+  .tag-write { background: rgba(14,165,233,.2); color: var(--accent2); }
+  .tag-read { background: rgba(45,212,191,.15); color: var(--teal); }
+  .tag-pg { background: rgba(34,197,94,.15); color: var(--green); }
+
+  .wal-diagram {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.2rem 0;
+  }
+  .wal-row {
+    display: flex; gap: 6px; align-items: center;
+    font-size: .78rem; margin-bottom: .6rem;
+    flex-wrap: wrap;
+  }
+  .wal-block {
+    padding: 4px 10px; border-radius: 5px;
+    font-weight: 600; font-size: .72rem; flex-shrink: 0;
+  }
+  .wal-write { background: rgba(14,165,233,.15); color: var(--accent2); border: 1px solid rgba(14,165,233,.3); }
+  .wal-log { background: rgba(168,85,247,.15); color: var(--purple); border: 1px solid rgba(168,85,247,.3); }
+  .wal-rep { background: rgba(245,158,11,.15); color: var(--amber); border: 1px solid rgba(245,158,11,.3); }
+  .wal-read { background: rgba(45,212,191,.15); color: var(--teal); border: 1px solid rgba(45,212,191,.3); }
+  .wal-arrow { color: var(--text3); font-size: .9rem; }
+  .wal-label { font-size: .7rem; color: var(--text3); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="layout">
+
+<!-- SIDEBAR -->
+<aside>
+  <div class="aside-title">Guideline</div>
+  <div style="padding: 0 1.5rem .8rem; font-size:.75rem; color:var(--text3);">CQRS + Replicação de Dados</div>
+
+  <div class="nav-section">Contexto</div>
+  <nav>
+    <a href="#visao-geral"><span class="dot" style="background:var(--accent)"></span>Visão Geral</a>
+    <a href="#comparativo"><span class="dot" style="background:var(--amber)"></span>Diferenças do ES</a>
+    <a href="#principios-wal"><span class="dot" style="background:var(--purple)"></span>Como funciona o WAL</a>
+  </nav>
+
+  <div class="nav-section">Aplicação Write</div>
+  <nav>
+    <a href="#aggregates"><span class="dot" style="background:var(--accent)"></span>Aggregates</a>
+    <a href="#commands"><span class="dot" style="background:var(--purple)"></span>Commands</a>
+    <a href="#handlers"><span class="dot" style="background:var(--coral)"></span>Command Handlers</a>
+    <a href="#banco-write"><span class="dot" style="background:var(--amber)"></span>Banco Write (tabelas)</a>
+  </nav>
+
+  <div class="nav-section">Replicação</div>
+  <nav>
+    <a href="#publicacao"><span class="dot" style="background:var(--purple)"></span>Publicação (Write DB)</a>
+    <a href="#subscricao"><span class="dot" style="background:var(--teal)"></span>Subscrição (Read DB)</a>
+    <a href="#cuidados"><span class="dot" style="background:var(--amber)"></span>Cuidados operacionais</a>
+  </nav>
+
+  <div class="nav-section">Aplicação Read</div>
+  <nav>
+    <a href="#banco-read"><span class="dot" style="background:var(--green)"></span>Banco Read (réplica)</a>
+    <a href="#views"><span class="dot" style="background:var(--teal)"></span>Views SQL</a>
+    <a href="#queries"><span class="dot" style="background:var(--accent2)"></span>Queries</a>
+  </nav>
+
+  <div class="nav-section">Fluxos</div>
+  <nav>
+    <a href="#fluxo-transacao"><span class="dot" style="background:var(--coral)"></span>Registrar Transação</a>
+    <a href="#fluxo-listagem"><span class="dot" style="background:var(--green)"></span>Listar Clientes</a>
+  </nav>
+
+  <div class="nav-section">Entrega</div>
+  <nav>
+    <a href="#criterios"><span class="dot" style="background:var(--accent)"></span>Critérios de Aceite</a>
+  </nav>
+</aside>
+
+<!-- MAIN -->
+<main>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="badge">📋 Guideline para Agente de IA</div>
+    <h1>CQRS com Replicação de Dados</h1>
+    <p class="subtitle">Guia de implementação baseado na abordagem de Renani (2024) para o domínio CRM de corretora de valores. Usa replicação lógica nativa do PostgreSQL como mecanismo de sincronização entre Write e Read.</p>
+  </div>
+
+  <!-- VISÃO GERAL -->
+  <div class="section" id="visao-geral">
+    <h2>1. Visão Geral da Arquitetura</h2>
+
+    <p>Esta abordagem implementa CQRS substituindo o Event Sourcing e a fila de mensagens por um mecanismo já nativo do PostgreSQL: a <strong>replicação lógica via WAL</strong>. O resultado é uma arquitetura com menos componentes e menos código de infraestrutura, onde a sincronização entre os dois bancos é responsabilidade do próprio banco de dados.</p>
+
+    <div class="arch-diagram">
+      <div style="text-align:center; font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--text3); margin-bottom:1.5rem;">Visão Macro da Arquitetura</div>
+
+      <div class="arch-row">
+        <div class="arch-box" style="flex:.5; border-color:rgba(100,116,139,.3); background:rgba(100,116,139,.05);">
+          <div class="ab-title" style="color:var(--text2);">Sistemas Externos</div>
+          <div class="ab-sub">Aplicativo do cliente<br>Bolsa de Valores</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-box ab-write">
+          <div class="ab-title">Write App</div>
+          <div class="ab-sub">Aggregates · Commands<br>Handlers · Validação</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-box ab-db-write">
+          <div class="ab-title">Write DB</div>
+          <div class="ab-sub">PostgreSQL<br>Tabelas normalizadas<br>+ Publicação WAL</div>
+        </div>
+        <div class="arch-arrow">
+          <span>replica</span>
+          →
+        </div>
+        <div class="arch-box ab-db-read">
+          <div class="ab-title">Read DB</div>
+          <div class="ab-sub">PostgreSQL<br>Tabelas replicadas<br>+ Views SQL</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-box ab-read">
+          <div class="ab-title">Read App</div>
+          <div class="ab-sub">Queries<br>Sem consumer<br>Sem projeções</div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.5rem; padding:1rem; background:var(--bg3); border-radius:8px; font-size:.8rem; color:var(--text2);">
+        <strong style="color:var(--text);">O que desaparece em relação ao Event Sourcing:</strong> não há Event Store, não há fila de mensagens, não há consumer, não há projeções em código, não há snapshots. A sincronização é inteiramente gerenciada pelo PostgreSQL.
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARATIVO -->
+  <div class="section" id="comparativo">
+    <h2>2. Diferenças Fundamentais em Relação ao Event Sourcing</h2>
+
+    <p>O agente deve entender onde as duas abordagens divergem para não aplicar padrões do ES nesta implementação. As diferenças são profundas e afetam cada camada do sistema.</p>
+
+    <div class="compare-row">
+      <div class="compare-box" style="border-color:rgba(99,102,241,.3);">
+        <div class="cb-title" style="color:#818cf8;">Event Sourcing</div>
+        <ul>
+          <li>Estado reconstruído por <strong>replay de eventos</strong></li>
+          <li>Banco write é um <strong>Event Store append-only</strong></li>
+          <li>Sincronização via <strong>fila de mensagens</strong></li>
+          <li>Read side mantém <strong>projeções em código</strong></li>
+          <li>Snapshot necessário para performance</li>
+          <li>Histórico completo de mudanças disponível</li>
+          <li>Consumer com controle de idempotência</li>
+        </ul>
+      </div>
+      <div class="compare-box" style="border-color:rgba(14,165,233,.3);">
+        <div class="cb-title" style="color:var(--accent2);">Replicação de Dados</div>
+        <ul>
+          <li>Estado armazenado <strong>diretamente</strong> em tabelas</li>
+          <li>Banco write é um <strong>banco relacional comum</strong></li>
+          <li>Sincronização via <strong>replicação WAL do PostgreSQL</strong></li>
+          <li>Read side usa <strong>views SQL</strong> sobre tabelas replicadas</li>
+          <li>Sem snapshot — estado sempre atual</li>
+          <li>Apenas estado atual disponível (sem histórico de mudanças)</li>
+          <li>Sem consumer — PostgreSQL entrega automaticamente</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>O que permanece igual</h3>
+    <p>As duas abordagens compartilham a mesma estrutura de <strong>aggregates, commands e handlers</strong> na Write App. A lógica de negócio — invariantes, validações, domínio — é idêntica. O que muda é o que acontece <em>após</em> o aggregate validar e persistir.</p>
+
+    <div class="alert alert-warning">
+      <div class="alert-icon">⚠</div>
+      <div class="alert-body">
+        <strong>Trade-off central desta abordagem:</strong> ao armazenar somente o estado atual, o sistema <strong>perde o histórico de mudanças</strong>. Se um gerente precisar saber "qual era o saldo desta carteira em março de 2023", esta arquitetura não responde. O Event Sourcing responderia, pois os eventos são imutáveis. Este é o trade-off que o TCC deve documentar.
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINCÍPIOS WAL -->
+  <div class="section" id="principios-wal">
+    <h2>3. Como Funciona a Replicação Lógica do PostgreSQL (WAL)</h2>
+
+    <p>Para implementar corretamente, o agente precisa entender o mecanismo que substitui a fila de mensagens nesta arquitetura.</p>
+
+    <div class="card">
+      <div class="card-title"><span class="dot-accent" style="background:var(--purple)"></span>O que é o WAL (Write-Ahead Log)</div>
+      <p style="font-size:.875rem;color:var(--text2);margin:0;">O PostgreSQL mantém um registro sequencial de <em>toda</em> operação de escrita antes de aplicá-la nas tabelas. Esse registro chama-se WAL. Ele existe primariamente para garantir durabilidade e recuperação após falhas — mas o PostgreSQL expõe este log para que outros sistemas possam consumi-lo. É isso que torna a replicação possível sem nenhuma ferramenta externa.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot-accent" style="background:var(--accent)"></span>Replicação Lógica vs. Física</div>
+      <p style="font-size:.875rem;color:var(--text2);margin:0;">A replicação <strong>física</strong> copia blocos de disco inteiros — é um espelho byte-a-byte, usado para alta disponibilidade. A replicação <strong>lógica</strong> copia as operações no nível de linha (INSERT, UPDATE, DELETE em tabelas específicas), o que permite replicar apenas um subconjunto de tabelas e manter esquemas diferentes nos dois bancos. É a replicação lógica que esta arquitetura usa.</p>
+    </div>
+
+    <div class="wal-diagram">
+      <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:1rem;">Fluxo da replicação lógica</div>
+      <div class="wal-row">
+        <div class="wal-block wal-write">INSERT na tabela transactions</div>
+        <div class="wal-arrow">→</div>
+        <div class="wal-block wal-log">WAL registra a operação</div>
+        <div class="wal-arrow">→</div>
+        <div class="wal-block wal-rep">Replication slot decodifica</div>
+        <div class="wal-arrow">→</div>
+        <div class="wal-block wal-read">Read DB recebe a linha</div>
+      </div>
+      <div class="wal-label" style="margin-top:.5rem;">Tudo dentro do PostgreSQL. Latência de microssegundos em mesma rede (Renani, 2024).</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot-accent" style="background:var(--amber)"></span>Publicação e Subscrição</div>
+      <p style="font-size:.875rem;color:var(--text2);margin:0;">O modelo de replicação lógica usa um padrão publisher/subscriber nativo. O banco de escrita configura uma <strong>publicação</strong> declarando quais tabelas serão replicadas. O banco de leitura configura uma <strong>subscrição</strong> apontando para essa publicação. A partir daí, toda mudança nas tabelas publicadas é propagada automaticamente para o banco de leitura — sem código, sem fila, sem consumer.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot-accent" style="background:var(--teal)"></span>Consistência Eventual</div>
+      <p style="font-size:.875rem;color:var(--text2);margin:0;">A replicação é assíncrona por padrão. Após um INSERT no banco de escrita, há uma janela de tempo até que o banco de leitura receba a mudança. Em ambiente de mesma rede, Renani (2024) mediu esta latência na casa dos microssegundos em condições idle. Sob carga, esta janela pode crescer — o que os testes de carga do TCC irão quantificar.</p>
+    </div>
+  </div>
+
+  <!-- AGGREGATES -->
+  <div class="section" id="aggregates">
+    <h2>4. Aggregates da Write App</h2>
+
+    <p>Os aggregates desta implementação têm as <strong>mesmas responsabilidades de negócio</strong> que no Event Sourcing: validar invariantes e autorizar mudanças de estado. A diferença é que, em vez de emitir eventos que são persistidos no Event Store, o aggregate retorna o estado atualizado que será salvo diretamente em tabelas relacionais.</p>
+
+    <div class="alert alert-info">
+      <div class="alert-icon">ℹ</div>
+      <div class="alert-body">
+        <strong>Mudança conceitual importante:</strong> no Event Sourcing, o aggregate <em>emite eventos</em> e o estado é uma consequência do replay. Aqui, o aggregate <em>valida e retorna o novo estado</em>. O handler persiste esse estado diretamente. Não há eventos, não há replay.
+      </div>
+    </div>
+
+    <h3>4.1 Wallet Aggregate <tag class="tag tag-pg">Microsserviço Wallet</tag></h3>
+
+    <div class="aggregate-card">
+      <div class="aggregate-header">
+        <div class="aggregate-icon" style="background:rgba(14,165,233,.15);">💼</div>
+        <div>
+          <div class="aggregate-name">Wallet</div>
+          <div class="aggregate-sub">Aggregate Root — microsserviço Wallet</div>
+        </div>
+      </div>
+      <div class="aggregate-body">
+        <div style="margin-bottom:.8rem;">
+          <div class="agg-section-title" style="color:var(--purple);">Estado carregado direto do banco</div>
+          <span class="pill pill-state">id</span>
+          <span class="pill pill-state">customerId</span>
+          <span class="pill pill-state">balance</span>
+          <span class="pill pill-state">createdAt</span>
+        </div>
+        <div class="row">
+          <div>
+            <div class="agg-section-title" style="color:var(--accent2);">Commands aceitos</div>
+            <span class="pill pill-cmd">CreateWallet</span>
+            <span class="pill pill-cmd">RegisterTransaction</span>
+          </div>
+          <div>
+            <div class="agg-section-title" style="color:var(--teal);">Resultado após validação</div>
+            <span class="pill pill-evt">Nova linha em wallets</span>
+            <span class="pill pill-evt">Nova linha em transactions</span>
+            <span class="pill pill-evt">Balance atualizado</span>
+          </div>
+        </div>
+        <div style="margin-top:.8rem;">
+          <div class="agg-section-title" style="color:var(--amber);">Invariantes de negócio (idênticas ao ES)</div>
+          <span class="pill pill-inv">Uma Wallet pertence a exatamente um Customer</span>
+          <span class="pill pill-inv">Transações só em D a S 08h–19h</span>
+          <span class="pill pill-inv">Transação exige confirmação da Bolsa</span>
+          <span class="pill pill-inv">Valor da transação deve ser positivo</span>
+        </div>
+      </div>
+    </div>
+
+    <h3>4.2 Customer Aggregate <tag class="tag tag-write">Write App</tag></h3>
+
+    <div class="aggregate-card">
+      <div class="aggregate-header">
+        <div class="aggregate-icon" style="background:rgba(14,165,233,.15);">👤</div>
+        <div>
+          <div class="aggregate-name">Customer</div>
+          <div class="aggregate-sub">Aggregate Root — CRM Write App</div>
+        </div>
+      </div>
+      <div class="aggregate-body">
+        <div style="margin-bottom:.8rem;">
+          <div class="agg-section-title" style="color:var(--purple);">Estado carregado direto do banco</div>
+          <span class="pill pill-state">id</span>
+          <span class="pill pill-state">name</span>
+          <span class="pill pill-state">address</span>
+          <span class="pill pill-state">age</span>
+          <span class="pill pill-state">accountManagerId</span>
+          <span class="pill pill-state">createdAt</span>
+        </div>
+        <div class="row">
+          <div>
+            <div class="agg-section-title" style="color:var(--accent2);">Commands aceitos</div>
+            <span class="pill pill-cmd">CreateCustomer</span>
+            <span class="pill pill-cmd">UpdateCustomerData</span>
+            <span class="pill pill-cmd">AssignAccountManager</span>
+          </div>
+          <div>
+            <div class="agg-section-title" style="color:var(--teal);">Resultado após validação</div>
+            <span class="pill pill-evt">INSERT em customers</span>
+            <span class="pill pill-evt">UPDATE em customers</span>
+          </div>
+        </div>
+        <div style="margin-top:.8rem;">
+          <div class="agg-section-title" style="color:var(--amber);">Invariantes de negócio</div>
+          <span class="pill pill-inv">Nome é obrigatório</span>
+          <span class="pill pill-inv">Idade deve ser maior que 18</span>
+          <span class="pill pill-inv">Um customer precisa ter um AccountManager</span>
+        </div>
+      </div>
+    </div>
+
+    <h3>4.3 AccountManager Aggregate <tag class="tag tag-write">Write App</tag></h3>
+
+    <div class="aggregate-card">
+      <div class="aggregate-header">
+        <div class="aggregate-icon" style="background:rgba(168,85,247,.15);">🏢</div>
+        <div>
+          <div class="aggregate-name">AccountManager</div>
+          <div class="aggregate-sub">Aggregate Root — CRM Write App</div>
+        </div>
+      </div>
+      <div class="aggregate-body">
+        <div style="margin-bottom:.8rem;">
+          <div class="agg-section-title" style="color:var(--purple);">Estado carregado direto do banco</div>
+          <span class="pill pill-state">id</span>
+          <span class="pill pill-state">name</span>
+          <span class="pill pill-state">branchId</span>
+          <span class="pill pill-state">isAdmin</span>
+          <span class="pill pill-state">createdAt</span>
+        </div>
+        <div class="row">
+          <div>
+            <div class="agg-section-title" style="color:var(--accent2);">Commands aceitos</div>
+            <span class="pill pill-cmd">CreateAccountManager</span>
+            <span class="pill pill-cmd">GrantAdminProfile</span>
+            <span class="pill pill-cmd">AssignBranch</span>
+          </div>
+          <div>
+            <div class="agg-section-title" style="color:var(--teal);">Resultado após validação</div>
+            <span class="pill pill-evt">INSERT em account_managers</span>
+            <span class="pill pill-evt">UPDATE em account_managers</span>
+          </div>
+        </div>
+        <div style="margin-top:.8rem;">
+          <div class="agg-section-title" style="color:var(--amber);">Invariantes de negócio</div>
+          <span class="pill pill-inv">Deve estar vinculado a uma Branch</span>
+          <span class="pill pill-inv">Admin profile é concedido explicitamente</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMANDS -->
+  <div class="section" id="commands">
+    <h2>5. Commands</h2>
+
+    <p>A estrutura dos commands é idêntica à do Event Sourcing — são envelopes de intenção, sem lógica de negócio. A diferença está no que o handler faz <em>após</em> o aggregate validar.</p>
+
+    <h3>Commands do Wallet Context</h3>
+    <table>
+      <thead><tr><th>Command</th><th>Dados necessários</th><th>Precondições</th></tr></thead>
+      <tbody>
+        <tr><td><code>CreateWallet</code></td><td>customerId</td><td>Customer deve existir no banco write</td></tr>
+        <tr><td><code>RegisterTransaction</code></td><td>walletId, value, type (DEPOSIT/WITHDRAWAL), exchangeConfirmationId</td><td>Wallet deve existir · Janela de horário válida · Confirmação da Bolsa presente · Valor positivo</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Commands do CRM Context</h3>
+    <table>
+      <thead><tr><th>Command</th><th>Dados necessários</th><th>Precondições</th></tr></thead>
+      <tbody>
+        <tr><td><code>CreateCustomer</code></td><td>name, address, age, accountManagerId</td><td>AccountManager deve existir · Idade ≥ 18</td></tr>
+        <tr><td><code>UpdateCustomerData</code></td><td>customerId, name?, address?, age?</td><td>Customer deve existir</td></tr>
+        <tr><td><code>AssignAccountManager</code></td><td>customerId, accountManagerId</td><td>Ambos devem existir</td></tr>
+        <tr><td><code>CreateAccountManager</code></td><td>name, branchId, isAdmin</td><td>Branch deve existir</td></tr>
+        <tr><td><code>GrantAdminProfile</code></td><td>accountManagerId</td><td>Deve existir · Não pode já ser admin</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- HANDLERS -->
+  <div class="section" id="handlers">
+    <h2>6. Command Handlers</h2>
+
+    <p>O fluxo do handler é mais direto que no Event Sourcing: carregar o aggregate do banco, validar, persistir o novo estado. <strong>Sem Event Store, sem publicação em fila.</strong></p>
+
+    <h3>Fluxo padrão de um Command Handler</h3>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-actor">Command Handler</div>
+          <div class="step-desc">Recebe o command e valida a estrutura técnica (campos obrigatórios, tipos)</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-actor">Command Handler → Banco Write</div>
+          <div class="step-desc">Carrega o estado atual do aggregate direto da tabela relacional</div>
+          <div class="step-detail">Para um command de criação (Create*), o aggregate começa vazio. Para updates, carrega a linha existente.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-actor">Aggregate</div>
+          <div class="step-desc">Recebe o command, valida as invariantes de negócio e retorna o novo estado</div>
+          <div class="step-detail">Se uma invariante for violada, lança exceção de domínio. Se válido, retorna o aggregate com estado atualizado.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-actor">Command Handler → Banco Write</div>
+          <div class="step-desc">Persiste o novo estado via INSERT ou UPDATE na tabela correspondente</div>
+          <div class="step-detail">O PostgreSQL registra a operação no WAL automaticamente. A replicação para o banco read começa imediatamente após o commit.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-actor">PostgreSQL (automático)</div>
+          <div class="step-desc">O mecanismo de replicação lógica propaga a mudança para o banco de leitura sem nenhuma ação do código da aplicação</div>
+          <div class="step-detail">O handler não precisa saber que existe um banco de leitura. Esta é uma responsabilidade da infraestrutura de banco.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-success">
+      <div class="alert-icon">✓</div>
+      <div class="alert-body">
+        <strong>Vantagem direta:</strong> o handler é significativamente mais simples que no Event Sourcing. Não há lógica de versão, não há publicação em fila, não há tratamento de conflito de versão. Isso se reflete diretamente nas métricas de complexidade ciclomática que o SonarQube irá medir.
+      </div>
+    </div>
+  </div>
+
+  <!-- BANCO WRITE -->
+  <div class="section" id="banco-write">
+    <h2>7. Banco de Dados Write — Estrutura das Tabelas</h2>
+
+    <p>O banco write é um PostgreSQL relacional comum. As tabelas armazenam o <strong>estado atual</strong> dos aggregates, não eventos. A estrutura segue o diagrama de classes do domínio.</p>
+
+    <div class="sql-block">
+      <div class="sql-header"><span class="sql-db-write">● Write DB</span> — tabelas do domínio</div>
+      <div class="sql-body">
+<span class="cm">-- Domínio CRM</span><br>
+<span class="kw">CREATE TABLE</span> <span class="tbl">branches</span> (<br>
+&nbsp;&nbsp;<span class="col">id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">UUID</span> <span class="kw">PRIMARY KEY</span>,<br>
+&nbsp;&nbsp;<span class="col">region</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">TEXT</span> <span class="kw">NOT NULL</span>,<br>
+&nbsp;&nbsp;<span class="col">created_at</span> <span class="kw">TIMESTAMPTZ NOT NULL</span><br>
+);<br><br>
+<span class="kw">CREATE TABLE</span> <span class="tbl">account_managers</span> (<br>
+&nbsp;&nbsp;<span class="col">id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">UUID</span> <span class="kw">PRIMARY KEY</span>,<br>
+&nbsp;&nbsp;<span class="col">name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">TEXT</span> <span class="kw">NOT NULL</span>,<br>
+&nbsp;&nbsp;<span class="col">branch_id</span>&nbsp; <span class="kw">UUID</span> <span class="kw">REFERENCES</span> <span class="tbl">branches</span>(<span class="col">id</span>),<br>
+&nbsp;&nbsp;<span class="col">is_admin</span>&nbsp;&nbsp; <span class="kw">BOOLEAN NOT NULL DEFAULT</span> <span class="kw">FALSE</span>,<br>
+&nbsp;&nbsp;<span class="col">created_at</span> <span class="kw">TIMESTAMPTZ NOT NULL</span><br>
+);<br><br>
+<span class="kw">CREATE TABLE</span> <span class="tbl">customers</span> (<br>
+&nbsp;&nbsp;<span class="col">id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="kw">UUID</span> <span class="kw">PRIMARY KEY</span>,<br>
+&nbsp;&nbsp;<span class="col">name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="kw">TEXT</span> <span class="kw">NOT NULL</span>,<br>
+&nbsp;&nbsp;<span class="col">address</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="kw">TEXT</span>,<br>
+&nbsp;&nbsp;<span class="col">age</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="kw">INT</span> <span class="kw">NOT NULL</span>,<br>
+&nbsp;&nbsp;<span class="col">account_manager_id</span> <span class="kw">UUID REFERENCES</span> <span class="tbl">account_managers</span>(<span class="col">id</span>),<br>
+&nbsp;&nbsp;<span class="col">created_at</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="kw">TIMESTAMPTZ NOT NULL</span><br>
+);<br><br>
+<span class="cm">-- Domínio Wallet (microsserviço separado, mesmo servidor para fins deste projeto)</span><br>
+<span class="kw">CREATE TABLE</span> <span class="tbl">wallets</span> (<br>
+&nbsp;&nbsp;<span class="col">id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="kw">UUID</span> <span class="kw">PRIMARY KEY</span>,<br>
+&nbsp;&nbsp;<span class="col">customer_id</span> <span class="kw">UUID REFERENCES</span> <span class="tbl">customers</span>(<span class="col">id</span>),<br>
+&nbsp;&nbsp;<span class="col">balance</span>&nbsp;&nbsp;&nbsp;&nbsp; <span class="kw">NUMERIC</span>(<span class="num">18</span>,<span class="num">2</span>) <span class="kw">NOT NULL DEFAULT</span> <span class="num">0</span>,<br>
+&nbsp;&nbsp;<span class="col">created_at</span>&nbsp; <span class="kw">TIMESTAMPTZ NOT NULL</span><br>
+);<br><br>
+<span class="kw">CREATE TABLE</span> <span class="tbl">transactions</span> (<br>
+&nbsp;&nbsp;<span class="col">id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="kw">UUID</span> <span class="kw">PRIMARY KEY</span>,<br>
+&nbsp;&nbsp;<span class="col">wallet_id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="kw">UUID REFERENCES</span> <span class="tbl">wallets</span>(<span class="col">id</span>),<br>
+&nbsp;&nbsp;<span class="col">value</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="kw">NUMERIC</span>(<span class="num">18</span>,<span class="num">2</span>) <span class="kw">NOT NULL</span>,<br>
+&nbsp;&nbsp;<span class="col">type</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="kw">TEXT NOT NULL</span>, <span class="cm">-- 'DEPOSIT' ou 'WITHDRAWAL'</span><br>
+&nbsp;&nbsp;<span class="col">exchange_confirmation_id</span> <span class="kw">UUID NOT NULL</span>,<br>
+&nbsp;&nbsp;<span class="col">occurred_at</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="kw">TIMESTAMPTZ NOT NULL</span><br>
+);
+      </div>
+    </div>
+
+    <div class="alert alert-info">
+      <div class="alert-icon">ℹ</div>
+      <div class="alert-body">
+        <strong>Sobre o campo <code>balance</code> na tabela <code>wallets</code>:</strong> o saldo é mantido como coluna diretamente na tabela, atualizado a cada transação registrada. Isso difere do Event Sourcing onde o saldo era calculado somando as transações. Aqui, o handler faz o cálculo e persiste o resultado — simplificando as queries de leitura.
+      </div>
+    </div>
+  </div>
+
+  <!-- PUBLICAÇÃO WAL -->
+  <div class="section" id="publicacao">
+    <h2>8. Configuração da Publicação no Banco Write</h2>
+
+    <p>A publicação declara ao PostgreSQL quais tabelas do banco write serão monitoradas para replicação. É uma configuração feita uma vez no banco de dados, não no código da aplicação.</p>
+
+    <div class="sql-block">
+      <div class="sql-header"><span class="sql-db-write">● Write DB</span> — configuração da publicação</div>
+      <div class="sql-body">
+<span class="cm">-- Pré-requisito: o banco write deve ter wal_level = 'logical' no postgresql.conf</span><br>
+<span class="cm">-- Isso habilita a decodificação lógica do WAL</span><br><br>
+<span class="cm">-- Criar a publicação declarando quais tabelas participam da replicação</span><br>
+<span class="kw">CREATE PUBLICATION</span> <span class="str">crm_publication</span> <span class="kw">FOR TABLE</span><br>
+&nbsp;&nbsp;<span class="tbl">customers</span>,<br>
+&nbsp;&nbsp;<span class="tbl">account_managers</span>,<br>
+&nbsp;&nbsp;<span class="tbl">branches</span>,<br>
+&nbsp;&nbsp;<span class="tbl">wallets</span>,<br>
+&nbsp;&nbsp;<span class="tbl">transactions</span>;<br><br>
+<span class="cm">-- A publicação captura INSERT, UPDATE e DELETE por padrão</span><br>
+<span class="cm">-- Para apenas INSERT e UPDATE (sem deletar no read): usar WITH (publish = 'insert, update')</span>
+      </div>
+    </div>
+
+    <div class="spec">
+      <div class="spec-header">📋 O que a publicação captura por tabela</div>
+      <div class="spec-body">
+        <ul>
+          <li><strong>customers:</strong> INSERT ao criar cliente, UPDATE ao alterar dados ou reatribuir gerente</li>
+          <li><strong>account_managers:</strong> INSERT ao criar gerente, UPDATE ao conceder admin ou reatribuir filial</li>
+          <li><strong>branches:</strong> INSERT ao criar filial — operação rara, mas precisa ser replicada</li>
+          <li><strong>wallets:</strong> INSERT ao criar carteira, UPDATE ao alterar o saldo após transação</li>
+          <li><strong>transactions:</strong> INSERT ao registrar transação — nunca há UPDATE ou DELETE em transações</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="alert alert-warning">
+      <div class="alert-icon">⚠</div>
+      <div class="alert-body">
+        <strong>Pré-requisito de chave primária:</strong> para que a replicação lógica funcione com UPDATE e DELETE, todas as tabelas publicadas devem ter chave primária definida. O PostgreSQL precisa dela para identificar qual linha replicar no banco de leitura. Todas as tabelas desta arquitetura usam <code>UUID PRIMARY KEY</code>, o que satisfaz este requisito.
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBSCRIÇÃO -->
+  <div class="section" id="subscricao">
+    <h2>9. Configuração da Subscrição no Banco Read</h2>
+
+    <p>O banco de leitura configura uma subscrição que aponta para a publicação do banco de escrita. A partir da criação da subscrição, o PostgreSQL passa a entregar automaticamente todas as mudanças publicadas.</p>
+
+    <div class="sql-block">
+      <div class="sql-header"><span class="sql-db-read">● Read DB</span> — estrutura e subscrição</div>
+      <div class="sql-body">
+<span class="cm">-- As tabelas no banco de leitura devem ter a mesma estrutura das publicadas</span><br>
+<span class="cm">-- (mesmos nomes de colunas e tipos). O PostgreSQL exige isso para a replicação funcionar.</span><br><br>
+<span class="kw">CREATE TABLE</span> <span class="tbl">customers</span> ( <span class="cm">/* mesma estrutura do write DB */</span> );<br>
+<span class="kw">CREATE TABLE</span> <span class="tbl">account_managers</span> ( <span class="cm">/* mesma estrutura */</span> );<br>
+<span class="kw">CREATE TABLE</span> <span class="tbl">branches</span> ( <span class="cm">/* mesma estrutura */</span> );<br>
+<span class="kw">CREATE TABLE</span> <span class="tbl">wallets</span> ( <span class="cm">/* mesma estrutura */</span> );<br>
+<span class="kw">CREATE TABLE</span> <span class="tbl">transactions</span> ( <span class="cm">/* mesma estrutura */</span> );<br><br>
+<span class="cm">-- Criar a subscrição apontando para o banco de escrita</span><br>
+<span class="kw">CREATE SUBSCRIPTION</span> <span class="str">crm_subscription</span><br>
+&nbsp;&nbsp;<span class="kw">CONNECTION</span> <span class="str">'host=write-db-host dbname=crm_write user=replicator password=...'</span><br>
+&nbsp;&nbsp;<span class="kw">PUBLICATION</span> <span class="str">crm_publication</span>;<br><br>
+<span class="cm">-- A partir deste momento, o PostgreSQL sincroniza automaticamente.</span><br>
+<span class="cm">-- O sync inicial copia todos os dados existentes antes de iniciar o streaming.</span>
+      </div>
+    </div>
+
+    <div class="alert alert-info">
+      <div class="alert-icon">ℹ</div>
+      <div class="alert-body">
+        <strong>Sincronização inicial:</strong> ao criar a subscrição, o PostgreSQL realiza automaticamente uma cópia completa dos dados existentes nas tabelas publicadas antes de iniciar o streaming de novos eventos. Isso significa que o banco de leitura começa vazio e é populado pelo próprio mecanismo de replicação.
+      </div>
+    </div>
+  </div>
+
+  <!-- CUIDADOS OPERACIONAIS -->
+  <div class="section" id="cuidados">
+    <h2>10. Cuidados Operacionais com a Replicação</h2>
+
+    <p>A replicação lógica tem comportamentos específicos que o agente deve conhecer para evitar problemas durante a implementação.</p>
+
+    <div class="card">
+      <div class="card-title"><span class="dot-accent" style="background:var(--amber)"></span>Mudanças de esquema (migrations)</div>
+      <p style="font-size:.875rem;color:var(--text2);margin:0;">A replicação lógica <strong>não replica DDL</strong> (CREATE TABLE, ALTER TABLE, etc.) — apenas DML (INSERT, UPDATE, DELETE). Se uma coluna for adicionada ao banco write, ela deve ser adicionada manualmente ao banco read também, <em>antes</em> que dados com essa coluna comecem a chegar via replicação. Migrations exigem coordenação entre os dois bancos. Para este projeto de TCC, onde o esquema é fixo, isso não é um problema prático.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot-accent" style="background:var(--coral)"></span>Foreign keys no banco de leitura</div>
+      <p style="font-size:.875rem;color:var(--text2);margin:0;">O banco de leitura <strong>não deve ter foreign keys</strong> nas tabelas replicadas. Como a replicação pode entregar dados em ordem imprevisível (e.g. uma transação chegando antes da wallet correspondente), as foreign keys causariam erros de violação de integridade referencial. As restrições de integridade já são garantidas pelo banco write — no banco read, as tabelas são apenas réplicas para leitura.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot-accent" style="background:var(--teal)"></span>Replication slot e WAL retention</div>
+      <p style="font-size:.875rem;color:var(--text2);margin:0;">O PostgreSQL mantém os segmentos do WAL acumulados enquanto o banco de leitura não confirmar que os processou. Se o banco de leitura ficar indisponível por muito tempo, o WAL pode crescer indefinidamente e encher o disco do banco write. Para este projeto, ambos os bancos estarão rodando na mesma infraestrutura, minimizando este risco.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot-accent" style="background:var(--purple)"></span>Usuário de replicação</div>
+      <p style="font-size:.875rem;color:var(--text2);margin:0;">O banco write precisa de um usuário PostgreSQL com o atributo <code>REPLICATION</code> concedido e permissão de leitura nas tabelas publicadas. Este usuário é usado exclusivamente pela subscrição do banco read — a aplicação nunca o usa diretamente.</p>
+    </div>
+  </div>
+
+  <!-- BANCO READ -->
+  <div class="section" id="banco-read">
+    <h2>11. Banco de Dados Read — Tabelas Replicadas e Views</h2>
+
+    <p>O banco de leitura tem duas camadas: as <strong>tabelas replicadas</strong> (espelho das tabelas do banco write, gerenciadas pelo PostgreSQL) e as <strong>views SQL</strong> (composições para atender as queries da Read App, definidas pelo agente).</p>
+
+    <div class="wal-diagram">
+      <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:1rem;">Camadas do banco de leitura</div>
+      <div class="wal-row">
+        <div class="wal-block wal-rep" style="font-size:.75rem; padding:6px 12px;">Tabelas replicadas<br><span style="font-weight:400;font-size:.65rem;">customers, wallets, transactions, account_managers, branches</span></div>
+        <div class="wal-arrow" style="font-size:.7rem; flex-direction:column; gap:2px;">
+          <span>são a base de</span>
+          <span>→</span>
+        </div>
+        <div class="wal-block wal-read" style="font-size:.75rem; padding:6px 12px;">Views SQL<br><span style="font-weight:400;font-size:.65rem;">customer_view, manager_dashboard</span></div>
+        <div class="wal-arrow" style="font-size:.7rem; flex-direction:column; gap:2px;">
+          <span>consultadas pela</span>
+          <span>→</span>
+        </div>
+        <div class="wal-block wal-write" style="font-size:.75rem; padding:6px 12px;">Read App<br><span style="font-weight:400;font-size:.65rem;">Query Handlers</span></div>
+      </div>
+    </div>
+
+    <p>As tabelas replicadas são mantidas automaticamente. O agente <strong>nunca escreve nelas diretamente</strong> — fazê-lo quebraria a replicação. A Read App só lê.</p>
+  </div>
+
+  <!-- VIEWS SQL -->
+  <div class="section" id="views">
+    <h2>12. Views SQL — O Modelo de Leitura</h2>
+
+    <p>As views substituem as <em>projeções em código</em> do Event Sourcing. Em vez de um consumer processando eventos e montando o modelo de leitura em memória, aqui o próprio SQL compõe a visão desnormalizada a partir das tabelas replicadas. <strong>Nenhum código de aplicação é necessário para montar o CustomerView.</strong></p>
+
+    <h3>12.1 View <code>customer_view</code></h3>
+
+    <p>É a view central do sistema. Compõe em uma única consulta os dados de cliente, gerente, filial e todas as carteiras com seus saldos e transações. O gerente de conta consulta esta view diretamente.</p>
+
+    <div class="sql-block">
+      <div class="sql-header"><span class="sql-db-read">● Read DB</span> — view customer_view</div>
+      <div class="sql-body">
+<span class="kw">CREATE VIEW</span> <span class="tbl">customer_view</span> <span class="kw">AS</span><br>
+<span class="kw">SELECT</span><br>
+&nbsp;&nbsp;<span class="col">c.id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">AS</span> <span class="col">customer_id</span>,<br>
+&nbsp;&nbsp;<span class="col">c.name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">AS</span> <span class="col">customer_name</span>,<br>
+&nbsp;&nbsp;<span class="col">c.age</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">AS</span> <span class="col">customer_age</span>,<br>
+&nbsp;&nbsp;<span class="col">c.address</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">AS</span> <span class="col">customer_address</span>,<br>
+&nbsp;&nbsp;<span class="col">am.id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">AS</span> <span class="col">account_manager_id</span>,<br>
+&nbsp;&nbsp;<span class="col">am.name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">AS</span> <span class="col">manager_name</span>,<br>
+&nbsp;&nbsp;<span class="col">am.is_admin</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">AS</span> <span class="col">manager_is_admin</span>,<br>
+&nbsp;&nbsp;<span class="col">b.id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">AS</span> <span class="col">branch_id</span>,<br>
+&nbsp;&nbsp;<span class="col">b.region</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">AS</span> <span class="col">branch_region</span>,<br>
+&nbsp;&nbsp;<span class="fn">COALESCE</span>(<span class="fn">SUM</span>(<span class="col">w.balance</span>), <span class="num">0</span>)&nbsp; <span class="kw">AS</span> <span class="col">total_balance</span>,<br>
+&nbsp;&nbsp;<span class="fn">MAX</span>(<span class="col">t.occurred_at</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">AS</span> <span class="col">last_transaction_at</span><br>
+<span class="kw">FROM</span> <span class="tbl">customers</span> <span class="col">c</span><br>
+<span class="kw">LEFT JOIN</span> <span class="tbl">account_managers</span> <span class="col">am</span> <span class="kw">ON</span> <span class="col">am.id</span> = <span class="col">c.account_manager_id</span><br>
+<span class="kw">LEFT JOIN</span> <span class="tbl">branches</span> <span class="col">b</span> <span class="kw">ON</span> <span class="col">b.id</span> = <span class="col">am.branch_id</span><br>
+<span class="kw">LEFT JOIN</span> <span class="tbl">wallets</span> <span class="col">w</span> <span class="kw">ON</span> <span class="col">w.customer_id</span> = <span class="col">c.id</span><br>
+<span class="kw">LEFT JOIN</span> <span class="tbl">transactions</span> <span class="col">t</span> <span class="kw">ON</span> <span class="col">t.wallet_id</span> = <span class="col">w.id</span><br>
+<span class="kw">GROUP BY</span> <span class="col">c.id</span>, <span class="col">c.name</span>, <span class="col">c.age</span>, <span class="col">c.address</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="col">am.id</span>, <span class="col">am.name</span>, <span class="col">am.is_admin</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="col">b.id</span>, <span class="col">b.region</span>;<br><br>
+<span class="cm">-- Esta view entrega em uma única query: nome, gerente, filial,</span><br>
+<span class="cm">-- saldo consolidado de todas as carteiras e data da última transação.</span>
+      </div>
+    </div>
+
+    <h3>12.2 View de transações por cliente</h3>
+
+    <p>View separada para o histórico detalhado de transações, usada quando o gerente abre o perfil de um cliente específico.</p>
+
+    <div class="sql-block">
+      <div class="sql-header"><span class="sql-db-read">● Read DB</span> — view customer_transactions_view</div>
+      <div class="sql-body">
+<span class="kw">CREATE VIEW</span> <span class="tbl">customer_transactions_view</span> <span class="kw">AS</span><br>
+<span class="kw">SELECT</span><br>
+&nbsp;&nbsp;<span class="col">c.id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="kw">AS</span> <span class="col">customer_id</span>,<br>
+&nbsp;&nbsp;<span class="col">w.id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="kw">AS</span> <span class="col">wallet_id</span>,<br>
+&nbsp;&nbsp;<span class="col">w.balance</span>&nbsp;&nbsp;&nbsp;&nbsp; <span class="kw">AS</span> <span class="col">wallet_balance</span>,<br>
+&nbsp;&nbsp;<span class="col">t.id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="kw">AS</span> <span class="col">transaction_id</span>,<br>
+&nbsp;&nbsp;<span class="col">t.value</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="kw">AS</span> <span class="col">transaction_value</span>,<br>
+&nbsp;&nbsp;<span class="col">t.type</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="kw">AS</span> <span class="col">transaction_type</span>,<br>
+&nbsp;&nbsp;<span class="col">t.occurred_at</span> <span class="kw">AS</span> <span class="col">transaction_occurred_at</span><br>
+<span class="kw">FROM</span> <span class="tbl">customers</span> <span class="col">c</span><br>
+<span class="kw">JOIN</span> <span class="tbl">wallets</span> <span class="col">w</span> <span class="kw">ON</span> <span class="col">w.customer_id</span> = <span class="col">c.id</span><br>
+<span class="kw">LEFT JOIN</span> <span class="tbl">transactions</span> <span class="col">t</span> <span class="kw">ON</span> <span class="col">t.wallet_id</span> = <span class="col">w.id</span><br>
+<span class="kw">ORDER BY</span> <span class="col">t.occurred_at</span> <span class="kw">DESC</span>;
+      </div>
+    </div>
+
+    <div class="alert alert-info">
+      <div class="alert-icon">ℹ</div>
+      <div class="alert-body">
+        <strong>Views vs. Materialized Views:</strong> views comuns recalculam o resultado a cada consulta — refletem sempre os dados mais recentes, mas podem ser lentas sob carga alta. Materialized views armazenam o resultado em disco e precisam ser atualizadas manualmente. Para este projeto, <strong>usar views comuns</strong> mantém a implementação simples e garante que a latência de replicação seja a única fonte de atraso. O TCC pode explorar isso como variável nos testes de carga.
+      </div>
+    </div>
+  </div>
+
+  <!-- QUERIES -->
+  <div class="section" id="queries">
+    <h2>13. Queries da Read App</h2>
+
+    <p>Os Query Handlers da Read App consultam as views diretamente. Não há lógica de composição em código — a view já entrega o dado montado.</p>
+
+    <table>
+      <thead><tr><th>Query</th><th>Parâmetros</th><th>View usada</th><th>Caso de uso</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>GetCustomerView</code></td>
+          <td>customerId</td>
+          <td><code>customer_view</code> + <code>customer_transactions_view</code></td>
+          <td>Gerente abre ficha de um cliente</td>
+        </tr>
+        <tr>
+          <td><code>ListCustomersByManager</code></td>
+          <td>accountManagerId, filtros?, ordenação?, página?</td>
+          <td><code>customer_view WHERE account_manager_id = ?</code></td>
+          <td>Gerente vê seus clientes com filtros</td>
+        </tr>
+        <tr>
+          <td><code>ListAllCustomers</code></td>
+          <td>filtros?, ordenação?, página?</td>
+          <td><code>customer_view</code> (sem filtro de gerente)</td>
+          <td>Gerente admin vê todos os clientes</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Filtros e ordenações</h3>
+    <p>Como os dados já estão desnormalizados na view, filtros e ordenações são WHERE e ORDER BY diretos:</p>
+
+    <div class="sql-block">
+      <div class="sql-header"><span class="sql-db-read">● Read DB</span> — exemplo de query com filtros</div>
+      <div class="sql-body">
+<span class="cm">-- Listagem com filtros: clientes de um gerente, saldo acima de X, sem movimentação recente</span><br>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="tbl">customer_view</span><br>
+<span class="kw">WHERE</span> <span class="col">account_manager_id</span> = <span class="str">'uuid-do-gerente'</span><br>
+&nbsp;&nbsp;<span class="kw">AND</span> <span class="col">total_balance</span> >= <span class="num">500000</span><br>
+&nbsp;&nbsp;<span class="kw">AND</span> <span class="col">last_transaction_at</span> < <span class="fn">NOW</span>() - <span class="kw">INTERVAL</span> <span class="str">'60 days'</span><br>
+<span class="kw">ORDER BY</span> <span class="col">total_balance</span> <span class="kw">DESC</span><br>
+<span class="kw">LIMIT</span> <span class="num">20</span> <span class="kw">OFFSET</span> <span class="num">0</span>;<br><br>
+<span class="cm">-- Sem nenhuma lógica em código de aplicação. O banco faz todo o trabalho.</span>
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- FLUXOS -->
+  <div class="section" id="fluxo-transacao">
+    <h2>14. Fluxo Completo: Registrar Transação</h2>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-actor">Sistema externo</div>
+          <div class="step-desc">Cliente solicita aporte ou resgate no aplicativo da corretora</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-actor">Bolsa de Valores</div>
+          <div class="step-desc">Confirma a operação e retorna o <code>exchangeConfirmationId</code></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-actor">API Write App</div>
+          <div class="step-desc">Recebe o command <code>RegisterTransaction</code></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-actor">RegisterTransactionHandler → Banco Write</div>
+          <div class="step-desc">Carrega o estado atual da Wallet da tabela <code>wallets</code></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-actor">Wallet Aggregate</div>
+          <div class="step-desc">Valida: horário dentro da janela, valor positivo, wallet ativa. Retorna o novo estado com balance atualizado.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <div class="step-actor">RegisterTransactionHandler → Banco Write</div>
+          <div class="step-desc">Em uma única transação: INSERT em <code>transactions</code> e UPDATE em <code>wallets.balance</code></div>
+          <div class="step-detail">O atomicity da transação garante que nunca haverá transação registrada sem o saldo atualizado, nem o contrário.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">7</div>
+        <div class="step-content">
+          <div class="step-actor">PostgreSQL (automático)</div>
+          <div class="step-desc">O WAL captura o INSERT em transactions e o UPDATE em wallets e os envia ao banco de leitura via replicação lógica</div>
+          <div class="step-detail">Nenhuma ação da aplicação. O banco de leitura recebe as duas operações em microssegundos (em condições normais).</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">8</div>
+        <div class="step-content">
+          <div class="step-actor">Read DB (automático)</div>
+          <div class="step-desc">Aplica o INSERT e o UPDATE nas tabelas replicadas. A view <code>customer_view</code> já reflete o novo saldo na próxima consulta.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="compare-row" style="margin-top:1rem;">
+      <div class="compare-box" style="border-color:rgba(99,102,241,.3);">
+        <div class="cb-title" style="color:#818cf8;">ES: o mesmo fluxo tinha</div>
+        <ul>
+          <li>Snapshot check</li>
+          <li>Optimistic locking</li>
+          <li>Persistência no Event Store</li>
+          <li>Publicação na fila</li>
+          <li>Consumer processando evento</li>
+          <li>Projeção atualizando read model</li>
+          <li>Controle de idempotência</li>
+        </ul>
+      </div>
+      <div class="compare-box" style="border-color:rgba(14,165,233,.3);">
+        <div class="cb-title" style="color:var(--accent2);">Replicação: este fluxo tem</div>
+        <ul>
+          <li>Carregar estado do banco</li>
+          <li>Validar no aggregate</li>
+          <li>INSERT + UPDATE em transação</li>
+          <li style="color:var(--text3); text-decoration:line-through;">— (tudo mais é automático)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="fluxo-listagem">
+    <h2>15. Fluxo Completo: Listar Clientes</h2>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-actor">Gerente de conta</div>
+          <div class="step-desc">Acessa a listagem com filtros e ordenação</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-actor">API Read App</div>
+          <div class="step-desc">Recebe a query com accountManagerId, filtros e paginação</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-actor">Query Handler → Read DB</div>
+          <div class="step-desc">Executa SELECT na view <code>customer_view</code> com WHERE e ORDER BY correspondentes aos filtros</div>
+          <div class="step-detail">Uma única query SQL. Sem joins em código, sem loops, sem composição manual.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-actor">API Read App</div>
+          <div class="step-desc">Retorna lista paginada com todos os dados da view</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- CRITÉRIOS DE ACEITE -->
+  <div class="section" id="criterios">
+    <h2>16. Critérios de Aceite</h2>
+
+    <h3>Write App</h3>
+    <ul class="checklist">
+      <li><span><strong>Invariante de horário:</strong> command <code>RegisterTransaction</code> fora da janela 08h–19h ou em fim de semana deve ser rejeitado com erro de domínio</span></li>
+      <li><span><strong>Invariante de valor:</strong> command com value ≤ 0 deve ser rejeitado</span></li>
+      <li><span><strong>Atomicidade:</strong> INSERT em transactions e UPDATE em wallets.balance ocorrem na mesma transação — nenhum dos dois persiste se o outro falhar</span></li>
+      <li><span><strong>Consistência do banco write:</strong> após qualquer command aceito, o banco write reflete o novo estado corretamente (balance = soma cumulativa das transações da wallet)</span></li>
+    </ul>
+
+    <h3>Replicação</h3>
+    <ul class="checklist">
+      <li><span><strong>Subscrição ativa:</strong> após configuração, mudanças no banco write aparecem no banco read sem nenhuma intervenção manual</span></li>
+      <li><span><strong>Latência mensurável:</strong> é possível medir o delta de tempo entre o commit no banco write e a disponibilidade no banco read — este é o dado central dos testes de carga do TCC</span></li>
+      <li><span><strong>Sem foreign keys no read:</strong> as tabelas replicadas no banco read não têm constraints de foreign key, evitando erros de ordenação na entrega</span></li>
+      <li><span><strong>Sincronização inicial:</strong> ao criar a subscrição, o banco read recebe todos os dados existentes automaticamente antes de iniciar o streaming</span></li>
+    </ul>
+
+    <h3>Read App</h3>
+    <ul class="checklist">
+      <li><span><strong>CustomerView completo:</strong> a view <code>customer_view</code> retorna nome, gerente, região da filial, saldo consolidado e data da última transação em uma única query</span></li>
+      <li><span><strong>Múltiplas carteiras:</strong> cliente com 2 wallets tem <code>total_balance</code> como soma de ambos os saldos</span></li>
+      <li><span><strong>Filtro por saldo:</strong> WHERE total_balance >= valor retorna apenas clientes com saldo acima do filtro</span></li>
+      <li><span><strong>Filtro por última transação:</strong> WHERE last_transaction_at < data retorna apenas clientes sem movimentação desde a data</span></li>
+      <li><span><strong>Perfil admin:</strong> a Read App verifica <code>is_admin</code> do gerente antes de permitir <code>ListAllCustomers</code></span></li>
+      <li><span><strong>Consistência eventual verificada:</strong> após uma transação ser confirmada no banco write, a Read App deve refletir o novo saldo em tempo mensurável — este tempo deve ser registrado durante os testes de carga</span></li>
+    </ul>
+
+    <h3>Qualidade de código (para análise SonarQube)</h3>
+    <ul class="checklist">
+      <li><span>Complexidade ciclomática individual de métodos deve ser mantida baixa — a simplicidade desta arquitetura deve se refletir em handlers mais curtos que no ES</span></li>
+      <li><span>Cada aggregate deve ter responsabilidade única — validação de negócio separada de persistência</span></li>
+    </ul>
+
+    <div class="alert alert-info" style="margin-top:2rem;">
+      <div class="alert-icon">ℹ</div>
+      <div class="alert-body">
+        <strong>Nota para o TCC:</strong> esta implementação foi desenhada para ser funcionalmente equivalente à do Event Sourcing — mesmos aggregates, mesmas invariantes, mesmo domínio — mas com código de infraestrutura significativamente menor. A diferença mensurável pelo SonarQube deve aparecer principalmente nas camadas de Command Handler (sem Event Store, sem publicação em fila) e na ausência completa da camada de Consumer e Projeções.
+      </div>
+    </div>
+  </div>
+
+</main>
+</div>
+
+<script>
+const links = document.querySelectorAll('nav a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`nav a[href="#${e.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.section[id], .hero[id]').forEach(s => observer.observe(s));
+links.forEach(l => {
+  l.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(l.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>

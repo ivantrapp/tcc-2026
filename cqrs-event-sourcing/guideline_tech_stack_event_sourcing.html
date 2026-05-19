@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Guideline — Stack Tecnológica · Event Sourcing</title>
+<style>
+  :root {
+    --bg: #0f1117; --bg2: #161b27; --bg3: #1e2535; --border: #2a3348;
+    --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+    --accent: #6366f1; --accent2: #818cf8;
+    --teal: #2dd4bf; --amber: #f59e0b;
+    --coral: #f43f5e; --green: #22c55e;
+    --purple: #a855f7; --purple2: #d8b4fe;
+    --blue: #3b82f6; --blue2: #93c5fd;
+    --mono: 'JetBrains Mono', 'Fira Code', monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.7; }
+  .layout { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; }
+  aside {
+    background: var(--bg2); border-right: 1px solid var(--border);
+    padding: 2rem 0; position: sticky; top: 0; height: 100vh; overflow-y: auto;
+  }
+  .aside-title { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--text3); padding: 0 1.5rem 1rem; }
+  nav a {
+    display: flex; align-items: center; gap: 8px;
+    padding: .4rem 1.5rem; font-size: 13px; color: var(--text2);
+    text-decoration: none; border-left: 2px solid transparent; transition: all .15s;
+  }
+  nav a:hover { color: var(--text); background: var(--bg3); }
+  nav a.active { color: var(--accent2); border-left-color: var(--accent); background: rgba(99,102,241,.08); }
+  nav .nav-section { font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text3); padding: .9rem 1.5rem .3rem; }
+  nav .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  main { padding: 3rem 4rem 6rem; max-width: 860px; }
+  .hero { padding: 2rem 0 3rem; border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(99,102,241,.15); border: 1px solid rgba(99,102,241,.3);
+    color: var(--accent2); font-size: 11px; font-weight: 600; letter-spacing: .06em;
+    text-transform: uppercase; padding: 3px 10px; border-radius: 99px; margin-bottom: 1.2rem;
+  }
+  h1 { font-size: 2rem; font-weight: 700; line-height: 1.2; margin-bottom: .5rem; }
+  .subtitle { color: var(--text2); font-size: 15px; }
+  h2 { font-size: 1.3rem; font-weight: 600; margin: 2.5rem 0 1rem; padding-bottom: .5rem; border-bottom: 1px solid var(--border); scroll-margin-top: 1rem; }
+  p { margin-bottom: .8rem; color: var(--text); }
+  ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+  li { margin-bottom: .3rem; color: var(--text2); }
+  li::marker { color: var(--text3); }
+  li strong { color: var(--text); }
+  code {
+    font-family: var(--mono); font-size: .82em;
+    background: var(--bg3); border: 1px solid var(--border);
+    color: var(--accent2); padding: 1px 5px; border-radius: 4px;
+  }
+  .section { margin-bottom: 3rem; }
+  .alert { border-radius: 8px; padding: .9rem 1.1rem; margin: 1.2rem 0; font-size: .875rem; display: flex; gap: .7rem; }
+  .alert-warning { background: rgba(245,158,11,.1); border: 1px solid rgba(245,158,11,.2); }
+  .alert-info    { background: rgba(99,102,241,.1); border: 1px solid rgba(99,102,241,.2); }
+  .alert-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .alert-warning .alert-icon { color: var(--amber); }
+  .alert-info    .alert-icon { color: var(--accent2); }
+  .alert-body { color: var(--text2); line-height: 1.6; }
+  .alert-body strong { color: var(--text); }
+  table { width: 100%; border-collapse: collapse; font-size: .86rem; margin: 1rem 0; }
+  th { text-align: left; padding: .6rem .8rem; font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text3); border-bottom: 1px solid var(--border); }
+  td { padding: .55rem .8rem; border-bottom: 1px solid rgba(42,51,72,.5); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,.02); }
+  .pill { display: inline-block; font-size: .75rem; font-weight: 500; padding: 2px 9px; border-radius: 99px; margin: 2px 2px 2px 0; }
+  .pill-indigo { background: rgba(99,102,241,.15);  color: var(--accent2); border: 1px solid rgba(99,102,241,.25); }
+  .pill-blue   { background: rgba(59,130,246,.15);  color: var(--blue2);   border: 1px solid rgba(59,130,246,.25); }
+  .pill-amber  { background: rgba(245,158,11,.12);  color: var(--amber);   border: 1px solid rgba(245,158,11,.2); }
+  .pill-purple { background: rgba(168,85,247,.12);  color: var(--purple2); border: 1px solid rgba(168,85,247,.2); }
+  .pill-teal   { background: rgba(45,212,191,.12);  color: var(--teal);    border: 1px solid rgba(45,212,191,.2); }
+  .code-block { background: #0d1117; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 1rem 0; font-family: var(--mono); font-size: .78rem; line-height: 1.9; }
+  .code-header { padding: .45rem 1rem; background: var(--bg3); border-bottom: 1px solid var(--border); font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--text3); display: flex; align-items: center; justify-content: space-between; }
+  .code-lang { font-size: .65rem; font-weight: 600; padding: 1px 7px; border-radius: 4px; background: var(--bg); color: var(--text3); border: 1px solid var(--border); text-transform: uppercase; }
+  .code-body { padding: .9rem 1.1rem; overflow-x: auto; }
+  .pr { color: #ffb86c; } .str { color: #f1fa8c; } .cm { color: #6272a4; font-style: italic; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+  .arch-diagram {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.8rem; margin: 1.5rem 0;
+  }
+  .arch-row { display: flex; gap: .8rem; align-items: center; }
+  .arch-box {
+    flex: 1; border: 1px solid var(--border); border-radius: 8px;
+    padding: .7rem .9rem; text-align: center; font-size: .8rem;
+  }
+  .arch-box .ab-title { font-weight: 600; font-size: .85rem; margin-bottom: .2rem; }
+  .arch-box .ab-sub { font-size: .7rem; color: var(--text2); }
+  .ab-write  { border-color: rgba(99,102,241,.35);  background: rgba(99,102,241,.07); }
+  .ab-write .ab-title  { color: var(--accent2); }
+  .ab-store  { border-color: rgba(245,158,11,.35);  background: rgba(245,158,11,.07); }
+  .ab-store .ab-title  { color: var(--amber); }
+  .ab-queue  { border-color: rgba(168,85,247,.35);  background: rgba(168,85,247,.07); }
+  .ab-queue .ab-title  { color: var(--purple2); }
+  .ab-read   { border-color: rgba(45,212,191,.35);  background: rgba(45,212,191,.07); }
+  .ab-read .ab-title   { color: var(--teal); }
+  .arch-arrow { color: var(--text3); font-size: .85rem; flex-shrink: 0; }
+</style>
+</head>
+<body>
+<div class="layout">
+
+<aside>
+  <div class="aside-title">Guideline</div>
+  <div style="padding:0 1.5rem .8rem;font-size:.75rem;color:var(--text3);">Stack · CQRS + Event Sourcing</div>
+  <div class="nav-section">Tecnologias</div>
+  <nav>
+    <a href="#stack"><span class="dot" style="background:var(--accent)"></span>Stack Completa</a>
+    <a href="#rabbitmq"><span class="dot" style="background:var(--purple)"></span>RabbitMQ</a>
+    <a href="#aplicacoes"><span class="dot" style="background:var(--blue)"></span>Aplicações</a>
+    <a href="#banco"><span class="dot" style="background:var(--amber)"></span>Banco de Dados</a>
+  </nav>
+  <div class="nav-section">Infraestrutura</div>
+  <nav>
+    <a href="#docker"><span class="dot" style="background:var(--amber)"></span>Docker Compose</a>
+    <a href="#rede"><span class="dot" style="background:var(--purple)"></span>Rede e Serviços</a>
+  </nav>
+</aside>
+
+<main>
+
+  <div class="hero">
+    <div class="badge">📋 Stack Específica</div>
+    <h1>Stack · CQRS com Event Sourcing</h1>
+    <p class="subtitle">Complementa o guideline de stack transversal.<br>Define as tecnologias adicionais exclusivas da abordagem de Event Sourcing.</p>
+  </div>
+
+  <div class="section" id="stack">
+    <h2>1. Stack Completa</h2>
+
+    <p>Todas as tecnologias do guideline transversal se aplicam. As adições específicas desta abordagem estão destacadas.</p>
+
+    <table>
+      <thead><tr><th>Tecnologia</th><th>Versão</th><th>Papel</th><th>Origem</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Java</strong></td>
+          <td><span class="pill pill-indigo">21 LTS</span></td>
+          <td>Linguagem principal.</td>
+          <td>Transversal</td>
+        </tr>
+        <tr>
+          <td><strong>Spring Boot</strong></td>
+          <td><span class="pill pill-indigo">4.x</span></td>
+          <td>Framework base das duas aplicações.</td>
+          <td>Transversal</td>
+        </tr>
+        <tr>
+          <td><strong>Spring Web MVC</strong></td>
+          <td><span class="pill pill-blue">via Spring Boot</span></td>
+          <td>Camada HTTP das APIs.</td>
+          <td>Transversal</td>
+        </tr>
+        <tr>
+          <td><strong>Spring Data JPA</strong></td>
+          <td><span class="pill pill-blue">via Spring Boot</span></td>
+          <td>Acesso ao banco de dados.</td>
+          <td>Transversal</td>
+        </tr>
+        <tr>
+          <td><strong>Flyway</strong></td>
+          <td><span class="pill pill-blue">via Spring Boot</span></td>
+          <td>Migrations em ambas as aplicações.</td>
+          <td>Transversal</td>
+        </tr>
+        <tr>
+          <td><strong>PostgreSQL</strong></td>
+          <td><span class="pill pill-amber">16</span></td>
+          <td>Event Store (write) e banco de projeções (read).</td>
+          <td>Transversal</td>
+        </tr>
+        <tr>
+          <td><strong>Maven</strong></td>
+          <td><span class="pill pill-blue">3.9+</span></td>
+          <td>Build tool.</td>
+          <td>Transversal</td>
+        </tr>
+        <tr>
+          <td><strong>Docker Compose</strong></td>
+          <td><span class="pill pill-blue">v2</span></td>
+          <td>Orquestração local.</td>
+          <td>Transversal</td>
+        </tr>
+        <tr>
+          <td><strong>RabbitMQ</strong></td>
+          <td><span class="pill pill-purple">4.x (Management)</span></td>
+          <td>Fila assíncrona de eventos. Write App publica; Read App consome. <strong>Exclusivo desta abordagem.</strong></td>
+          <td>✦ Event Sourcing</td>
+        </tr>
+        <tr>
+          <td><strong>Spring AMQP</strong></td>
+          <td><span class="pill pill-blue">via Spring Boot</span></td>
+          <td>Integração com RabbitMQ. Publisher na Write App, Consumer na Read App. <strong>Exclusivo desta abordagem.</strong></td>
+          <td>✦ Event Sourcing</td>
+        </tr>
+        <tr>
+          <td><strong>SonarQube</strong></td>
+          <td><span class="pill pill-teal">Community</span></td>
+          <td>Análise estática de complexidade.</td>
+          <td>Transversal</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section" id="rabbitmq">
+    <h2>2. RabbitMQ</h2>
+
+    <p>O RabbitMQ é o único componente de infraestrutura exclusivo desta abordagem. Ele é o canal de comunicação assíncrona entre a Write App e a Read App.</p>
+
+    <div class="arch-diagram">
+      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:1.2rem;">Fluxo de eventos via RabbitMQ</div>
+      <div class="arch-row">
+        <div class="arch-box ab-write">
+          <div class="ab-title">Write App</div>
+          <div class="ab-sub">Persiste no<br>Event Store</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-box ab-store">
+          <div class="ab-title">Event Store</div>
+          <div class="ab-sub">PostgreSQL<br>append-only</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-box ab-queue">
+          <div class="ab-title">RabbitMQ</div>
+          <div class="ab-sub">Exchange + Queue<br>Dead Letter Queue</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-box ab-read">
+          <div class="ab-title">Read App</div>
+          <div class="ab-sub">Consumer<br>Projeções</div>
+        </div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Configuração</th><th>Valor</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Imagem Docker</strong></td><td><code>rabbitmq:4-management</code> — inclui o painel de administração web</td></tr>
+        <tr><td><strong>Porta AMQP</strong></td><td><code>5672</code> — usada pelas aplicações</td></tr>
+        <tr><td><strong>Porta Management UI</strong></td><td><code>15672</code> — painel web de administração</td></tr>
+        <tr><td><strong>Exchange</strong></td><td><code>crm.events</code> — tipo <code>topic</code></td></tr>
+        <tr><td><strong>Queue principal</strong></td><td><code>crm.events.queue</code></td></tr>
+        <tr><td><strong>Dead Letter Queue</strong></td><td><code>crm.events.dlq</code> — eventos que falham repetidamente</td></tr>
+        <tr><td><strong>Routing key</strong></td><td>Nome do evento em snake_case — ex.: <code>transaction.registered</code></td></tr>
+      </tbody>
+    </table>
+
+    <div class="alert alert-warning">
+      <div class="alert-icon">⚠</div>
+      <div class="alert-body">
+        <strong>A Write App só publica na fila após confirmar a persistência no Event Store.</strong> Nunca o contrário. Ver guideline de negócio — seção Command Handlers.
+      </div>
+    </div>
+
+    <div class="alert alert-info">
+      <div class="alert-icon">ℹ</div>
+      <div class="alert-body">
+        <strong>A tag <code>management</code> do RabbitMQ</strong> habilita o painel web em <code>localhost:15672</code> (usuário e senha: <code>guest</code>). Útil para inspecionar filas e mensagens durante o desenvolvimento.
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="aplicacoes">
+    <h2>3. Aplicações</h2>
+    <table>
+      <thead><tr><th>Aplicação</th><th>Porta</th><th>Responsabilidade</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Write App</strong></td>
+          <td><code>8080</code></td>
+          <td>Recebe commands, executa aggregates, persiste no Event Store, publica eventos no RabbitMQ.</td>
+        </tr>
+        <tr>
+          <td><strong>Read App</strong></td>
+          <td><code>8081</code></td>
+          <td>Consome eventos do RabbitMQ, atualiza projeções, serve queries. Nunca escreve no Event Store.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section" id="banco">
+    <h2>4. Banco de Dados</h2>
+    <table>
+      <thead><tr><th>Instância</th><th>Database</th><th>Porta exposta</th><th>Quem conecta</th><th>Conteúdo</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Write DB</strong></td>
+          <td><code>crm_write</code></td>
+          <td><code>5432</code></td>
+          <td>Write App</td>
+          <td>Event Store (stream de eventos) + Snapshots</td>
+        </tr>
+        <tr>
+          <td><strong>Read DB</strong></td>
+          <td><code>crm_read</code></td>
+          <td><code>5433</code></td>
+          <td>Read App</td>
+          <td>Projeções (CustomerView, AccountManagerDashboard)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr/>
+
+  <div class="section" id="docker">
+    <h2>5. Docker Compose</h2>
+
+    <div class="code-block">
+      <div class="code-header"><span>docker-compose.yml</span><span class="code-lang">YAML</span></div>
+      <div class="code-body">
+<span class="pr">services</span>:<br>
+<br>
+&nbsp;&nbsp;<span class="cm"># ── Banco de escrita (Event Store) ───────────────────</span><br>
+&nbsp;&nbsp;<span class="pr">db-write</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">image</span>: <span class="str">postgres:16</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">container_name</span>: <span class="str">crm-db-write</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">environment</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">POSTGRES_DB</span>: <span class="str">crm_write</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">POSTGRES_USER</span>: <span class="str">crm</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">POSTGRES_PASSWORD</span>: <span class="str">crm</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">ports</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">"5432:5432"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">networks</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">crm-network</span><br>
+<br>
+&nbsp;&nbsp;<span class="cm"># ── Banco de leitura (Projeções) ─────────────────────</span><br>
+&nbsp;&nbsp;<span class="pr">db-read</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">image</span>: <span class="str">postgres:16</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">container_name</span>: <span class="str">crm-db-read</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">environment</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">POSTGRES_DB</span>: <span class="str">crm_read</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">POSTGRES_USER</span>: <span class="str">crm</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">POSTGRES_PASSWORD</span>: <span class="str">crm</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">ports</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">"5433:5432"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">networks</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">crm-network</span><br>
+<br>
+&nbsp;&nbsp;<span class="cm"># ── RabbitMQ ─────────────────────────────────────────</span><br>
+&nbsp;&nbsp;<span class="pr">rabbitmq</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">image</span>: <span class="str">rabbitmq:4-management</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">container_name</span>: <span class="str">crm-rabbitmq</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">ports</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">"5672:5672"</span>&nbsp;&nbsp;<span class="cm"># AMQP</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">"15672:15672"</span> <span class="cm"># Management UI</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">networks</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">crm-network</span><br>
+<br>
+&nbsp;&nbsp;<span class="cm"># ── Aplicação de escrita ──────────────────────────────</span><br>
+&nbsp;&nbsp;<span class="pr">write-app</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">build</span>: <span class="str">./write-app</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">container_name</span>: <span class="str">crm-write-app</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">ports</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">"8080:8080"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">environment</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">SPRING_DATASOURCE_URL</span>: <span class="str">jdbc:postgresql://db-write:5432/crm_write</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">SPRING_DATASOURCE_USERNAME</span>: <span class="str">crm</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">SPRING_DATASOURCE_PASSWORD</span>: <span class="str">crm</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">SPRING_RABBITMQ_HOST</span>: <span class="str">rabbitmq</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">SPRING_RABBITMQ_PORT</span>: <span class="str">5672</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">depends_on</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">db-write</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">rabbitmq</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">networks</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">crm-network</span><br>
+<br>
+&nbsp;&nbsp;<span class="cm"># ── Aplicação de leitura ──────────────────────────────</span><br>
+&nbsp;&nbsp;<span class="pr">read-app</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">build</span>: <span class="str">./read-app</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">container_name</span>: <span class="str">crm-read-app</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">ports</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">"8081:8080"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">environment</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">SPRING_DATASOURCE_URL</span>: <span class="str">jdbc:postgresql://db-read:5432/crm_read</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">SPRING_DATASOURCE_USERNAME</span>: <span class="str">crm</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">SPRING_DATASOURCE_PASSWORD</span>: <span class="str">crm</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">SPRING_RABBITMQ_HOST</span>: <span class="str">rabbitmq</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">SPRING_RABBITMQ_PORT</span>: <span class="str">5672</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">depends_on</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">db-read</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">rabbitmq</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">networks</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">crm-network</span><br>
+<br>
+<span class="pr">networks</span>:<br>
+&nbsp;&nbsp;<span class="pr">crm-network</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">driver</span>: <span class="str">bridge</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="rede">
+    <h2>6. Rede e Comunicação entre Serviços</h2>
+    <table>
+      <thead><tr><th>De</th><th>Para</th><th>Protocolo</th><th>Endereço interno</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Write App</td>
+          <td>Write DB</td>
+          <td>JDBC</td>
+          <td><code>jdbc:postgresql://db-write:5432/crm_write</code></td>
+        </tr>
+        <tr>
+          <td>Write App</td>
+          <td>RabbitMQ</td>
+          <td>AMQP</td>
+          <td><code>rabbitmq:5672</code></td>
+        </tr>
+        <tr>
+          <td>Read App</td>
+          <td>Read DB</td>
+          <td>JDBC</td>
+          <td><code>jdbc:postgresql://db-read:5432/crm_read</code></td>
+        </tr>
+        <tr>
+          <td>Read App</td>
+          <td>RabbitMQ</td>
+          <td>AMQP</td>
+          <td><code>rabbitmq:5672</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</main>
+</div>
+
+<script>
+const links = document.querySelectorAll('nav a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(l => l.classList.remove('active'));
+      const a = document.querySelector(`nav a[href="#${e.target.id}"]`);
+      if (a) a.classList.add('active');
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.section[id]').forEach(s => observer.observe(s));
+links.forEach(l => l.addEventListener('click', e => {
+  e.preventDefault();
+  document.querySelector(l.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+}));
+</script>
+</body>
+</html>

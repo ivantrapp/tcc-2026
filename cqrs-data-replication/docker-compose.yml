@@ -1,0 +1,100 @@
+services:
+
+  # ── Write Database ────────────────────────────────────────────────────────────
+  db-write:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: crm_write
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    command: >
+      postgres
+        -c wal_level=logical
+        -c max_replication_slots=10
+        -c max_wal_senders=10
+        -c hba_file=/conf/pg_hba.conf
+    ports:
+      - "5456:5432"
+    volumes:
+      - db-write-data:/var/lib/postgresql/data
+      - ./postgres/pg_hba_write.conf:/conf/pg_hba.conf:ro
+      - ./postgres/write-init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d crm_write"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - crm-network
+
+  # ── Read Database ─────────────────────────────────────────────────────────────
+  db-read:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: crm_read
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5455:5432"
+    volumes:
+      - db-read-data:/var/lib/postgresql/data
+      - ./postgres/read-init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d crm_read"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - crm-network
+
+  # ── Write App ─────────────────────────────────────────────────────────────────
+  write-app:
+    build:
+      context: ./write
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db-write:5432/crm_write
+      SPRING_DATASOURCE_USERNAME: crm
+      SPRING_DATASOURCE_PASSWORD: crm
+    ports:
+      - "8080:8080"
+    depends_on:
+      db-write:
+        condition: service_healthy
+    networks:
+      - crm-network
+
+  # ── Read App ──────────────────────────────────────────────────────────────────
+  read-app:
+    build:
+      context: ./read
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db-read:5432/crm_read
+      SPRING_DATASOURCE_USERNAME: crm
+      SPRING_DATASOURCE_PASSWORD: crm
+      # Points the subscription to the write DB using Docker service name
+      REPLICATION_WRITE_HOST: db-write
+      REPLICATION_WRITE_PORT: 5432
+      REPLICATION_WRITE_NAME: crm_write
+      REPLICATION_USER: replicator
+      REPLICATION_PASSWORD: replicator
+      REPLICATION_PUBLICATION: crm_publication
+      REPLICATION_SUBSCRIPTION: crm_subscription
+    ports:
+      - "8081:8081"
+    depends_on:
+      db-read:
+        condition: service_healthy
+      write-app:
+        condition: service_started
+    networks:
+      - crm-network
+
+volumes:
+  db-write-data:
+  db-read-data:
+
+networks:
+  crm-network:
+    driver: bridge

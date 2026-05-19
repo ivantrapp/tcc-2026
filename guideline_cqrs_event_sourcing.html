@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Guideline — CQRS com Event Sourcing</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --bg2: #161b27;
+    --bg3: #1e2535;
+    --border: #2a3348;
+    --text: #e2e8f0;
+    --text2: #94a3b8;
+    --text3: #64748b;
+    --accent: #6366f1;
+    --accent2: #818cf8;
+    --teal: #2dd4bf;
+    --teal2: #99f6e4;
+    --amber: #f59e0b;
+    --amber2: #fcd34d;
+    --coral: #f43f5e;
+    --coral2: #fda4af;
+    --green: #22c55e;
+    --green2: #86efac;
+    --purple: #a855f7;
+    --purple2: #d8b4fe;
+    --mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+  }
+  aside {
+    background: var(--bg2);
+    border-right: 1px solid var(--border);
+    padding: 2rem 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  .aside-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text3);
+    padding: 0 1.5rem 1rem;
+  }
+  nav a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: .4rem 1.5rem;
+    font-size: 13px;
+    color: var(--text2);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: all .15s;
+  }
+  nav a:hover { color: var(--text); background: var(--bg3); }
+  nav a.active { color: var(--accent2); border-left-color: var(--accent); background: rgba(99,102,241,.08); }
+  nav .nav-section {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text3);
+    padding: .9rem 1.5rem .3rem;
+  }
+  nav .dot {
+    width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+  }
+  main {
+    padding: 3rem 4rem 6rem;
+    max-width: 900px;
+  }
+  .hero {
+    padding: 2rem 0 3rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(99,102,241,.15);
+    border: 1px solid rgba(99,102,241,.3);
+    color: var(--accent2);
+    font-size: 11px; font-weight: 600; letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 3px 10px; border-radius: 99px;
+    margin-bottom: 1.2rem;
+  }
+  h1 { font-size: 2rem; font-weight: 700; line-height: 1.2; margin-bottom: .5rem; }
+  .subtitle { color: var(--text2); font-size: 15px; }
+  h2 {
+    font-size: 1.3rem; font-weight: 600;
+    margin: 2.5rem 0 1rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 1rem;
+  }
+  h3 {
+    font-size: 1rem; font-weight: 600;
+    margin: 1.8rem 0 .6rem;
+    color: var(--text);
+  }
+  h4 {
+    font-size: .875rem; font-weight: 600;
+    color: var(--text2);
+    text-transform: uppercase; letter-spacing: .06em;
+    margin: 1.4rem 0 .5rem;
+  }
+  p { margin-bottom: .8rem; color: var(--text); }
+  p + p { margin-top: 0; }
+  ul, ol { padding-left: 1.4rem; margin-bottom: 1rem; }
+  li { margin-bottom: .3rem; color: var(--text); }
+  li::marker { color: var(--text3); }
+  code {
+    font-family: var(--mono);
+    font-size: .82em;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--teal);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+  .section { margin-bottom: 3rem; }
+
+  /* Cards */
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1rem;
+  }
+  .card-title {
+    font-size: .8rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .07em;
+    margin-bottom: .7rem;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .dot-accent { width:8px;height:8px;border-radius:50%;flex-shrink:0; }
+
+  /* Aggregate card */
+  .aggregate-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.2rem;
+  }
+  .aggregate-header {
+    padding: .9rem 1.2rem;
+    display: flex; align-items: center; gap: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .aggregate-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .aggregate-name { font-weight: 600; font-size: .95rem; }
+  .aggregate-sub { font-size: .78rem; color: var(--text2); }
+  .aggregate-body { padding: 1rem 1.2rem; }
+  .aggregate-body .row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .agg-section-title {
+    font-size: .72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .08em;
+    margin-bottom: .5rem;
+  }
+  .pill {
+    display: inline-block;
+    font-size: .75rem; font-weight: 500;
+    padding: 2px 9px; border-radius: 99px;
+    margin: 2px 2px 2px 0;
+  }
+  .pill-cmd { background: rgba(99,102,241,.15); color: var(--accent2); border: 1px solid rgba(99,102,241,.25); }
+  .pill-evt { background: rgba(45,212,191,.12); color: var(--teal); border: 1px solid rgba(45,212,191,.2); }
+  .pill-inv { background: rgba(245,158,11,.12); color: var(--amber); border: 1px solid rgba(245,158,11,.2); }
+  .pill-state { background: rgba(168,85,247,.12); color: var(--purple); border: 1px solid rgba(168,85,247,.2); }
+
+  /* Flow step */
+  .flow { display: flex; flex-direction: column; gap: 0; margin: 1rem 0; }
+  .flow-step {
+    display: flex; gap: 1rem;
+    padding: .7rem 1rem;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 1px;
+    font-size: .875rem;
+  }
+  .flow-step:first-child { border-radius: 8px 8px 0 0; margin-bottom: 0; border-bottom: none; }
+  .flow-step:last-child { border-radius: 0 0 8px 8px; margin-bottom: 0; }
+  .flow-step:not(:first-child):not(:last-child) { border-radius: 0; border-bottom: none; }
+  .step-num {
+    width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .7rem; font-weight: 700;
+    background: rgba(99,102,241,.2); color: var(--accent2);
+    margin-top: 1px;
+  }
+  .step-content { flex: 1; }
+  .step-actor { font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text3); margin-bottom: 2px; }
+  .step-desc { color: var(--text); }
+  .step-detail { font-size: .8rem; color: var(--text2); margin-top: 2px; }
+
+  /* Alert */
+  .alert {
+    border-radius: 8px; padding: .9rem 1.1rem;
+    margin: 1.2rem 0; font-size: .875rem;
+    display: flex; gap: .7rem;
+  }
+  .alert-warning { background: rgba(245,158,11,.1); border: 1px solid rgba(245,158,11,.2); }
+  .alert-info { background: rgba(99,102,241,.1); border: 1px solid rgba(99,102,241,.2); }
+  .alert-success { background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.2); }
+  .alert-danger { background: rgba(244,63,94,.1); border: 1px solid rgba(244,63,94,.2); }
+  .alert-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .alert-warning .alert-icon { color: var(--amber); }
+  .alert-info .alert-icon { color: var(--accent2); }
+  .alert-success .alert-icon { color: var(--green); }
+  .alert-danger .alert-icon { color: var(--coral); }
+  .alert-body { color: var(--text2); line-height: 1.6; }
+  .alert-body strong { color: var(--text); }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; font-size: .86rem; margin: 1rem 0; }
+  th { text-align: left; padding: .6rem .8rem; font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text3); border-bottom: 1px solid var(--border); }
+  td { padding: .55rem .8rem; border-bottom: 1px solid rgba(42,51,72,.5); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,.02); }
+
+  /* Spec block */
+  .spec {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1rem 0;
+  }
+  .spec-header {
+    padding: .55rem 1rem;
+    background: var(--bg3);
+    border-bottom: 1px solid var(--border);
+    font-size: .75rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .06em;
+    color: var(--text2);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .spec-body { padding: .9rem 1rem; font-size: .86rem; }
+  .spec-body ul { margin-bottom: 0; }
+  .spec-body li { color: var(--text2); margin-bottom: .2rem; }
+  .spec-body li strong { color: var(--text); }
+
+  /* Event anatomy */
+  .event-anatomy {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.1rem 1.3rem;
+    font-family: var(--mono);
+    font-size: .78rem;
+    line-height: 1.8;
+    margin: 1rem 0;
+  }
+  .ea-key { color: var(--text3); }
+  .ea-str { color: var(--amber2); }
+  .ea-num { color: var(--teal2); }
+  .ea-type { color: var(--coral2); }
+  .ea-uuid { color: var(--purple2); }
+  .ea-comment { color: var(--text3); font-style: italic; }
+  .ea-brace { color: var(--text2); }
+
+  /* Architecture diagram */
+  .arch-diagram {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 2rem;
+    margin: 1.5rem 0;
+  }
+  .arch-row { display: flex; gap: 1rem; align-items: stretch; margin-bottom: 1rem; }
+  .arch-box {
+    flex: 1;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: .8rem 1rem;
+    text-align: center;
+    font-size: .82rem;
+  }
+  .arch-box .ab-title { font-weight: 600; font-size: .9rem; margin-bottom: .3rem; }
+  .arch-box .ab-sub { font-size: .75rem; color: var(--text2); }
+  .ab-write { border-color: rgba(99,102,241,.35); background: rgba(99,102,241,.07); }
+  .ab-write .ab-title { color: var(--accent2); }
+  .ab-read { border-color: rgba(45,212,191,.35); background: rgba(45,212,191,.07); }
+  .ab-read .ab-title { color: var(--teal); }
+  .ab-store { border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.07); }
+  .ab-store .ab-title { color: var(--amber); }
+  .ab-queue { border-color: rgba(168,85,247,.35); background: rgba(168,85,247,.07); }
+  .ab-queue .ab-title { color: var(--purple); }
+  .arch-arrow {
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text3); font-size: .75rem; flex-direction: column;
+    gap: 2px; min-width: 40px;
+  }
+  .arch-arrow svg { width: 20px; height: 20px; }
+
+  /* divider */
+  hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+  /* snapshot diagram */
+  .snapshot-row {
+    display: flex; gap: 4px; align-items: center;
+    margin: .5rem 0; flex-wrap: wrap;
+  }
+  .ev-block {
+    width: 40px; height: 28px; border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .65rem; font-weight: 700; flex-shrink: 0;
+  }
+  .ev-tx { background: rgba(45,212,191,.15); color: var(--teal); border: 1px solid rgba(45,212,191,.3); }
+  .ev-snap { background: rgba(245,158,11,.2); color: var(--amber); border: 1px solid rgba(245,158,11,.4); }
+  .ev-label { font-size: .7rem; color: var(--text3); margin: 0 4px; }
+
+  /* checklist */
+  .checklist li {
+    list-style: none;
+    display: flex; align-items: flex-start; gap: 7px;
+    padding: .25rem 0;
+    color: var(--text2);
+  }
+  .checklist li::before {
+    content: '';
+    width: 16px; height: 16px; border-radius: 50%;
+    border: 1.5px solid var(--border);
+    flex-shrink: 0; margin-top: 3px;
+    display: block;
+  }
+  .checklist li span { flex: 1; }
+  .checklist li strong { color: var(--text); }
+
+  .tag {
+    display: inline-block;
+    font-size: .7rem; font-weight: 600;
+    padding: 1px 7px; border-radius: 4px;
+    vertical-align: middle; margin-left: 4px;
+  }
+  .tag-write { background: rgba(99,102,241,.2); color: var(--accent2); }
+  .tag-read { background: rgba(45,212,191,.15); color: var(--teal); }
+  .tag-shared { background: rgba(168,85,247,.15); color: var(--purple); }
+</style>
+</head>
+<body>
+<div class="layout">
+
+<!-- SIDEBAR -->
+<aside>
+  <div class="aside-title">Guideline</div>
+  <div style="padding: 0 1.5rem .8rem; font-size:.75rem; color:var(--text3);">CQRS + Event Sourcing</div>
+
+  <div class="nav-section">Contexto</div>
+  <nav>
+    <a href="#visao-geral"><span class="dot" style="background:var(--accent)"></span>Visão Geral</a>
+    <a href="#dominio"><span class="dot" style="background:var(--teal)"></span>Domínio de Negócio</a>
+    <a href="#principios"><span class="dot" style="background:var(--amber)"></span>Princípios ES</a>
+  </nav>
+
+  <div class="nav-section">Aplicação Write</div>
+  <nav>
+    <a href="#aggregates"><span class="dot" style="background:var(--accent)"></span>Aggregates</a>
+    <a href="#commands"><span class="dot" style="background:var(--purple)"></span>Commands</a>
+    <a href="#events"><span class="dot" style="background:var(--teal)"></span>Eventos de Domínio</a>
+    <a href="#event-store"><span class="dot" style="background:var(--amber)"></span>Event Store</a>
+    <a href="#handlers"><span class="dot" style="background:var(--coral)"></span>Command Handlers</a>
+  </nav>
+
+  <div class="nav-section">Mensageria</div>
+  <nav>
+    <a href="#fila"><span class="dot" style="background:var(--purple)"></span>Fila de Eventos</a>
+  </nav>
+
+  <div class="nav-section">Aplicação Read</div>
+  <nav>
+    <a href="#consumer"><span class="dot" style="background:var(--teal)"></span>Consumer</a>
+    <a href="#projections"><span class="dot" style="background:var(--green)"></span>Projeções</a>
+    <a href="#snapshot"><span class="dot" style="background:var(--amber)"></span>Snapshot</a>
+    <a href="#queries"><span class="dot" style="background:var(--accent2)"></span>Queries</a>
+  </nav>
+
+  <div class="nav-section">Fluxos</div>
+  <nav>
+    <a href="#fluxo-transacao"><span class="dot" style="background:var(--coral)"></span>Registrar Transação</a>
+    <a href="#fluxo-listagem"><span class="dot" style="background:var(--green)"></span>Listar Clientes</a>
+    <a href="#fluxo-gerente"><span class="dot" style="background:var(--amber)"></span>Visão do Gerente</a>
+  </nav>
+
+  <div class="nav-section">Entrega</div>
+  <nav>
+    <a href="#criterios"><span class="dot" style="background:var(--accent)"></span>Critérios de Aceite</a>
+  </nav>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="badge">📋 Guideline para Agente de IA</div>
+    <h1>CQRS com Event Sourcing</h1>
+    <p class="subtitle">Guia de implementação a nível de negócio para o domínio CRM de corretora de valores.<br>Agnóstico a tecnologia — sem referências a frameworks ou linguagens.</p>
+  </div>
+
+  <!-- VISÃO GERAL -->
+  <div class="section" id="visao-geral">
+    <h2>1. Visão Geral da Arquitetura</h2>
+
+    <p>Este guideline descreve como implementar <strong>duas aplicações independentes</strong> que juntas formam o sistema de CQRS com Event Sourcing: uma aplicação de <strong>escrita</strong> e uma de <strong>leitura</strong>. Elas se comunicam por uma <strong>fila de mensagens assíncrona</strong>.</p>
+
+    <div class="arch-diagram">
+      <div style="text-align:center; font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--text3); margin-bottom:1.5rem;">Visão Macro da Arquitetura</div>
+
+      <div class="arch-row">
+        <div class="arch-box" style="flex:.6; border-color:rgba(100,116,139,.3); background:rgba(100,116,139,.05);">
+          <div class="ab-title" style="color:var(--text2);">Sistemas Externos</div>
+          <div class="ab-sub">Aplicativo do cliente<br>Bolsa de Valores</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-box ab-write">
+          <div class="ab-title">Write App</div>
+          <div class="ab-sub">Aggregates · Commands<br>Handlers · Validação</div>
+        </div>
+        <div class="arch-arrow">
+          <span>publica</span>
+          →
+        </div>
+        <div class="arch-box ab-store">
+          <div class="ab-title">Event Store</div>
+          <div class="ab-sub">Journal imutável<br>de todos os eventos</div>
+        </div>
+        <div class="arch-arrow">
+          <span>→</span>
+          <span style="font-size:.65rem">emite</span>
+        </div>
+        <div class="arch-box ab-queue">
+          <div class="ab-title">Fila</div>
+          <div class="ab-sub">Mensagens<br>assíncronas</div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-box ab-read">
+          <div class="ab-title">Read App</div>
+          <div class="ab-sub">Consumer · Projeções<br>Snapshots · Queries</div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.5rem; padding:1rem; background:var(--bg3); border-radius:8px; font-size:.8rem; color:var(--text2);">
+        <strong style="color:var(--text);">Princípio central:</strong> a aplicação de escrita <em>nunca lê</em> do banco de leitura, e a aplicação de leitura <em>nunca escreve</em> eventos. A fronteira entre elas é a fila de mensagens.
+      </div>
+    </div>
+
+    <div class="alert alert-info">
+      <div class="alert-icon">ℹ</div>
+      <div class="alert-body">
+        <strong>Por que duas aplicações separadas?</strong> O volume de consultas é <strong>10.000× maior</strong> que o volume de transações. Separar escrita de leitura em processos distintos permite escalar cada lado de forma independente. A Read App pode ter múltiplas réplicas servindo queries enquanto a Write App permanece focada em garantir a consistência do domínio.
+      </div>
+    </div>
+  </div>
+
+  <!-- DOMÍNIO -->
+  <div class="section" id="dominio">
+    <h2>2. Domínio de Negócio</h2>
+
+    <p>O domínio implementado é um <strong>CRM de corretora de valores</strong>. As principais regras de negócio que guiam as decisões de implementação são:</p>
+
+    <div class="spec">
+      <div class="spec-header">⚖ Regras que impactam a arquitetura</div>
+      <div class="spec-body">
+        <ul>
+          <li><strong>Volume assimétrico:</strong> o volume de leitura (listagem de clientes pelos gerentes) é 10.000× maior que o volume de escrita (transações financeiras). Este é o principal motivador para CQRS.</li>
+          <li><strong>Baixa frequência de escrita:</strong> clientes realizam grandes aportes com baixíssima frequência (perfil de longo prazo). O Event Store crescerá lentamente para a maioria dos clientes.</li>
+          <li><strong>Múltiplas carteiras por cliente:</strong> um cliente pode ser titular de mais de uma carteira (e.g. patrimônio familiar ou societário). A projeção de leitura deve consolidar todas elas.</li>
+          <li><strong>Wallet é um microsserviço separado:</strong> tanto o CRM quanto o aplicativo da corretora consomem o mesmo microsserviço de Wallet. O CRM <em>não é dono</em> das transações — ele as observa como eventos de domínio emitidos pelo Wallet.</li>
+          <li><strong>Transações confirmadas pela Bolsa:</strong> uma transação só é salva quando confirmada pela Bolsa de Valores. O comando de registro de transação deve aguardar essa confirmação antes de ser considerado aceito.</li>
+          <li><strong>Janela de operações:</strong> transações só são processadas de segunda a sexta, das 8h às 19h. O sistema de escrita deve validar essa invariante.</li>
+          <li><strong>Gerentes com perfil admin:</strong> alguns gerentes enxergam todos os clientes da corretora em uma única listagem. O modelo de leitura deve suportar essa visão sem comprometer a performance.</li>
+          <li><strong>Listagem com filtros e ordenações:</strong> gerentes usam filtros e ordenações como ferramenta de relacionamento para decidir quem contatar. O modelo de leitura deve ser projetado especificamente para esse caso de uso.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Bounded Contexts</h3>
+    <p>O domínio se divide em três contextos delimitados. Este guideline implementa apenas o <strong>CRM Context</strong> e define como ele consome eventos do <strong>Wallet Context</strong>.</p>
+
+    <table>
+      <thead>
+        <tr><th>Contexto</th><th>Responsabilidade</th><th>Escopo deste projeto</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>CRM Context</strong></td>
+          <td>Gerenciar clientes, gerentes e filiais. Expor a visão consolidada para os gerentes.</td>
+          <td><span class="pill pill-evt">Implementar</span></td>
+        </tr>
+        <tr>
+          <td><strong>Wallet Context</strong></td>
+          <td>Gerenciar carteiras e transações financeiras. Emite eventos quando transações são registradas.</td>
+          <td><span class="pill pill-cmd">Consumir eventos</span></td>
+        </tr>
+        <tr>
+          <td><strong>Revenue Context</strong></td>
+          <td>Controlar receita por filial e mês.</td>
+          <td><span class="pill pill-inv">Fora do escopo</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PRINCÍPIOS ES -->
+  <div class="section" id="principios">
+    <h2>3. Princípios do Event Sourcing</h2>
+
+    <p>Antes de especificar a implementação, o agente deve internalizar os conceitos centrais do Event Sourcing, pois eles impactam cada decisão de design.</p>
+
+    <div class="card">
+      <div class="card-title"><span class="dot-accent" style="background:var(--amber)"></span>Estado = Replay de Eventos</div>
+      <p style="margin:0;font-size:.875rem;color:var(--text2);">O estado atual de um aggregate <em>não é armazenado</em> diretamente. Ele é sempre recalculado aplicando todos os eventos passados em sequência. O banco de dados da Write App é o <strong>Event Store</strong> — uma lista imutável e append-only de eventos.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot-accent" style="background:var(--teal)"></span>Eventos são Fatos Imutáveis</div>
+      <p style="margin:0;font-size:.875rem;color:var(--text2);">Um evento representa algo que já aconteceu no domínio. <em>Nunca é deletado ou modificado.</em> Se um erro ocorre, um novo evento de correção é emitido. Isso cria um log de auditoria completo e natural.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot-accent" style="background:var(--accent)"></span>Consistência Eventual entre Write e Read</div>
+      <p style="margin:0;font-size:.875rem;color:var(--text2);">A Write App garante consistência forte dentro do aggregate. A Read App será atualizada de forma assíncrona — há uma janela de tempo entre a escrita e a atualização da projeção. Este é o trade-off central do CQRS com ES.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot-accent" style="background:var(--purple)"></span>Snapshots como Otimização</div>
+      <p style="margin:0;font-size:.875rem;color:var(--text2);">Com o tempo, reconstruir o estado de uma Wallet replaying 500 transações fica lento. Snapshots capturam o estado do aggregate em um ponto no tempo, evitando o replay desde o início. São uma otimização — nunca uma necessidade correta, mas praticamente obrigatória em produção.</p>
+    </div>
+  </div>
+
+  <!-- AGGREGATES -->
+  <div class="section" id="aggregates">
+    <h2>4. Aggregates da Write App</h2>
+
+    <p>Um aggregate é a unidade de consistência do domínio. <strong>Toda operação de escrita deve passar por um aggregate.</strong> O aggregate valida invariantes de negócio e emite eventos — nunca persiste estado diretamente.</p>
+
+    <h3>4.1 Wallet Aggregate <tag class="tag tag-shared">Microsserviço Wallet</tag></h3>
+
+    <div class="aggregate-card">
+      <div class="aggregate-header">
+        <div class="aggregate-icon" style="background:rgba(45,212,191,.15);">💼</div>
+        <div>
+          <div class="aggregate-name">Wallet</div>
+          <div class="aggregate-sub">Aggregate Root — microsserviço Wallet</div>
+        </div>
+      </div>
+      <div class="aggregate-body">
+        <div style="margin-bottom:.8rem;">
+          <div class="agg-section-title" style="color:var(--purple);">Estado reconstruído via replay</div>
+          <span class="pill pill-state">id</span>
+          <span class="pill pill-state">customerId</span>
+          <span class="pill pill-state">balance</span>
+          <span class="pill pill-state">createdAt</span>
+          <span class="pill pill-state">transactions[]</span>
+        </div>
+        <div class="row">
+          <div>
+            <div class="agg-section-title" style="color:var(--accent2);">Commands aceitos</div>
+            <span class="pill pill-cmd">CreateWallet</span>
+            <span class="pill pill-cmd">RegisterTransaction</span>
+          </div>
+          <div>
+            <div class="agg-section-title" style="color:var(--teal);">Eventos emitidos</div>
+            <span class="pill pill-evt">WalletCreated</span>
+            <span class="pill pill-evt">TransactionRegistered</span>
+          </div>
+        </div>
+        <div style="margin-top:.8rem;">
+          <div class="agg-section-title" style="color:var(--amber);">Invariantes de negócio</div>
+          <span class="pill pill-inv">Uma Wallet pertence a exatamente um Customer</span>
+          <span class="pill pill-inv">Transações só em D a S 08h–19h</span>
+          <span class="pill pill-inv">Transação exige confirmação da Bolsa</span>
+          <span class="pill pill-inv">Valor da transação deve ser positivo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-warning">
+      <div class="alert-icon">⚠</div>
+      <div class="alert-body">
+        <strong>Atenção crítica:</strong> o aggregate Wallet é o <strong>mais sensível ao crescimento do Event Store</strong>. Como clientes realizam transações ao longo de anos, o número de eventos por Wallet cresce indefinidamente. A estratégia de Snapshot descrita na seção 9 é obrigatória para este aggregate.
+      </div>
+    </div>
+
+    <h3>4.2 Customer Aggregate <tag class="tag tag-write">Write App</tag></h3>
+
+    <div class="aggregate-card">
+      <div class="aggregate-header">
+        <div class="aggregate-icon" style="background:rgba(99,102,241,.15);">👤</div>
+        <div>
+          <div class="aggregate-name">Customer</div>
+          <div class="aggregate-sub">Aggregate Root — CRM Write App</div>
+        </div>
+      </div>
+      <div class="aggregate-body">
+        <div style="margin-bottom:.8rem;">
+          <div class="agg-section-title" style="color:var(--purple);">Estado reconstruído via replay</div>
+          <span class="pill pill-state">id</span>
+          <span class="pill pill-state">name</span>
+          <span class="pill pill-state">address</span>
+          <span class="pill pill-state">age</span>
+          <span class="pill pill-state">accountManagerId</span>
+          <span class="pill pill-state">createdAt</span>
+        </div>
+        <div class="row">
+          <div>
+            <div class="agg-section-title" style="color:var(--accent2);">Commands aceitos</div>
+            <span class="pill pill-cmd">CreateCustomer</span>
+            <span class="pill pill-cmd">UpdateCustomerData</span>
+            <span class="pill pill-cmd">AssignAccountManager</span>
+          </div>
+          <div>
+            <div class="agg-section-title" style="color:var(--teal);">Eventos emitidos</div>
+            <span class="pill pill-evt">CustomerCreated</span>
+            <span class="pill pill-evt">CustomerDataUpdated</span>
+            <span class="pill pill-evt">AccountManagerAssigned</span>
+          </div>
+        </div>
+        <div style="margin-top:.8rem;">
+          <div class="agg-section-title" style="color:var(--amber);">Invariantes de negócio</div>
+          <span class="pill pill-inv">Nome é obrigatório</span>
+          <span class="pill pill-inv">Idade deve ser maior que 18</span>
+          <span class="pill pill-inv">Um customer precisa ter um AccountManager</span>
+        </div>
+      </div>
+    </div>
+
+    <h3>4.3 AccountManager Aggregate <tag class="tag tag-write">Write App</tag></h3>
+
+    <div class="aggregate-card">
+      <div class="aggregate-header">
+        <div class="aggregate-icon" style="background:rgba(168,85,247,.15);">🏢</div>
+        <div>
+          <div class="aggregate-name">AccountManager</div>
+          <div class="aggregate-sub">Aggregate Root — CRM Write App</div>
+        </div>
+      </div>
+      <div class="aggregate-body">
+        <div style="margin-bottom:.8rem;">
+          <div class="agg-section-title" style="color:var(--purple);">Estado reconstruído via replay</div>
+          <span class="pill pill-state">id</span>
+          <span class="pill pill-state">name</span>
+          <span class="pill pill-state">branchId</span>
+          <span class="pill pill-state">isAdmin</span>
+          <span class="pill pill-state">createdAt</span>
+        </div>
+        <div class="row">
+          <div>
+            <div class="agg-section-title" style="color:var(--accent2);">Commands aceitos</div>
+            <span class="pill pill-cmd">CreateAccountManager</span>
+            <span class="pill pill-cmd">GrantAdminProfile</span>
+            <span class="pill pill-cmd">AssignBranch</span>
+          </div>
+          <div>
+            <div class="agg-section-title" style="color:var(--teal);">Eventos emitidos</div>
+            <span class="pill pill-evt">AccountManagerCreated</span>
+            <span class="pill pill-evt">AdminProfileGranted</span>
+            <span class="pill pill-evt">BranchAssigned</span>
+          </div>
+        </div>
+        <div style="margin-top:.8rem;">
+          <div class="agg-section-title" style="color:var(--amber);">Invariantes de negócio</div>
+          <span class="pill pill-inv">Deve estar vinculado a uma Branch</span>
+          <span class="pill pill-inv">Admin profile é concedido explicitamente</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMANDS -->
+  <div class="section" id="commands">
+    <h2>5. Commands</h2>
+
+    <p>Um command representa a intenção de mudar o estado do sistema. É uma mensagem que vai para o aggregate correto. <strong>Nunca retorna dados de domínio</strong> — apenas sucesso/falha.</p>
+
+    <div class="spec">
+      <div class="spec-header">📐 Estrutura de um Command</div>
+      <div class="spec-body">
+        <ul>
+          <li><strong>aggregateId:</strong> identifica o aggregate-alvo (obrigatório em updates/actions, ausente em creates)</li>
+          <li><strong>payload:</strong> dados necessários para executar a intenção</li>
+          <li><strong>metadata:</strong> quem está enviando, timestamp, correlationId para rastreabilidade</li>
+          <li>Sem lógica de negócio — é apenas um envelope de dados</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Commands do Wallet Context</h3>
+    <table>
+      <thead>
+        <tr><th>Command</th><th>Dados necessários</th><th>Precondições</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>CreateWallet</code></td>
+          <td>customerId</td>
+          <td>Customer deve existir</td>
+        </tr>
+        <tr>
+          <td><code>RegisterTransaction</code></td>
+          <td>walletId, value, type (DEPOSIT/WITHDRAWAL), exchangeConfirmationId</td>
+          <td>Wallet deve existir · Janela de horário válida · Confirmação da Bolsa presente · Valor positivo</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Commands do CRM Context</h3>
+    <table>
+      <thead>
+        <tr><th>Command</th><th>Dados necessários</th><th>Precondições</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>CreateCustomer</code></td>
+          <td>name, address, age, accountManagerId</td>
+          <td>AccountManager deve existir · Idade ≥ 18</td>
+        </tr>
+        <tr>
+          <td><code>UpdateCustomerData</code></td>
+          <td>customerId, name?, address?, age?</td>
+          <td>Customer deve existir · Campos alterados devem ser válidos</td>
+        </tr>
+        <tr>
+          <td><code>AssignAccountManager</code></td>
+          <td>customerId, accountManagerId</td>
+          <td>Customer deve existir · AccountManager deve existir</td>
+        </tr>
+        <tr>
+          <td><code>CreateAccountManager</code></td>
+          <td>name, branchId, isAdmin</td>
+          <td>Branch deve existir</td>
+        </tr>
+        <tr>
+          <td><code>GrantAdminProfile</code></td>
+          <td>accountManagerId</td>
+          <td>AccountManager deve existir · Não pode já ser admin</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- EVENTOS DE DOMÍNIO -->
+  <div class="section" id="events">
+    <h2>6. Eventos de Domínio</h2>
+
+    <p>Eventos são a fonte da verdade do sistema. Ao contrário de comandos, <strong>eventos são sempre nomeados no passado</strong> (algo que ocorreu). Uma vez persistido no Event Store, um evento <em>nunca muda</em>.</p>
+
+    <h3>Anatomia de um evento</h3>
+    <p>Todo evento deve carregar os seguintes campos:</p>
+
+    <div class="event-anatomy">
+      <span class="ea-brace">{</span><br>
+      &nbsp;&nbsp;<span class="ea-key">"eventId"</span>: <span class="ea-uuid">"uuid-v4"</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ea-comment">// identificador único do evento</span><br>
+      &nbsp;&nbsp;<span class="ea-key">"eventType"</span>: <span class="ea-str">"TransactionRegistered"</span>,<span class="ea-comment"> // nome do evento (PascalCase)</span><br>
+      &nbsp;&nbsp;<span class="ea-key">"aggregateId"</span>: <span class="ea-uuid">"uuid-da-wallet"</span>,&nbsp;<span class="ea-comment"> // aggregate ao qual pertence</span><br>
+      &nbsp;&nbsp;<span class="ea-key">"aggregateType"</span>: <span class="ea-str">"Wallet"</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ea-comment">// tipo do aggregate</span><br>
+      &nbsp;&nbsp;<span class="ea-key">"version"</span>: <span class="ea-num">42</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ea-comment">// posição sequencial no stream</span><br>
+      &nbsp;&nbsp;<span class="ea-key">"occurredAt"</span>: <span class="ea-str">"2025-11-01T14:32:00Z"</span>,<span class="ea-comment"> // quando aconteceu</span><br>
+      &nbsp;&nbsp;<span class="ea-key">"payload"</span>: <span class="ea-brace">{</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ea-comment">// dados específicos do evento</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="ea-key">"value"</span>: <span class="ea-num">50000.00</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="ea-key">"type"</span>: <span class="ea-str">"DEPOSIT"</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="ea-key">"exchangeConfirmationId"</span>: <span class="ea-uuid">"uuid-confirmacao"</span><br>
+      &nbsp;&nbsp;<span class="ea-brace">}</span>,<br>
+      &nbsp;&nbsp;<span class="ea-key">"metadata"</span>: <span class="ea-brace">{</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="ea-key">"correlationId"</span>: <span class="ea-uuid">"uuid-do-command"</span>,<span class="ea-comment"> // rastreia o command que gerou</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="ea-key">"causedBy"</span>: <span class="ea-str">"customerId:uuid"</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="ea-comment">// quem causou</span><br>
+      &nbsp;&nbsp;<span class="ea-brace">}</span><br>
+      <span class="ea-brace">}</span>
+    </div>
+
+    <div class="alert alert-warning">
+      <div class="alert-icon">⚠</div>
+      <div class="alert-body">
+        <strong>O campo <code>version</code> é crítico.</strong> Ele garante ordenação e permite detecção de conflitos de concorrência. Ao persistir um evento, o Event Store deve verificar que a versão esperada corresponde à versão atual do stream. Se divergir, o comando deve ser rejeitado (optimistic locking).
+      </div>
+    </div>
+
+    <h3>Catálogo de Eventos</h3>
+    <table>
+      <thead>
+        <tr><th>Evento</th><th>Aggregate</th><th>Payload essencial</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>WalletCreated</code></td><td>Wallet</td><td>customerId, createdAt</td></tr>
+        <tr><td><code>TransactionRegistered</code></td><td>Wallet</td><td>value, type, exchangeConfirmationId, occurredAt</td></tr>
+        <tr><td><code>CustomerCreated</code></td><td>Customer</td><td>name, address, age, accountManagerId, createdAt</td></tr>
+        <tr><td><code>CustomerDataUpdated</code></td><td>Customer</td><td>name?, address?, age?, updatedAt</td></tr>
+        <tr><td><code>AccountManagerAssigned</code></td><td>Customer</td><td>previousAccountManagerId, newAccountManagerId, assignedAt</td></tr>
+        <tr><td><code>AccountManagerCreated</code></td><td>AccountManager</td><td>name, branchId, isAdmin, createdAt</td></tr>
+        <tr><td><code>AdminProfileGranted</code></td><td>AccountManager</td><td>grantedAt, grantedBy</td></tr>
+        <tr><td><code>BranchAssigned</code></td><td>AccountManager</td><td>branchId, assignedAt</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- EVENT STORE -->
+  <div class="section" id="event-store">
+    <h2>7. Event Store</h2>
+
+    <p>O Event Store é o banco de dados da Write App. Ele não é um banco de dados relacional comum — é um <strong>log append-only</strong> de eventos ordenados por aggregate. Pense nele como um diário imutável.</p>
+
+    <h3>Estrutura conceitual do Event Store</h3>
+
+    <div class="spec">
+      <div class="spec-header">📦 Tabela de eventos (conceitual)</div>
+      <div class="spec-body">
+        <ul>
+          <li><strong>stream_id:</strong> identificador do aggregate (e.g. <code>Wallet-uuid-123</code>)</li>
+          <li><strong>version:</strong> número sequencial dentro do stream, começa em 0</li>
+          <li><strong>event_type:</strong> nome do evento</li>
+          <li><strong>payload:</strong> dados serializados do evento</li>
+          <li><strong>metadata:</strong> correlationId, causedBy, etc.</li>
+          <li><strong>occurred_at:</strong> timestamp de quando o evento ocorreu no domínio</li>
+          <li><strong>stored_at:</strong> timestamp de quando foi persistido (pode diferir)</li>
+          <li><strong>Chave única:</strong> (stream_id, version) — garante o optimistic locking</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Operações do Event Store</h3>
+
+    <div class="card">
+      <div class="card-title"><span class="dot-accent" style="background:var(--accent)"></span>AppendEvents(streamId, expectedVersion, events[])</div>
+      <p style="font-size:.875rem;color:var(--text2);margin:0;">Persiste novos eventos no stream. Verifica que a versão atual do stream corresponde ao <code>expectedVersion</code>. Se houver discrepância (outro processo escreveu antes), lança conflito de concorrência. Esta é a única operação de escrita do Event Store.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot-accent" style="background:var(--teal)"></span>LoadStream(streamId, fromVersion?)</div>
+      <p style="font-size:.875rem;color:var(--text2);margin:0;">Carrega todos os eventos de um aggregate em ordem crescente de <code>version</code>. O parâmetro opcional <code>fromVersion</code> permite carregar apenas eventos após um snapshot.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot-accent" style="background:var(--amber)"></span>GetCurrentVersion(streamId)</div>
+      <p style="font-size:.875rem;color:var(--text2);margin:0;">Retorna a versão mais recente de um stream. Usado para montar o <code>expectedVersion</code> antes de processar um command.</p>
+    </div>
+  </div>
+
+  <!-- COMMAND HANDLERS -->
+  <div class="section" id="handlers">
+    <h2>8. Command Handlers</h2>
+
+    <p>O Command Handler é o orquestrador do fluxo de escrita. Ele conecta o command ao aggregate e ao Event Store. <strong>Nunca contém lógica de negócio</strong> — a lógica fica no aggregate. O handler apenas coordena.</p>
+
+    <h3>Fluxo padrão de um Command Handler</h3>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-actor">Command Handler</div>
+          <div class="step-desc">Recebe o command e valida a estrutura (campos obrigatórios presentes, tipos corretos)</div>
+          <div class="step-detail">Esta é uma validação técnica, não de negócio. Ex.: "o campo walletId é um UUID válido?"</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-actor">Command Handler → Event Store</div>
+          <div class="step-desc">Carrega o stream de eventos do aggregate via <code>LoadStream(aggregateId)</code></div>
+          <div class="step-detail">Se for um command de criação (Create*), o stream estará vazio — comportamento esperado</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-actor">Command Handler → Aggregate</div>
+          <div class="step-desc">Reconstrói o estado atual do aggregate aplicando os eventos carregados em sequência</div>
+          <div class="step-detail">O aggregate vai aplicando cada evento no seu estado interno: <code>apply(event)</code></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-actor">Aggregate</div>
+          <div class="step-desc">Executa o command: valida invariantes de negócio e emite novos eventos</div>
+          <div class="step-detail">Se uma invariante for violada, lança exceção de domínio. Se válido, retorna lista de novos eventos</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-actor">Command Handler → Event Store</div>
+          <div class="step-desc">Persiste os novos eventos via <code>AppendEvents(aggregateId, currentVersion, newEvents)</code></div>
+          <div class="step-detail">Em caso de conflito de versão, o handler pode fazer retry ou propagar o erro</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <div class="step-actor">Command Handler → Fila</div>
+          <div class="step-desc">Publica os novos eventos na fila de mensagens para consumo pela Read App</div>
+          <div class="step-detail">Esta publicação deve ser feita <em>após</em> a persistência no Event Store ser confirmada</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-danger">
+      <div class="alert-icon">🔴</div>
+      <div class="alert-body">
+        <strong>Publicar na fila antes de persistir no Event Store é um bug crítico.</strong> Se o sistema falhar entre a publicação e a persistência, a Read App processará um evento que nunca foi confirmado na Write App, criando inconsistência permanente. A ordem correta é: persistir → publicar.
+      </div>
+    </div>
+  </div>
+
+  <!-- FILA -->
+  <div class="section" id="fila">
+    <h2>9. Fila de Mensagens</h2>
+
+    <p>A fila é o canal de comunicação entre a Write App e a Read App. Ela desacopla temporalmente as duas aplicações e garante que eventos sejam entregues mesmo que a Read App esteja temporariamente indisponível.</p>
+
+    <div class="spec">
+      <div class="spec-header">📋 Requisitos funcionais da fila</div>
+      <div class="spec-body">
+        <ul>
+          <li><strong>Garantia de entrega:</strong> a fila deve garantir at-least-once delivery. A Read App deve ser idempotente para lidar com reentregas.</li>
+          <li><strong>Ordenação por aggregate:</strong> eventos do mesmo aggregate devem ser processados em ordem. Eventos de aggregates diferentes podem ser processados em paralelo.</li>
+          <li><strong>Dead Letter Queue (DLQ):</strong> eventos que falham repetidamente devem ser enviados para uma fila de mensagens mortas para inspeção manual — nunca descartados silenciosamente.</li>
+          <li><strong>Visibilidade de mensagens:</strong> uma mensagem em processamento deve ficar invisível para outros consumidores até ser confirmada (acked) ou expirar.</li>
+          <li><strong>Mensagem mínima:</strong> a mensagem publicada na fila deve conter o evento completo (mesma estrutura do Event Store), incluindo version e aggregateId.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="alert alert-info">
+      <div class="alert-icon">ℹ</div>
+      <div class="alert-body">
+        <strong>Sobre idempotência na Read App:</strong> como a fila garante at-least-once (e não exactly-once), a Read App pode receber o mesmo evento duas vezes. O consumer deve verificar se o evento já foi processado antes de atualizar a projeção. A forma mais simples é guardar o <code>eventId</code> como chave de idempotência na Read App.
+      </div>
+    </div>
+
+    <h3>Contratos de mensagem publicados</h3>
+    <p>A Write App publica na fila um evento por mensagem. Cada mensagem deve incluir:</p>
+    <ul>
+      <li>O payload completo do evento (mesma estrutura do Event Store)</li>
+      <li>O campo <code>aggregateId</code> como chave de agrupamento para garantir ordenação</li>
+      <li>O campo <code>version</code> para que a Read App possa detectar eventos fora de ordem</li>
+    </ul>
+  </div>
+
+  <!-- CONSUMER -->
+  <div class="section" id="consumer">
+    <h2>10. Consumer da Read App</h2>
+
+    <p>O Consumer é o componente da Read App responsável por escutar a fila e acionar as projeções. Ele deve ser <strong>stateless</strong> — todo estado fica na projeção.</p>
+
+    <h3>Fluxo do Consumer</h3>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-actor">Consumer</div>
+          <div class="step-desc">Recebe a mensagem da fila e deserializa o evento</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-actor">Consumer → Banco da Read App</div>
+          <div class="step-desc">Verifica se o <code>eventId</code> já foi processado (controle de idempotência)</div>
+          <div class="step-detail">Se já processado, confirma a mensagem na fila (ack) e ignora. Não é um erro.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-actor">Consumer → Projeção correta</div>
+          <div class="step-desc">Roteia o evento para o handler de projeção correspondente ao <code>eventType</code></div>
+          <div class="step-detail">Ex.: <code>TransactionRegistered</code> → <code>CustomerViewProjection.handleTransactionRegistered(event)</code></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-actor">Projeção → Banco da Read App</div>
+          <div class="step-desc">Atualiza o modelo de leitura com base nos dados do evento</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-actor">Consumer → Fila</div>
+          <div class="step-desc">Confirma o processamento da mensagem (ack)</div>
+          <div class="step-detail">Só confirma após a projeção ser atualizada com sucesso no banco</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJEÇÕES -->
+  <div class="section" id="projections">
+    <h2>11. Projeções (Read Models)</h2>
+
+    <p>Uma projeção é uma visão desnormalizada dos dados, otimizada para uma query específica. Ela é reconstruída a partir dos eventos. O banco da Read App é separado do Event Store e pode ter uma estrutura completamente diferente.</p>
+
+    <h3>11.1 CustomerView — projeção principal</h3>
+
+    <p>Esta é a projeção central do sistema. Ela combina dados de múltiplos aggregates em uma única estrutura pronta para exibição. O gerente de conta visualiza esta projeção na tela de listagem.</p>
+
+    <div class="spec">
+      <div class="spec-header">📊 Estrutura do CustomerView (modelo de leitura)</div>
+      <div class="spec-body">
+        <ul>
+          <li><strong>customerId</strong> — identificador do cliente</li>
+          <li><strong>customerName</strong> — nome completo do cliente</li>
+          <li><strong>customerAge</strong> — idade</li>
+          <li><strong>customerAddress</strong> — endereço</li>
+          <li><strong>accountManagerId</strong> — id do gerente responsável</li>
+          <li><strong>managerName</strong> — nome do gerente (desnormalizado)</li>
+          <li><strong>branchId</strong> — id da filial</li>
+          <li><strong>branchRegion</strong> — região da filial (desnormalizado)</li>
+          <li><strong>wallets[]</strong> — lista de carteiras do cliente:
+            <ul>
+              <li><strong>walletId</strong></li>
+              <li><strong>balance</strong> — saldo calculado (soma de DEPOSIT - WITHDRAWAL)</li>
+              <li><strong>transactions[]</strong> — histórico de transações:
+                <ul>
+                  <li>transactionId, value, type, occurredAt</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><strong>totalBalance</strong> — saldo consolidado de todas as carteiras (calculado)</li>
+          <li><strong>lastTransactionAt</strong> — data da última movimentação (para filtros do gerente)</li>
+          <li><strong>updatedAt</strong> — quando a projeção foi atualizada pela última vez</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Mapeamento eventos → CustomerView</h3>
+    <p>Cada evento produz uma atualização específica na projeção:</p>
+
+    <table>
+      <thead>
+        <tr><th>Evento recebido</th><th>O que atualizar no CustomerView</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>CustomerCreated</code></td>
+          <td>Criar novo registro de CustomerView com os dados do cliente. accountManagerId será resolvido para nome na próxima etapa ou quando AccountManagerCreated já estiver processado.</td>
+        </tr>
+        <tr>
+          <td><code>CustomerDataUpdated</code></td>
+          <td>Atualizar customerName, customerAddress ou customerAge conforme campos presentes no payload.</td>
+        </tr>
+        <tr>
+          <td><code>AccountManagerAssigned</code></td>
+          <td>Atualizar accountManagerId, managerName e branchRegion no CustomerView do cliente afetado.</td>
+        </tr>
+        <tr>
+          <td><code>AccountManagerCreated</code></td>
+          <td>Criar registro de AccountManager no banco de leitura. Não impacta CustomerView diretamente ainda.</td>
+        </tr>
+        <tr>
+          <td><code>BranchAssigned</code></td>
+          <td>Atualizar branchRegion em todos os CustomerViews cujo gerente seja o AccountManager afetado.</td>
+        </tr>
+        <tr>
+          <td><code>WalletCreated</code></td>
+          <td>Adicionar nova wallet na lista <code>wallets[]</code> do CustomerView correspondente ao customerId.</td>
+        </tr>
+        <tr>
+          <td><code>TransactionRegistered</code></td>
+          <td>Adicionar transação em <code>transactions[]</code> da wallet correta · Recalcular <code>balance</code> da wallet · Recalcular <code>totalBalance</code> do CustomerView · Atualizar <code>lastTransactionAt</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert alert-warning">
+      <div class="alert-icon">⚠</div>
+      <div class="alert-body">
+        <strong>Dependência entre eventos:</strong> ao processar <code>CustomerCreated</code>, é possível que <code>AccountManagerCreated</code> ainda não tenha sido processado (eventos chegam de aggregates diferentes). A projeção deve lidar com essa situação — uma estratégia é armazenar o <code>accountManagerId</code> e resolver o nome em uma etapa posterior, ou tolerar temporariamente campos nulos na projeção.
+      </div>
+    </div>
+
+    <h3>11.2 AccountManagerDashboard — visão admin</h3>
+
+    <p>Projeção secundária para gerentes com perfil administrativo. Exibe todos os clientes da corretora com os mesmos dados do CustomerView, sem filtro por gerente.</p>
+
+    <div class="spec">
+      <div class="spec-header">📊 Estrutura do AccountManagerDashboard</div>
+      <div class="spec-body">
+        <ul>
+          <li>Lista paginada de CustomerViews de <em>todos</em> os clientes</li>
+          <li>Metadados de paginação: total de registros, página atual</li>
+          <li>Suporte a filtros: por gerente, por filial, por saldo mínimo, por data de última transação</li>
+          <li>Suporte a ordenação: por nome, por saldo, por data da última transação</li>
+          <li>É alimentado pelos mesmos eventos que o CustomerView — não requer novos eventos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SNAPSHOT -->
+  <div class="section" id="snapshot">
+    <h2>12. Estratégia de Snapshot</h2>
+
+    <p>Snapshots evitam o replay de toda a história de eventos de um aggregate ao reconstruir seu estado. Para o aggregate Wallet, isso é <strong>obrigatório</strong> — um cliente ativo há 10 anos pode ter centenas de transações.</p>
+
+    <h3>Como funciona</h3>
+
+    <div class="snapshot-row">
+      <span class="ev-label">versão 1</span>
+      <div class="ev-block ev-tx" title="TransactionRegistered">TX</div>
+      <div class="ev-block ev-tx">TX</div>
+      <div class="ev-block ev-tx">TX</div>
+      <div class="ev-block ev-tx">TX</div>
+      <div class="ev-block ev-tx">TX</div>
+      <div class="ev-block ev-tx">TX</div>
+      <div class="ev-block ev-tx">TX</div>
+      <div class="ev-block ev-tx">TX</div>
+      <div class="ev-block ev-tx">TX</div>
+      <div class="ev-block ev-tx">TX</div>
+      <div class="ev-block ev-snap" title="Snapshot capturado">📸</div>
+      <span class="ev-label">snapshot v10</span>
+      <div class="ev-block ev-tx">TX</div>
+      <div class="ev-block ev-tx">TX</div>
+      <div class="ev-block ev-tx">TX</div>
+      <span class="ev-label">v13 atual</span>
+    </div>
+    <p style="font-size:.8rem;color:var(--text2);margin-top:.3rem;">Para reconstruir o estado atual: carregar snapshot v10 (estado pré-calculado) + replay apenas dos eventos v11, v12, v13.</p>
+
+    <div class="spec">
+      <div class="spec-header">📐 Dados de um Snapshot</div>
+      <div class="spec-body">
+        <ul>
+          <li><strong>aggregateId:</strong> qual aggregate este snapshot representa</li>
+          <li><strong>aggregateType:</strong> tipo do aggregate</li>
+          <li><strong>version:</strong> versão do stream no momento do snapshot</li>
+          <li><strong>state:</strong> estado serializado completo do aggregate naquela versão</li>
+          <li><strong>createdAt:</strong> quando o snapshot foi criado</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Política de criação de snapshot</h3>
+
+    <div class="card">
+      <div class="card-title"><span class="dot-accent" style="background:var(--amber)"></span>Quando criar</div>
+      <p style="font-size:.875rem;color:var(--text2);margin:0;">Criar um snapshot sempre que o número de eventos desde o último snapshot atingir um limiar definido. Para o aggregate Wallet, recomenda-se a cada <strong>50 eventos</strong> dado o perfil de baixa frequência de transações. O limiar exato pode ser ajustado durante os testes de carga.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot-accent" style="background:var(--teal)"></span>Como carregar com snapshot</div>
+      <p style="font-size:.875rem;color:var(--text2);margin:0;">Ao receber um command para uma Wallet: (1) buscar o snapshot mais recente → (2) carregar eventos com <code>version &gt; snapshotVersion</code> → (3) aplicar snapshot no aggregate → (4) aplicar eventos restantes. Se não houver snapshot, carregar todos os eventos desde o início.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot-accent" style="background:var(--coral)"></span>Onde armazenar</div>
+      <p style="font-size:.875rem;color:var(--text2);margin:0;">Snapshots são armazenados em uma tabela separada do Event Store, mas no mesmo banco de dados da Write App. Nunca substituem eventos — os eventos originais são mantidos para auditoria completa.</p>
+    </div>
+  </div>
+
+  <!-- QUERIES -->
+  <div class="section" id="queries">
+    <h2>13. Queries da Read App</h2>
+
+    <p>Queries são consultas ao banco de leitura. Ao contrário dos commands, <strong>retornam dados diretamente</strong> e nunca alteram estado. O banco de leitura deve ser otimizado especificamente para estas queries.</p>
+
+    <table>
+      <thead>
+        <tr><th>Query</th><th>Parâmetros</th><th>Retorno</th><th>Caso de uso</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>GetCustomerView</code></td>
+          <td>customerId</td>
+          <td>CustomerView completo</td>
+          <td>Gerente visualiza ficha de um cliente</td>
+        </tr>
+        <tr>
+          <td><code>ListCustomersByManager</code></td>
+          <td>accountManagerId, filtros?, ordenação?, página?</td>
+          <td>Lista paginada de CustomerViews</td>
+          <td>Gerente vê seus clientes com filtros</td>
+        </tr>
+        <tr>
+          <td><code>ListAllCustomers</code></td>
+          <td>filtros?, ordenação?, página?</td>
+          <td>Lista paginada de todos os CustomerViews</td>
+          <td>Gerente admin vê todos os clientes</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Filtros suportados na listagem</h3>
+    <p>Os gerentes usam filtros ativamente como ferramenta de trabalho de relacionamento. O banco de leitura deve suportar eficientemente:</p>
+    <ul>
+      <li>Filtro por <code>accountManagerId</code> — gerente filtra seus próprios clientes</li>
+      <li>Filtro por <code>branchId</code> — admin filtra por filial</li>
+      <li>Filtro por <code>totalBalance</code> mínimo/máximo — para identificar perfis de alto patrimônio</li>
+      <li>Filtro por <code>lastTransactionAt</code> — para identificar clientes sem movimentação recente</li>
+      <li>Ordenação por <code>customerName</code>, <code>totalBalance</code>, <code>lastTransactionAt</code></li>
+    </ul>
+  </div>
+
+  <hr/>
+
+  <!-- FLUXOS COMPLETOS -->
+  <div class="section" id="fluxo-transacao">
+    <h2>14. Fluxo Completo: Registrar Transação</h2>
+
+    <p>Este é o caso de uso de escrita mais frequente do domínio. Percorre toda a stack de escrita e propaga a atualização para a Read App.</p>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-actor">Sistema externo (aplicativo do cliente)</div>
+          <div class="step-desc">Cliente solicita um aporte ou resgate de investimento no aplicativo da corretora</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-actor">Bolsa de Valores</div>
+          <div class="step-desc">Confirma a operação e retorna um <code>exchangeConfirmationId</code></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-actor">API Write App</div>
+          <div class="step-desc">Recebe o command <code>RegisterTransaction</code> com walletId, value, type e exchangeConfirmationId</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-actor">RegisterTransactionHandler</div>
+          <div class="step-desc">Carrega o stream da Wallet (via snapshot + eventos delta) e reconstrói o aggregate</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-actor">Wallet Aggregate</div>
+          <div class="step-desc">Valida: horário dentro da janela de operações, valor positivo, wallet ativa. Emite <code>TransactionRegistered</code></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <div class="step-actor">RegisterTransactionHandler → Event Store</div>
+          <div class="step-desc">Persiste o evento <code>TransactionRegistered</code> com a versão correta</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">7</div>
+        <div class="step-content">
+          <div class="step-actor">RegisterTransactionHandler</div>
+          <div class="step-desc">Verifica se é necessário criar snapshot (versão atingiu o limiar). Se sim, persiste snapshot antes de publicar.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">8</div>
+        <div class="step-content">
+          <div class="step-actor">RegisterTransactionHandler → Fila</div>
+          <div class="step-desc">Publica o evento na fila de mensagens</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">9</div>
+        <div class="step-content">
+          <div class="step-actor">Consumer da Read App</div>
+          <div class="step-desc">Recebe o evento, verifica idempotência e roteia para <code>CustomerViewProjection</code></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">10</div>
+        <div class="step-content">
+          <div class="step-actor">CustomerViewProjection</div>
+          <div class="step-desc">Adiciona a transação ao CustomerView, recalcula balance e totalBalance, atualiza lastTransactionAt</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="fluxo-listagem">
+    <h2>15. Fluxo Completo: Listar Clientes</h2>
+
+    <p>Este é o caso de uso mais frequente do sistema (10.000× mais que escrita). Deve ser extremamente eficiente — apenas uma consulta ao banco de leitura.</p>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-actor">Gerente de conta (via interface do CRM)</div>
+          <div class="step-desc">Acessa a listagem de clientes com filtros: por exemplo, clientes com saldo acima de R$ 500.000 sem movimentação nos últimos 60 dias</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-actor">API Read App</div>
+          <div class="step-desc">Recebe a query <code>ListCustomersByManager</code> com accountManagerId e filtros</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-actor">Query Handler → Banco de Leitura</div>
+          <div class="step-desc">Consulta diretamente a projeção CustomerView com os filtros e ordenação especificados</div>
+          <div class="step-detail">Sem joins complexos, sem reconstrução de estado, sem acesso ao Event Store. Apenas leitura da projeção já montada.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-actor">API Read App</div>
+          <div class="step-desc">Retorna lista paginada de CustomerViews com todos os dados necessários para a tela</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-success">
+      <div class="alert-icon">✓</div>
+      <div class="alert-body">
+        <strong>Por que este fluxo é rápido:</strong> a projeção CustomerView já está desnormalizada e pré-calculada. O gerente vê nome do cliente, nome do gerente, região da filial, saldo consolidado e última transação em uma única consulta. Não há processamento em tempo de query.
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="fluxo-gerente">
+    <h2>16. Fluxo Completo: Visão do Gerente Admin</h2>
+
+    <p>Gerentes com perfil administrativo enxergam todos os clientes da corretora. Esta consulta pode envolver milhares de registros e deve suportar paginação obrigatória.</p>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-actor">Gerente Admin</div>
+          <div class="step-desc">Acessa a visão administrativa da listagem com filtros e ordenação</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-actor">API Read App</div>
+          <div class="step-desc">Verifica se o <code>accountManagerId</code> possui perfil admin antes de processar <code>ListAllCustomers</code></div>
+          <div class="step-detail">Controle de acesso: gerentes sem perfil admin não podem chamar esta query</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-actor">Query Handler → Banco de Leitura</div>
+          <div class="step-desc">Consulta a projeção CustomerView sem filtro de gerente, com paginação obrigatória</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-actor">API Read App</div>
+          <div class="step-desc">Retorna página atual + total de registros + metadados de paginação</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- CRITÉRIOS DE ACEITE -->
+  <div class="section" id="criterios">
+    <h2>17. Critérios de Aceite</h2>
+
+    <p>O agente implementador deve garantir que todos os itens abaixo estão funcionando antes de considerar a implementação completa.</p>
+
+    <h3>Write App</h3>
+    <ul class="checklist">
+      <li><span><strong>Aggregate Wallet:</strong> ao aplicar N eventos em sequência, o estado reconstruído é idêntico ao esperado (balance = soma de DEPOSIT - WITHDRAWAL)</span></li>
+      <li><span><strong>Invariante de horário:</strong> command <code>RegisterTransaction</code> fora da janela 08h–19h ou em fim de semana deve ser rejeitado com erro de domínio</span></li>
+      <li><span><strong>Invariante de valor:</strong> command com value ≤ 0 deve ser rejeitado</span></li>
+      <li><span><strong>Optimistic locking:</strong> dois commands simultâneos para a mesma Wallet devem resultar em um sucesso e um conflito de versão</span></li>
+      <li><span><strong>Event Store:</strong> após qualquer command aceito, o evento correspondente está persistido com version incrementada</span></li>
+      <li><span><strong>Publicação na fila:</strong> evento é publicado na fila somente após persistência confirmada no Event Store</span></li>
+      <li><span><strong>Snapshot criado:</strong> após N transações em uma Wallet, um snapshot é criado no banco</span></li>
+      <li><span><strong>Reconstituição com snapshot:</strong> carregar Wallet via snapshot + delta produz o mesmo estado que carregar todos os eventos desde o início</span></li>
+    </ul>
+
+    <h3>Fila e Consumer</h3>
+    <ul class="checklist">
+      <li><span><strong>Reentrega idempotente:</strong> processar o mesmo evento duas vezes não produz dados duplicados na projeção</span></li>
+      <li><span><strong>DLQ configurada:</strong> evento que falha repetidamente vai para Dead Letter Queue, não é descartado</span></li>
+      <li><span><strong>Ordenação por aggregate:</strong> eventos da mesma Wallet são processados na ordem correta de version</span></li>
+    </ul>
+
+    <h3>Read App</h3>
+    <ul class="checklist">
+      <li><span><strong>CustomerView completo:</strong> após <code>CustomerCreated</code> + <code>WalletCreated</code> + <code>TransactionRegistered</code>, o CustomerView contém nome, gerente, filial, saldo e transação</span></li>
+      <li><span><strong>Múltiplas carteiras:</strong> cliente com 2 wallets tem ambas listadas e <code>totalBalance</code> é a soma de ambas</span></li>
+      <li><span><strong>Filtro por saldo:</strong> query com saldo mínimo retorna apenas clientes com totalBalance ≥ filtro</span></li>
+      <li><span><strong>Filtro por última transação:</strong> query com data retorna apenas clientes com lastTransactionAt dentro do período</span></li>
+      <li><span><strong>Perfil admin:</strong> gerente sem perfil admin não acessa <code>ListAllCustomers</code></span></li>
+      <li><span><strong>Consistência eventual:</strong> após uma transação ser confirmada na Write App, a Read App deve refletir o novo saldo em um tempo aceitável (definido durante os testes de carga)</span></li>
+    </ul>
+
+    <h3>Qualidade de código (para análise SonarQube)</h3>
+    <ul class="checklist">
+      <li><span>Cada aggregate deve ter testes unitários cobrindo <strong>todas as invariantes de negócio</strong></span></li>
+      <li><span>Cada projeção deve ter testes de integração cobrindo o mapeamento evento → leitura</span></li>
+      <li><span>Command Handlers devem ter testes cobrindo o fluxo completo com mocks do Event Store e da fila</span></li>
+      <li><span>Complexidade ciclomática individual de métodos deve ser mantida baixa — extrair métodos quando um handler acumula muita lógica</span></li>
+    </ul>
+
+    <div class="alert alert-info" style="margin-top:2rem;">
+      <div class="alert-icon">ℹ</div>
+      <div class="alert-body">
+        <strong>Nota para o TCC:</strong> este guideline foi desenhado para maximizar a complexidade mensurável — aggregates com invariantes, snapshots como controle de estado, consumer com idempotência, projeções com cálculos — sem adicionar complexidade artificial. O SonarQube deve capturar McCabe e Halstead naturalmente dessa implementação.
+      </div>
+    </div>
+  </div>
+
+</main>
+</div>
+
+<script>
+const links = document.querySelectorAll('nav a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`nav a[href="#${e.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.section[id], .hero[id]').forEach(s => observer.observe(s));
+links.forEach(l => {
+  l.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(l.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Cliente\\\\Desktop\\\\TCC Artigos e documentos\\\\projeto tcc\\\\cqrs-event-sourcing\" -Recurse -Force)",
+      "Bash(Select-Object -Property FullName, PSIsContainer)",
+      "Bash(Sort-Object FullName)",
+      "Bash(psql --version)",
+      "PowerShell(Get-Command *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Cliente\\\\Desktop\\\\TCC Artigos e documentos\\\\projeto tcc\\\\cqrs-data-replication\" -Recurse -Directory)",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(Select-Object FullName)"
+    ]
+  }
+}

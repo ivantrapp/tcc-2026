@@ -1,0 +1,433 @@
+{
+  "info": {
+    "_postman_id": "cqrs-crm-collection-v1",
+    "name": "CRM - CQRS Event Sourcing",
+    "description": "Collection completa para testar a write app (8080) e a read app (8081). Execute na ordem numérica dos itens para que os IDs sejam capturados automaticamente pelas variáveis de coleção.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "write_url",        "value": "http://localhost:8080" },
+    { "key": "read_url",         "value": "http://localhost:8081" },
+    { "key": "accountManagerId", "value": "" },
+    { "key": "customerId",       "value": "" },
+    { "key": "walletId",         "value": "" },
+    { "key": "branchId",         "value": "a1b2c3d4-e5f6-7890-abcd-ef1234567890" }
+  ],
+  "item": [
+    {
+      "name": "Write App",
+      "item": [
+        {
+          "name": "Account Manager",
+          "item": [
+            {
+              "name": "1. Criar Account Manager",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 201', () => pm.response.to.have.status(201));",
+                      "const res = pm.response.json();",
+                      "pm.collectionVariables.set('accountManagerId', res.accountManagerId);",
+                      "console.log('accountManagerId salvo:', res.accountManagerId);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                  "mode": "raw",
+                  "options": { "raw": { "language": "json" } },
+                  "raw": "{\n  \"name\": \"Carlos Oliveira\",\n  \"branchId\": \"{{branchId}}\",\n  \"isAdmin\": false,\n  \"correlationId\": \"11111111-1111-1111-1111-111111111111\",\n  \"causedBy\": \"admin\"\n}"
+                },
+                "url": {
+                  "raw": "{{write_url}}/account-managers",
+                  "host": ["{{write_url}}"],
+                  "path": ["account-managers"]
+                }
+              }
+            },
+            {
+              "name": "2. Conceder Perfil Admin",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 204', () => pm.response.to.have.status(204));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                  "mode": "raw",
+                  "options": { "raw": { "language": "json" } },
+                  "raw": "{\n  \"correlationId\": \"22222222-2222-2222-2222-222222222222\",\n  \"causedBy\": \"admin\"\n}"
+                },
+                "url": {
+                  "raw": "{{write_url}}/account-managers/{{accountManagerId}}/admin",
+                  "host": ["{{write_url}}"],
+                  "path": ["account-managers", "{{accountManagerId}}", "admin"]
+                }
+              }
+            },
+            {
+              "name": "3. Atribuir Branch",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 204', () => pm.response.to.have.status(204));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                  "mode": "raw",
+                  "options": { "raw": { "language": "json" } },
+                  "raw": "{\n  \"branchId\": \"b2c3d4e5-f6a7-8901-bcde-f12345678901\",\n  \"correlationId\": \"33333333-3333-3333-3333-333333333333\",\n  \"causedBy\": \"admin\"\n}"
+                },
+                "url": {
+                  "raw": "{{write_url}}/account-managers/{{accountManagerId}}/branch",
+                  "host": ["{{write_url}}"],
+                  "path": ["account-managers", "{{accountManagerId}}", "branch"]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Customer",
+          "item": [
+            {
+              "name": "4. Criar Customer",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 201', () => pm.response.to.have.status(201));",
+                      "const res = pm.response.json();",
+                      "pm.collectionVariables.set('customerId', res.customerId);",
+                      "console.log('customerId salvo:', res.customerId);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                  "mode": "raw",
+                  "options": { "raw": { "language": "json" } },
+                  "raw": "{\n  \"name\": \"Ana Souza\",\n  \"address\": \"Rua das Flores, 123 - São Paulo/SP\",\n  \"age\": 32,\n  \"accountManagerId\": \"{{accountManagerId}}\",\n  \"correlationId\": \"44444444-4444-4444-4444-444444444444\",\n  \"causedBy\": \"onboarding\"\n}"
+                },
+                "url": {
+                  "raw": "{{write_url}}/customers",
+                  "host": ["{{write_url}}"],
+                  "path": ["customers"]
+                }
+              }
+            },
+            {
+              "name": "5. Atualizar Dados do Customer",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 204', () => pm.response.to.have.status(204));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                  "mode": "raw",
+                  "options": { "raw": { "language": "json" } },
+                  "raw": "{\n  \"name\": \"Ana Souza Silva\",\n  \"address\": \"Av. Paulista, 1000 - São Paulo/SP\",\n  \"age\": 33,\n  \"correlationId\": \"55555555-5555-5555-5555-555555555555\",\n  \"causedBy\": \"customer-request\"\n}"
+                },
+                "url": {
+                  "raw": "{{write_url}}/customers/{{customerId}}",
+                  "host": ["{{write_url}}"],
+                  "path": ["customers", "{{customerId}}"]
+                }
+              }
+            },
+            {
+              "name": "6. Trocar Account Manager do Customer",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 204', () => pm.response.to.have.status(204));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                  "mode": "raw",
+                  "options": { "raw": { "language": "json" } },
+                  "raw": "{\n  \"accountManagerId\": \"{{accountManagerId}}\",\n  \"correlationId\": \"66666666-6666-6666-6666-666666666666\",\n  \"causedBy\": \"reallocation\"\n}"
+                },
+                "url": {
+                  "raw": "{{write_url}}/customers/{{customerId}}/account-manager",
+                  "host": ["{{write_url}}"],
+                  "path": ["customers", "{{customerId}}", "account-manager"]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Wallet",
+          "item": [
+            {
+              "name": "7. Criar Wallet",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 201', () => pm.response.to.have.status(201));",
+                      "const res = pm.response.json();",
+                      "pm.collectionVariables.set('walletId', res.walletId);",
+                      "console.log('walletId salvo:', res.walletId);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                  "mode": "raw",
+                  "options": { "raw": { "language": "json" } },
+                  "raw": "{\n  \"customerId\": \"{{customerId}}\",\n  \"correlationId\": \"77777777-7777-7777-7777-777777777777\",\n  \"causedBy\": \"onboarding\"\n}"
+                },
+                "url": {
+                  "raw": "{{write_url}}/wallets",
+                  "host": ["{{write_url}}"],
+                  "path": ["wallets"]
+                }
+              }
+            },
+            {
+              "name": "8. Registrar Depósito",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 201', () => pm.response.to.have.status(201));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                  "mode": "raw",
+                  "options": { "raw": { "language": "json" } },
+                  "raw": "{\n  \"walletId\": \"{{walletId}}\",\n  \"value\": 5000.00,\n  \"type\": \"DEPOSIT\",\n  \"exchangeConfirmationId\": \"c3d4e5f6-a7b8-9012-cdef-123456789012\",\n  \"correlationId\": \"88888888-8888-8888-8888-888888888888\",\n  \"causedBy\": \"bank-transfer\"\n}"
+                },
+                "url": {
+                  "raw": "{{write_url}}/wallets/{{walletId}}/transactions",
+                  "host": ["{{write_url}}"],
+                  "path": ["wallets", "{{walletId}}", "transactions"]
+                }
+              }
+            },
+            {
+              "name": "9. Registrar Saque",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 201', () => pm.response.to.have.status(201));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                  "mode": "raw",
+                  "options": { "raw": { "language": "json" } },
+                  "raw": "{\n  \"walletId\": \"{{walletId}}\",\n  \"value\": 1500.00,\n  \"type\": \"WITHDRAWAL\",\n  \"exchangeConfirmationId\": \"d4e5f6a7-b8c9-0123-defa-234567890123\",\n  \"correlationId\": \"99999999-9999-9999-9999-999999999999\",\n  \"causedBy\": \"withdrawal-request\"\n}"
+                },
+                "url": {
+                  "raw": "{{write_url}}/wallets/{{walletId}}/transactions",
+                  "host": ["{{write_url}}"],
+                  "path": ["wallets", "{{walletId}}", "transactions"]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Read App",
+      "item": [
+        {
+          "name": "Account Managers",
+          "item": [
+            {
+              "name": "10. Listar Account Managers",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                      "pm.test('É array', () => pm.expect(pm.response.json()).to.be.an('array'));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{read_url}}/account-managers",
+                  "host": ["{{read_url}}"],
+                  "path": ["account-managers"]
+                }
+              }
+            },
+            {
+              "name": "11. Buscar Account Manager por ID",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                      "const res = pm.response.json();",
+                      "pm.test('Tem customerCount', () => pm.expect(res).to.have.property('customerCount'));",
+                      "pm.test('Tem isAdmin', () => pm.expect(res).to.have.property('admin'));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{read_url}}/account-managers/{{accountManagerId}}",
+                  "host": ["{{read_url}}"],
+                  "path": ["account-managers", "{{accountManagerId}}"]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Customers",
+          "item": [
+            {
+              "name": "12. Listar Customers",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                      "pm.test('É array', () => pm.expect(pm.response.json()).to.be.an('array'));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{read_url}}/customers",
+                  "host": ["{{read_url}}"],
+                  "path": ["customers"]
+                }
+              }
+            },
+            {
+              "name": "13. Buscar Customer por ID",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                      "const res = pm.response.json();",
+                      "pm.test('Tem walletBalance', () => pm.expect(res).to.have.property('walletBalance'));",
+                      "pm.test('Tem accountManagerName', () => pm.expect(res).to.have.property('accountManagerName'));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{read_url}}/customers/{{customerId}}",
+                  "host": ["{{read_url}}"],
+                  "path": ["customers", "{{customerId}}"]
+                }
+              }
+            },
+            {
+              "name": "14. Customers por Account Manager",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                      "pm.test('É array', () => pm.expect(pm.response.json()).to.be.an('array'));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{read_url}}/customers/by-account-manager/{{accountManagerId}}",
+                  "host": ["{{read_url}}"],
+                  "path": ["customers", "by-account-manager", "{{accountManagerId}}"]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

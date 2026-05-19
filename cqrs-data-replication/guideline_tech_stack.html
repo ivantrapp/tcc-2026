@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Guideline — Stack Tecnológica</title>
+<style>
+  :root {
+    --bg: #0f1117; --bg2: #161b27; --bg3: #1e2535; --border: #2a3348;
+    --text: #e2e8f0; --text2: #94a3b8; --text3: #64748b;
+    --accent: #10b981; --accent2: #34d399;
+    --teal: #2dd4bf; --amber: #f59e0b; --amber2: #fcd34d;
+    --coral: #f43f5e; --green: #22c55e;
+    --purple: #a855f7; --purple2: #d8b4fe;
+    --blue: #3b82f6; --blue2: #93c5fd;
+    --mono: 'JetBrains Mono', 'Fira Code', monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.7; }
+  .layout { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; }
+  aside {
+    background: var(--bg2); border-right: 1px solid var(--border);
+    padding: 2rem 0; position: sticky; top: 0; height: 100vh; overflow-y: auto;
+  }
+  .aside-title { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--text3); padding: 0 1.5rem 1rem; }
+  nav a {
+    display: flex; align-items: center; gap: 8px;
+    padding: .4rem 1.5rem; font-size: 13px; color: var(--text2);
+    text-decoration: none; border-left: 2px solid transparent; transition: all .15s;
+  }
+  nav a:hover { color: var(--text); background: var(--bg3); }
+  nav a.active { color: var(--accent2); border-left-color: var(--accent); background: rgba(16,185,129,.08); }
+  nav .nav-section { font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text3); padding: .9rem 1.5rem .3rem; }
+  nav .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  main { padding: 3rem 4rem 6rem; max-width: 860px; }
+  .hero { padding: 2rem 0 3rem; border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(16,185,129,.15); border: 1px solid rgba(16,185,129,.3);
+    color: var(--accent2); font-size: 11px; font-weight: 600; letter-spacing: .06em;
+    text-transform: uppercase; padding: 3px 10px; border-radius: 99px; margin-bottom: 1.2rem;
+  }
+  h1 { font-size: 2rem; font-weight: 700; line-height: 1.2; margin-bottom: .5rem; }
+  .subtitle { color: var(--text2); font-size: 15px; }
+  h2 { font-size: 1.3rem; font-weight: 600; margin: 2.5rem 0 1rem; padding-bottom: .5rem; border-bottom: 1px solid var(--border); scroll-margin-top: 1rem; }
+  p { margin-bottom: .8rem; color: var(--text); }
+  ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+  li { margin-bottom: .3rem; color: var(--text2); }
+  li::marker { color: var(--text3); }
+  li strong { color: var(--text); }
+  code {
+    font-family: var(--mono); font-size: .82em;
+    background: var(--bg3); border: 1px solid var(--border);
+    color: var(--accent2); padding: 1px 5px; border-radius: 4px;
+  }
+  .section { margin-bottom: 3rem; }
+  .alert { border-radius: 8px; padding: .9rem 1.1rem; margin: 1.2rem 0; font-size: .875rem; display: flex; gap: .7rem; }
+  .alert-warning { background: rgba(245,158,11,.1); border: 1px solid rgba(245,158,11,.2); }
+  .alert-info    { background: rgba(16,185,129,.1);  border: 1px solid rgba(16,185,129,.2); }
+  .alert-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .alert-warning .alert-icon { color: var(--amber); }
+  .alert-info    .alert-icon { color: var(--accent2); }
+  .alert-body { color: var(--text2); line-height: 1.6; }
+  .alert-body strong { color: var(--text); }
+  table { width: 100%; border-collapse: collapse; font-size: .86rem; margin: 1rem 0; }
+  th { text-align: left; padding: .6rem .8rem; font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text3); border-bottom: 1px solid var(--border); }
+  td { padding: .55rem .8rem; border-bottom: 1px solid rgba(42,51,72,.5); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,.02); }
+  .pill { display: inline-block; font-size: .75rem; font-weight: 500; padding: 2px 9px; border-radius: 99px; margin: 2px 2px 2px 0; }
+  .pill-green  { background: rgba(16,185,129,.15);  color: var(--accent2); border: 1px solid rgba(16,185,129,.25); }
+  .pill-blue   { background: rgba(59,130,246,.15);  color: var(--blue2);   border: 1px solid rgba(59,130,246,.25); }
+  .pill-amber  { background: rgba(245,158,11,.12);  color: var(--amber);   border: 1px solid rgba(245,158,11,.2); }
+  .pill-purple { background: rgba(168,85,247,.12);  color: var(--purple2); border: 1px solid rgba(168,85,247,.2); }
+  .code-block { background: #0d1117; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 1rem 0; font-family: var(--mono); font-size: .78rem; line-height: 1.9; }
+  .code-header { padding: .45rem 1rem; background: var(--bg3); border-bottom: 1px solid var(--border); font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--text3); display: flex; align-items: center; justify-content: space-between; }
+  .code-lang { font-size: .65rem; font-weight: 600; padding: 1px 7px; border-radius: 4px; background: var(--bg); color: var(--text3); border: 1px solid var(--border); text-transform: uppercase; }
+  .code-body { padding: .9rem 1.1rem; overflow-x: auto; }
+  .pr { color: #ffb86c; } .str { color: #f1fa8c; } .cm { color: #6272a4; font-style: italic; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+</style>
+</head>
+<body>
+<div class="layout">
+
+<aside>
+  <div class="aside-title">Guideline</div>
+  <div style="padding:0 1.5rem .8rem;font-size:.75rem;color:var(--text3);">Stack Tecnológica — Transversal</div>
+  <div class="nav-section">Tecnologias</div>
+  <nav>
+    <a href="#stack"><span class="dot" style="background:var(--accent)"></span>Stack Completa</a>
+    <a href="#aplicacoes"><span class="dot" style="background:var(--blue)"></span>Aplicações</a>
+    <a href="#banco"><span class="dot" style="background:var(--amber)"></span>Banco de Dados</a>
+  </nav>
+  <div class="nav-section">Infraestrutura</div>
+  <nav>
+    <a href="#docker"><span class="dot" style="background:var(--amber)"></span>Docker Compose</a>
+    <a href="#rede"><span class="dot" style="background:var(--purple)"></span>Rede e Serviços</a>
+  </nav>
+</aside>
+
+<main>
+
+  <div class="hero">
+    <div class="badge">⚙ Guideline Transversal</div>
+    <h1>Stack Tecnológica</h1>
+    <p class="subtitle">Tecnologias obrigatórias para ambas as implementações CQRS.<br>Vale tanto para Event Sourcing quanto para Replicação de Dados.</p>
+  </div>
+
+  <div class="section" id="stack">
+    <h2>1. Stack Completa</h2>
+    <table>
+      <thead><tr><th>Tecnologia</th><th>Versão</th><th>Papel</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Java</strong></td>
+          <td><span class="pill pill-green">21 LTS</span></td>
+          <td>Linguagem principal. Uso de Virtual Threads e Records obrigatórios.</td>
+        </tr>
+        <tr>
+          <td><strong>Spring Boot</strong></td>
+          <td><span class="pill pill-green">4.x</span></td>
+          <td>Framework base das duas aplicações. Virtual Threads habilitadas via <code>spring.threads.virtual.enabled=true</code>.</td>
+        </tr>
+        <tr>
+          <td><strong>Spring Web MVC</strong></td>
+          <td><span class="pill pill-blue">via Spring Boot</span></td>
+          <td>Camada HTTP. Usar MVC bloqueante — com Virtual Threads não há necessidade de WebFlux.</td>
+        </tr>
+        <tr>
+          <td><strong>Spring Data JPA</strong></td>
+          <td><span class="pill pill-blue">via Spring Boot</span></td>
+          <td>Acesso ao banco de dados.</td>
+        </tr>
+        <tr>
+          <td><strong>Flyway</strong></td>
+          <td><span class="pill pill-blue">via Spring Boot</span></td>
+          <td>Migrations de banco em ambas as aplicações.</td>
+        </tr>
+        <tr>
+          <td><strong>PostgreSQL</strong></td>
+          <td><span class="pill pill-amber">16</span></td>
+          <td>Banco de dados. Uma instância para write, outra para read.</td>
+        </tr>
+        <tr>
+          <td><strong>Maven</strong></td>
+          <td><span class="pill pill-blue">3.9+</span></td>
+          <td>Build tool e gerenciamento de dependências.</td>
+        </tr>
+        <tr>
+          <td><strong>Docker Compose</strong></td>
+          <td><span class="pill pill-blue">v2</span></td>
+          <td>Orquestração local de todos os serviços.</td>
+        </tr>
+        <tr>
+          <td><strong>SonarQube</strong></td>
+          <td><span class="pill pill-purple">Community</span></td>
+          <td>Análise estática de complexidade ciclomática (McCabe) e Halstead.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section" id="aplicacoes">
+    <h2>2. Aplicações</h2>
+    <p>Cada abordagem tem <strong>dois projetos Maven independentes</strong>.</p>
+    <table>
+      <thead><tr><th>Aplicação</th><th>Porta</th><th>Responsabilidade</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Write App</strong></td>
+          <td><code>8080</code></td>
+          <td>Recebe commands, executa aggregates, persiste no banco write.</td>
+        </tr>
+        <tr>
+          <td><strong>Read App</strong></td>
+          <td><code>8081</code></td>
+          <td>Serve queries, lê exclusivamente do banco read. Nunca escreve.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section" id="banco">
+    <h2>3. Banco de Dados</h2>
+    <table>
+      <thead><tr><th>Instância</th><th>Database</th><th>Porta exposta</th><th>Quem conecta</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Write DB</strong></td>
+          <td><code>crm_write</code></td>
+          <td><code>5432</code></td>
+          <td>Write App</td>
+        </tr>
+        <tr>
+          <td><strong>Read DB</strong></td>
+          <td><code>crm_read</code></td>
+          <td><code>5433</code></td>
+          <td>Read App</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="alert alert-warning">
+      <div class="alert-icon">⚠</div>
+      <div class="alert-body"><strong>Read App nunca conecta no Write DB.</strong> A separação de datasources é uma fronteira arquitetural obrigatória em ambas as abordagens.</div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <div class="section" id="docker">
+    <h2>4. Docker Compose</h2>
+    <div class="code-block">
+      <div class="code-header"><span>docker-compose.yml</span><span class="code-lang">YAML</span></div>
+      <div class="code-body">
+<span class="pr">services</span>:<br>
+<br>
+&nbsp;&nbsp;<span class="cm"># ── Banco de escrita ─────────────────────────────────</span><br>
+&nbsp;&nbsp;<span class="pr">db-write</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">image</span>: <span class="str">postgres:16</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">container_name</span>: <span class="str">crm-db-write</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">environment</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">POSTGRES_DB</span>: <span class="str">crm_write</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">POSTGRES_USER</span>: <span class="str">crm</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">POSTGRES_PASSWORD</span>: <span class="str">crm</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">ports</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">"5432:5432"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">networks</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">crm-network</span><br>
+<br>
+&nbsp;&nbsp;<span class="cm"># ── Banco de leitura ─────────────────────────────────</span><br>
+&nbsp;&nbsp;<span class="pr">db-read</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">image</span>: <span class="str">postgres:16</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">container_name</span>: <span class="str">crm-db-read</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">environment</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">POSTGRES_DB</span>: <span class="str">crm_read</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">POSTGRES_USER</span>: <span class="str">crm</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">POSTGRES_PASSWORD</span>: <span class="str">crm</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">ports</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">"5433:5432"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">networks</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">crm-network</span><br>
+<br>
+&nbsp;&nbsp;<span class="cm"># ── Aplicação de escrita ──────────────────────────────</span><br>
+&nbsp;&nbsp;<span class="pr">write-app</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">build</span>: <span class="str">./write-app</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">container_name</span>: <span class="str">crm-write-app</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">ports</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">"8080:8080"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">environment</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">SPRING_DATASOURCE_URL</span>: <span class="str">jdbc:postgresql://db-write:5432/crm_write</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">SPRING_DATASOURCE_USERNAME</span>: <span class="str">crm</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">SPRING_DATASOURCE_PASSWORD</span>: <span class="str">crm</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">depends_on</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">db-write</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">networks</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">crm-network</span><br>
+<br>
+&nbsp;&nbsp;<span class="cm"># ── Aplicação de leitura ──────────────────────────────</span><br>
+&nbsp;&nbsp;<span class="pr">read-app</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">build</span>: <span class="str">./read-app</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">container_name</span>: <span class="str">crm-read-app</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">ports</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">"8081:8080"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">environment</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">SPRING_DATASOURCE_URL</span>: <span class="str">jdbc:postgresql://db-read:5432/crm_read</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">SPRING_DATASOURCE_USERNAME</span>: <span class="str">crm</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">SPRING_DATASOURCE_PASSWORD</span>: <span class="str">crm</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">depends_on</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">db-read</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">networks</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="str">crm-network</span><br>
+<br>
+<span class="pr">networks</span>:<br>
+&nbsp;&nbsp;<span class="pr">crm-network</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pr">driver</span>: <span class="str">bridge</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="rede">
+    <h2>5. Rede e Comunicação entre Serviços</h2>
+    <p>Todos os containers compartilham a rede <code>crm-network</code>. Dentro dela os serviços se comunicam pelo nome do container.</p>
+    <table>
+      <thead><tr><th>De</th><th>Para</th><th>Endereço interno</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Write App</td>
+          <td>Write DB</td>
+          <td><code>jdbc:postgresql://db-write:5432/crm_write</code></td>
+        </tr>
+        <tr>
+          <td>Read App</td>
+          <td>Read DB</td>
+          <td><code>jdbc:postgresql://db-read:5432/crm_read</code></td>
+        </tr>
+        <tr>
+          <td>Read DB <em>(só na abordagem de Replicação)</em></td>
+          <td>Write DB</td>
+          <td><code>host=db-write</code> — usado na configuração da subscrição WAL</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="alert alert-info">
+      <div class="alert-icon">ℹ</div>
+      <div class="alert-body"><strong>Por que rede bridge isolada?</strong> Garante que os containers se enxergam pelo nome do serviço (<code>db-write</code>, <code>db-read</code>) sem expor portas desnecessárias entre si. Apenas as portas declaradas em <code>ports</code> ficam acessíveis no host.</div>
+    </div>
+  </div>
+
+</main>
+</div>
+
+<script>
+const links = document.querySelectorAll('nav a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(l => l.classList.remove('active'));
+      const a = document.querySelector(`nav a[href="#${e.target.id}"]`);
+      if (a) a.classList.add('active');
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.section[id]').forEach(s => observer.observe(s));
+links.forEach(l => l.addEventListener('click', e => {
+  e.preventDefault();
+  document.querySelector(l.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+}));
+</script>
+</body>
+</html>

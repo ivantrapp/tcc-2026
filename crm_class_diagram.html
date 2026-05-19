@@ -1,0 +1,113 @@
+<style>
+#cd { padding: 1rem 0; }
+#cd svg.classDiagram .row-rect-odd path,
+#cd svg.classDiagram .row-rect-odd rect,
+#cd svg.classDiagram .row-rect-even path,
+#cd svg.classDiagram .row-rect-even rect { stroke: none !important; }
+</style>
+<div id="cd"></div>
+<script type="module">
+import mermaid from 'https://esm.sh/mermaid@11/dist/mermaid.esm.min.mjs';
+const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+await document.fonts.ready;
+mermaid.initialize({
+  startOnLoad: false,
+  theme: 'base',
+  fontFamily: '"Anthropic Sans", sans-serif',
+  themeVariables: {
+    darkMode: dark,
+    fontSize: '13px',
+    fontFamily: '"Anthropic Sans", sans-serif',
+    lineColor: dark ? '#9c9a92' : '#73726c',
+    textColor: dark ? '#c2c0b6' : '#3d3d3a',
+  },
+});
+const { svg } = await mermaid.render('cd-svg', `classDiagram
+  direction TB
+
+  class Customer {
+    +UUID id
+    +String name
+    +String address
+    +int age
+    +UUID accountManagerId
+    +Instant createdAt
+  }
+
+  class AccountManager {
+    +UUID id
+    +String name
+    +UUID branchId
+    +Instant createdAt
+  }
+
+  class Branch {
+    +UUID id
+    +String region
+    +Instant createdAt
+  }
+
+  class Revenue {
+    +UUID id
+    +int month
+    +int year
+    +BigDecimal value
+    +UUID branchId
+  }
+
+  class Wallet {
+    +UUID id
+    +BigDecimal balance
+    +UUID customerId
+    +Instant createdAt
+    +apply(Transaction)
+  }
+
+  class Transaction {
+    +UUID id
+    +BigDecimal value
+    +TransactionType type
+    +UUID walletId
+    +Instant createdAt
+  }
+
+  class CustomerView {
+    +UUID customerId
+    +String customerName
+    +UUID walletId
+    +BigDecimal balance
+    +String managerName
+    +String branchRegion
+    +List~TransactionSummary~ transactions
+  }
+
+  Customer "1" --> "1" AccountManager
+  AccountManager "*" --> "1" Branch
+  Branch "1" --> "*" Revenue
+  Customer "1" --> "*" Wallet
+  Wallet "1" --> "*" Transaction
+  CustomerView ..> Customer : projects
+  CustomerView ..> Wallet : projects
+  CustomerView ..> AccountManager : projects`);
+document.getElementById('cd').innerHTML = svg;
+
+document.querySelectorAll('#cd svg.classDiagram .node').forEach(node => {
+  const firstPath = node.querySelector('path[d]');
+  if (!firstPath) return;
+  const d = firstPath.getAttribute('d');
+  const nums = d.match(/-?[\d.]+/g)?.map(Number);
+  if (!nums || nums.length < 8) return;
+  const xs = [nums[0], nums[2], nums[4], nums[6]];
+  const ys = [nums[1], nums[3], nums[5], nums[7]];
+  const x = Math.min(...xs), y = Math.min(...ys);
+  const w = Math.max(...xs) - x, h = Math.max(...ys) - y;
+  const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+  rect.setAttribute('x', x); rect.setAttribute('y', y);
+  rect.setAttribute('width', w); rect.setAttribute('height', h);
+  rect.setAttribute('rx', '8');
+  for (const a of ['fill', 'stroke', 'stroke-width', 'class', 'style']) {
+    if (firstPath.hasAttribute(a)) rect.setAttribute(a, firstPath.getAttribute(a));
+  }
+  firstPath.replaceWith(rect);
+});
+</script>

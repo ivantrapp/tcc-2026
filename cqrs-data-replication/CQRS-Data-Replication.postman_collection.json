@@ -1,0 +1,392 @@
+{
+  "info": {
+    "name": "CQRS Data Replication",
+    "_postman_id": "cqrs-data-replication-collection",
+    "description": "Write App (8080) + Read App (8081) — CQRS com replicação WAL PostgreSQL",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "writeBaseUrl", "value": "http://localhost:8080" },
+    { "key": "readBaseUrl",  "value": "http://localhost:8081" },
+    { "key": "branchId",         "value": "" },
+    { "key": "accountManagerId", "value": "" },
+    { "key": "customerId",       "value": "" },
+    { "key": "walletId",         "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Write App",
+      "item": [
+        {
+          "name": "Branch",
+          "item": [
+            {
+              "name": "Criar Branch",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "var json = pm.response.json();",
+                      "pm.collectionVariables.set('branchId', json.branchId);",
+                      "pm.test('Status 201', () => pm.response.to.have.status(201));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "url": { "raw": "{{writeBaseUrl}}/branches", "host": ["{{writeBaseUrl}}"], "path": ["branches"] },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"region\": \"Sudeste\"\n}"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Account Manager",
+          "item": [
+            {
+              "name": "Criar Account Manager",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "var json = pm.response.json();",
+                      "pm.collectionVariables.set('accountManagerId', json.accountManagerId);",
+                      "pm.test('Status 201', () => pm.response.to.have.status(201));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "url": { "raw": "{{writeBaseUrl}}/account-managers", "host": ["{{writeBaseUrl}}"], "path": ["account-managers"] },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Carlos Silva\",\n  \"branchId\": \"{{branchId}}\",\n  \"isAdmin\": false\n}"
+                }
+              }
+            },
+            {
+              "name": "Promover a Admin",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test('Status 204', () => pm.response.to.have.status(204));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "{{writeBaseUrl}}/account-managers/{{accountManagerId}}/admin",
+                  "host": ["{{writeBaseUrl}}"],
+                  "path": ["account-managers", "{{accountManagerId}}", "admin"]
+                }
+              }
+            },
+            {
+              "name": "Atribuir Branch",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test('Status 204', () => pm.response.to.have.status(204));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "url": {
+                  "raw": "{{writeBaseUrl}}/account-managers/{{accountManagerId}}/branch",
+                  "host": ["{{writeBaseUrl}}"],
+                  "path": ["account-managers", "{{accountManagerId}}", "branch"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountManagerId\": \"{{accountManagerId}}\",\n  \"branchId\": \"{{branchId}}\"\n}"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Customer",
+          "item": [
+            {
+              "name": "Criar Customer",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "var json = pm.response.json();",
+                      "pm.collectionVariables.set('customerId', json.customerId);",
+                      "pm.test('Status 201', () => pm.response.to.have.status(201));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "url": { "raw": "{{writeBaseUrl}}/customers", "host": ["{{writeBaseUrl}}"], "path": ["customers"] },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"João Investidor\",\n  \"address\": \"Rua das Flores, 123 - São Paulo/SP\",\n  \"age\": 35,\n  \"accountManagerId\": \"{{accountManagerId}}\"\n}"
+                }
+              }
+            },
+            {
+              "name": "Atualizar Dados do Customer",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test('Status 204', () => pm.response.to.have.status(204));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "url": {
+                  "raw": "{{writeBaseUrl}}/customers/{{customerId}}",
+                  "host": ["{{writeBaseUrl}}"],
+                  "path": ["customers", "{{customerId}}"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"{{customerId}}\",\n  \"name\": \"João Investidor Atualizado\",\n  \"address\": \"Av. Paulista, 1000 - São Paulo/SP\",\n  \"age\": 36\n}"
+                }
+              }
+            },
+            {
+              "name": "Atribuir Account Manager",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test('Status 204', () => pm.response.to.have.status(204));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "url": {
+                  "raw": "{{writeBaseUrl}}/customers/{{customerId}}/account-manager",
+                  "host": ["{{writeBaseUrl}}"],
+                  "path": ["customers", "{{customerId}}", "account-manager"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"{{customerId}}\",\n  \"accountManagerId\": \"{{accountManagerId}}\"\n}"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Wallet",
+          "item": [
+            {
+              "name": "Criar Wallet",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "var json = pm.response.json();",
+                      "pm.collectionVariables.set('walletId', json.walletId);",
+                      "pm.test('Status 201', () => pm.response.to.have.status(201));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "url": { "raw": "{{writeBaseUrl}}/wallets", "host": ["{{writeBaseUrl}}"], "path": ["wallets"] },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customerId\": \"{{customerId}}\"\n}"
+                }
+              }
+            },
+            {
+              "name": "Registrar Transação - DEPOSIT",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test('Status 201', () => pm.response.to.have.status(201));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "url": {
+                  "raw": "{{writeBaseUrl}}/wallets/{{walletId}}/transactions",
+                  "host": ["{{writeBaseUrl}}"],
+                  "path": ["wallets", "{{walletId}}", "transactions"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"walletId\": \"{{walletId}}\",\n  \"value\": 5000.00,\n  \"type\": \"DEPOSIT\",\n  \"exchangeConfirmationId\": \"00000000-0000-0000-0000-000000000001\"\n}"
+                }
+              }
+            },
+            {
+              "name": "Registrar Transação - WITHDRAWAL",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test('Status 201', () => pm.response.to.have.status(201));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "url": {
+                  "raw": "{{writeBaseUrl}}/wallets/{{walletId}}/transactions",
+                  "host": ["{{writeBaseUrl}}"],
+                  "path": ["wallets", "{{walletId}}", "transactions"]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"walletId\": \"{{walletId}}\",\n  \"value\": 1000.00,\n  \"type\": \"WITHDRAWAL\",\n  \"exchangeConfirmationId\": \"00000000-0000-0000-0000-000000000002\"\n}"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Read App",
+      "item": [
+        {
+          "name": "Customer",
+          "item": [
+            {
+              "name": "Buscar Customer por ID",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                      "pm.test('Tem customerId', () => {",
+                      "  var json = pm.response.json();",
+                      "  pm.expect(json.customerId).to.not.be.undefined;",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{readBaseUrl}}/customers/{{customerId}}",
+                  "host": ["{{readBaseUrl}}"],
+                  "path": ["customers", "{{customerId}}"]
+                }
+              }
+            },
+            {
+              "name": "Listar Customers por Manager",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                      "pm.test('Resposta é array', () => {",
+                      "  pm.expect(pm.response.json()).to.be.an('array');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{readBaseUrl}}/customers/by-manager/{{accountManagerId}}?orderBy=totalBalance&page=0&size=20",
+                  "host": ["{{readBaseUrl}}"],
+                  "path": ["customers", "by-manager", "{{accountManagerId}}"],
+                  "query": [
+                    { "key": "minBalance",      "value": "",             "disabled": true },
+                    { "key": "maxDaysInactive", "value": "",             "disabled": true },
+                    { "key": "orderBy",         "value": "totalBalance" },
+                    { "key": "page",            "value": "0" },
+                    { "key": "size",            "value": "20" }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Listar Customers (visão admin)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test('Status 200', () => pm.response.to.have.status(200));",
+                      "pm.test('Resposta é array', () => {",
+                      "  pm.expect(pm.response.json()).to.be.an('array');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{readBaseUrl}}/customers?requesterId={{accountManagerId}}&orderBy=totalBalance&page=0&size=20",
+                  "host": ["{{readBaseUrl}}"],
+                  "path": ["customers"],
+                  "query": [
+                    { "key": "requesterId",     "value": "{{accountManagerId}}" },
+                    { "key": "minBalance",      "value": "",             "disabled": true },
+                    { "key": "maxDaysInactive", "value": "",             "disabled": true },
+                    { "key": "orderBy",         "value": "totalBalance" },
+                    { "key": "page",            "value": "0" },
+                    { "key": "size",            "value": "20" }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
