@@ -1,24 +1,27 @@
 {
   "info": {
-    "_postman_id": "cqrs-crm-collection-v1",
+    "_postman_id": "cqrs-crm-collection-v2",
     "name": "CRM - CQRS Event Sourcing",
-    "description": "Collection completa para testar a write app (8080) e a read app (8081). Execute na ordem numérica dos itens para que os IDs sejam capturados automaticamente pelas variáveis de coleção.",
+    "description": "Collection para testar a arquitetura CQRS com microsserviços de escrita (staff/customer/wallet) e a read app. Execute na ordem numérica para que os IDs sejam capturados automaticamente pelas variáveis de coleção.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
-    { "key": "write_url",        "value": "http://localhost:8080" },
-    { "key": "read_url",         "value": "http://localhost:8081" },
+    { "key": "staff_url",       "value": "http://localhost:8082" },
+    { "key": "customer_url",    "value": "http://localhost:8083" },
+    { "key": "wallet_url",      "value": "http://localhost:8084" },
+    { "key": "read_url",        "value": "http://localhost:8081" },
+    { "key": "write_url",       "value": "http://localhost:8080", "description": "Monolito de referência - não usado no fluxo principal" },
     { "key": "accountManagerId", "value": "" },
-    { "key": "customerId",       "value": "" },
-    { "key": "walletId",         "value": "" },
-    { "key": "branchId",         "value": "a1b2c3d4-e5f6-7890-abcd-ef1234567890" }
+    { "key": "customerId",      "value": "" },
+    { "key": "walletId",        "value": "" },
+    { "key": "branchId",        "value": "a1b2c3d4-e5f6-7890-abcd-ef1234567890" }
   ],
   "item": [
     {
-      "name": "Write App",
+      "name": "Microsserviços (Write)",
       "item": [
         {
-          "name": "Account Manager",
+          "name": "Staff (8082)",
           "item": [
             {
               "name": "1. Criar Account Manager",
@@ -45,8 +48,8 @@
                   "raw": "{\n  \"name\": \"Carlos Oliveira\",\n  \"branchId\": \"{{branchId}}\",\n  \"isAdmin\": false,\n  \"correlationId\": \"11111111-1111-1111-1111-111111111111\",\n  \"causedBy\": \"admin\"\n}"
                 },
                 "url": {
-                  "raw": "{{write_url}}/account-managers",
-                  "host": ["{{write_url}}"],
+                  "raw": "{{staff_url}}/account-managers",
+                  "host": ["{{staff_url}}"],
                   "path": ["account-managers"]
                 }
               }
@@ -73,8 +76,8 @@
                   "raw": "{\n  \"correlationId\": \"22222222-2222-2222-2222-222222222222\",\n  \"causedBy\": \"admin\"\n}"
                 },
                 "url": {
-                  "raw": "{{write_url}}/account-managers/{{accountManagerId}}/admin",
-                  "host": ["{{write_url}}"],
+                  "raw": "{{staff_url}}/account-managers/{{accountManagerId}}/admin",
+                  "host": ["{{staff_url}}"],
                   "path": ["account-managers", "{{accountManagerId}}", "admin"]
                 }
               }
@@ -101,8 +104,8 @@
                   "raw": "{\n  \"branchId\": \"b2c3d4e5-f6a7-8901-bcde-f12345678901\",\n  \"correlationId\": \"33333333-3333-3333-3333-333333333333\",\n  \"causedBy\": \"admin\"\n}"
                 },
                 "url": {
-                  "raw": "{{write_url}}/account-managers/{{accountManagerId}}/branch",
-                  "host": ["{{write_url}}"],
+                  "raw": "{{staff_url}}/account-managers/{{accountManagerId}}/branch",
+                  "host": ["{{staff_url}}"],
                   "path": ["account-managers", "{{accountManagerId}}", "branch"]
                 }
               }
@@ -110,7 +113,7 @@
           ]
         },
         {
-          "name": "Customer",
+          "name": "Customer (8083)",
           "item": [
             {
               "name": "4. Criar Customer",
@@ -137,8 +140,8 @@
                   "raw": "{\n  \"name\": \"Ana Souza\",\n  \"address\": \"Rua das Flores, 123 - São Paulo/SP\",\n  \"age\": 32,\n  \"accountManagerId\": \"{{accountManagerId}}\",\n  \"correlationId\": \"44444444-4444-4444-4444-444444444444\",\n  \"causedBy\": \"onboarding\"\n}"
                 },
                 "url": {
-                  "raw": "{{write_url}}/customers",
-                  "host": ["{{write_url}}"],
+                  "raw": "{{customer_url}}/customers",
+                  "host": ["{{customer_url}}"],
                   "path": ["customers"]
                 }
               }
@@ -165,8 +168,8 @@
                   "raw": "{\n  \"name\": \"Ana Souza Silva\",\n  \"address\": \"Av. Paulista, 1000 - São Paulo/SP\",\n  \"age\": 33,\n  \"correlationId\": \"55555555-5555-5555-5555-555555555555\",\n  \"causedBy\": \"customer-request\"\n}"
                 },
                 "url": {
-                  "raw": "{{write_url}}/customers/{{customerId}}",
-                  "host": ["{{write_url}}"],
+                  "raw": "{{customer_url}}/customers/{{customerId}}",
+                  "host": ["{{customer_url}}"],
                   "path": ["customers", "{{customerId}}"]
                 }
               }
@@ -193,8 +196,8 @@
                   "raw": "{\n  \"accountManagerId\": \"{{accountManagerId}}\",\n  \"correlationId\": \"66666666-6666-6666-6666-666666666666\",\n  \"causedBy\": \"reallocation\"\n}"
                 },
                 "url": {
-                  "raw": "{{write_url}}/customers/{{customerId}}/account-manager",
-                  "host": ["{{write_url}}"],
+                  "raw": "{{customer_url}}/customers/{{customerId}}/account-manager",
+                  "host": ["{{customer_url}}"],
                   "path": ["customers", "{{customerId}}", "account-manager"]
                 }
               }
@@ -202,7 +205,7 @@
           ]
         },
         {
-          "name": "Wallet",
+          "name": "Wallet (8084)",
           "item": [
             {
               "name": "7. Criar Wallet",
@@ -229,8 +232,8 @@
                   "raw": "{\n  \"customerId\": \"{{customerId}}\",\n  \"correlationId\": \"77777777-7777-7777-7777-777777777777\",\n  \"causedBy\": \"onboarding\"\n}"
                 },
                 "url": {
-                  "raw": "{{write_url}}/wallets",
-                  "host": ["{{write_url}}"],
+                  "raw": "{{wallet_url}}/wallets",
+                  "host": ["{{wallet_url}}"],
                   "path": ["wallets"]
                 }
               }
@@ -257,8 +260,8 @@
                   "raw": "{\n  \"walletId\": \"{{walletId}}\",\n  \"value\": 5000.00,\n  \"type\": \"DEPOSIT\",\n  \"exchangeConfirmationId\": \"c3d4e5f6-a7b8-9012-cdef-123456789012\",\n  \"correlationId\": \"88888888-8888-8888-8888-888888888888\",\n  \"causedBy\": \"bank-transfer\"\n}"
                 },
                 "url": {
-                  "raw": "{{write_url}}/wallets/{{walletId}}/transactions",
-                  "host": ["{{write_url}}"],
+                  "raw": "{{wallet_url}}/wallets/{{walletId}}/transactions",
+                  "host": ["{{wallet_url}}"],
                   "path": ["wallets", "{{walletId}}", "transactions"]
                 }
               }
@@ -285,8 +288,8 @@
                   "raw": "{\n  \"walletId\": \"{{walletId}}\",\n  \"value\": 1500.00,\n  \"type\": \"WITHDRAWAL\",\n  \"exchangeConfirmationId\": \"d4e5f6a7-b8c9-0123-defa-234567890123\",\n  \"correlationId\": \"99999999-9999-9999-9999-999999999999\",\n  \"causedBy\": \"withdrawal-request\"\n}"
                 },
                 "url": {
-                  "raw": "{{write_url}}/wallets/{{walletId}}/transactions",
-                  "host": ["{{write_url}}"],
+                  "raw": "{{wallet_url}}/wallets/{{walletId}}/transactions",
+                  "host": ["{{wallet_url}}"],
                   "path": ["wallets", "{{walletId}}", "transactions"]
                 }
               }
@@ -296,7 +299,7 @@
       ]
     },
     {
-      "name": "Read App",
+      "name": "Read App (8081)",
       "item": [
         {
           "name": "Account Managers",
@@ -422,6 +425,221 @@
                   "raw": "{{read_url}}/customers/by-account-manager/{{accountManagerId}}",
                   "host": ["{{read_url}}"],
                   "path": ["customers", "by-account-manager", "{{accountManagerId}}"]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Write App - Monolito (8080) [referência]",
+      "item": [
+        {
+          "name": "Account Manager",
+          "item": [
+            {
+              "name": "Criar Account Manager",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 201', () => pm.response.to.have.status(201));",
+                      "const res = pm.response.json();",
+                      "pm.collectionVariables.set('accountManagerId', res.accountManagerId);",
+                      "console.log('accountManagerId salvo:', res.accountManagerId);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                  "mode": "raw",
+                  "options": { "raw": { "language": "json" } },
+                  "raw": "{\n  \"name\": \"Carlos Oliveira\",\n  \"branchId\": \"{{branchId}}\",\n  \"isAdmin\": false,\n  \"correlationId\": \"11111111-1111-1111-1111-111111111111\",\n  \"causedBy\": \"admin\"\n}"
+                },
+                "url": {
+                  "raw": "{{write_url}}/account-managers",
+                  "host": ["{{write_url}}"],
+                  "path": ["account-managers"]
+                }
+              }
+            },
+            {
+              "name": "Conceder Perfil Admin",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                  "mode": "raw",
+                  "options": { "raw": { "language": "json" } },
+                  "raw": "{\n  \"correlationId\": \"22222222-2222-2222-2222-222222222222\",\n  \"causedBy\": \"admin\"\n}"
+                },
+                "url": {
+                  "raw": "{{write_url}}/account-managers/{{accountManagerId}}/admin",
+                  "host": ["{{write_url}}"],
+                  "path": ["account-managers", "{{accountManagerId}}", "admin"]
+                }
+              }
+            },
+            {
+              "name": "Atribuir Branch",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                  "mode": "raw",
+                  "options": { "raw": { "language": "json" } },
+                  "raw": "{\n  \"branchId\": \"b2c3d4e5-f6a7-8901-bcde-f12345678901\",\n  \"correlationId\": \"33333333-3333-3333-3333-333333333333\",\n  \"causedBy\": \"admin\"\n}"
+                },
+                "url": {
+                  "raw": "{{write_url}}/account-managers/{{accountManagerId}}/branch",
+                  "host": ["{{write_url}}"],
+                  "path": ["account-managers", "{{accountManagerId}}", "branch"]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Customer",
+          "item": [
+            {
+              "name": "Criar Customer",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 201', () => pm.response.to.have.status(201));",
+                      "const res = pm.response.json();",
+                      "pm.collectionVariables.set('customerId', res.customerId);",
+                      "console.log('customerId salvo:', res.customerId);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                  "mode": "raw",
+                  "options": { "raw": { "language": "json" } },
+                  "raw": "{\n  \"name\": \"Ana Souza\",\n  \"address\": \"Rua das Flores, 123 - São Paulo/SP\",\n  \"age\": 32,\n  \"accountManagerId\": \"{{accountManagerId}}\",\n  \"correlationId\": \"44444444-4444-4444-4444-444444444444\",\n  \"causedBy\": \"onboarding\"\n}"
+                },
+                "url": {
+                  "raw": "{{write_url}}/customers",
+                  "host": ["{{write_url}}"],
+                  "path": ["customers"]
+                }
+              }
+            },
+            {
+              "name": "Atualizar Dados do Customer",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                  "mode": "raw",
+                  "options": { "raw": { "language": "json" } },
+                  "raw": "{\n  \"name\": \"Ana Souza Silva\",\n  \"address\": \"Av. Paulista, 1000 - São Paulo/SP\",\n  \"age\": 33,\n  \"correlationId\": \"55555555-5555-5555-5555-555555555555\",\n  \"causedBy\": \"customer-request\"\n}"
+                },
+                "url": {
+                  "raw": "{{write_url}}/customers/{{customerId}}",
+                  "host": ["{{write_url}}"],
+                  "path": ["customers", "{{customerId}}"]
+                }
+              }
+            },
+            {
+              "name": "Trocar Account Manager do Customer",
+              "request": {
+                "method": "PUT",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                  "mode": "raw",
+                  "options": { "raw": { "language": "json" } },
+                  "raw": "{\n  \"accountManagerId\": \"{{accountManagerId}}\",\n  \"correlationId\": \"66666666-6666-6666-6666-666666666666\",\n  \"causedBy\": \"reallocation\"\n}"
+                },
+                "url": {
+                  "raw": "{{write_url}}/customers/{{customerId}}/account-manager",
+                  "host": ["{{write_url}}"],
+                  "path": ["customers", "{{customerId}}", "account-manager"]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Wallet",
+          "item": [
+            {
+              "name": "Criar Wallet",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 201', () => pm.response.to.have.status(201));",
+                      "const res = pm.response.json();",
+                      "pm.collectionVariables.set('walletId', res.walletId);",
+                      "console.log('walletId salvo:', res.walletId);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                  "mode": "raw",
+                  "options": { "raw": { "language": "json" } },
+                  "raw": "{\n  \"customerId\": \"{{customerId}}\",\n  \"correlationId\": \"77777777-7777-7777-7777-777777777777\",\n  \"causedBy\": \"onboarding\"\n}"
+                },
+                "url": {
+                  "raw": "{{write_url}}/wallets",
+                  "host": ["{{write_url}}"],
+                  "path": ["wallets"]
+                }
+              }
+            },
+            {
+              "name": "Registrar Depósito",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                  "mode": "raw",
+                  "options": { "raw": { "language": "json" } },
+                  "raw": "{\n  \"walletId\": \"{{walletId}}\",\n  \"value\": 5000.00,\n  \"type\": \"DEPOSIT\",\n  \"exchangeConfirmationId\": \"c3d4e5f6-a7b8-9012-cdef-123456789012\",\n  \"correlationId\": \"88888888-8888-8888-8888-888888888888\",\n  \"causedBy\": \"bank-transfer\"\n}"
+                },
+                "url": {
+                  "raw": "{{write_url}}/wallets/{{walletId}}/transactions",
+                  "host": ["{{write_url}}"],
+                  "path": ["wallets", "{{walletId}}", "transactions"]
+                }
+              }
+            },
+            {
+              "name": "Registrar Saque",
+              "request": {
+                "method": "POST",
+                "header": [{ "key": "Content-Type", "value": "application/json" }],
+                "body": {
+                  "mode": "raw",
+                  "options": { "raw": { "language": "json" } },
+                  "raw": "{\n  \"walletId\": \"{{walletId}}\",\n  \"value\": 1500.00,\n  \"type\": \"WITHDRAWAL\",\n  \"exchangeConfirmationId\": \"d4e5f6a7-b8c9-0123-defa-234567890123\",\n  \"correlationId\": \"99999999-9999-9999-9999-999999999999\",\n  \"causedBy\": \"withdrawal-request\"\n}"
+                },
+                "url": {
+                  "raw": "{{write_url}}/wallets/{{walletId}}/transactions",
+                  "host": ["{{write_url}}"],
+                  "path": ["wallets", "{{walletId}}", "transactions"]
                 }
               }
             }

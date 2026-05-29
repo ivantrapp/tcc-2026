@@ -37,7 +37,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5440/crm_write
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/crm_write
       SPRING_DATASOURCE_USERNAME: crm
       SPRING_DATASOURCE_PASSWORD: crm
       SPRING_RABBITMQ_HOST: rabbitmq
@@ -53,7 +53,7 @@ services:
     ports:
       - "8081:8081"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5440/crm_read
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/crm_read
       SPRING_DATASOURCE_USERNAME: crm
       SPRING_DATASOURCE_PASSWORD: crm
       SPRING_RABBITMQ_HOST: rabbitmq
@@ -62,6 +62,62 @@ services:
         condition: service_healthy
       rabbitmq:
         condition: service_healthy
+
+  # ---- Microsserviços de escrita separados por domínio (schema-per-service em crm_write) ----
+
+  staff:
+    build: ./staff
+    image: ${DOCKER_HUB_USER:-cqrs}/staff:latest
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/crm_write?currentSchema=staff
+      SPRING_DATASOURCE_USERNAME: crm
+      SPRING_DATASOURCE_PASSWORD: crm
+      SPRING_RABBITMQ_HOST: rabbitmq
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+  customer:
+    build: ./customer
+    image: ${DOCKER_HUB_USER:-cqrs}/customer:latest
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/crm_write?currentSchema=customer
+      SPRING_DATASOURCE_USERNAME: crm
+      SPRING_DATASOURCE_PASSWORD: crm
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SERVICES_READ_BASE_URL: http://read:8081
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      read:
+        condition: service_started
+
+  wallet:
+    build: ./wallet
+    image: ${DOCKER_HUB_USER:-cqrs}/wallet:latest
+    ports:
+      - "8084:8084"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/crm_write?currentSchema=wallet
+      SPRING_DATASOURCE_USERNAME: crm
+      SPRING_DATASOURCE_PASSWORD: crm
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SERVICES_READ_BASE_URL: http://read:8081
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      read:
+        condition: service_started
 
 volumes:
   postgres_data:

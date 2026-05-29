@@ -4,15 +4,17 @@
  *
  * Uso:
  *   k6 run 02-read-load.js
- *   k6 run -e WRITE_URL=http://localhost:8080 -e READ_URL=http://localhost:8081 02-read-load.js
+ *   k6 run -e STAFF_URL=http://localhost:8082 -e CUSTOMER_URL=http://localhost:8083 -e WALLET_URL=http://localhost:8084 -e READ_URL=http://localhost:8081 02-read-load.js
  */
 
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 
-const WRITE_URL = __ENV.WRITE_URL || 'http://localhost:8080';
-const READ_URL  = __ENV.READ_URL  || 'http://localhost:8081';
-const HEADERS   = { 'Content-Type': 'application/json' };
+const STAFF_URL    = __ENV.STAFF_URL    || 'http://localhost:8082';
+const CUSTOMER_URL = __ENV.CUSTOMER_URL || 'http://localhost:8083';
+const WALLET_URL   = __ENV.WALLET_URL   || 'http://localhost:8084';
+const READ_URL     = __ENV.READ_URL     || 'http://localhost:8081';
+const HEADERS      = { 'Content-Type': 'application/json' };
 
 const FIXED_BRANCH_ID = '00000000-0000-0000-0000-000000000001';
 
@@ -43,24 +45,39 @@ function randomUUID() {
 }
 
 export function setup() {
-  const amRes = http.post(`${WRITE_URL}/account-managers`,
+  const amRes = http.post(`${STAFF_URL}/account-managers`,
     JSON.stringify({ name: 'Gerente Read ES K6', branchId: FIXED_BRANCH_ID, isAdmin: true }),
     { headers: HEADERS });
   const accountManagerId = amRes.json('accountManagerId');
 
+  // Sleep para garantir que o AccountManager foi projetado na read app antes de criar customers
+  sleep(1);
+
   const customerIds = [];
   for (let i = 0; i < 50; i++) {
-    const custRes = http.post(`${WRITE_URL}/customers`,
+    const custRes = http.post(`${CUSTOMER_URL}/customers`,
       JSON.stringify({ name: `Cliente Read ES ${i}`, address: `Av ${i}, 200`, age: 25 + i, accountManagerId }),
       { headers: HEADERS });
     const customerId = custRes.json('customerId');
+    if (!customerId) {
+      console.warn(`[setup] customer ${i} falhou (status ${custRes.status})`);
+      continue;
+    }
 
-    const walletRes = http.post(`${WRITE_URL}/wallets`,
+    // Sleep para garantir que o Customer foi projetado na read app antes de criar wallet
+    sleep(1);
+
+    const walletRes = http.post(`${WALLET_URL}/wallets`,
       JSON.stringify({ customerId }), { headers: HEADERS });
     const walletId = walletRes.json('walletId');
+    if (!walletId) {
+      console.warn(`[setup] wallet ${i} falhou (status ${walletRes.status})`);
+      customerIds.push(customerId);
+      continue;
+    }
 
     for (let t = 0; t < 5; t++) {
-      http.post(`${WRITE_URL}/wallets/${walletId}/transactions`,
+      http.post(`${WALLET_URL}/wallets/${walletId}/transactions`,
         JSON.stringify({ walletId, value: (t + 1) * 1000.00, type: 'DEPOSIT', exchangeConfirmationId: randomUUID() }),
         { headers: HEADERS });
     }
@@ -68,28 +85,29 @@ export function setup() {
     customerIds.push(customerId);
   }
 
-  // Aguarda projeção via RabbitMQ processar os eventos do setup
+  console.log(`[setup] ${customerIds.length}/50 customers criados`);
+
+  // Aguarda projeção das transações do setup chegar na read app
   sleep(5);
 
   return { customerIds, accountManagerId };
 }
 
 export default function (data) {
+  if (!data.customerIds.length) return;
+
   const roll = Math.random();
 
   if (roll < 0.50) {
-    // Listagem por account manager
     const res = http.get(`${READ_URL}/customers/by-account-manager/${data.accountManagerId}`);
     check(res, { 'list 200': (r) => r.status === 200 });
 
   } else if (roll < 0.80) {
-    // Busca individual
     const id = data.customerIds[Math.floor(Math.random() * data.customerIds.length)];
     const res = http.get(`${READ_URL}/customers/${id}`);
     check(res, { 'detail 200': (r) => r.status === 200 });
 
   } else {
-    // Listagem completa
     const res = http.get(`${READ_URL}/customers`);
     check(res, { 'all 200': (r) => r.status === 200 });
   }

@@ -1,19 +1,20 @@
 /**
  * CQRS Event Sourcing — Write Load Test
- * Mede throughput e latência do write app sob carga de transações.
+ * Mede throughput e latência dos microsserviços de escrita sob carga de transações.
  *
  * Uso:
  *   k6 run 01-write-load.js
- *   k6 run -e WRITE_URL=http://localhost:8080 01-write-load.js
+ *   k6 run -e STAFF_URL=http://localhost:8082 -e CUSTOMER_URL=http://localhost:8083 -e WALLET_URL=http://localhost:8084 01-write-load.js
  */
 
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 
-const WRITE_URL = __ENV.WRITE_URL || 'http://localhost:8080';
-const HEADERS   = { 'Content-Type': 'application/json' };
+const STAFF_URL    = __ENV.STAFF_URL    || 'http://localhost:8082';
+const CUSTOMER_URL = __ENV.CUSTOMER_URL || 'http://localhost:8083';
+const WALLET_URL   = __ENV.WALLET_URL   || 'http://localhost:8084';
+const HEADERS      = { 'Content-Type': 'application/json' };
 
-// Event sourcing não tem endpoint /branches — usa UUID fixo
 const FIXED_BRANCH_ID = '00000000-0000-0000-0000-000000000001';
 
 export const options = {
@@ -43,42 +44,59 @@ function randomUUID() {
 }
 
 export function setup() {
-  const amRes = http.post(`${WRITE_URL}/account-managers`,
+  const amRes = http.post(`${STAFF_URL}/account-managers`,
     JSON.stringify({ name: 'Gerente K6 ES', branchId: FIXED_BRANCH_ID, isAdmin: true }),
     { headers: HEADERS });
   const accountManagerId = amRes.json('accountManagerId');
 
+  // Sleep para garantir que o AccountManager foi projetado na read app antes de criar customers
+  sleep(1);
+
   const wallets = [];
   for (let i = 0; i < 50; i++) {
-    const custRes = http.post(`${WRITE_URL}/customers`,
+    const custRes = http.post(`${CUSTOMER_URL}/customers`,
       JSON.stringify({ name: `Cliente Write ES ${i}`, address: `Rua ${i}, 100`, age: 30 + i, accountManagerId }),
       { headers: HEADERS });
     const customerId = custRes.json('customerId');
+    if (!customerId) {
+      console.warn(`[setup] customer ${i} falhou (status ${custRes.status})`);
+      continue;
+    }
 
-    const walletRes = http.post(`${WRITE_URL}/wallets`,
+    // Sleep para garantir que o Customer foi projetado na read app antes de criar wallet
+    sleep(1);
+
+    const walletRes = http.post(`${WALLET_URL}/wallets`,
       JSON.stringify({ customerId }), { headers: HEADERS });
     const walletId = walletRes.json('walletId');
+    if (!walletId) {
+      console.warn(`[setup] wallet ${i} falhou (status ${walletRes.status})`);
+      continue;
+    }
 
-    // Saldo inicial para permitir WITHDRAWALs
-    http.post(`${WRITE_URL}/wallets/${walletId}/transactions`,
+    http.post(`${WALLET_URL}/wallets/${walletId}/transactions`,
       JSON.stringify({ walletId, value: 50000.00, type: 'DEPOSIT', exchangeConfirmationId: randomUUID() }),
       { headers: HEADERS });
 
     wallets.push(walletId);
   }
 
+  console.log(`[setup] ${wallets.length}/50 wallets criados com sucesso`);
   return { wallets };
 }
 
 export default function (data) {
+  if (!data.wallets.length) return;
+
   const walletId = data.wallets[__VU % data.wallets.length];
   const type     = __ITER % 3 === 0 ? 'WITHDRAWAL' : 'DEPOSIT';
 
   const res = http.post(
-    `${WRITE_URL}/wallets/${walletId}/transactions`,
+    `${WALLET_URL}/wallets/${walletId}/transactions`,
     JSON.stringify({ walletId, value: 100.00, type, exchangeConfirmationId: randomUUID() }),
     { headers: HEADERS }
   );
 
-  check(res, { 'status 201': (r) => r.status === 201 });
+  // 409 = ConcurrencyException (optimistic locking) — comportamento esperado sob alta concorrência
+  check(res, { 'status 201 ou 409': (r) => r.status === 201 || r.status === 409 });
 }
