@@ -49,9 +49,6 @@ export function setup() {
     { headers: HEADERS });
   const accountManagerId = amRes.json('accountManagerId');
 
-  // Sleep para garantir que o AccountManager foi projetado na read app antes de criar customers
-  sleep(1);
-
   const wallets = [];
   for (let i = 0; i < 50; i++) {
     const custRes = http.post(`${CUSTOMER_URL}/customers`,
@@ -62,9 +59,6 @@ export function setup() {
       console.warn(`[setup] customer ${i} falhou (status ${custRes.status})`);
       continue;
     }
-
-    // Sleep para garantir que o Customer foi projetado na read app antes de criar wallet
-    sleep(1);
 
     const walletRes = http.post(`${WALLET_URL}/wallets`,
       JSON.stringify({ customerId }), { headers: HEADERS });

@@ -1,68 +1,122 @@
 -- =================================================================
--- Setup da Replicação Lógica WAL entre crm_write e crm_read
+-- Setup da Replicação Lógica WAL — Microsserviços → crm_read
 -- =================================================================
--- PRÉ-REQUISITO: wal_level = logical no postgresql.conf do Write DB.
--- Verifique com: SHOW wal_level;
--- Se não for 'logical', adicione ao postgresql.conf:
---   wal_level = logical
--- e reinicie o PostgreSQL.
+-- Cada microsserviço possui seu próprio banco de dados.
+-- Cada banco publica suas tabelas; crm_read as assina individualmente.
 --
--- PASSO 1 — Execute no Write DB (crm_write) como superusuário:
---   psql -U postgres -d crm_write -p 5432 -f setup-wal-replication.sql
+-- PRÉ-REQUISITO: wal_level = logical em cada banco de origem.
+-- O docker-compose já configura isso via -c wal_level=logical.
 --
--- PASSO 2 — Execute a seção de subscrição no Read DB (crm_read)
---   como superusuário separadamente (veja abaixo).
+-- PASSO 1 — Execute em cada banco de origem como superusuário:
+--   psql -U postgres -d crm_staff   -p 5457 -f setup-wal-replication.sql
+--   psql -U postgres -d crm_customer -p 5458 -f setup-wal-replication.sql
+--   psql -U postgres -d crm_wallet  -p 5459 -f setup-wal-replication.sql
+--
+-- PASSO 2 — Execute a seção de subscrições no crm_read:
+--   psql -U postgres -d crm_read -p 5455
+--
+-- PASSO 3 (monolito) — Execute no crm_write se quiser a replicação
+--   do write app monolítico:
+--   psql -U postgres -d crm_write -p 5456 -f setup-wal-replication.sql
 -- =================================================================
 
 
 -- =================================================================
--- PARTE 1 — Write DB (crm_write)
+-- PARTE 1A — Staff DB (crm_staff, porta 5457)
+-- Tabelas: branches, account_managers
 -- =================================================================
 
--- Usuário de replicação (usado exclusivamente pela subscrição)
-DO $$
-BEGIN
-    IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'replicator') THEN
-        CREATE USER replicator WITH REPLICATION PASSWORD 'replicator';
-    END IF;
-END
-$$;
+DROP PUBLICATION IF EXISTS crm_staff_publication;
+CREATE PUBLICATION crm_staff_publication
+    FOR TABLE branches, account_managers
+    WITH (publish = 'insert, update, delete');
 
--- Permissão de leitura nas tabelas publicadas
-GRANT SELECT ON branches, account_managers, customers, wallets, transactions TO replicator;
+GRANT SELECT ON branches, account_managers TO replicator;
 
--- Publicação: declara quais tabelas participam da replicação
--- Captura INSERT e UPDATE (transações nunca são deletadas)
+
+-- =================================================================
+-- PARTE 1B — Customer DB (crm_customer, porta 5458)
+-- Tabelas: customers
+-- =================================================================
+
+DROP PUBLICATION IF EXISTS crm_customer_publication;
+CREATE PUBLICATION crm_customer_publication
+    FOR TABLE customers
+    WITH (publish = 'insert, update, delete');
+
+GRANT SELECT ON customers TO replicator;
+
+
+-- =================================================================
+-- PARTE 1C — Wallet DB (crm_wallet, porta 5459)
+-- Tabelas: wallets, transactions
+-- =================================================================
+
+DROP PUBLICATION IF EXISTS crm_wallet_publication;
+CREATE PUBLICATION crm_wallet_publication
+    FOR TABLE wallets, transactions
+    WITH (publish = 'insert, update, delete');
+
+GRANT SELECT ON wallets, transactions TO replicator;
+
+
+-- =================================================================
+-- PARTE 1D — Write DB monolítico (crm_write, porta 5456)
+-- Somente necessário se quiser replicar o app monolítico
+-- =================================================================
+
 DROP PUBLICATION IF EXISTS crm_publication;
 CREATE PUBLICATION crm_publication
     FOR TABLE branches, account_managers, customers, wallets, transactions
     WITH (publish = 'insert, update, delete');
 
+GRANT SELECT ON branches, account_managers, customers, wallets, transactions TO replicator;
+
 
 -- =================================================================
--- PARTE 2 — Read DB (crm_read)
--- Execute este bloco conectado ao crm_read como superusuário:
---   psql -U postgres -d crm_read -p 5433
+-- PARTE 2 — Read DB (crm_read, porta 5455)
+-- Execute conectado ao crm_read como superusuário.
+--
+-- Substitua os hosts pelos IPs/hostnames corretos se não usar Docker.
+-- No Docker, use os service names: db-staff, db-customer, db-wallet.
+-- Localmente sem Docker, use localhost com as portas mapeadas.
 -- =================================================================
-
--- Substitua 'write-db-host' pelo IP/hostname do Write DB
--- Se ambos rodam no mesmo host (Docker local): use o IP do container
--- ou o hostname definido no docker-compose (ex: db-write)
 
 /*
-DROP SUBSCRIPTION IF EXISTS crm_subscription;
 
+-- Microsserviços: 3 subscriptions independentes
+
+DROP SUBSCRIPTION IF EXISTS crm_staff_subscription;
+CREATE SUBSCRIPTION crm_staff_subscription
+    CONNECTION 'host=db-staff port=5432 dbname=crm_staff user=replicator password=replicator'
+    PUBLICATION crm_staff_publication;
+
+DROP SUBSCRIPTION IF EXISTS crm_customer_subscription;
+CREATE SUBSCRIPTION crm_customer_subscription
+    CONNECTION 'host=db-customer port=5432 dbname=crm_customer user=replicator password=replicator'
+    PUBLICATION crm_customer_publication;
+
+DROP SUBSCRIPTION IF EXISTS crm_wallet_subscription;
+CREATE SUBSCRIPTION crm_wallet_subscription
+    CONNECTION 'host=db-wallet port=5432 dbname=crm_wallet user=replicator password=replicator'
+    PUBLICATION crm_wallet_publication;
+
+
+-- Monolito (opcional, se quiser manter a replicação do write monolítico):
+
+DROP SUBSCRIPTION IF EXISTS crm_subscription;
 CREATE SUBSCRIPTION crm_subscription
-    CONNECTION 'host=localhost port=5432 dbname=crm_write user=replicator password=replicator'
+    CONNECTION 'host=db-write port=5432 dbname=crm_write user=replicator password=replicator'
     PUBLICATION crm_publication;
+
 */
 
--- Após criar a subscrição:
+-- Após criar as subscriptions:
 -- 1. O PostgreSQL copia automaticamente todos os dados existentes (initial sync)
 -- 2. Em seguida inicia o streaming de novos eventos via WAL
 -- 3. A latência em condições normais é de microssegundos
 
--- Para verificar o status da replicação (no Write DB):
+-- Para verificar o status (em cada banco de origem):
 -- SELECT * FROM pg_replication_slots;
 -- SELECT * FROM pg_stat_replication;
 

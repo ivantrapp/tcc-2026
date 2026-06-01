@@ -1,6 +1,8 @@
 package com.cqrs.client;
 
+import com.cqrs.domain.exception.DomainException;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClient;
@@ -13,18 +15,20 @@ public class CustomerClient {
     private final RestClient restClient;
 
     public CustomerClient(@Value("${services.read.base-url}") String baseUrl) {
-        this.restClient = RestClient.create(baseUrl);
+        this.restClient = RestClient.builder().baseUrl(baseUrl).build();
     }
 
-    public boolean exists(UUID customerId) {
+    public void validateCustomerExists(UUID id) {
         try {
             restClient.get()
-                    .uri("/customers/{id}", customerId)
+                    .uri("/customers/{id}", id)
                     .retrieve()
                     .toBodilessEntity();
-            return true;
-        } catch (HttpClientErrorException.NotFound e) {
-            return false;
+        } catch (HttpClientErrorException e) {
+            if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
+                throw new DomainException("Customer not found: " + id);
+            }
+            throw e;
         }
     }
 }

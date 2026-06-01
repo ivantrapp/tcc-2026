@@ -1,6 +1,5 @@
 package com.cqrs.handler;
 
-import com.cqrs.client.AccountManagerClient;
 import com.cqrs.domain.aggregate.CustomerAggregate;
 import com.cqrs.domain.command.AssignAccountManagerCommand;
 import com.cqrs.domain.event.DomainEvent;
@@ -22,15 +21,10 @@ public class AssignAccountManagerHandler {
 
     private final EventStore eventStore;
     private final EventPublisher publisher;
-    private final AccountManagerClient accountManagerClient;
 
     @Transactional
     public void handle(AssignAccountManagerCommand command) {
         String streamId = "Customer-" + command.customerId();
-
-        if (!accountManagerClient.exists(command.accountManagerId())) {
-            throw new DomainException("AccountManager not found: " + command.accountManagerId());
-        }
 
         CustomerAggregate customer = CustomerAggregate.empty();
         eventStore.loadStream(streamId).forEach(customer::applyStoredEvent);

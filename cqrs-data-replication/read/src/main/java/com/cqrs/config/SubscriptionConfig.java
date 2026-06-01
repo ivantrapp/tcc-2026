@@ -18,61 +18,85 @@ public class SubscriptionConfig {
 
     private static final Logger log = LoggerFactory.getLogger(SubscriptionConfig.class);
 
-    // Host/port/db of the WRITE database as seen from inside the Docker network.
-    // Overridden via environment variables in docker-compose; defaults work for local dev.
-    @Value("${replication.write.host:localhost}")
-    private String writeHost;
-
-    @Value("${replication.write.port:5456}")
-    private int writePort;
-
-    @Value("${replication.write.name:crm_write}")
-    private String writeDb;
-
     @Value("${replication.user:replicator}")
     private String replicationUser;
 
     @Value("${replication.password:replicator}")
     private String replicationPassword;
 
-    @Value("${replication.publication:crm_publication}")
-    private String publication;
+    @Value("${replication.staff.host:localhost}")
+    private String staffHost;
 
-    @Value("${replication.subscription:crm_subscription}")
-    private String subscription;
+    @Value("${replication.staff.port:5457}")
+    private int staffPort;
 
-    // DependsOn ensures Flyway has created all tables before we attach the subscription
+    @Value("${replication.staff.name:crm_staff}")
+    private String staffDb;
+
+    @Value("${replication.customer.host:localhost}")
+    private String customerHost;
+
+    @Value("${replication.customer.port:5458}")
+    private int customerPort;
+
+    @Value("${replication.customer.name:crm_customer}")
+    private String customerDb;
+
+    @Value("${replication.wallet.host:localhost}")
+    private String walletHost;
+
+    @Value("${replication.wallet.port:5459}")
+    private int walletPort;
+
+    @Value("${replication.wallet.name:crm_wallet}")
+    private String walletDb;
+
     @Bean
     @DependsOn("flyway")
-    public String walSubscription(DataSource dataSource) {
+    public String walSubscriptions(DataSource dataSource) throws Exception {
         try (Connection conn = dataSource.getConnection()) {
-            // CREATE SUBSCRIPTION cannot run inside a transaction block
             conn.setAutoCommit(true);
 
-            try (Statement st = conn.createStatement()) {
-                // Idempotent: skip if subscription already exists
-                try (ResultSet rs = st.executeQuery(
-                        "SELECT 1 FROM pg_subscription WHERE subname = '" + subscription + "'")) {
-                    if (rs.next()) {
-                        log.info("WAL subscription '{}' already exists — skipping", subscription);
-                        return subscription;
-                    }
-                }
+            createSubscription(conn,
+                "crm_staff_subscription",
+                connStr(staffHost, staffPort, staffDb),
+                "crm_staff_publication");
 
-                String connInfo = String.format(
-                        "host=%s port=%d dbname=%s user=%s password=%s",
-                        writeHost, writePort, writeDb, replicationUser, replicationPassword);
+            createSubscription(conn,
+                "crm_customer_subscription",
+                connStr(customerHost, customerPort, customerDb),
+                "crm_customer_publication");
 
-                st.execute(String.format(
-                        "CREATE SUBSCRIPTION %s CONNECTION '%s' PUBLICATION %s",
-                        subscription, connInfo, publication));
-
-                log.info("WAL subscription '{}' created successfully", subscription);
-            }
-        } catch (Exception e) {
-            log.error("Failed to create WAL subscription '{}': {}", subscription, e.getMessage(), e);
-            throw new RuntimeException("WAL subscription setup failed", e);
+            createSubscription(conn,
+                "crm_wallet_subscription",
+                connStr(walletHost, walletPort, walletDb),
+                "crm_wallet_publication");
         }
-        return subscription;
+        return "wal-subscriptions-ready";
+    }
+
+    private void createSubscription(Connection conn, String name, String connStr, String publication)
+            throws Exception {
+
+        try (Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(
+                     "SELECT 1 FROM pg_subscription WHERE subname = '" + name + "'")) {
+            if (rs.next()) {
+                log.info("WAL subscription '{}' já existe — ignorando", name);
+                return;
+            }
+        }
+
+        try (Statement st = conn.createStatement()) {
+            st.execute(String.format(
+                    "CREATE SUBSCRIPTION %s CONNECTION '%s' PUBLICATION %s",
+                    name, connStr, publication));
+            log.info("WAL subscription '{}' criada", name);
+        }
+    }
+
+    private String connStr(String host, int port, String db) {
+        return String.format("host=%s port=%d dbname=%s user=%s password=%s",
+                host, port, db, replicationUser, replicationPassword);
     }
 }

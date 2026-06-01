@@ -79,15 +79,33 @@ k6 run -e STAFF_URL=http://localhost:8082 `
 | `03-lag.js` | Tempo entre escrita no wallet service e projeção visível na read app | p(95) < 2000ms, timeouts < 3 |
 | `04-method-benchmark.js` | Média aritmética do tempo de execução de cada método (1 VU, 1000 iterações) | — |
 
+## Salvar resultado em JSON
+
+```powershell
+k6 run --out json=resultado-write-eventsourcing.json `
+       -e STAFF_URL=http://localhost:8082 `
+       -e CUSTOMER_URL=http://localhost:8083 `
+       -e WALLET_URL=http://localhost:8084 `
+       01-write-load.js
+
+k6 run --out json=resultado-lag-eventsourcing.json `
+       -e STAFF_URL=http://localhost:8082 `
+       -e CUSTOMER_URL=http://localhost:8083 `
+       -e WALLET_URL=http://localhost:8084 `
+       -e READ_URL=http://localhost:8081 `
+       03-lag.js
+```
+
 ## Fluxo do setup (executado automaticamente antes do teste)
 
 Todos os testes criam os dados necessários automaticamente na função `setup()`:
 
 ```
-POST /account-managers  →  staff (8082)
-POST /customers         →  customer (8083)   usa accountManagerId acima
-POST /wallets           →  wallet (8084)      usa customerId acima
-POST /wallets/{id}/transactions  →  wallet (8084)
+POST /branches              →  staff-app  (8082)
+POST /account-managers      →  staff-app  (8082)   usa branchId acima
+POST /customers             →  customer-app (8083)  usa accountManagerId acima
+POST /wallets               →  wallet-app  (8084)   usa customerId acima
+POST /wallets/{id}/transactions  →  wallet-app (8084)
 ```
 
 Não é necessário criar dados manualmente antes de rodar.

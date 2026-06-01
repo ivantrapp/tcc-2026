@@ -1,10 +1,15 @@
 -- =============================================================
 -- Setup do banco local — execute uma vez como superusuário:
---   psql -U postgres -p 5440 -f setup-local.sql
+--   psql -U postgres -p 5440 -f setup-local.sql   (write + read)
+--   psql -U postgres -p 5441 -f setup-local.sql   (staff)
+--   psql -U postgres -p 5442 -f setup-local.sql   (customer)
+--   psql -U postgres -p 5443 -f setup-local.sql   (wallet)
 --
 -- Após rodar este script, suba as apps normalmente.
 -- O Flyway cria as tabelas automaticamente no primeiro start.
 -- =============================================================
+
+-- ---- Instância principal (porta 5440): write + read ----
 
 DO $$
 BEGIN
@@ -30,3 +35,18 @@ GRANT ALL ON SCHEMA public TO crm;
 
 \c crm_read
 GRANT ALL ON SCHEMA public TO crm;
+
+-- ---- Instância staff (porta 5441) ----
+-- psql -U postgres -p 5441 -c "CREATE USER crm WITH PASSWORD 'crm';"
+-- psql -U postgres -p 5441 -c "CREATE DATABASE crm_staff OWNER crm;"
+-- psql -U postgres -p 5441 -c "GRANT ALL PRIVILEGES ON DATABASE crm_staff TO crm;"
+
+-- ---- Instância customer (porta 5442) ----
+-- psql -U postgres -p 5442 -c "CREATE USER crm WITH PASSWORD 'crm';"
+-- psql -U postgres -p 5442 -c "CREATE DATABASE crm_customer OWNER crm;"
+-- psql -U postgres -p 5442 -c "GRANT ALL PRIVILEGES ON DATABASE crm_customer TO crm;"
+
+-- ---- Instância wallet (porta 5443) ----
+-- psql -U postgres -p 5443 -c "CREATE USER crm WITH PASSWORD 'crm';"
+-- psql -U postgres -p 5443 -c "CREATE DATABASE crm_wallet OWNER crm;"
+-- psql -U postgres -p 5443 -c "GRANT ALL PRIVILEGES ON DATABASE crm_wallet TO crm;"

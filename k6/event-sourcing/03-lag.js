@@ -35,7 +35,7 @@ export const options = {
     },
   },
   thresholds: {
-    projection_lag_ms:   ['p(95)<2000'],
+    projection_lag_ms:   ['p(95)<2000', 'p(99)<5000'],
     projection_timeouts: ['count<3'],
   },
 };
@@ -53,16 +53,10 @@ export function setup() {
     { headers: HEADERS });
   const accountManagerId = amRes.json('accountManagerId');
 
-  // Sleep para garantir que o AccountManager foi projetado na read app
-  sleep(1);
-
   const custRes = http.post(`${CUSTOMER_URL}/customers`,
     JSON.stringify({ name: 'Cliente Lag ES', address: 'Rua Lag ES, 1', age: 30, accountManagerId }),
     { headers: HEADERS });
   const customerId = custRes.json('customerId');
-
-  // Sleep para garantir que o Customer foi projetado na read app
-  sleep(2);
 
   const walletRes = http.post(`${WALLET_URL}/wallets`,
     JSON.stringify({ customerId }), { headers: HEADERS });

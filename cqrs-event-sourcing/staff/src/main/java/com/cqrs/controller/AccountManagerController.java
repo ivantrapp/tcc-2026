@@ -3,7 +3,6 @@ package com.cqrs.controller;
 import com.cqrs.domain.command.AssignBranchCommand;
 import com.cqrs.domain.command.CreateAccountManagerCommand;
 import com.cqrs.domain.command.GrantAdminProfileCommand;
-import com.cqrs.eventstore.EventStore;
 import com.cqrs.handler.AssignBranchHandler;
 import com.cqrs.handler.CreateAccountManagerHandler;
 import com.cqrs.handler.GrantAdminProfileHandler;
@@ -24,7 +23,6 @@ public class AccountManagerController {
     private final CreateAccountManagerHandler createHandler;
     private final GrantAdminProfileHandler grantAdminHandler;
     private final AssignBranchHandler assignBranchHandler;
-    private final EventStore eventStore;
 
     @PostMapping
     public ResponseEntity<Map<String, UUID>> create(@Valid @RequestBody CreateAccountManagerCommand command) {
@@ -48,10 +46,4 @@ public class AccountManagerController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Void> exists(@PathVariable UUID id) {
-        return eventStore.streamExists("AccountManager-" + id)
-                ? ResponseEntity.ok().build()
-                : ResponseEntity.notFound().build();
-    }
 }

@@ -53,13 +53,11 @@ export function setup() {
     JSON.stringify({ name: 'Gerente Benchmark', branchId: FIXED_BRANCH_ID, isAdmin: false }),
     { headers: HEADERS });
   const accountManagerId = amRes.json('accountManagerId');
-  sleep(1);
 
   const custRes = http.post(`${CUSTOMER_URL}/customers`,
     JSON.stringify({ name: 'Cliente Benchmark', address: 'Rua Benchmark, 1', age: 30, accountManagerId }),
     { headers: HEADERS });
   const customerId = custRes.json('customerId');
-  sleep(1);
 
   const walletRes = http.post(`${WALLET_URL}/wallets`,
     JSON.stringify({ customerId }), { headers: HEADERS });
@@ -88,7 +86,7 @@ export default function (data) {
   }
   console.log('✓ create_account_manager concluído');
 
-  // 2. Criar Customer (valida accountManagerId via read app)
+  // 2. Criar Customer
   for (let i = 0; i < ITERATIONS; i++) {
     const t0 = Date.now();
     http.post(`${CUSTOMER_URL}/customers`,
@@ -98,7 +96,7 @@ export default function (data) {
   }
   console.log('✓ create_customer concluído');
 
-  // 3. Criar Wallet (valida customerId via read app)
+  // 3. Criar Wallet
   for (let i = 0; i < ITERATIONS; i++) {
     const t0 = Date.now();
     http.post(`${WALLET_URL}/wallets`,

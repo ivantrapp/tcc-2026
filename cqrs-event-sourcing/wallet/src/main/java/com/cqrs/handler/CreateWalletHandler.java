@@ -1,10 +1,8 @@
 package com.cqrs.handler;
 
-import com.cqrs.client.CustomerClient;
 import com.cqrs.domain.aggregate.WalletAggregate;
 import com.cqrs.domain.command.CreateWalletCommand;
 import com.cqrs.domain.event.EventMetadata;
-import com.cqrs.domain.exception.DomainException;
 import com.cqrs.eventstore.EventStore;
 import com.cqrs.publisher.EventPublisher;
 import lombok.RequiredArgsConstructor;
@@ -22,14 +20,9 @@ public class CreateWalletHandler {
 
     private final EventStore eventStore;
     private final EventPublisher publisher;
-    private final CustomerClient customerClient;
 
     @Transactional
     public UUID handle(CreateWalletCommand command) {
-        if (!customerClient.exists(command.customerId())) {
-            throw new DomainException("Customer not found: " + command.customerId());
-        }
-
         UUID walletId = UUID.randomUUID();
         String streamId = "Wallet-" + walletId;
 

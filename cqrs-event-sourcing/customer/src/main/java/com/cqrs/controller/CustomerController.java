@@ -3,7 +3,6 @@ package com.cqrs.controller;
 import com.cqrs.domain.command.AssignAccountManagerCommand;
 import com.cqrs.domain.command.CreateCustomerCommand;
 import com.cqrs.domain.command.UpdateCustomerDataCommand;
-import com.cqrs.eventstore.EventStore;
 import com.cqrs.handler.AssignAccountManagerHandler;
 import com.cqrs.handler.CreateCustomerHandler;
 import com.cqrs.handler.UpdateCustomerDataHandler;
@@ -24,7 +23,6 @@ public class CustomerController {
     private final CreateCustomerHandler createHandler;
     private final UpdateCustomerDataHandler updateHandler;
     private final AssignAccountManagerHandler assignManagerHandler;
-    private final EventStore eventStore;
 
     @PostMapping
     public ResponseEntity<Map<String, UUID>> create(@Valid @RequestBody CreateCustomerCommand command) {
@@ -48,10 +46,4 @@ public class CustomerController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Void> exists(@PathVariable UUID id) {
-        return eventStore.streamExists("Customer-" + id)
-                ? ResponseEntity.ok().build()
-                : ResponseEntity.notFound().build();
-    }
 }

@@ -2,7 +2,6 @@ package com.cqrs.controller;
 
 import com.cqrs.domain.command.CreateWalletCommand;
 import com.cqrs.domain.command.RegisterTransactionCommand;
-import com.cqrs.eventstore.EventStore;
 import com.cqrs.handler.CreateWalletHandler;
 import com.cqrs.handler.RegisterTransactionHandler;
 import jakarta.validation.Valid;
@@ -21,7 +20,6 @@ public class WalletController {
 
     private final CreateWalletHandler createHandler;
     private final RegisterTransactionHandler transactionHandler;
-    private final EventStore eventStore;
 
     @PostMapping
     public ResponseEntity<Map<String, UUID>> create(@Valid @RequestBody CreateWalletCommand command) {
@@ -37,10 +35,4 @@ public class WalletController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Void> exists(@PathVariable UUID id) {
-        return eventStore.streamExists("Wallet-" + id)
-                ? ResponseEntity.ok().build()
-                : ResponseEntity.notFound().build();
-    }
 }

@@ -1,17 +1,25 @@
 /**
- * CQRS Data Replication — Write Load Test
- * Mede throughput e latência do write app sob carga de transações.
+ * CQRS Data Replication — Write Load Test (microsserviços)
+ * Mede throughput e latência do write side sob carga de transações.
  *
- * Uso:
+ * Uso (microsserviços — padrão):
  *   k6 run 01-write-load.js
- *   k6 run -e WRITE_URL=http://localhost:8080 01-write-load.js
+ *
+ * Uso (monolito):
+ *   k6 run \
+ *     -e STAFF_URL=http://localhost:8080 \
+ *     -e CUSTOMER_URL=http://localhost:8080 \
+ *     -e WALLET_URL=http://localhost:8080 \
+ *     01-write-load.js
  */
 
 import http from 'k6/http';
-import { check, sleep } from 'k6';
+import { check } from 'k6';
 
-const WRITE_URL = __ENV.WRITE_URL || 'http://localhost:8080';
-const HEADERS = { 'Content-Type': 'application/json' };
+const STAFF_URL    = __ENV.STAFF_URL    || 'http://localhost:8082';
+const CUSTOMER_URL = __ENV.CUSTOMER_URL || 'http://localhost:8083';
+const WALLET_URL   = __ENV.WALLET_URL   || 'http://localhost:8084';
+const HEADERS      = { 'Content-Type': 'application/json' };
 
 export const options = {
   scenarios: {
@@ -27,7 +35,7 @@ export const options = {
     },
   },
   thresholds: {
-    http_req_failed:   ['rate<0.05'],   // < 5% de erros sob alta carga
+    http_req_failed:   ['rate<0.05'],
     http_req_duration: ['p(95)<1000'],
   },
 };
@@ -40,27 +48,27 @@ function randomUUID() {
 }
 
 export function setup() {
-  const branchRes = http.post(`${WRITE_URL}/branches`,
+  const branchRes = http.post(`${STAFF_URL}/branches`,
     JSON.stringify({ region: 'Sudeste' }), { headers: HEADERS });
   const branchId = branchRes.json('branchId');
 
-  const amRes = http.post(`${WRITE_URL}/account-managers`,
+  const amRes = http.post(`${STAFF_URL}/account-managers`,
     JSON.stringify({ name: 'Gerente K6', branchId, isAdmin: true }), { headers: HEADERS });
   const accountManagerId = amRes.json('accountManagerId');
 
   const wallets = [];
   for (let i = 0; i < 50; i++) {
-    const custRes = http.post(`${WRITE_URL}/customers`,
+    const custRes = http.post(`${CUSTOMER_URL}/customers`,
       JSON.stringify({ name: `Cliente Write ${i}`, address: `Rua ${i}, 100`, age: 30 + i, accountManagerId }),
       { headers: HEADERS });
     const customerId = custRes.json('customerId');
 
-    const walletRes = http.post(`${WRITE_URL}/wallets`,
+    const walletRes = http.post(`${WALLET_URL}/wallets`,
       JSON.stringify({ customerId }), { headers: HEADERS });
     const walletId = walletRes.json('walletId');
 
     // Saldo inicial para permitir WITHDRAWALs
-    http.post(`${WRITE_URL}/wallets/${walletId}/transactions`,
+    http.post(`${WALLET_URL}/wallets/${walletId}/transactions`,
       JSON.stringify({ walletId, value: 50000.00, type: 'DEPOSIT', exchangeConfirmationId: randomUUID() }),
       { headers: HEADERS });
 
@@ -75,7 +83,7 @@ export default function (data) {
   const type     = __ITER % 3 === 0 ? 'WITHDRAWAL' : 'DEPOSIT';
 
   const res = http.post(
-    `${WRITE_URL}/wallets/${walletId}/transactions`,
+    `${WALLET_URL}/wallets/${walletId}/transactions`,
     JSON.stringify({ walletId, value: 100.00, type, exchangeConfirmationId: randomUUID() }),
     { headers: HEADERS }
   );

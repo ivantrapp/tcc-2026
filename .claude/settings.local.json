@@ -17,7 +17,12 @@
       "Read(//c/Users/Cliente/.m2/**)",
       "Read(//c/Users/Cliente/.m2/repository/org/springframework/boot/spring-boot/4.0.6/**)",
       "Read(//c/Users/Cliente/.m2/wrapper/dists/**)",
-      "Bash(/c/Users/Cliente/.m2/wrapper/dists/apache-maven-3.9.15-bin/4rlcemksed9vjmkvgss0jpc4po/apache-maven-3.9.15/bin/mvn -q -DskipTests compile)"
+      "Bash(/c/Users/Cliente/.m2/wrapper/dists/apache-maven-3.9.15-bin/4rlcemksed9vjmkvgss0jpc4po/apache-maven-3.9.15/bin/mvn -q -DskipTests compile)",
+      "Bash(Get-ChildItem *)",
+      "Bash(xargs grep -l \"RestClient\\\\|RestTemplate\\\\|WebClient\\\\|HttpClient\")",
+      "Bash(Remove-Item \"C:\\\\Users\\\\Cliente\\\\Desktop\\\\TCC Artigos e documentos\\\\projeto tcc\\\\cqrs-event-sourcing\\\\customer\\\\src\\\\main\\\\java\\\\com\\\\cqrs\\\\client\\\\AccountManagerClient.java\" -Force)",
+      "Bash(Remove-Item \"C:\\\\Users\\\\Cliente\\\\Desktop\\\\TCC Artigos e documentos\\\\projeto tcc\\\\cqrs-event-sourcing\\\\wallet\\\\src\\\\main\\\\java\\\\com\\\\cqrs\\\\client\\\\CustomerClient.java\" -Force)",
+      "Bash(Write-Output \"deleted\")"
     ]
   }
 }
