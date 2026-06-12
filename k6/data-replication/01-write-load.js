@@ -1,16 +1,11 @@
 /**
- * CQRS Data Replication — Write Load Test (microsserviços)
- * Mede throughput e latência do write side sob carga de transações.
+ * CQRS Data Replication — Write Load Test
  *
  * Uso (microsserviços — padrão):
  *   k6 run 01-write-load.js
  *
  * Uso (monolito):
- *   k6 run \
- *     -e STAFF_URL=http://localhost:8080 \
- *     -e CUSTOMER_URL=http://localhost:8080 \
- *     -e WALLET_URL=http://localhost:8080 \
- *     01-write-load.js
+ *   k6 run -e STAFF_URL=http://localhost:8080 -e CUSTOMER_URL=http://localhost:8080 -e WALLET_URL=http://localhost:8080 01-write-load.js
  */
 
 import http from 'k6/http';
@@ -22,6 +17,7 @@ const WALLET_URL   = __ENV.WALLET_URL   || 'http://localhost:8084';
 const HEADERS      = { 'Content-Type': 'application/json' };
 
 export const options = {
+  summaryTrendStats: ['min', 'med', 'p(90)', 'p(95)', 'p(99)', 'max'],
   scenarios: {
     write_load: {
       executor: 'ramping-vus',
@@ -60,17 +56,18 @@ export function setup() {
   const accountManagerId = amRes.json('accountManagerId');
 
   const wallets = [];
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 300; i++) {
     const custRes = http.post(`${CUSTOMER_URL}/customers`,
-      JSON.stringify({ name: `Cliente Write ${i}`, address: `Rua ${i}, 100`, age: 30 + i, accountManagerId }),
+      JSON.stringify({ name: `Cliente Write ${i}`, address: `Rua ${i}, 100`, age: 30 + (i % 50), accountManagerId }),
       { headers: HEADERS });
     const customerId = custRes.json('customerId');
+    if (!customerId) { console.warn(`[setup] customer ${i} falhou`); continue; }
 
     const walletRes = http.post(`${WALLET_URL}/wallets`,
       JSON.stringify({ customerId }), { headers: HEADERS });
     const walletId = walletRes.json('walletId');
+    if (!walletId) { console.warn(`[setup] wallet ${i} falhou`); continue; }
 
-    // Saldo inicial para permitir WITHDRAWALs
     http.post(`${WALLET_URL}/wallets/${walletId}/transactions`,
       JSON.stringify({ walletId, value: 50000.00, type: 'DEPOSIT', exchangeConfirmationId: randomUUID() }),
       { headers: HEADERS });
@@ -78,11 +75,14 @@ export function setup() {
     wallets.push(walletId);
   }
 
+  console.log(`[setup] ${wallets.length}/300 wallets prontos`);
   return { wallets };
 }
 
 export default function (data) {
-  const walletId = data.wallets[__VU % data.wallets.length];
+  if (!data.wallets.length) return;
+
+  const walletId = data.wallets[(__VU - 1) % data.wallets.length];
   const type     = __ITER % 3 === 0 ? 'WITHDRAWAL' : 'DEPOSIT';
 
   const res = http.post(

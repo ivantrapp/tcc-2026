@@ -79,22 +79,6 @@ services:
       timeout: 5s
       retries: 10
 
-  write:
-    build: ./write
-    image: ${DOCKER_HUB_USER:-cqrs}/write:latest
-    ports:
-      - "8080:8080"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/crm_write
-      SPRING_DATASOURCE_USERNAME: crm
-      SPRING_DATASOURCE_PASSWORD: crm
-      SPRING_RABBITMQ_HOST: rabbitmq
-    depends_on:
-      postgres:
-        condition: service_healthy
-      rabbitmq:
-        condition: service_healthy
-
   read:
     build: ./read
     image: ${DOCKER_HUB_USER:-cqrs}/read:latest

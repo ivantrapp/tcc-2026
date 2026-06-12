@@ -1,6 +1,5 @@
 /**
  * CQRS Event Sourcing — Write Load Test
- * Mede throughput e latência dos microsserviços de escrita sob carga de transações.
  *
  * Uso:
  *   k6 run 01-write-load.js
@@ -8,7 +7,7 @@
  */
 
 import http from 'k6/http';
-import { check, sleep } from 'k6';
+import { check } from 'k6';
 
 const STAFF_URL    = __ENV.STAFF_URL    || 'http://localhost:8082';
 const CUSTOMER_URL = __ENV.CUSTOMER_URL || 'http://localhost:8083';
@@ -18,6 +17,7 @@ const HEADERS      = { 'Content-Type': 'application/json' };
 const FIXED_BRANCH_ID = '00000000-0000-0000-0000-000000000001';
 
 export const options = {
+  summaryTrendStats: ['min', 'med', 'p(90)', 'p(95)', 'p(99)', 'max'],
   scenarios: {
     write_load: {
       executor: 'ramping-vus',
@@ -53,23 +53,17 @@ export function setup() {
   const accountManagerId = amRes.json('accountManagerId');
 
   const wallets = [];
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 300; i++) {
     const custRes = http.post(`${CUSTOMER_URL}/customers`,
-      JSON.stringify({ name: `Cliente Write ES ${i}`, address: `Rua ${i}, 100`, age: 30 + i, accountManagerId }),
+      JSON.stringify({ name: `Cliente Write ES ${i}`, address: `Rua ${i}, 100`, age: 30 + (i % 50), accountManagerId }),
       { headers: HEADERS });
     const customerId = custRes.json('customerId');
-    if (!customerId) {
-      console.warn(`[setup] customer ${i} falhou (status ${custRes.status})`);
-      continue;
-    }
+    if (!customerId) { console.warn(`[setup] customer ${i} falhou (status ${custRes.status})`); continue; }
 
     const walletRes = http.post(`${WALLET_URL}/wallets`,
       JSON.stringify({ customerId }), { headers: HEADERS });
     const walletId = walletRes.json('walletId');
-    if (!walletId) {
-      console.warn(`[setup] wallet ${i} falhou (status ${walletRes.status})`);
-      continue;
-    }
+    if (!walletId) { console.warn(`[setup] wallet ${i} falhou (status ${walletRes.status})`); continue; }
 
     http.post(`${WALLET_URL}/wallets/${walletId}/transactions`,
       JSON.stringify({ walletId, value: 50000.00, type: 'DEPOSIT', exchangeConfirmationId: randomUUID() }),
@@ -78,14 +72,14 @@ export function setup() {
     wallets.push(walletId);
   }
 
-  console.log(`[setup] ${wallets.length}/50 wallets criados com sucesso`);
+  console.log(`[setup] ${wallets.length}/300 wallets prontos`);
   return { wallets };
 }
 
 export default function (data) {
   if (!data.wallets.length) return;
 
-  const walletId = data.wallets[__VU % data.wallets.length];
+  const walletId = data.wallets[(__VU - 1) % data.wallets.length];
   const type     = __ITER % 3 === 0 ? 'WITHDRAWAL' : 'DEPOSIT';
 
   const res = http.post(
@@ -94,6 +88,5 @@ export default function (data) {
     { headers: HEADERS }
   );
 
-  // 409 = ConcurrencyException (optimistic locking) — comportamento esperado sob alta concorrência
-  check(res, { 'status 201 ou 409': (r) => r.status === 201 || r.status === 409 });
+  check(res, { 'status 201': (r) => r.status === 201 });
 }

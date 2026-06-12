@@ -1,0 +1,217 @@
+services:
+
+  # ── Staff Database ────────────────────────────────────────────────────────────
+  db-staff:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: crm_staff
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    command: >
+      postgres
+        -c wal_level=logical
+        -c max_replication_slots=10
+        -c max_wal_senders=10
+        -c hba_file=/conf/pg_hba.conf
+    ports:
+      - "5457:5432"
+    volumes:
+      - db-staff-data:/var/lib/postgresql/data
+      - ./cqrs-data-replication/postgres/pg_hba_write.conf:/conf/pg_hba.conf:ro
+      - ./cqrs-data-replication/postgres/staff-init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d crm_staff"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - crm-network
+
+  # ── Customer Database ─────────────────────────────────────────────────────────
+  db-customer:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: crm_customer
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    command: >
+      postgres
+        -c wal_level=logical
+        -c max_replication_slots=10
+        -c max_wal_senders=10
+        -c hba_file=/conf/pg_hba.conf
+    ports:
+      - "5458:5432"
+    volumes:
+      - db-customer-data:/var/lib/postgresql/data
+      - ./cqrs-data-replication/postgres/pg_hba_write.conf:/conf/pg_hba.conf:ro
+      - ./cqrs-data-replication/postgres/customer-init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d crm_customer"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - crm-network
+
+  # ── Wallet Database ───────────────────────────────────────────────────────────
+  db-wallet:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: crm_wallet
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    command: >
+      postgres
+        -c wal_level=logical
+        -c max_replication_slots=10
+        -c max_wal_senders=10
+        -c hba_file=/conf/pg_hba.conf
+    ports:
+      - "5459:5432"
+    volumes:
+      - db-wallet-data:/var/lib/postgresql/data
+      - ./cqrs-data-replication/postgres/pg_hba_write.conf:/conf/pg_hba.conf:ro
+      - ./cqrs-data-replication/postgres/wallet-init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d crm_wallet"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - crm-network
+
+  # ── Read Database ─────────────────────────────────────────────────────────────
+  db-read:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: crm_read
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5455:5432"
+    volumes:
+      - db-read-data:/var/lib/postgresql/data
+      - ./cqrs-data-replication/postgres/read-init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d crm_read"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - crm-network
+
+  # ── Staff App ─────────────────────────────────────────────────────────────────
+  staff-app:
+    build:
+      context: ./cqrs-data-replication/staff
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db-staff:5432/crm_staff
+      SPRING_DATASOURCE_USERNAME: crm
+      SPRING_DATASOURCE_PASSWORD: crm
+    ports:
+      - "8082:8082"
+    depends_on:
+      db-staff:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'echo > /dev/tcp/localhost/8082' || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 40s
+    networks:
+      - crm-network
+
+  # ── Customer App ──────────────────────────────────────────────────────────────
+  customer-app:
+    build:
+      context: ./cqrs-data-replication/customer
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db-customer:5432/crm_customer
+      SPRING_DATASOURCE_USERNAME: crm
+      SPRING_DATASOURCE_PASSWORD: crm
+      SERVICES_READ_BASE_URL: http://read-app:8081
+    ports:
+      - "8083:8083"
+    depends_on:
+      db-customer:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'echo > /dev/tcp/localhost/8083' || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 40s
+    networks:
+      - crm-network
+
+  # ── Wallet App ────────────────────────────────────────────────────────────────
+  wallet-app:
+    build:
+      context: ./cqrs-data-replication/wallet
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db-wallet:5432/crm_wallet
+      SPRING_DATASOURCE_USERNAME: crm
+      SPRING_DATASOURCE_PASSWORD: crm
+      SERVICES_READ_BASE_URL: http://read-app:8081
+    ports:
+      - "8084:8084"
+    depends_on:
+      db-wallet:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'echo > /dev/tcp/localhost/8084' || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 40s
+    networks:
+      - crm-network
+
+  # ── Read App ──────────────────────────────────────────────────────────────────
+  read-app:
+    build:
+      context: ./cqrs-data-replication/read
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db-read:5432/crm_read
+      SPRING_DATASOURCE_USERNAME: crm
+      SPRING_DATASOURCE_PASSWORD: crm
+      REPLICATION_USER: replicator
+      REPLICATION_PASSWORD: replicator
+      REPLICATION_STAFF_HOST: db-staff
+      REPLICATION_STAFF_PORT: 5432
+      REPLICATION_STAFF_NAME: crm_staff
+      REPLICATION_CUSTOMER_HOST: db-customer
+      REPLICATION_CUSTOMER_PORT: 5432
+      REPLICATION_CUSTOMER_NAME: crm_customer
+      REPLICATION_WALLET_HOST: db-wallet
+      REPLICATION_WALLET_PORT: 5432
+      REPLICATION_WALLET_NAME: crm_wallet
+    ports:
+      - "8081:8081"
+    depends_on:
+      db-read:
+        condition: service_healthy
+      staff-app:
+        condition: service_healthy
+      customer-app:
+        condition: service_healthy
+      wallet-app:
+        condition: service_healthy
+    networks:
+      - crm-network
+
+volumes:
+  db-staff-data:
+  db-customer-data:
+  db-wallet-data:
+  db-read-data:
+
+networks:
+  crm-network:
+    driver: bridge

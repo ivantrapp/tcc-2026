@@ -1,7 +1,0 @@
-target/
-.mvn/
-*.md
-.gitignore
-.gitattributes
-mvnw
-mvnw.cmd

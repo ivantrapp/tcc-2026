@@ -1,0 +1,150 @@
+services:
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: crm
+      POSTGRES_PASSWORD: crm
+      POSTGRES_DB: crm_write
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./cqrs-event-sourcing/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5440:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U crm -d crm_write"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  postgres-staff:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: crm
+      POSTGRES_PASSWORD: crm
+      POSTGRES_DB: crm_staff
+    volumes:
+      - postgres_staff_data:/var/lib/postgresql/data
+    ports:
+      - "5441:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U crm -d crm_staff"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  postgres-customer:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: crm
+      POSTGRES_PASSWORD: crm
+      POSTGRES_DB: crm_customer
+    volumes:
+      - postgres_customer_data:/var/lib/postgresql/data
+    ports:
+      - "5442:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U crm -d crm_customer"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  postgres-wallet:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: crm
+      POSTGRES_PASSWORD: crm
+      POSTGRES_DB: crm_wallet
+    volumes:
+      - postgres_wallet_data:/var/lib/postgresql/data
+    ports:
+      - "5443:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U crm -d crm_wallet"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  rabbitmq:
+    image: rabbitmq:4-management
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  read:
+    build: ./cqrs-event-sourcing/read
+    image: ${DOCKER_HUB_USER:-cqrs}/read:latest
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/crm_read
+      SPRING_DATASOURCE_USERNAME: crm
+      SPRING_DATASOURCE_PASSWORD: crm
+      SPRING_RABBITMQ_HOST: rabbitmq
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+  staff:
+    build: ./cqrs-event-sourcing/staff
+    image: ${DOCKER_HUB_USER:-cqrs}/staff:latest
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-staff:5432/crm_staff
+      SPRING_DATASOURCE_USERNAME: crm
+      SPRING_DATASOURCE_PASSWORD: crm
+      SPRING_RABBITMQ_HOST: rabbitmq
+    depends_on:
+      postgres-staff:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+  customer:
+    build: ./cqrs-event-sourcing/customer
+    image: ${DOCKER_HUB_USER:-cqrs}/customer:latest
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-customer:5432/crm_customer
+      SPRING_DATASOURCE_USERNAME: crm
+      SPRING_DATASOURCE_PASSWORD: crm
+      SPRING_RABBITMQ_HOST: rabbitmq
+    depends_on:
+      postgres-customer:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+  wallet:
+    build: ./cqrs-event-sourcing/wallet
+    image: ${DOCKER_HUB_USER:-cqrs}/wallet:latest
+    ports:
+      - "8084:8084"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-wallet:5432/crm_wallet
+      SPRING_DATASOURCE_USERNAME: crm
+      SPRING_DATASOURCE_PASSWORD: crm
+      SPRING_RABBITMQ_HOST: rabbitmq
+    depends_on:
+      postgres-wallet:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+  postgres_staff_data:
+  postgres_customer_data:
+  postgres_wallet_data:

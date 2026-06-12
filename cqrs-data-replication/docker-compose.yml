@@ -1,32 +1,5 @@
 services:
 
-  # ── Write Database (monolito) ─────────────────────────────────────────────────
-  db-write:
-    image: postgres:16
-    environment:
-      POSTGRES_DB: crm_write
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    command: >
-      postgres
-        -c wal_level=logical
-        -c max_replication_slots=10
-        -c max_wal_senders=10
-        -c hba_file=/conf/pg_hba.conf
-    ports:
-      - "5456:5432"
-    volumes:
-      - db-write-data:/var/lib/postgresql/data
-      - ./postgres/pg_hba_write.conf:/conf/pg_hba.conf:ro
-      - ./postgres/write-init.sql:/docker-entrypoint-initdb.d/init.sql:ro
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d crm_write"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
-    networks:
-      - crm-network
-
   # ── Staff Database ────────────────────────────────────────────────────────────
   db-staff:
     image: postgres:16
@@ -125,23 +98,6 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
-    networks:
-      - crm-network
-
-  # ── Write App (monolito) ──────────────────────────────────────────────────────
-  write-app:
-    build:
-      context: ./write
-      dockerfile: Dockerfile
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db-write:5432/crm_write
-      SPRING_DATASOURCE_USERNAME: crm
-      SPRING_DATASOURCE_PASSWORD: crm
-    ports:
-      - "8080:8080"
-    depends_on:
-      db-write:
-        condition: service_healthy
     networks:
       - crm-network
 
