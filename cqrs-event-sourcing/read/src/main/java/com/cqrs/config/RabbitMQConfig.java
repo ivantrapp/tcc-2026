@@ -67,6 +67,7 @@ public class RabbitMQConfig {
         idClassMapping.put("com.cqrs.domain.event.AccountManagerCreatedEvent",  AccountManagerCreatedMessage.class);
         idClassMapping.put("com.cqrs.domain.event.AdminProfileGrantedEvent",    AdminProfileGrantedMessage.class);
         idClassMapping.put("com.cqrs.domain.event.BranchAssignedEvent",         BranchAssignedMessage.class);
+        idClassMapping.put("com.cqrs.domain.event.BranchCreatedEvent",          BranchCreatedMessage.class);
         typeMapper.setIdClassMapping(idClassMapping);
 
         JacksonJsonMessageConverter converter = new JacksonJsonMessageConverter();

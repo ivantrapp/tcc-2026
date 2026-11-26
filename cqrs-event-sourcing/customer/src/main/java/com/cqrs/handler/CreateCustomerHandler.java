@@ -5,12 +5,11 @@ import com.cqrs.domain.command.CreateCustomerCommand;
 import com.cqrs.domain.event.DomainEvent;
 import com.cqrs.domain.event.EventMetadata;
 import com.cqrs.eventstore.EventStore;
+import com.cqrs.client.StaffClient;
 import com.cqrs.publisher.EventPublisher;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.support.TransactionSynchronization;
-import org.springframework.transaction.support.TransactionSynchronizationManager;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import java.util.List;
 import java.util.UUID;
@@ -21,25 +20,28 @@ public class CreateCustomerHandler {
 
     private final EventStore eventStore;
     private final EventPublisher publisher;
+    private final StaffClient staffClient;
+    private final TransactionTemplate transactionTemplate;
 
-    @Transactional
     public UUID handle(CreateCustomerCommand command) {
+        staffClient.validateAccountManagerExists(command.accountManagerId());
         UUID customerId = UUID.randomUUID();
-        CustomerAggregate customer = CustomerAggregate.empty();
-        int expectedVersion = customer.getVersion();
 
-        EventMetadata metadata = new EventMetadata(command.correlationId(), command.causedBy());
-        customer.create(customerId, command.name(), command.address(), command.age(), command.accountManagerId(), metadata);
+        // A transacao termina (commit e conexao devolvida ao pool) antes da publicacao,
+        // para a conexao nao ficar presa enquanto o RabbitMQ responde.
+        List<DomainEvent> events = transactionTemplate.execute(status -> {
+            CustomerAggregate customer = CustomerAggregate.empty();
+            int expectedVersion = customer.getVersion();
 
-        eventStore.append("Customer-" + customerId, expectedVersion, customer.getPendingEvents());
+            EventMetadata metadata = new EventMetadata(command.correlationId(), command.causedBy());
+            customer.create(customerId, command.name(), command.address(), command.age(), command.accountManagerId(), metadata);
 
-        List<DomainEvent> events = List.copyOf(customer.getPendingEvents());
-        TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
-            @Override
-            public void afterCommit() {
-                events.forEach(publisher::publish);
-            }
+            eventStore.append("Customer-" + customerId, expectedVersion, customer.getPendingEvents());
+
+            return List.copyOf(customer.getPendingEvents());
         });
+
+        events.forEach(publisher::publish);
 
         return customerId;
     }

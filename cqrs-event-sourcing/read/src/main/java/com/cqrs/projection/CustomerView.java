@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.UUID;
 
+// Mesmos campos (e mesmo JSON) do CustomerViewEntity do data replication.
 @Entity
 @Table(name = "customer_view")
 @Getter
@@ -20,24 +21,36 @@ import java.util.UUID;
 public class CustomerView {
 
     @Id
-    private UUID id;
+    @Column(name = "customer_id")
+    private UUID customerId;
 
-    @Column(nullable = false)
-    private String name;
+    @Column(name = "customer_name", nullable = false)
+    private String customerName;
 
-    private String address;
+    @Column(name = "customer_age", nullable = false)
+    private int customerAge;
 
-    private Integer age;
+    @Column(name = "customer_address")
+    private String customerAddress;
 
+    @Column(name = "account_manager_id")
     private UUID accountManagerId;
 
-    private String accountManagerName;
+    @Column(name = "manager_name")
+    private String managerName;
 
-    private UUID walletId;
+    @Column(name = "manager_is_admin", nullable = false)
+    private boolean managerIsAdmin;
 
-    @Column(nullable = false)
-    private BigDecimal walletBalance = BigDecimal.ZERO;
+    @Column(name = "branch_id")
+    private UUID branchId;
 
-    @Column(nullable = false)
-    private Instant createdAt;
+    @Column(name = "branch_region")
+    private String branchRegion;
+
+    @Column(name = "total_balance", nullable = false)
+    private BigDecimal totalBalance = BigDecimal.ZERO;
+
+    @Column(name = "last_transaction_at")
+    private Instant lastTransactionAt;
 }

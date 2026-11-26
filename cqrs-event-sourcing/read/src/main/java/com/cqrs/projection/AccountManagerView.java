@@ -1,5 +1,6 @@
 package com.cqrs.projection;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -11,6 +12,8 @@ import lombok.Setter;
 import java.time.Instant;
 import java.util.UUID;
 
+// JSON igual ao AccountManagerEntity do data replication (id, name, admin);
+// branchId e createdAt ficam so para a projecao dos clientes.
 @Entity
 @Table(name = "account_manager_view")
 @Getter
@@ -24,14 +27,13 @@ public class AccountManagerView {
     @Column(nullable = false)
     private String name;
 
+    @JsonIgnore
     private UUID branchId;
 
     @Column(nullable = false)
     private boolean isAdmin = false;
 
-    @Column(nullable = false)
-    private int customerCount = 0;
-
+    @JsonIgnore
     @Column(nullable = false)
     private Instant createdAt;
 }

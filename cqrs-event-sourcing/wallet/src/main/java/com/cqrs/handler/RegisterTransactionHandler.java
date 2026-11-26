@@ -12,9 +12,7 @@ import com.cqrs.publisher.EventPublisher;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.support.TransactionSynchronization;
-import org.springframework.transaction.support.TransactionSynchronizationManager;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import java.time.Instant;
 import java.util.List;
@@ -27,36 +25,36 @@ public class RegisterTransactionHandler {
 
     private final EventStore eventStore;
     private final EventPublisher publisher;
+    private final TransactionTemplate transactionTemplate;
     private final ObjectMapper objectMapper;
 
-    @Transactional
     public void handle(RegisterTransactionCommand command) {
-        String streamId = "Wallet-" + command.walletId();
+        // A transacao termina (commit e conexao devolvida ao pool) antes da publicacao,
+        // para a conexao nao ficar presa enquanto o RabbitMQ responde.
+        List<DomainEvent> events = transactionTemplate.execute(status -> {
+            String streamId = "Wallet-" + command.walletId();
 
-        WalletAggregate wallet = reconstitute(command.walletId(), streamId);
+            WalletAggregate wallet = reconstitute(command.walletId(), streamId);
 
-        if (!wallet.exists()) {
-            throw new DomainException("Wallet not found: " + command.walletId());
-        }
-
-        int expectedVersion = wallet.getVersion();
-
-        EventMetadata metadata = new EventMetadata(command.correlationId(), command.causedBy());
-        wallet.registerTransaction(command.value(), command.type(), command.exchangeConfirmationId(), metadata);
-
-        eventStore.append(streamId, expectedVersion, wallet.getPendingEvents());
-
-        if (wallet.getVersion() % SNAPSHOT_THRESHOLD == 0) {
-            persistSnapshot(wallet);
-        }
-
-        List<DomainEvent> events = List.copyOf(wallet.getPendingEvents());
-        TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
-            @Override
-            public void afterCommit() {
-                events.forEach(publisher::publish);
+            if (!wallet.exists()) {
+                throw new DomainException("Wallet not found: " + command.walletId());
             }
+
+            int expectedVersion = wallet.getVersion();
+
+            EventMetadata metadata = new EventMetadata(command.correlationId(), command.causedBy());
+            wallet.registerTransaction(command.value(), command.type(), command.exchangeConfirmationId(), metadata);
+
+            eventStore.append(streamId, expectedVersion, wallet.getPendingEvents());
+
+            if (wallet.getVersion() % SNAPSHOT_THRESHOLD == 0) {
+                persistSnapshot(wallet);
+            }
+
+            return List.copyOf(wallet.getPendingEvents());
         });
+
+        events.forEach(publisher::publish);
     }
 
     private WalletAggregate reconstitute(java.util.UUID walletId, String streamId) {

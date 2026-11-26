@@ -3,6 +3,7 @@ package com.cqrs.eventstore;
 import com.cqrs.domain.event.AccountManagerCreatedEvent;
 import com.cqrs.domain.event.AdminProfileGrantedEvent;
 import com.cqrs.domain.event.BranchAssignedEvent;
+import com.cqrs.domain.event.BranchCreatedEvent;
 import com.cqrs.domain.event.DomainEvent;
 import com.cqrs.domain.exception.ConcurrencyException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -87,6 +88,7 @@ public class EventStoreImpl implements EventStore {
                 case "AccountManagerCreated" -> objectMapper.readValue(record.getPayload(), AccountManagerCreatedEvent.class);
                 case "AdminProfileGranted"   -> objectMapper.readValue(record.getPayload(), AdminProfileGrantedEvent.class);
                 case "BranchAssigned"        -> objectMapper.readValue(record.getPayload(), BranchAssignedEvent.class);
+                case "BranchCreated"         -> objectMapper.readValue(record.getPayload(), BranchCreatedEvent.class);
                 default -> throw new IllegalArgumentException("Unknown event type: " + record.getEventType());
             };
         } catch (Exception e) {

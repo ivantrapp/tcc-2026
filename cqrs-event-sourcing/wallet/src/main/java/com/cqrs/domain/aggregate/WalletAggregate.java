@@ -52,8 +52,6 @@ public class WalletAggregate {
     public void registerTransaction(BigDecimal value, TransactionType type,
                                     UUID exchangeConfirmationId, EventMetadata metadata) {
 //        validateTradingWindow();
-        validatePositiveValue(value);
-
         TransactionRegisteredEvent event = TransactionRegisteredEvent.create(
                 id, version + 1, metadata, value, type, exchangeConfirmationId
         );
@@ -90,9 +88,4 @@ public class WalletAggregate {
         }
     }
 
-    private void validatePositiveValue(BigDecimal value) {
-        if (value == null || value.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new DomainException("Transaction value must be positive.");
-        }
-    }
 }

@@ -9,9 +9,7 @@ import com.cqrs.eventstore.EventStore;
 import com.cqrs.publisher.EventPublisher;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.support.TransactionSynchronization;
-import org.springframework.transaction.support.TransactionSynchronizationManager;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import java.util.List;
 
@@ -21,30 +19,30 @@ public class GrantAdminProfileHandler {
 
     private final EventStore eventStore;
     private final EventPublisher publisher;
+    private final TransactionTemplate transactionTemplate;
 
-    @Transactional
     public void handle(GrantAdminProfileCommand command) {
-        String streamId = "AccountManager-" + command.accountManagerId();
+        // A transacao termina (commit e conexao devolvida ao pool) antes da publicacao,
+        // para a conexao nao ficar presa enquanto o RabbitMQ responde.
+        List<DomainEvent> events = transactionTemplate.execute(status -> {
+            String streamId = "AccountManager-" + command.accountManagerId();
 
-        AccountManagerAggregate manager = AccountManagerAggregate.empty();
-        eventStore.loadStream(streamId).forEach(manager::applyStoredEvent);
+            AccountManagerAggregate manager = AccountManagerAggregate.empty();
+            eventStore.loadStream(streamId).forEach(manager::applyStoredEvent);
 
-        if (!manager.exists()) {
-            throw new DomainException("AccountManager not found: " + command.accountManagerId());
-        }
-
-        int expectedVersion = manager.getVersion();
-        EventMetadata metadata = new EventMetadata(command.correlationId(), command.causedBy());
-        manager.grantAdminProfile(metadata);
-
-        eventStore.append(streamId, expectedVersion, manager.getPendingEvents());
-
-        List<DomainEvent> events = List.copyOf(manager.getPendingEvents());
-        TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
-            @Override
-            public void afterCommit() {
-                events.forEach(publisher::publish);
+            if (!manager.exists()) {
+                throw new DomainException("AccountManager not found: " + command.accountManagerId());
             }
+
+            int expectedVersion = manager.getVersion();
+            EventMetadata metadata = new EventMetadata(command.correlationId(), command.causedBy());
+            manager.grantAdminProfile(metadata);
+
+            eventStore.append(streamId, expectedVersion, manager.getPendingEvents());
+
+            return List.copyOf(manager.getPendingEvents());
         });
+
+        events.forEach(publisher::publish);
     }
 }

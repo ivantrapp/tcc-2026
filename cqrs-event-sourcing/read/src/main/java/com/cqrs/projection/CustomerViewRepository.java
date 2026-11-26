@@ -9,5 +9,5 @@ public interface CustomerViewRepository extends JpaRepository<CustomerView, UUID
 
     List<CustomerView> findAllByAccountManagerId(UUID accountManagerId);
 
-    List<CustomerView> findAllByWalletId(UUID walletId);
+    List<CustomerView> findAllByBranchId(UUID branchId);
 }

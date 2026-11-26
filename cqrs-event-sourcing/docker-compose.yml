@@ -123,6 +123,7 @@ services:
       SPRING_DATASOURCE_USERNAME: crm
       SPRING_DATASOURCE_PASSWORD: crm
       SPRING_RABBITMQ_HOST: rabbitmq
+      SERVICES_READ_BASE_URL: http://read:8081
     depends_on:
       postgres-customer:
         condition: service_healthy
@@ -139,6 +140,7 @@ services:
       SPRING_DATASOURCE_USERNAME: crm
       SPRING_DATASOURCE_PASSWORD: crm
       SPRING_RABBITMQ_HOST: rabbitmq
+      SERVICES_READ_BASE_URL: http://read:8081
     depends_on:
       postgres-wallet:
         condition: service_healthy

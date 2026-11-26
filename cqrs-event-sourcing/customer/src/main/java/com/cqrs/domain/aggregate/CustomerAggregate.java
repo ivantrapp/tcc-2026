@@ -32,7 +32,6 @@ public class CustomerAggregate {
 
     public void create(UUID customerId, String name, String address, int age,
                        UUID accountManagerId, EventMetadata metadata) {
-        validateName(name);
         validateAge(age);
 
         CustomerCreatedEvent event = CustomerCreatedEvent.create(
@@ -43,7 +42,6 @@ public class CustomerAggregate {
     }
 
     public void updateData(String name, String address, Integer age, EventMetadata metadata) {
-        if (name != null) validateName(name);
         if (age != null) validateAge(age);
 
         CustomerDataUpdatedEvent event = CustomerDataUpdatedEvent.create(
@@ -77,12 +75,6 @@ public class CustomerAggregate {
             accountManagerId = e.newAccountManagerId();
         }
         version = event.version();
-    }
-
-    private void validateName(String name) {
-        if (name == null || name.isBlank()) {
-            throw new DomainException("Customer name is required.");
-        }
     }
 
     private void validateAge(int age) {

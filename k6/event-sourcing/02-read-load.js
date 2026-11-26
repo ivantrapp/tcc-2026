@@ -15,8 +15,6 @@ const WALLET_URL   = __ENV.WALLET_URL   || 'http://localhost:8084';
 const READ_URL     = __ENV.READ_URL     || 'http://localhost:8081';
 const HEADERS      = { 'Content-Type': 'application/json' };
 
-const FIXED_BRANCH_ID = '00000000-0000-0000-0000-000000000001';
-
 export const options = {
   summaryTrendStats: ['min', 'med', 'p(90)', 'p(95)', 'p(99)', 'max'],
   scenarios: {
@@ -47,19 +45,39 @@ function randomUUID() {
   });
 }
 
+// Espera o lado de leitura refletir uma escrita (consistencia eventual). As
+// validacoes de escrita consultam o read (gerente existe? cliente existe?), entao
+// a preparacao so avanca quando o dado ja esta visivel la.
+function waitForRead(url, isReady, timeoutSec = 120) {
+  const deadline = Date.now() + timeoutSec * 1000;
+  while (Date.now() < deadline) {
+    const res = http.get(url, { tags: { name: 'setup-wait' }, responseCallback: http.expectedStatuses(200, 404) });
+    if (res.status === 200 && isReady(res)) return true;
+    sleep(0.5);
+  }
+  console.warn(`[setup] timeout esperando ${url}`);
+  return false;
+}
+
 export function setup() {
+  const branchRes = http.post(`${STAFF_URL}/branches`,
+    JSON.stringify({ region: 'Sul' }), { headers: HEADERS });
+  const branchId = branchRes.json('branchId');
+
   const amRes = http.post(`${STAFF_URL}/account-managers`,
-    JSON.stringify({ name: 'Gerente Read ES K6', branchId: FIXED_BRANCH_ID, isAdmin: true }),
+    JSON.stringify({ name: 'Gerente Read K6', branchId, isAdmin: true }),
     { headers: HEADERS });
   const accountManagerId = amRes.json('accountManagerId');
+  waitForRead(`${READ_URL}/account-managers/${accountManagerId}`, () => true);
 
   const customerIds = [];
   for (let i = 0; i < 50; i++) {
     const custRes = http.post(`${CUSTOMER_URL}/customers`,
-      JSON.stringify({ name: `Cliente Read ES ${i}`, address: `Av ${i}, 200`, age: 25 + (i % 50), accountManagerId }),
+      JSON.stringify({ name: `Cliente Read ${i}`, address: `Av ${i}, 200`, age: 25 + (i % 50), accountManagerId }),
       { headers: HEADERS });
     const customerId = custRes.json('customerId');
     if (!customerId) { console.warn(`[setup] customer ${i} falhou (status ${custRes.status})`); continue; }
+    waitForRead(`${READ_URL}/customers/${customerId}`, () => true);
 
     const walletRes = http.post(`${WALLET_URL}/wallets`,
       JSON.stringify({ customerId }), { headers: HEADERS });

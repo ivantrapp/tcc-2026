@@ -53,6 +53,11 @@ public class DomainEventListener {
     }
 
     @RabbitHandler
+    public void on(BranchCreatedMessage event) {
+        accountManagerProjector.on(event);
+    }
+
+    @RabbitHandler
     public void on(BranchAssignedMessage event) {
         accountManagerProjector.on(event);
     }

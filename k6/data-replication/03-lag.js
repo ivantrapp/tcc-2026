@@ -1,12 +1,9 @@
 /**
- * CQRS Data Replication — Replication Lag Under Load
+ * CQRS Data Replication — Replication Lag Under Load (20 VUs)
  * Mede o lag de replicação WAL com múltiplos VUs escrevendo e lendo concorrentemente.
- * Cada VU possui sua própria carteira para isolar as medições.
+ * Cada VU possui sua própria entidade para isolar as medições.
  *
- * Uso:
- *   k6 run 03-lag.js
- *   k6 run -e VUS=50 03-lag.js
- *   k6 run -e VUS=20 -e STAFF_URL=http://localhost:8080 -e CUSTOMER_URL=http://localhost:8080 -e WALLET_URL=http://localhost:8080 03-lag.js
+ * k6 run 03-lag.js
  */
 
 import http from 'k6/http';
@@ -17,8 +14,9 @@ const STAFF_URL    = __ENV.STAFF_URL    || 'http://localhost:8082';
 const CUSTOMER_URL = __ENV.CUSTOMER_URL || 'http://localhost:8083';
 const WALLET_URL   = __ENV.WALLET_URL   || 'http://localhost:8084';
 const READ_URL     = __ENV.READ_URL     || 'http://localhost:8081';
-const VUS          = parseInt(__ENV.VUS || '20');
+const N            = 20;
 const HEADERS      = { 'Content-Type': 'application/json' };
+const BATCH_SIZE   = 50;
 
 const replicationLag = new Trend('replication_lag_ms', true);
 const lagTimeouts    = new Counter('replication_timeouts');
@@ -27,9 +25,14 @@ export const options = {
   summaryTrendStats: ['min', 'med', 'p(90)', 'p(95)', 'p(99)', 'max'],
   scenarios: {
     lag_under_load: {
-      executor: 'constant-vus',
-      vus: VUS,
-      duration: '3m',
+      executor: 'ramping-vus',
+      startVUs: 0,
+      stages: [
+        { duration: '30s', target: N },
+        { duration: '4m', target: N },
+        { duration: '30s', target: 0 },
+      ],
+      gracefulRampDown: '30s',
     },
   },
   thresholds: {
@@ -46,6 +49,29 @@ function randomUUID() {
   });
 }
 
+function batchRequests(requests) {
+  const results = [];
+  for (let i = 0; i < requests.length; i += BATCH_SIZE) {
+    const responses = http.batch(requests.slice(i, i + BATCH_SIZE));
+    for (let j = 0; j < responses.length; j++) results.push(responses[j]);
+  }
+  return results;
+}
+
+// Espera o lado de leitura refletir uma escrita (consistencia eventual). As
+// validacoes de escrita consultam o read (gerente existe? cliente existe?), entao
+// a preparacao so avanca quando o dado ja esta visivel la.
+function waitForRead(url, isReady, timeoutSec = 120) {
+  const deadline = Date.now() + timeoutSec * 1000;
+  while (Date.now() < deadline) {
+    const res = http.get(url, { tags: { name: 'setup-wait' }, responseCallback: http.expectedStatuses(200, 404) });
+    if (res.status === 200 && isReady(res)) return true;
+    sleep(0.5);
+  }
+  console.warn(`[setup] timeout esperando ${url}`);
+  return false;
+}
+
 export function setup() {
   const branchRes = http.post(`${STAFF_URL}/branches`,
     JSON.stringify({ region: 'Centro-Oeste' }), { headers: HEADERS });
@@ -54,29 +80,46 @@ export function setup() {
   const amRes = http.post(`${STAFF_URL}/account-managers`,
     JSON.stringify({ name: 'Gerente Lag K6', branchId, isAdmin: false }), { headers: HEADERS });
   const accountManagerId = amRes.json('accountManagerId');
+  waitForRead(`${READ_URL}/account-managers/${accountManagerId}`, () => true);
 
-  const entities = [];
-  for (let i = 0; i < VUS; i++) {
-    const custRes = http.post(`${CUSTOMER_URL}/customers`,
-      JSON.stringify({ name: `Cliente Lag ${i}`, address: `Rua Lag ${i}, 1`, age: 30, accountManagerId }),
-      { headers: HEADERS });
-    const customerId = custRes.json('customerId');
-    if (!customerId) { console.warn(`[setup] customer ${i} falhou`); continue; }
-
-    const walletRes = http.post(`${WALLET_URL}/wallets`,
-      JSON.stringify({ customerId }), { headers: HEADERS });
-    const walletId = walletRes.json('walletId');
-    if (!walletId) { console.warn(`[setup] wallet ${i} falhou`); continue; }
-
-    http.post(`${WALLET_URL}/wallets/${walletId}/transactions`,
-      JSON.stringify({ walletId, value: 100000.00, type: 'DEPOSIT', exchangeConfirmationId: randomUUID() }),
-      { headers: HEADERS });
-
-    entities.push({ customerId, walletId });
+  // Step 1: criar todos os customers em paralelo
+  const customerReqs = [];
+  for (let i = 0; i < N; i++) {
+    customerReqs.push({ method: 'POST', url: `${CUSTOMER_URL}/customers`,
+      body: JSON.stringify({ name: `Cliente Lag ${i}`, address: `Rua Lag ${i}, 1`, age: 30, accountManagerId }),
+      params: { headers: HEADERS } });
   }
+  const customerResps = batchRequests(customerReqs);
+  const createdCustomers = customerResps.filter((r) => r.status === 201).length;
+  waitForRead(`${READ_URL}/customers/by-account-manager/${accountManagerId}`,
+    (r) => r.json().length >= createdCustomers);
+
+  // Step 2: criar todas as wallets em paralelo
+  const walletReqs = [];
+  for (let i = 0; i < customerResps.length; i++) {
+    const customerId = customerResps[i].json('customerId');
+    if (!customerId) { console.warn(`[setup] customer ${i} falhou`); continue; }
+    walletReqs.push({ method: 'POST', url: `${WALLET_URL}/wallets`,
+      body: JSON.stringify({ customerId }), params: { headers: HEADERS } });
+  }
+  const walletResps = batchRequests(walletReqs);
+
+  // Step 3: deposito inicial em paralelo
+  const depositReqs = [];
+  const entities = [];
+  for (let i = 0; i < walletResps.length; i++) {
+    const walletId = walletResps[i].json('walletId');
+    const customerId = customerResps[i] ? customerResps[i].json('customerId') : null;
+    if (!walletId || !customerId) { console.warn(`[setup] entidade ${i} falhou`); continue; }
+    entities.push({ customerId, walletId });
+    depositReqs.push({ method: 'POST', url: `${WALLET_URL}/wallets/${walletId}/transactions`,
+      body: JSON.stringify({ walletId, value: 100000.00, type: 'DEPOSIT', exchangeConfirmationId: randomUUID() }),
+      params: { headers: HEADERS } });
+  }
+  batchRequests(depositReqs);
 
   sleep(5);
-  console.log(`[setup] ${entities.length}/${VUS} entidades prontas`);
+  console.log(`[setup] ${entities.length}/${N} entidades prontas`);
   return { entities };
 }
 
@@ -109,7 +152,7 @@ export default function (data) {
 
   if (lagMs === -1) {
     lagTimeouts.add(1);
-    console.warn(`[VU ${__VU}] Timeout: saldo não replicado em 10s`);
+    console.warn(`[VU ${__VU}] Timeout: saldo nao replicado em 10s`);
   } else {
     replicationLag.add(lagMs);
   }
@@ -119,9 +162,9 @@ export default function (data) {
 
 export function handleSummary(data) {
   const lag = data.metrics['replication_lag_ms'];
-  if (!lag) { console.log('Nenhuma medição de lag registrada.'); return {}; }
+  if (!lag) { console.log('Nenhuma medicao de lag registrada.'); return {}; }
   console.log('\n=== REPLICATION LAG UNDER LOAD (ms) ===');
-  console.log(`  VUs  : ${VUS}`);
+  console.log(`  VUs  : ${N}`);
   console.log(`  min  : ${lag.values.min.toFixed(0)}`);
   console.log(`  med  : ${lag.values['med'].toFixed(0)}`);
   console.log(`  p(90): ${lag.values['p(90)'].toFixed(0)}`);

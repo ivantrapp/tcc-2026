@@ -12,12 +12,22 @@
 
 ### 01 — Write Load (throughput de escrita nos microsserviços)
 
+O teste de escrita roda em duas etapas. A preparação (`00-write-seed.js`) cria N clientes e N carteiras com depósito inicial e grava os IDs em `data/write-wallets-<N>.json`. A carga (`01-write-load-<N>.js`) lê esse arquivo com `SharedArray`, que guarda uma única cópia compartilhada entre os VUs, em vez de o k6 copiar a lista para cada VU. Assim as requisições da preparação também não entram nas métricas. Os runners `run-write-load-tests*.ps1` fazem as duas etapas sozinhos.
+
 ```powershell
+k6 run -e N=300 `
+       -e STAFF_URL=http://localhost:8082 `
+       -e CUSTOMER_URL=http://localhost:8083 `
+       -e WALLET_URL=http://localhost:8084 `
+       00-write-seed.js
+
 k6 run -e STAFF_URL=http://localhost:8082 `
        -e CUSTOMER_URL=http://localhost:8083 `
        -e WALLET_URL=http://localhost:8084 `
        01-write-load.js
 ```
+
+O resumo mostra latência, erros e número de requisições de cada patamar da rampa (`{ stage:patamar-<VUs> }`). A taxa por segundo dessas linhas é calculada sobre o teste inteiro; para a vazão do patamar, divida a contagem pela duração dele.
 
 ### 02 — Read Load (throughput de leitura via read app)
 
@@ -72,7 +82,7 @@ k6 run -e STAFF_URL=http://localhost:8080 `
 
 ## Fluxo do setup (executado automaticamente antes do teste)
 
-Todos os testes criam os dados necessários automaticamente na função `setup()`:
+Os testes de leitura e de lag criam os dados necessários automaticamente na função `setup()`; no teste de escrita isso é feito antes, pelo `00-write-seed.js`:
 
 ```
 POST /branches              →  staff-app  (8082)
