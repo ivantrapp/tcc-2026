@@ -1,0 +1,64 @@
+﻿[18:05:29] k6 sem saida ha 90s - capturando estado
+k6-1f4332ad51a6 Up 4 minutes
+cqrs-event-sourcing-read-1 Up 5 minutes
+cqrs-event-sourcing-customer-1 Up 6 minutes
+cqrs-event-sourcing-wallet-1 Up 5 minutes
+cqrs-event-sourcing-staff-1 Up 6 minutes
+cqrs-event-sourcing-postgres-1 Up 6 minutes (healthy)
+cqrs-event-sourcing-postgres-customer-1 Up 6 minutes (healthy)
+cqrs-event-sourcing-postgres-wallet-1 Up 6 minutes (healthy)
+cqrs-event-sourcing-postgres-staff-1 Up 6 minutes (healthy)
+cqrs-event-sourcing-rabbitmq-1 Up 6 minutes (healthy)
+State={"Status":"running","Running":true,"Paused":false,"Restarting":false,"OOMKilled":false,"Dead":false,"Pid":11402,"ExitCode":0,"Error":"","StartedAt":"2026-10-15T21:00:51.036111Z","FinishedAt":"0001-01-01T00:00:00Z"}
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+12345               11402               11377               99                  21:00               ?                   00:07:40            k6 run -e STAFF_URL=http://staff:8082 -e CUSTOMER_URL=http://customer:8083 -e WALLET_URL=http://wallet:8084 -e READ_URL=http://read:8081 -e DATA_DIR=/scripts/data /scripts/01-write-load-1000.js
+sockets: used 994
+TCP: inuse 992 orphan 0 tw 169 alloc 2247 mem 0
+UDP: inuse 1 mem 0
+UDPLITE: inuse 0
+RAW: inuse 0
+FRAG: inuse 0 memory 0
+PID   VSZ  RSS  STAT COMMAND
+    1 1.9g 744m S    k6
+  331 1640  788 R    ps
+write_load   [  89% ] 1000/1000 VUs  4m27.9s/5m00.0s
+
+running (4m28.9s), 1000/1000 VUs, 1117065 complete and 0 interrupted iterations
+write_load   [  90% ] 1000/1000 VUs  4m28.9s/5m00.0s
+
+running (4m29.9s), 1000/1000 VUs, 1122188 complete and 0 interrupted iterations
+write_load   [  90% ] 1000/1000 VUs  4m29.9s/5m00.0s
+
+running (4m30.9s), 0976/1000 VUs, 1126943 complete and 0 interrupted iterations
+write_load   [  90% ] 0976/1000 VUs  4m30.9s/5m00.0s
+
+running (4m31.9s), 0942/1000 VUs, 1132202 complete and 0 interrupted iterations
+write_load   [  91% ] 0942/1000 VUs  4m31.9s/5m00.0s
+
+running (4m32.9s), 0908/1000 VUs, 1137093 complete and 0 interrupted iterations
+write_load   [  91% ] 0908/1000 VUs  4m32.9s/5m00.0s
+
+running (4m33.9s), 0873/1000 VUs, 1142373 complete and 0 interrupted iterations
+write_load   [  91% ] 0873/1000 VUs  4m33.9s/5m00.0s
+
+running (4m34.9s), 0841/1000 VUs, 1147503 complete and 0 interrupted iterations
+write_load   [  92% ] 0841/1000 VUs  4m34.9s/5m00.0s
+
+running (4m35.9s), 0807/1000 VUs, 1152389 complete and 0 interrupted iterations
+write_load   [  92% ] 0807/1000 VUs  4m35.9s/5m00.0s
+
+running (4m36.9s), 0775/1000 VUs, 1157781 complete and 0 interrupted iterations
+write_load   [  92% ] 0775/1000 VUs  4m36.9s/5m00.0s
+
+running (4m37.9s), 0742/1000 VUs, 1163114 complete and 0 interrupted iterations
+write_load   [  93% ] 0742/1000 VUs  4m37.9s/5m00.0s
+
+running (4m38.9s), 0706/1000 VUs, 1167889 complete and 0 interrupted iterations
+write_load   [  93% ] 0706/1000 VUs  4m38.9s/5m00.0s
+
+running (4m39.8s), 0674/1000 VUs, 1173159 complete and 0 interrupted iterations
+write_load   [  93% ] 0674/1000 VUs  4m39.9s/5m00.0s
+
+running (4m40.8s), 0639/1000 VUs, 1177943 complete and 0 interrupted iterations
+write_load   [  94% ] 0639/1000 VUs  4m40.9s/5m00.0s
+[18:06:33] continua travado - removendo conteiner k6

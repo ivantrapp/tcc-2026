@@ -1,0 +1,9 @@
+﻿NAME                                   IMAGE                                COMMAND                  SERVICE        CREATED         STATUS                   PORTS
+cqrs-data-replication-customer-app-1   cqrs-data-replication-customer-app   "java -jar app.jar"      customer-app   7 minutes ago   Up 7 minutes (healthy)   0.0.0.0:8083->8083/tcp, [::]:8083->8083/tcp
+cqrs-data-replication-db-customer-1    postgres:16                          "docker-entrypoint.s…"   db-customer    7 minutes ago   Up 7 minutes (healthy)   0.0.0.0:5458->5432/tcp, [::]:5458->5432/tcp
+cqrs-data-replication-db-read-1        postgres:16                          "docker-entrypoint.s…"   db-read        7 minutes ago   Up 7 minutes (healthy)   0.0.0.0:5455->5432/tcp, [::]:5455->5432/tcp
+cqrs-data-replication-db-staff-1       postgres:16                          "docker-entrypoint.s…"   db-staff       7 minutes ago   Up 7 minutes (healthy)   0.0.0.0:5457->5432/tcp, [::]:5457->5432/tcp
+cqrs-data-replication-db-wallet-1      postgres:16                          "docker-entrypoint.s…"   db-wallet      7 minutes ago   Up 7 minutes (healthy)   0.0.0.0:5459->5432/tcp, [::]:5459->5432/tcp
+cqrs-data-replication-read-app-1       cqrs-data-replication-read-app       "java -jar app.jar"      read-app       7 minutes ago   Up 7 minutes             0.0.0.0:8081->8081/tcp, [::]:8081->8081/tcp
+cqrs-data-replication-staff-app-1      cqrs-data-replication-staff-app      "java -jar app.jar"      staff-app      7 minutes ago   Up 7 minutes (healthy)   0.0.0.0:8082->8082/tcp, [::]:8082->8082/tcp
+cqrs-data-replication-wallet-app-1     cqrs-data-replication-wallet-app     "java -jar app.jar"      wallet-app     7 minutes ago   Up 7 minutes (healthy)   0.0.0.0:8084->8084/tcp, [::]:8084->8084/tcp

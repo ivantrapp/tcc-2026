@@ -1,0 +1,58 @@
+﻿postgres-staff-1  | 2026-10-16T02:34:57.233867109Z The files belonging to this database system will be owned by user "postgres".
+postgres-staff-1  | 2026-10-16T02:34:57.233984958Z This user must also own the server process.
+postgres-staff-1  | 2026-10-16T02:34:57.233989508Z 
+postgres-staff-1  | 2026-10-16T02:34:57.233991038Z The database cluster will be initialized with locale "en_US.utf8".
+postgres-staff-1  | 2026-10-16T02:34:57.233992738Z The default database encoding has accordingly been set to "UTF8".
+postgres-staff-1  | 2026-10-16T02:34:57.233994078Z The default text search configuration will be set to "english".
+postgres-staff-1  | 2026-10-16T02:34:57.233995909Z 
+postgres-staff-1  | 2026-10-16T02:34:57.233997189Z Data page checksums are disabled.
+postgres-staff-1  | 2026-10-16T02:34:57.233999789Z 
+postgres-staff-1  | 2026-10-16T02:34:57.234079446Z fixing permissions on existing directory /var/lib/postgresql/data ... ok
+postgres-staff-1  | 2026-10-16T02:34:57.240475547Z creating subdirectories ... ok
+postgres-staff-1  | 2026-10-16T02:34:57.240485068Z selecting dynamic shared memory implementation ... posix
+postgres-staff-1  | 2026-10-16T02:34:57.254824212Z selecting default max_connections ... 100
+postgres-staff-1  | 2026-10-16T02:34:57.270391830Z selecting default shared_buffers ... 128MB
+postgres-staff-1  | 2026-10-16T02:34:57.289919977Z selecting default time zone ... Etc/UTC
+postgres-staff-1  | 2026-10-16T02:34:57.290369137Z creating configuration files ... ok
+postgres-staff-1  | 2026-10-16T02:34:57.388329569Z running bootstrap script ... ok
+postgres-staff-1  | 2026-10-16T02:34:57.625176896Z performing post-bootstrap initialization ... ok
+postgres-staff-1  | 2026-10-16T02:34:57.871183841Z syncing data to disk ... ok
+postgres-staff-1  | 2026-10-16T02:34:57.871195592Z 
+postgres-staff-1  | 2026-10-16T02:34:57.871197092Z 
+postgres-staff-1  | 2026-10-16T02:34:57.871198362Z Success. You can now start the database server using:
+postgres-staff-1  | 2026-10-16T02:34:57.871200202Z 
+postgres-staff-1  | 2026-10-16T02:34:57.871201422Z     pg_ctl -D /var/lib/postgresql/data -l logfile start
+postgres-staff-1  | 2026-10-16T02:34:57.871202672Z 
+postgres-staff-1  | 2026-10-16T02:34:57.871186142Z initdb: warning: enabling "trust" authentication for local connections
+postgres-staff-1  | 2026-10-16T02:34:57.871206693Z initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+postgres-staff-1  | 2026-10-16T02:34:57.906020178Z waiting for server to start....2026-10-16 02:34:57.905 UTC [48] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+postgres-staff-1  | 2026-10-16T02:34:57.908621258Z 2026-10-16 02:34:57.908 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-staff-1  | 2026-10-16T02:34:57.914548184Z 2026-10-16 02:34:57.914 UTC [51] LOG:  database system was shut down at 2026-10-16 02:34:57 UTC
+postgres-staff-1  | 2026-10-16T02:34:57.918615197Z 2026-10-16 02:34:57.918 UTC [48] LOG:  database system is ready to accept connections
+postgres-staff-1  | 2026-10-16T02:34:57.987038199Z  done
+postgres-staff-1  | 2026-10-16T02:34:57.987051430Z server started
+postgres-staff-1  | 2026-10-16T02:34:58.062419477Z CREATE DATABASE
+postgres-staff-1  | 2026-10-16T02:34:58.062944083Z 
+postgres-staff-1  | 2026-10-16T02:34:58.062954034Z 
+postgres-staff-1  | 2026-10-16T02:34:58.062975590Z /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+postgres-staff-1  | 2026-10-16T02:34:58.062980630Z 
+postgres-staff-1  | 2026-10-16T02:34:58.064047468Z 2026-10-16 02:34:58.063 UTC [48] LOG:  received fast shutdown request
+postgres-staff-1  | 2026-10-16T02:34:58.065906471Z waiting for server to shut down....2026-10-16 02:34:58.065 UTC [48] LOG:  aborting any active transactions
+postgres-staff-1  | 2026-10-16T02:34:58.067242799Z 2026-10-16 02:34:58.067 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+postgres-staff-1  | 2026-10-16T02:34:58.067331676Z 2026-10-16 02:34:58.067 UTC [49] LOG:  shutting down
+postgres-staff-1  | 2026-10-16T02:34:58.068956076Z 2026-10-16 02:34:58.068 UTC [49] LOG:  checkpoint starting: shutdown immediate
+postgres-staff-1  | 2026-10-16T02:34:58.143978589Z 2026-10-16 02:34:58.143 UTC [49] LOG:  checkpoint complete: wrote 926 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.018 s, sync=0.052 s, total=0.077 s; sync files=301, longest=0.003 s, average=0.001 s; distance=4273 kB, estimate=4273 kB; lsn=0/191F0E8, redo lsn=0/191F0E8
+postgres-staff-1  | 2026-10-16T02:34:58.150323687Z 2026-10-16 02:34:58.150 UTC [48] LOG:  database system is shut down
+postgres-staff-1  | 2026-10-16T02:34:58.164171312Z  done
+postgres-staff-1  | 2026-10-16T02:34:58.164179903Z server stopped
+postgres-staff-1  | 2026-10-16T02:34:58.165100504Z 
+postgres-staff-1  | 2026-10-16T02:34:58.165104994Z PostgreSQL init process complete; ready for start up.
+postgres-staff-1  | 2026-10-16T02:34:58.165107014Z 
+postgres-staff-1  | 2026-10-16T02:34:58.183469422Z 2026-10-16 02:34:58.183 UTC [1] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+postgres-staff-1  | 2026-10-16T02:34:58.183555139Z 2026-10-16 02:34:58.183 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-staff-1  | 2026-10-16T02:34:58.183559559Z 2026-10-16 02:34:58.183 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-staff-1  | 2026-10-16T02:34:58.188314258Z 2026-10-16 02:34:58.188 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-staff-1  | 2026-10-16T02:34:58.192572908Z 2026-10-16 02:34:58.192 UTC [64] LOG:  database system was shut down at 2026-10-16 02:34:58 UTC
+postgres-staff-1  | 2026-10-16T02:34:58.196304640Z 2026-10-16 02:34:58.196 UTC [1] LOG:  database system is ready to accept connections
+postgres-staff-1  | 2026-10-16T02:39:58.275492344Z 2026-10-16 02:39:58.275 UTC [62] LOG:  checkpoint starting: time
+postgres-staff-1  | 2026-10-16T02:40:10.327432956Z 2026-10-16 02:40:10.327 UTC [62] LOG:  checkpoint complete: wrote 123 buffers (0.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=12.032 s, sync=0.013 s, total=12.052 s; sync files=68, longest=0.002 s, average=0.001 s; distance=530 kB, estimate=530 kB; lsn=0/19A3CA0, redo lsn=0/19A3C68

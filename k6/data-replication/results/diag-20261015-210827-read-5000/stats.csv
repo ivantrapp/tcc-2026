@@ -1,0 +1,9 @@
+﻿hora;container;cpu;mem_uso;mem_pct;net_io;pids
+21:08:56;cqrs-data-replication-read-app-1;0.18%;347.5MiB / 15.18GiB;2.24%;38.3kB / 43kB;52
+21:08:56;cqrs-data-replication-customer-app-1;0.16%;388MiB / 15.18GiB;2.50%;39.7kB / 41.3kB;51
+21:08:56;cqrs-data-replication-wallet-app-1;2.00%;417.8MiB / 15.18GiB;2.69%;40kB / 42kB;51
+21:08:56;cqrs-data-replication-staff-app-1;2.08%;379.5MiB / 15.18GiB;2.44%;39.7kB / 41.4kB;53
+21:08:56;cqrs-data-replication-db-read-1;3.68%;69.77MiB / 15.18GiB;0.45%;73.3kB / 66.8kB;29
+21:08:56;cqrs-data-replication-db-customer-1;3.62%;65.01MiB / 15.18GiB;0.42%;50.7kB / 45.4kB;27
+21:08:56;cqrs-data-replication-db-wallet-1;3.64%;64.7MiB / 15.18GiB;0.42%;55.5kB / 49kB;27
+21:08:56;cqrs-data-replication-db-staff-1;0.02%;64.4MiB / 15.18GiB;0.41%;55.2kB / 48.7kB;27

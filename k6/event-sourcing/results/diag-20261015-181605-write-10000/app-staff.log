@@ -1,0 +1,18 @@
+﻿staff-1  | 2026-10-15T21:16:23.012314728Z 
+staff-1  | 2026-10-15T21:16:23.012362671Z   .   ____          _            __ _ _
+staff-1  | 2026-10-15T21:16:23.012365892Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+staff-1  | 2026-10-15T21:16:23.012367842Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+staff-1  | 2026-10-15T21:16:23.012369682Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+staff-1  | 2026-10-15T21:16:23.012371492Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+staff-1  | 2026-10-15T21:16:23.012373522Z  =========|_|==============|___/=/_/_/_/
+staff-1  | 2026-10-15T21:16:23.012375392Z 
+staff-1  | 2026-10-15T21:16:23.012634570Z  :: Spring Boot ::                (v4.0.6)
+staff-1  | 2026-10-15T21:16:23.012642761Z 
+staff-1  | 2026-10-15T21:16:23.094850216Z 21:16:23.091 [main] INFO  [staff] com.cqrs.Application - Starting Application v0.0.1-SNAPSHOT using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+staff-1  | 2026-10-15T21:16:23.098512809Z 21:16:23.095 [main] INFO  [staff] com.cqrs.Application - No active profile set, falling back to 1 default profile: "default"
+staff-1  | 2026-10-15T21:16:26.243972983Z 21:16:26.242 [main] WARN  [staff] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+staff-1  | 2026-10-15T21:16:28.354581900Z 21:16:28.354 [main] INFO  [staff] com.cqrs.Application - Started Application in 5.832 seconds (process running for 6.394)
+staff-1  | 2026-10-15T21:17:33.271119767Z 21:17:33.270 [tomcat-handler-1] INFO  [staff] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+staff-1  | 2026-10-15T21:17:33.271939670Z 21:17:33.271 [tomcat-handler-1] INFO  [staff] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+staff-1  | 2026-10-15T21:17:33.413424728Z 21:17:33.413 [tomcat-handler-1] INFO  [staff] o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+staff-1  | 2026-10-15T21:17:33.446225190Z 21:17:33.445 [tomcat-handler-1] INFO  [staff] o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#26398f67:0/SimpleConnection@1ec6b7e3 [delegate=amqp://guest@172.18.0.2:5672/, localPort=51064]

@@ -1,0 +1,702 @@
+﻿postgres-wallet-1  | 2026-10-15T22:58:49.734801609Z The files belonging to this database system will be owned by user "postgres".
+postgres-wallet-1  | 2026-10-15T22:58:49.734825871Z This user must also own the server process.
+postgres-wallet-1  | 2026-10-15T22:58:49.734829421Z 
+postgres-wallet-1  | 2026-10-15T22:58:49.734831402Z The database cluster will be initialized with locale "en_US.utf8".
+postgres-wallet-1  | 2026-10-15T22:58:49.734833582Z The default database encoding has accordingly been set to "UTF8".
+postgres-wallet-1  | 2026-10-15T22:58:49.734835642Z The default text search configuration will be set to "english".
+postgres-wallet-1  | 2026-10-15T22:58:49.734838092Z 
+postgres-wallet-1  | 2026-10-15T22:58:49.734839692Z Data page checksums are disabled.
+postgres-wallet-1  | 2026-10-15T22:58:49.734923779Z 
+postgres-wallet-1  | 2026-10-15T22:58:49.734929490Z fixing permissions on existing directory /var/lib/postgresql/data ... ok
+postgres-wallet-1  | 2026-10-15T22:58:49.741768585Z creating subdirectories ... ok
+postgres-wallet-1  | 2026-10-15T22:58:49.741784146Z selecting dynamic shared memory implementation ... posix
+postgres-wallet-1  | 2026-10-15T22:58:49.759361650Z selecting default max_connections ... 100
+postgres-wallet-1  | 2026-10-15T22:58:49.775942747Z selecting default shared_buffers ... 128MB
+postgres-wallet-1  | 2026-10-15T22:58:49.796923939Z selecting default time zone ... Etc/UTC
+postgres-wallet-1  | 2026-10-15T22:58:49.797313761Z creating configuration files ... ok
+postgres-wallet-1  | 2026-10-15T22:58:49.899614150Z running bootstrap script ... ok
+postgres-wallet-1  | 2026-10-15T22:58:50.135552667Z performing post-bootstrap initialization ... ok
+postgres-wallet-1  | 2026-10-15T22:58:50.471526869Z syncing data to disk ... ok
+postgres-wallet-1  | 2026-10-15T22:58:50.471545951Z 
+postgres-wallet-1  | 2026-10-15T22:58:50.471547871Z 
+postgres-wallet-1  | 2026-10-15T22:58:50.471549681Z Success. You can now start the database server using:
+postgres-wallet-1  | 2026-10-15T22:58:50.471554442Z 
+postgres-wallet-1  | 2026-10-15T22:58:50.471553686Z initdb: warning: enabling "trust" authentication for local connections
+postgres-wallet-1  | 2026-10-15T22:58:50.471582089Z initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+postgres-wallet-1  | 2026-10-15T22:58:50.471556112Z     pg_ctl -D /var/lib/postgresql/data -l logfile start
+postgres-wallet-1  | 2026-10-15T22:58:50.471592419Z 
+postgres-wallet-1  | 2026-10-15T22:58:50.513229075Z waiting for server to start....2026-10-15 22:58:50.513 UTC [48] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+postgres-wallet-1  | 2026-10-15T22:58:50.515161824Z 2026-10-15 22:58:50.514 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-wallet-1  | 2026-10-15T22:58:50.524648203Z 2026-10-15 22:58:50.524 UTC [51] LOG:  database system was shut down at 2026-10-15 22:58:50 UTC
+postgres-wallet-1  | 2026-10-15T22:58:50.531414759Z 2026-10-15 22:58:50.531 UTC [48] LOG:  database system is ready to accept connections
+postgres-wallet-1  | 2026-10-15T22:58:50.590480086Z  done
+postgres-wallet-1  | 2026-10-15T22:58:50.590492997Z server started
+postgres-wallet-1  | 2026-10-15T22:58:50.678173437Z CREATE DATABASE
+postgres-wallet-1  | 2026-10-15T22:58:50.678844687Z 
+postgres-wallet-1  | 2026-10-15T22:58:50.678911993Z 
+postgres-wallet-1  | 2026-10-15T22:58:50.678916453Z /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+postgres-wallet-1  | 2026-10-15T22:58:50.678919033Z 
+postgres-wallet-1  | 2026-10-15T22:58:50.680037815Z waiting for server to shut down...2026-10-15 22:58:50.679 UTC [48] LOG:  received fast shutdown request
+postgres-wallet-1  | 2026-10-15T22:58:50.681604085Z .2026-10-15 22:58:50.681 UTC [48] LOG:  aborting any active transactions
+postgres-wallet-1  | 2026-10-15T22:58:50.682905943Z 2026-10-15 22:58:50.682 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+postgres-wallet-1  | 2026-10-15T22:58:50.682988614Z 2026-10-15 22:58:50.682 UTC [49] LOG:  shutting down
+postgres-wallet-1  | 2026-10-15T22:58:50.684535793Z 2026-10-15 22:58:50.684 UTC [49] LOG:  checkpoint starting: shutdown immediate
+postgres-wallet-1  | 2026-10-15T22:58:50.756258842Z 2026-10-15 22:58:50.756 UTC [49] LOG:  checkpoint complete: wrote 926 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.020 s, sync=0.048 s, total=0.074 s; sync files=301, longest=0.002 s, average=0.001 s; distance=4273 kB, estimate=4273 kB; lsn=0/191F0E8, redo lsn=0/191F0E8
+postgres-wallet-1  | 2026-10-15T22:58:50.761881793Z 2026-10-15 22:58:50.761 UTC [48] LOG:  database system is shut down
+postgres-wallet-1  | 2026-10-15T22:58:50.780208318Z  done
+postgres-wallet-1  | 2026-10-15T22:58:50.780219529Z server stopped
+postgres-wallet-1  | 2026-10-15T22:58:50.781157870Z 
+postgres-wallet-1  | 2026-10-15T22:58:50.781163231Z PostgreSQL init process complete; ready for start up.
+postgres-wallet-1  | 2026-10-15T22:58:50.781165781Z 
+postgres-wallet-1  | 2026-10-15T22:58:50.797327235Z 2026-10-15 22:58:50.797 UTC [1] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+postgres-wallet-1  | 2026-10-15T22:58:50.797433839Z 2026-10-15 22:58:50.797 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-wallet-1  | 2026-10-15T22:58:50.797438599Z 2026-10-15 22:58:50.797 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-wallet-1  | 2026-10-15T22:58:50.800401230Z 2026-10-15 22:58:50.800 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-wallet-1  | 2026-10-15T22:58:50.804202589Z 2026-10-15 22:58:50.804 UTC [64] LOG:  database system was shut down at 2026-10-15 22:58:50 UTC
+postgres-wallet-1  | 2026-10-15T22:58:50.807781995Z 2026-10-15 22:58:50.807 UTC [1] LOG:  database system is ready to accept connections
+postgres-wallet-1  | 2026-10-15T23:00:18.519548262Z 2026-10-15 23:00:18.519 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.519575874Z 2026-10-15 23:00:18.519 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-73e48c89-a849-4026-88eb-81cb0f447b04, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.519580994Z 2026-10-15 23:00:18.519 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.519584485Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.519587415Z 2026-10-15 23:00:18.519 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.519590345Z 2026-10-15 23:00:18.519 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-73e48c89-a849-4026-88eb-81cb0f447b04, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.519592955Z 2026-10-15 23:00:18.519 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.519597716Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.519599836Z 2026-10-15 23:00:18.519 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.519603446Z 2026-10-15 23:00:18.519 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-73e48c89-a849-4026-88eb-81cb0f447b04, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.519605596Z 2026-10-15 23:00:18.519 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.519607656Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.519609787Z 2026-10-15 23:00:18.519 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.519611877Z 2026-10-15 23:00:18.519 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-73e48c89-a849-4026-88eb-81cb0f447b04, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.519614007Z 2026-10-15 23:00:18.519 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.519616167Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.539048684Z 2026-10-15 23:00:18.538 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.539073976Z 2026-10-15 23:00:18.538 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-d031fda1-4048-4ead-8cb0-81461107a813, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.539078047Z 2026-10-15 23:00:18.538 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.539082017Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.551234741Z 2026-10-15 23:00:18.551 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.551258633Z 2026-10-15 23:00:18.551 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-ff5ff797-786d-4c0c-ac9f-2132a160fca6, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.551262083Z 2026-10-15 23:00:18.551 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.551265703Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.551398249Z 2026-10-15 23:00:18.551 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.551409080Z 2026-10-15 23:00:18.551 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-ff5ff797-786d-4c0c-ac9f-2132a160fca6, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.551413120Z 2026-10-15 23:00:18.551 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.551424721Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.552580398Z 2026-10-15 23:00:18.552 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.552588099Z 2026-10-15 23:00:18.552 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-d031fda1-4048-4ead-8cb0-81461107a813, 3) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.552590349Z 2026-10-15 23:00:18.552 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.552592099Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.562561859Z 2026-10-15 23:00:18.562 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.562582960Z 2026-10-15 23:00:18.562 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-ff5ff797-786d-4c0c-ac9f-2132a160fca6, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.562585611Z 2026-10-15 23:00:18.562 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.562588881Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.564272751Z 2026-10-15 23:00:18.564 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.564281772Z 2026-10-15 23:00:18.564 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-aa151db4-81aa-4c48-8cd8-809bc3d6d0c0, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.564284372Z 2026-10-15 23:00:18.564 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.564287202Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.564289602Z 2026-10-15 23:00:18.564 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.564291752Z 2026-10-15 23:00:18.564 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-aa151db4-81aa-4c48-8cd8-809bc3d6d0c0, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.564293742Z 2026-10-15 23:00:18.564 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.564296783Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.564317629Z 2026-10-15 23:00:18.564 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.564323920Z 2026-10-15 23:00:18.564 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-aa151db4-81aa-4c48-8cd8-809bc3d6d0c0, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.564327220Z 2026-10-15 23:00:18.564 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.564329800Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.573457401Z 2026-10-15 23:00:18.573 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.573475713Z 2026-10-15 23:00:18.573 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-37cbae8e-cb87-49ad-995e-2430ff02a0b3, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.573479613Z 2026-10-15 23:00:18.573 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.573482153Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.573484563Z 2026-10-15 23:00:18.573 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.573486644Z 2026-10-15 23:00:18.573 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-37cbae8e-cb87-49ad-995e-2430ff02a0b3, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.573488444Z 2026-10-15 23:00:18.573 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.573490354Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.573492044Z 2026-10-15 23:00:18.573 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.573493694Z 2026-10-15 23:00:18.573 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-37cbae8e-cb87-49ad-995e-2430ff02a0b3, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.573507555Z 2026-10-15 23:00:18.573 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.573511606Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.573513686Z 2026-10-15 23:00:18.573 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.573515566Z 2026-10-15 23:00:18.573 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-37cbae8e-cb87-49ad-995e-2430ff02a0b3, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.573517366Z 2026-10-15 23:00:18.573 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.573519296Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.583996344Z 2026-10-15 23:00:18.583 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.584017165Z 2026-10-15 23:00:18.583 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-a11256f5-c936-47e4-b043-18dd6fca7b01, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.584020016Z 2026-10-15 23:00:18.583 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.584022336Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.584024576Z 2026-10-15 23:00:18.583 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.584026226Z 2026-10-15 23:00:18.583 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-a11256f5-c936-47e4-b043-18dd6fca7b01, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.584028006Z 2026-10-15 23:00:18.583 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.584029816Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.584031537Z 2026-10-15 23:00:18.583 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.584033307Z 2026-10-15 23:00:18.583 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-a11256f5-c936-47e4-b043-18dd6fca7b01, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.584035027Z 2026-10-15 23:00:18.583 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.584036757Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.584877547Z 2026-10-15 23:00:18.584 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.584885327Z 2026-10-15 23:00:18.584 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-a11256f5-c936-47e4-b043-18dd6fca7b01, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.584888058Z 2026-10-15 23:00:18.584 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.584890558Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.593041959Z 2026-10-15 23:00:18.592 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.593061130Z 2026-10-15 23:00:18.592 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-3b8fd3a3-a853-4bac-ac0f-9223684d4e20, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.593063970Z 2026-10-15 23:00:18.592 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.593066501Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.593068931Z 2026-10-15 23:00:18.592 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.593070781Z 2026-10-15 23:00:18.592 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-3b8fd3a3-a853-4bac-ac0f-9223684d4e20, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.593072551Z 2026-10-15 23:00:18.592 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.593074411Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.593692687Z 2026-10-15 23:00:18.593 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.593711069Z 2026-10-15 23:00:18.593 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-4ef263b2-02a6-49b1-a0ac-391bf0916519, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.593713229Z 2026-10-15 23:00:18.593 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.593715089Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.595049872Z 2026-10-15 23:00:18.594 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.595063223Z 2026-10-15 23:00:18.594 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-3b8fd3a3-a853-4bac-ac0f-9223684d4e20, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.595066153Z 2026-10-15 23:00:18.594 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.595071103Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.605326285Z 2026-10-15 23:00:18.605 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.605342007Z 2026-10-15 23:00:18.605 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-8d2742ed-b88e-4c3f-a636-aea68ef817d2, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.605344547Z 2026-10-15 23:00:18.605 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.605347007Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.605348807Z 2026-10-15 23:00:18.605 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.605350227Z 2026-10-15 23:00:18.605 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-8d2742ed-b88e-4c3f-a636-aea68ef817d2, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.605351607Z 2026-10-15 23:00:18.605 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.605352918Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.605930384Z 2026-10-15 23:00:18.605 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.605938664Z 2026-10-15 23:00:18.605 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-4ef263b2-02a6-49b1-a0ac-391bf0916519, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.605941005Z 2026-10-15 23:00:18.605 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.605943715Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.605947215Z 2026-10-15 23:00:18.605 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.605950915Z 2026-10-15 23:00:18.605 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-4ef263b2-02a6-49b1-a0ac-391bf0916519, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.605956536Z 2026-10-15 23:00:18.605 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.605958696Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.615420729Z 2026-10-15 23:00:18.615 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.615440740Z 2026-10-15 23:00:18.615 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-739b6ddc-85d4-4b0c-81b4-691f273a1aea, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.615443590Z 2026-10-15 23:00:18.615 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.615445711Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.615448381Z 2026-10-15 23:00:18.615 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.615450051Z 2026-10-15 23:00:18.615 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-739b6ddc-85d4-4b0c-81b4-691f273a1aea, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.615451761Z 2026-10-15 23:00:18.615 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.615453591Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.615455161Z 2026-10-15 23:00:18.615 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.615467842Z 2026-10-15 23:00:18.615 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-739b6ddc-85d4-4b0c-81b4-691f273a1aea, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.615469682Z 2026-10-15 23:00:18.615 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.615471513Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.616717902Z 2026-10-15 23:00:18.616 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.616725623Z 2026-10-15 23:00:18.616 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-8d2742ed-b88e-4c3f-a636-aea68ef817d2, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.616728403Z 2026-10-15 23:00:18.616 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.616730914Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.634213324Z 2026-10-15 23:00:18.633 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.634232916Z 2026-10-15 23:00:18.633 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-16115ae6-5d96-4c14-9932-1250ec48b0b5, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.634236586Z 2026-10-15 23:00:18.633 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.634239897Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.634245257Z 2026-10-15 23:00:18.634 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.634247747Z 2026-10-15 23:00:18.634 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-16115ae6-5d96-4c14-9932-1250ec48b0b5, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.634250127Z 2026-10-15 23:00:18.634 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.634251827Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.634253408Z 2026-10-15 23:00:18.633 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.634255268Z 2026-10-15 23:00:18.633 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-16115ae6-5d96-4c14-9932-1250ec48b0b5, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.634257538Z 2026-10-15 23:00:18.633 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.634262438Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.634267199Z 2026-10-15 23:00:18.634 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.634269289Z 2026-10-15 23:00:18.634 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-16115ae6-5d96-4c14-9932-1250ec48b0b5, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.634271459Z 2026-10-15 23:00:18.634 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.634273279Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.641926218Z 2026-10-15 23:00:18.641 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.641944170Z 2026-10-15 23:00:18.641 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-9cdd6fd3-24d3-463b-b145-0d3b7400b733, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.641946990Z 2026-10-15 23:00:18.641 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.641949460Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.642521981Z 2026-10-15 23:00:18.642 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.642528801Z 2026-10-15 23:00:18.642 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-88894bb5-a337-44dd-9686-910c3a75c605, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.642547243Z 2026-10-15 23:00:18.642 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.642565624Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.642568505Z 2026-10-15 23:00:18.642 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.642570775Z 2026-10-15 23:00:18.642 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-88894bb5-a337-44dd-9686-910c3a75c605, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.642572655Z 2026-10-15 23:00:18.642 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.642574455Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.642576595Z 2026-10-15 23:00:18.642 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.642578395Z 2026-10-15 23:00:18.642 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-88894bb5-a337-44dd-9686-910c3a75c605, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.642580536Z 2026-10-15 23:00:18.642 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.642582266Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.650211131Z 2026-10-15 23:00:18.650 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.650226493Z 2026-10-15 23:00:18.650 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-9cdd6fd3-24d3-463b-b145-0d3b7400b733, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.650228703Z 2026-10-15 23:00:18.650 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.650230703Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.650232483Z 2026-10-15 23:00:18.650 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.650233923Z 2026-10-15 23:00:18.650 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-9cdd6fd3-24d3-463b-b145-0d3b7400b733, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.650235313Z 2026-10-15 23:00:18.650 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.650237204Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.650783258Z 2026-10-15 23:00:18.650 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.650794408Z 2026-10-15 23:00:18.650 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-12fcfd3f-3490-4378-ab53-ed9dcc82b67f, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.650796969Z 2026-10-15 23:00:18.650 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.650799439Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.650802079Z 2026-10-15 23:00:18.650 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.650804049Z 2026-10-15 23:00:18.650 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-12fcfd3f-3490-4378-ab53-ed9dcc82b67f, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.650805959Z 2026-10-15 23:00:18.650 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.650807749Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.658323296Z 2026-10-15 23:00:18.658 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.658339478Z 2026-10-15 23:00:18.658 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-cb6e1d15-5110-43a7-a2d6-2833de5177cf, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.658342068Z 2026-10-15 23:00:18.658 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.658344388Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.658346508Z 2026-10-15 23:00:18.658 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.658348098Z 2026-10-15 23:00:18.658 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-cb6e1d15-5110-43a7-a2d6-2833de5177cf, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.658349819Z 2026-10-15 23:00:18.658 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.658360109Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.658362009Z 2026-10-15 23:00:18.658 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.658363770Z 2026-10-15 23:00:18.658 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-cb6e1d15-5110-43a7-a2d6-2833de5177cf, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.658365410Z 2026-10-15 23:00:18.658 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.658367120Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.658862655Z 2026-10-15 23:00:18.658 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.658875136Z 2026-10-15 23:00:18.658 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-12fcfd3f-3490-4378-ab53-ed9dcc82b67f, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.658877856Z 2026-10-15 23:00:18.658 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.658880627Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.665687212Z 2026-10-15 23:00:18.665 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.665701933Z 2026-10-15 23:00:18.665 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-ab41324a-91c2-46c6-8c17-2f00ca5c04d5, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.665704673Z 2026-10-15 23:00:18.665 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.665707044Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.665709714Z 2026-10-15 23:00:18.665 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.665711584Z 2026-10-15 23:00:18.665 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-ab41324a-91c2-46c6-8c17-2f00ca5c04d5, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.665713404Z 2026-10-15 23:00:18.665 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.665715524Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.665959869Z 2026-10-15 23:00:18.665 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.665966780Z 2026-10-15 23:00:18.665 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-ab41324a-91c2-46c6-8c17-2f00ca5c04d5, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.665969260Z 2026-10-15 23:00:18.665 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.665971430Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.674764934Z 2026-10-15 23:00:18.674 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.674781295Z 2026-10-15 23:00:18.674 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-17fd3120-2c04-48f3-8ae8-dfe2f22d0ec0, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.674784225Z 2026-10-15 23:00:18.674 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.674786826Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.674789546Z 2026-10-15 23:00:18.674 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.674791306Z 2026-10-15 23:00:18.674 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-17fd3120-2c04-48f3-8ae8-dfe2f22d0ec0, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.674793296Z 2026-10-15 23:00:18.674 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.674795296Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.674797196Z 2026-10-15 23:00:18.674 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.674799187Z 2026-10-15 23:00:18.674 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-17fd3120-2c04-48f3-8ae8-dfe2f22d0ec0, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.674812638Z 2026-10-15 23:00:18.674 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.674814748Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.674816598Z 2026-10-15 23:00:18.674 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.674818508Z 2026-10-15 23:00:18.674 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-17fd3120-2c04-48f3-8ae8-dfe2f22d0ec0, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.674820268Z 2026-10-15 23:00:18.674 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.674822088Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.681700830Z 2026-10-15 23:00:18.681 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.681715992Z 2026-10-15 23:00:18.681 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-82d38bbb-6aab-40a3-8bc8-a1f4559abe30, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.681718342Z 2026-10-15 23:00:18.681 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.681720482Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.681722742Z 2026-10-15 23:00:18.681 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.681724122Z 2026-10-15 23:00:18.681 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-82d38bbb-6aab-40a3-8bc8-a1f4559abe30, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.681725682Z 2026-10-15 23:00:18.681 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.681727032Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.681728343Z 2026-10-15 23:00:18.681 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.681729793Z 2026-10-15 23:00:18.681 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-82d38bbb-6aab-40a3-8bc8-a1f4559abe30, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.681731033Z 2026-10-15 23:00:18.681 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.681732453Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.682266391Z 2026-10-15 23:00:18.682 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.682275762Z 2026-10-15 23:00:18.682 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-ea936746-6ea1-4e3e-afba-ec17042a9904, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.682278082Z 2026-10-15 23:00:18.682 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.682280402Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.692429409Z 2026-10-15 23:00:18.692 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.692446341Z 2026-10-15 23:00:18.692 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-d92ab652-d571-4224-9d1c-c2df4c5ee003, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.692448891Z 2026-10-15 23:00:18.692 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.692451541Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.692453861Z 2026-10-15 23:00:18.692 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.692455611Z 2026-10-15 23:00:18.692 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-d92ab652-d571-4224-9d1c-c2df4c5ee003, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.692457302Z 2026-10-15 23:00:18.692 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.692462662Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.693973718Z 2026-10-15 23:00:18.693 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.693993140Z 2026-10-15 23:00:18.693 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-ea936746-6ea1-4e3e-afba-ec17042a9904, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.693995740Z 2026-10-15 23:00:18.693 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.693998340Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.694016802Z 2026-10-15 23:00:18.693 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.694020292Z 2026-10-15 23:00:18.693 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-ea936746-6ea1-4e3e-afba-ec17042a9904, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.694022472Z 2026-10-15 23:00:18.693 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.694024573Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.701217869Z 2026-10-15 23:00:18.701 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.701238591Z 2026-10-15 23:00:18.701 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-d92ab652-d571-4224-9d1c-c2df4c5ee003, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.701241811Z 2026-10-15 23:00:18.701 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.701244791Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.714440138Z 2026-10-15 23:00:18.714 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.714460480Z 2026-10-15 23:00:18.714 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-91d44ffe-56bf-4117-af87-16cfa82622a5, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.714466011Z 2026-10-15 23:00:18.714 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.714469101Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.714472371Z 2026-10-15 23:00:18.714 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.714474371Z 2026-10-15 23:00:18.714 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-91d44ffe-56bf-4117-af87-16cfa82622a5, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.714480202Z 2026-10-15 23:00:18.714 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.714482192Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.714483932Z 2026-10-15 23:00:18.714 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.714485772Z 2026-10-15 23:00:18.714 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-91d44ffe-56bf-4117-af87-16cfa82622a5, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.714487662Z 2026-10-15 23:00:18.714 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.714489382Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.714856226Z 2026-10-15 23:00:18.714 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.714868817Z 2026-10-15 23:00:18.714 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-91d44ffe-56bf-4117-af87-16cfa82622a5, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.714871698Z 2026-10-15 23:00:18.714 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.714876448Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.724217997Z 2026-10-15 23:00:18.723 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.724236819Z 2026-10-15 23:00:18.723 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-ccc561b7-bbf9-4815-b9e6-50cb0ef3a787, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.724239719Z 2026-10-15 23:00:18.723 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.724242829Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.724260401Z 2026-10-15 23:00:18.723 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.724262621Z 2026-10-15 23:00:18.723 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-ccc561b7-bbf9-4815-b9e6-50cb0ef3a787, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.724264491Z 2026-10-15 23:00:18.723 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.724266411Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.724268051Z 2026-10-15 23:00:18.723 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.724269711Z 2026-10-15 23:00:18.723 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-ccc561b7-bbf9-4815-b9e6-50cb0ef3a787, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.724271722Z 2026-10-15 23:00:18.723 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.724273602Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.724756011Z 2026-10-15 23:00:18.724 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.724764871Z 2026-10-15 23:00:18.724 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-ebd87af3-8c9f-4eaf-b966-3a04412746c2, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.724767712Z 2026-10-15 23:00:18.724 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.724770612Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.733216643Z 2026-10-15 23:00:18.733 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.733234825Z 2026-10-15 23:00:18.733 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-ebd87af3-8c9f-4eaf-b966-3a04412746c2, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.733238285Z 2026-10-15 23:00:18.733 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.733241225Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.734265463Z 2026-10-15 23:00:18.734 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.734274383Z 2026-10-15 23:00:18.734 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-85ec1b80-bda0-4dac-9e47-557f375b0d65, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.734277014Z 2026-10-15 23:00:18.734 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.734279464Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.734282234Z 2026-10-15 23:00:18.734 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.734284184Z 2026-10-15 23:00:18.734 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-85ec1b80-bda0-4dac-9e47-557f375b0d65, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.734286284Z 2026-10-15 23:00:18.734 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.734288215Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.738103839Z 2026-10-15 23:00:18.737 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.738127081Z 2026-10-15 23:00:18.737 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-85ec1b80-bda0-4dac-9e47-557f375b0d65, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.738130081Z 2026-10-15 23:00:18.737 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.738132892Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.746435842Z 2026-10-15 23:00:18.746 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.746454314Z 2026-10-15 23:00:18.746 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-3e42a42b-ee91-4568-91a6-e0df447cbe43, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.746457264Z 2026-10-15 23:00:18.746 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.746472785Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.746475826Z 2026-10-15 23:00:18.746 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.746477706Z 2026-10-15 23:00:18.746 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-3e42a42b-ee91-4568-91a6-e0df447cbe43, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.746479436Z 2026-10-15 23:00:18.746 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.746481086Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.754208525Z 2026-10-15 23:00:18.754 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.754227397Z 2026-10-15 23:00:18.754 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-01e9fd7f-3bd4-43ce-9e28-e185717d5a26, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.754231327Z 2026-10-15 23:00:18.754 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.754233707Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.754236237Z 2026-10-15 23:00:18.754 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.754238248Z 2026-10-15 23:00:18.754 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-01e9fd7f-3bd4-43ce-9e28-e185717d5a26, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.754240148Z 2026-10-15 23:00:18.754 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.754242178Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.755548893Z 2026-10-15 23:00:18.755 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.755561544Z 2026-10-15 23:00:18.755 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-3e42a42b-ee91-4568-91a6-e0df447cbe43, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.755564454Z 2026-10-15 23:00:18.755 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.755567064Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.756799913Z 2026-10-15 23:00:18.756 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.756807833Z 2026-10-15 23:00:18.756 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-01e9fd7f-3bd4-43ce-9e28-e185717d5a26, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.756810844Z 2026-10-15 23:00:18.756 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.756813974Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.762146351Z 2026-10-15 23:00:18.761 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.762164073Z 2026-10-15 23:00:18.761 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-7db8e391-1b0d-4717-8b5b-8b6dd88a30fe, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.762168403Z 2026-10-15 23:00:18.761 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.762171143Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.762174204Z 2026-10-15 23:00:18.761 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.762180734Z 2026-10-15 23:00:18.761 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-7db8e391-1b0d-4717-8b5b-8b6dd88a30fe, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.762204306Z 2026-10-15 23:00:18.761 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.762208527Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.762212047Z 2026-10-15 23:00:18.762 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.762215457Z 2026-10-15 23:00:18.762 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-7db8e391-1b0d-4717-8b5b-8b6dd88a30fe, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.762235539Z 2026-10-15 23:00:18.762 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.762239329Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.762337761Z 2026-10-15 23:00:18.762 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.762343132Z 2026-10-15 23:00:18.762 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-7db8e391-1b0d-4717-8b5b-8b6dd88a30fe, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.762345352Z 2026-10-15 23:00:18.762 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.762347292Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.768776213Z 2026-10-15 23:00:18.768 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.768792464Z 2026-10-15 23:00:18.768 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-474d4138-a6d3-49ab-b4b6-bddf3ebde2af, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.768795074Z 2026-10-15 23:00:18.768 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.768797795Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.768800245Z 2026-10-15 23:00:18.768 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.768802195Z 2026-10-15 23:00:18.768 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-474d4138-a6d3-49ab-b4b6-bddf3ebde2af, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.768804135Z 2026-10-15 23:00:18.768 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.768806015Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.768807736Z 2026-10-15 23:00:18.768 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.768809936Z 2026-10-15 23:00:18.768 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-474d4138-a6d3-49ab-b4b6-bddf3ebde2af, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.768811856Z 2026-10-15 23:00:18.768 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.768813716Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.768815586Z 2026-10-15 23:00:18.768 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.768817476Z 2026-10-15 23:00:18.768 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-474d4138-a6d3-49ab-b4b6-bddf3ebde2af, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.768819436Z 2026-10-15 23:00:18.768 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.768821467Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.776731156Z 2026-10-15 23:00:18.776 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.776749417Z 2026-10-15 23:00:18.776 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-469e1146-bcb2-43fa-9e50-100216e12629, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.776753357Z 2026-10-15 23:00:18.776 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.776755948Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.776758758Z 2026-10-15 23:00:18.776 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.776760648Z 2026-10-15 23:00:18.776 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-469e1146-bcb2-43fa-9e50-100216e12629, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.776765608Z 2026-10-15 23:00:18.776 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.776767618Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.776769289Z 2026-10-15 23:00:18.776 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.776773489Z 2026-10-15 23:00:18.776 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-469e1146-bcb2-43fa-9e50-100216e12629, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.776783580Z 2026-10-15 23:00:18.776 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.776785450Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.777339154Z 2026-10-15 23:00:18.777 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.777346515Z 2026-10-15 23:00:18.777 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-6dc41698-4fa7-4998-a19c-93e3cb8395c7, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.777349205Z 2026-10-15 23:00:18.777 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.777351095Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.784029640Z 2026-10-15 23:00:18.783 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.784049562Z 2026-10-15 23:00:18.783 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-6dc41698-4fa7-4998-a19c-93e3cb8395c7, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.784053112Z 2026-10-15 23:00:18.783 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.784055432Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.784057832Z 2026-10-15 23:00:18.783 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.784059313Z 2026-10-15 23:00:18.783 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-6dc41698-4fa7-4998-a19c-93e3cb8395c7, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.784060713Z 2026-10-15 23:00:18.783 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.784062013Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.791373063Z 2026-10-15 23:00:18.791 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.791390285Z 2026-10-15 23:00:18.791 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-84a31044-0404-4091-941c-eb27aeeca63b, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.791393525Z 2026-10-15 23:00:18.791 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.791396455Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.791399015Z 2026-10-15 23:00:18.791 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.791400966Z 2026-10-15 23:00:18.791 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-84a31044-0404-4091-941c-eb27aeeca63b, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.791402926Z 2026-10-15 23:00:18.791 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.791404716Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.791406626Z 2026-10-15 23:00:18.791 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.791408466Z 2026-10-15 23:00:18.791 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-84a31044-0404-4091-941c-eb27aeeca63b, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.791410396Z 2026-10-15 23:00:18.791 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.791412206Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.791414037Z 2026-10-15 23:00:18.791 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.791415777Z 2026-10-15 23:00:18.791 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-84a31044-0404-4091-941c-eb27aeeca63b, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.791417357Z 2026-10-15 23:00:18.791 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.791418947Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.799226453Z 2026-10-15 23:00:18.799 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.799257115Z 2026-10-15 23:00:18.799 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-934734d0-6f31-4f5a-8b6c-14c93c83588f, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.799260555Z 2026-10-15 23:00:18.799 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.799263256Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.799265986Z 2026-10-15 23:00:18.799 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.799268036Z 2026-10-15 23:00:18.799 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-934734d0-6f31-4f5a-8b6c-14c93c83588f, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.799270066Z 2026-10-15 23:00:18.799 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.799271976Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.799274066Z 2026-10-15 23:00:18.799 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.799275867Z 2026-10-15 23:00:18.799 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-934734d0-6f31-4f5a-8b6c-14c93c83588f, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.799278247Z 2026-10-15 23:00:18.799 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.799281977Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.800268692Z 2026-10-15 23:00:18.800 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.800276322Z 2026-10-15 23:00:18.800 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-996a8aaf-a562-4bde-8b47-38be2bbfdfb7, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.800279062Z 2026-10-15 23:00:18.800 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.800281873Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.807705817Z 2026-10-15 23:00:18.807 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.807724698Z 2026-10-15 23:00:18.807 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-045ac722-2d38-48bf-8eb0-7ef96a04a710, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.807730339Z 2026-10-15 23:00:18.807 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.807737159Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.807739849Z 2026-10-15 23:00:18.807 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.807741760Z 2026-10-15 23:00:18.807 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-045ac722-2d38-48bf-8eb0-7ef96a04a710, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.807743520Z 2026-10-15 23:00:18.807 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.807745330Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.808625406Z 2026-10-15 23:00:18.808 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.808635017Z 2026-10-15 23:00:18.808 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-996a8aaf-a562-4bde-8b47-38be2bbfdfb7, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.808637527Z 2026-10-15 23:00:18.808 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.808643297Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.808645607Z 2026-10-15 23:00:18.808 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.808647558Z 2026-10-15 23:00:18.808 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-996a8aaf-a562-4bde-8b47-38be2bbfdfb7, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.808649208Z 2026-10-15 23:00:18.808 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.808663189Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.815330263Z 2026-10-15 23:00:18.815 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.815346885Z 2026-10-15 23:00:18.815 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-e6f1b0bd-f1c9-4faa-85ad-a57f1cbca09f, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.815351465Z 2026-10-15 23:00:18.815 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.815355605Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.815358686Z 2026-10-15 23:00:18.815 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.815360976Z 2026-10-15 23:00:18.815 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-e6f1b0bd-f1c9-4faa-85ad-a57f1cbca09f, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.815362916Z 2026-10-15 23:00:18.815 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.815364966Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.815366956Z 2026-10-15 23:00:18.815 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.815368877Z 2026-10-15 23:00:18.815 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-e6f1b0bd-f1c9-4faa-85ad-a57f1cbca09f, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.815370627Z 2026-10-15 23:00:18.815 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.815372227Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.816167295Z 2026-10-15 23:00:18.816 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.816173975Z 2026-10-15 23:00:18.816 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-045ac722-2d38-48bf-8eb0-7ef96a04a710, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.816176385Z 2026-10-15 23:00:18.816 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.816178436Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.823505993Z 2026-10-15 23:00:18.823 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.823525134Z 2026-10-15 23:00:18.823 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-ee29c138-4835-4553-bef4-fafc62132739, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.823528145Z 2026-10-15 23:00:18.823 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.823530705Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.823533095Z 2026-10-15 23:00:18.823 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.823534895Z 2026-10-15 23:00:18.823 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-ee29c138-4835-4553-bef4-fafc62132739, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.823536645Z 2026-10-15 23:00:18.823 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.823538445Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.823539956Z 2026-10-15 23:00:18.823 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.823541506Z 2026-10-15 23:00:18.823 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-ee29c138-4835-4553-bef4-fafc62132739, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.823546286Z 2026-10-15 23:00:18.823 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.823548026Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.823549546Z 2026-10-15 23:00:18.823 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.823551166Z 2026-10-15 23:00:18.823 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-ee29c138-4835-4553-bef4-fafc62132739, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.823552937Z 2026-10-15 23:00:18.823 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.823566428Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.832321880Z 2026-10-15 23:00:18.832 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.832340181Z 2026-10-15 23:00:18.832 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-40175004-dcdc-4926-83d0-1f51a69f491a, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.832343302Z 2026-10-15 23:00:18.832 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.832345682Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.832348162Z 2026-10-15 23:00:18.832 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.832350102Z 2026-10-15 23:00:18.832 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-40175004-dcdc-4926-83d0-1f51a69f491a, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.832352302Z 2026-10-15 23:00:18.832 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.832354142Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.832355823Z 2026-10-15 23:00:18.832 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.832357693Z 2026-10-15 23:00:18.832 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-40175004-dcdc-4926-83d0-1f51a69f491a, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.832359353Z 2026-10-15 23:00:18.832 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.832361073Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.832362753Z 2026-10-15 23:00:18.832 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.832364403Z 2026-10-15 23:00:18.832 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-40175004-dcdc-4926-83d0-1f51a69f491a, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.832366073Z 2026-10-15 23:00:18.832 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.832367774Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.838905802Z 2026-10-15 23:00:18.838 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.838925584Z 2026-10-15 23:00:18.838 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-72d6a488-475d-4b87-a50e-be6a16aa50f1, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.838930374Z 2026-10-15 23:00:18.838 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.838933304Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.838935794Z 2026-10-15 23:00:18.838 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.838937604Z 2026-10-15 23:00:18.838 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-72d6a488-475d-4b87-a50e-be6a16aa50f1, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.838939445Z 2026-10-15 23:00:18.838 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.838941745Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.838943965Z 2026-10-15 23:00:18.838 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.838947835Z 2026-10-15 23:00:18.838 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-72d6a488-475d-4b87-a50e-be6a16aa50f1, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.838950796Z 2026-10-15 23:00:18.838 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.838952946Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.839713657Z 2026-10-15 23:00:18.839 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.839721767Z 2026-10-15 23:00:18.839 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-eecacec8-8f54-47c6-b277-778db24c639b, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.839736218Z 2026-10-15 23:00:18.839 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.839738629Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.846360089Z 2026-10-15 23:00:18.846 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.846381681Z 2026-10-15 23:00:18.846 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-fa8ea096-5dd2-45cd-9cf6-48820af1cce6, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.846384501Z 2026-10-15 23:00:18.846 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.846387272Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.846390142Z 2026-10-15 23:00:18.846 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.846392122Z 2026-10-15 23:00:18.846 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-fa8ea096-5dd2-45cd-9cf6-48820af1cce6, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.846394012Z 2026-10-15 23:00:18.846 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.846399173Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.846983119Z 2026-10-15 23:00:18.846 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.846992640Z 2026-10-15 23:00:18.846 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-eecacec8-8f54-47c6-b277-778db24c639b, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.846995630Z 2026-10-15 23:00:18.846 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.846998051Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.847094719Z 2026-10-15 23:00:18.847 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.847099409Z 2026-10-15 23:00:18.847 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-eecacec8-8f54-47c6-b277-778db24c639b, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.847101609Z 2026-10-15 23:00:18.847 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.847103560Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.859571483Z 2026-10-15 23:00:18.859 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.859590694Z 2026-10-15 23:00:18.859 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-fa8ea096-5dd2-45cd-9cf6-48820af1cce6, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.859593525Z 2026-10-15 23:00:18.859 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.859595865Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.870874009Z 2026-10-15 23:00:18.870 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.870890280Z 2026-10-15 23:00:18.870 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-c41c2f25-7ea4-42ba-ad6e-93be5bff4070, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.870893450Z 2026-10-15 23:00:18.870 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.870895770Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.870898000Z 2026-10-15 23:00:18.870 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.870900061Z 2026-10-15 23:00:18.870 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-c41c2f25-7ea4-42ba-ad6e-93be5bff4070, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.870901981Z 2026-10-15 23:00:18.870 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.870903831Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.870905581Z 2026-10-15 23:00:18.870 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.870907431Z 2026-10-15 23:00:18.870 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-c41c2f25-7ea4-42ba-ad6e-93be5bff4070, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.870920922Z 2026-10-15 23:00:18.870 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.870923112Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.871483233Z 2026-10-15 23:00:18.871 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.871490743Z 2026-10-15 23:00:18.871 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-1043e84e-aa34-4d33-9405-fae2ce7a0f36, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.871493664Z 2026-10-15 23:00:18.871 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.871498804Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.877341252Z 2026-10-15 23:00:18.877 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.877357263Z 2026-10-15 23:00:18.877 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-bf160868-5d62-4372-b329-d9527a0b6e8b, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.877359734Z 2026-10-15 23:00:18.877 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.877362014Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.877364094Z 2026-10-15 23:00:18.877 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.877365994Z 2026-10-15 23:00:18.877 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-bf160868-5d62-4372-b329-d9527a0b6e8b, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.877367894Z 2026-10-15 23:00:18.877 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.877369614Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.877371204Z 2026-10-15 23:00:18.877 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.877373015Z 2026-10-15 23:00:18.877 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-bf160868-5d62-4372-b329-d9527a0b6e8b, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.877374745Z 2026-10-15 23:00:18.877 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.877376435Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.877377965Z 2026-10-15 23:00:18.877 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.877379865Z 2026-10-15 23:00:18.877 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-bf160868-5d62-4372-b329-d9527a0b6e8b, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.877381695Z 2026-10-15 23:00:18.877 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.877383805Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.885205530Z 2026-10-15 23:00:18.884 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.885221162Z 2026-10-15 23:00:18.884 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-27cfd42c-d5d7-49b5-92c2-873e317a756e, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.885223472Z 2026-10-15 23:00:18.884 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.885225652Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.885227412Z 2026-10-15 23:00:18.884 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.885228872Z 2026-10-15 23:00:18.884 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-27cfd42c-d5d7-49b5-92c2-873e317a756e, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.885230282Z 2026-10-15 23:00:18.884 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.885231672Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.885232982Z 2026-10-15 23:00:18.885 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.885245123Z 2026-10-15 23:00:18.885 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-27cfd42c-d5d7-49b5-92c2-873e317a756e, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.885246634Z 2026-10-15 23:00:18.885 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.885248004Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.885743651Z 2026-10-15 23:00:18.885 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.885750401Z 2026-10-15 23:00:18.885 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-1043e84e-aa34-4d33-9405-fae2ce7a0f36, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.885752961Z 2026-10-15 23:00:18.885 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.885755482Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.893495267Z 2026-10-15 23:00:18.893 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.893510578Z 2026-10-15 23:00:18.893 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-15383f15-aaee-4cf7-9e50-b050cce57b1e, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.893515298Z 2026-10-15 23:00:18.893 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.893517928Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.893520549Z 2026-10-15 23:00:18.893 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.893522389Z 2026-10-15 23:00:18.893 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-15383f15-aaee-4cf7-9e50-b050cce57b1e, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.893524299Z 2026-10-15 23:00:18.893 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.893526069Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.893527789Z 2026-10-15 23:00:18.893 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.893529799Z 2026-10-15 23:00:18.893 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-15383f15-aaee-4cf7-9e50-b050cce57b1e, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.893533240Z 2026-10-15 23:00:18.893 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.893536290Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.899741952Z 2026-10-15 23:00:18.899 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.899758184Z 2026-10-15 23:00:18.899 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-58daa3d4-b38a-44d9-ae1c-18eb6a8ab6e5, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.899761054Z 2026-10-15 23:00:18.899 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.899764764Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.899768975Z 2026-10-15 23:00:18.899 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.899771085Z 2026-10-15 23:00:18.899 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-58daa3d4-b38a-44d9-ae1c-18eb6a8ab6e5, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.899773085Z 2026-10-15 23:00:18.899 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.899775395Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.899777235Z 2026-10-15 23:00:18.899 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.899778985Z 2026-10-15 23:00:18.899 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-58daa3d4-b38a-44d9-ae1c-18eb6a8ab6e5, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.899780736Z 2026-10-15 23:00:18.899 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.899796147Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.899799807Z 2026-10-15 23:00:18.899 UTC [87] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.899802107Z 2026-10-15 23:00:18.899 UTC [87] DETAIL:  Key (stream_id, version)=(Wallet-58daa3d4-b38a-44d9-ae1c-18eb6a8ab6e5, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.899804667Z 2026-10-15 23:00:18.899 UTC [87] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.899806588Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.907892965Z 2026-10-15 23:00:18.907 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.907909906Z 2026-10-15 23:00:18.907 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-2b77c3a3-e5b1-493d-853d-829a21a3aa34, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.907913177Z 2026-10-15 23:00:18.907 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.907916207Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.907918847Z 2026-10-15 23:00:18.907 UTC [86] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.907920727Z 2026-10-15 23:00:18.907 UTC [86] DETAIL:  Key (stream_id, version)=(Wallet-2b77c3a3-e5b1-493d-853d-829a21a3aa34, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.907922657Z 2026-10-15 23:00:18.907 UTC [86] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.907924577Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.907930468Z 2026-10-15 23:00:18.907 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.907932458Z 2026-10-15 23:00:18.907 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-2b77c3a3-e5b1-493d-853d-829a21a3aa34, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.907934448Z 2026-10-15 23:00:18.907 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.907936308Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.907938159Z 2026-10-15 23:00:18.907 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.907939989Z 2026-10-15 23:00:18.907 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-2b77c3a3-e5b1-493d-853d-829a21a3aa34, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.907941869Z 2026-10-15 23:00:18.907 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.907943609Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.916004795Z 2026-10-15 23:00:18.915 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.916021126Z 2026-10-15 23:00:18.915 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-1d64204a-b447-4318-aaab-2cb64000714c, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.916024336Z 2026-10-15 23:00:18.915 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.916026827Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.916029737Z 2026-10-15 23:00:18.915 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.916031447Z 2026-10-15 23:00:18.915 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-1d64204a-b447-4318-aaab-2cb64000714c, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.916032927Z 2026-10-15 23:00:18.915 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.916034577Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.916036077Z 2026-10-15 23:00:18.915 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.916037678Z 2026-10-15 23:00:18.915 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-1d64204a-b447-4318-aaab-2cb64000714c, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.916043188Z 2026-10-15 23:00:18.915 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.916060389Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.917076081Z 2026-10-15 23:00:18.916 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.917083402Z 2026-10-15 23:00:18.916 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-112885ea-f06e-44ca-b807-a1cb73ff9027, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.917086612Z 2026-10-15 23:00:18.916 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.917089323Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.921760342Z 2026-10-15 23:00:18.921 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.921777523Z 2026-10-15 23:00:18.921 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-5250cc2a-6adb-44e6-b775-f48019a568d0, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.921780854Z 2026-10-15 23:00:18.921 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.921783424Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.922325141Z 2026-10-15 23:00:18.922 UTC [84] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.922330662Z 2026-10-15 23:00:18.922 UTC [84] DETAIL:  Key (stream_id, version)=(Wallet-112885ea-f06e-44ca-b807-a1cb73ff9027, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.922332872Z 2026-10-15 23:00:18.922 UTC [84] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.922334942Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.922337172Z 2026-10-15 23:00:18.922 UTC [85] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.922339323Z 2026-10-15 23:00:18.922 UTC [85] DETAIL:  Key (stream_id, version)=(Wallet-112885ea-f06e-44ca-b807-a1cb73ff9027, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.922341153Z 2026-10-15 23:00:18.922 UTC [85] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.922343203Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.923018833Z 2026-10-15 23:00:18.922 UTC [88] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.923028334Z 2026-10-15 23:00:18.922 UTC [88] DETAIL:  Key (stream_id, version)=(Wallet-5250cc2a-6adb-44e6-b775-f48019a568d0, 1) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.923030734Z 2026-10-15 23:00:18.922 UTC [88] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.923032934Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:00:18.928310292Z 2026-10-15 23:00:18.928 UTC [89] ERROR:  duplicate key value violates unique constraint "uq_event_stream_version"
+postgres-wallet-1  | 2026-10-15T23:00:18.928322183Z 2026-10-15 23:00:18.928 UTC [89] DETAIL:  Key (stream_id, version)=(Wallet-5250cc2a-6adb-44e6-b775-f48019a568d0, 2) already exists.
+postgres-wallet-1  | 2026-10-15T23:00:18.928324683Z 2026-10-15 23:00:18.928 UTC [89] STATEMENT:  insert into event_store (event_type,occurred_at,payload,stored_at,stream_id,version) values ($1,$2,$3,$4,$5,$6)
+postgres-wallet-1  | 2026-10-15T23:00:18.928326763Z 	RETURNING *
+postgres-wallet-1  | 2026-10-15T23:03:50.887566266Z 2026-10-15 23:03:50.887 UTC [62] LOG:  checkpoint starting: time
+postgres-wallet-1  | 2026-10-15T23:04:06.855513224Z 2026-10-15 23:04:06.855 UTC [62] LOG:  checkpoint complete: wrote 162 buffers (1.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=15.942 s, sync=0.020 s, total=15.969 s; sync files=77, longest=0.002 s, average=0.001 s; distance=801 kB, estimate=801 kB; lsn=0/19E76A8, redo lsn=0/19E7670

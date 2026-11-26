@@ -1,0 +1,14 @@
+﻿[23:17:44] k6 sem saida ha 90s - capturando estado (k6 NAO sera removido)
+k6-c32600bba2f7 Dead
+cqrs-event-sourcing-customer-1 Up 6 minutes
+cqrs-event-sourcing-read-1 Up 6 minutes
+cqrs-event-sourcing-staff-1 Up 6 minutes
+cqrs-event-sourcing-wallet-1 Up 6 minutes
+cqrs-event-sourcing-postgres-customer-1 Up 6 minutes (healthy)
+cqrs-event-sourcing-postgres-1 Up 6 minutes (healthy)
+cqrs-event-sourcing-postgres-staff-1 Up 6 minutes (healthy)
+cqrs-event-sourcing-postgres-wallet-1 Up 6 minutes (healthy)
+cqrs-event-sourcing-rabbitmq-1 Up 6 minutes (healthy)
+State={"Status":"removing","Running":false,"Paused":false,"Restarting":false,"OOMKilled":false,"Dead":true,"Pid":0,"ExitCode":99,"Error":"","StartedAt":"2026-10-16T02:12:44.228411747Z","FinishedAt":"2026-10-16T02:17:46.012762113Z"}
+
+

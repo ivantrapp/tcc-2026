@@ -1,0 +1,60 @@
+﻿postgres-1  | 2026-10-15T23:18:54.162022136Z The files belonging to this database system will be owned by user "postgres".
+postgres-1  | 2026-10-15T23:18:54.162046188Z This user must also own the server process.
+postgres-1  | 2026-10-15T23:18:54.162048208Z 
+postgres-1  | 2026-10-15T23:18:54.162119889Z The database cluster will be initialized with locale "en_US.utf8".
+postgres-1  | 2026-10-15T23:18:54.162124949Z The default database encoding has accordingly been set to "UTF8".
+postgres-1  | 2026-10-15T23:18:54.162126549Z The default text search configuration will be set to "english".
+postgres-1  | 2026-10-15T23:18:54.162127929Z 
+postgres-1  | 2026-10-15T23:18:54.162129229Z Data page checksums are disabled.
+postgres-1  | 2026-10-15T23:18:54.162130629Z 
+postgres-1  | 2026-10-15T23:18:54.162177527Z fixing permissions on existing directory /var/lib/postgresql/data ... ok
+postgres-1  | 2026-10-15T23:18:54.169214216Z creating subdirectories ... ok
+postgres-1  | 2026-10-15T23:18:54.169346195Z selecting dynamic shared memory implementation ... posix
+postgres-1  | 2026-10-15T23:18:54.182220947Z selecting default max_connections ... 100
+postgres-1  | 2026-10-15T23:18:54.198155899Z selecting default shared_buffers ... 128MB
+postgres-1  | 2026-10-15T23:18:54.218039052Z selecting default time zone ... Etc/UTC
+postgres-1  | 2026-10-15T23:18:54.218420523Z creating configuration files ... ok
+postgres-1  | 2026-10-15T23:18:54.325305069Z running bootstrap script ... ok
+postgres-1  | 2026-10-15T23:18:54.548743099Z performing post-bootstrap initialization ... ok
+postgres-1  | 2026-10-15T23:18:54.776387752Z syncing data to disk ... ok
+postgres-1  | 2026-10-15T23:18:54.776399083Z 
+postgres-1  | 2026-10-15T23:18:54.776401713Z 
+postgres-1  | 2026-10-15T23:18:54.776405524Z Success. You can now start the database server using:
+postgres-1  | 2026-10-15T23:18:54.776408064Z 
+postgres-1  | 2026-10-15T23:18:54.776409994Z     pg_ctl -D /var/lib/postgresql/data -l logfile start
+postgres-1  | 2026-10-15T23:18:54.776411874Z 
+postgres-1  | 2026-10-15T23:18:54.776385858Z initdb: warning: enabling "trust" authentication for local connections
+postgres-1  | 2026-10-15T23:18:54.776417604Z initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+postgres-1  | 2026-10-15T23:18:54.816492389Z waiting for server to start....2026-10-15 23:18:54.816 UTC [48] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+postgres-1  | 2026-10-15T23:18:54.818229027Z 2026-10-15 23:18:54.818 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1  | 2026-10-15T23:18:54.823497621Z 2026-10-15 23:18:54.823 UTC [51] LOG:  database system was shut down at 2026-10-15 23:18:54 UTC
+postgres-1  | 2026-10-15T23:18:54.827636722Z 2026-10-15 23:18:54.827 UTC [48] LOG:  database system is ready to accept connections
+postgres-1  | 2026-10-15T23:18:54.898514370Z  done
+postgres-1  | 2026-10-15T23:18:54.898531462Z server started
+postgres-1  | 2026-10-15T23:18:54.986495241Z CREATE DATABASE
+postgres-1  | 2026-10-15T23:18:54.987112949Z 
+postgres-1  | 2026-10-15T23:18:54.987353657Z 
+postgres-1  | 2026-10-15T23:18:54.987357987Z /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/init.sql
+postgres-1  | 2026-10-15T23:18:55.046412702Z CREATE DATABASE
+postgres-1  | 2026-10-15T23:18:55.047356959Z 
+postgres-1  | 2026-10-15T23:18:55.047363229Z 
+postgres-1  | 2026-10-15T23:18:55.048421549Z waiting for server to shut down...2026-10-15 23:18:55.048 UTC [48] LOG:  received fast shutdown request
+postgres-1  | 2026-10-15T23:18:55.054045716Z .2026-10-15 23:18:55.053 UTC [48] LOG:  aborting any active transactions
+postgres-1  | 2026-10-15T23:18:55.055615764Z 2026-10-15 23:18:55.055 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+postgres-1  | 2026-10-15T23:18:55.055722796Z 2026-10-15 23:18:55.055 UTC [49] LOG:  shutting down
+postgres-1  | 2026-10-15T23:18:55.060781827Z 2026-10-15 23:18:55.060 UTC [49] LOG:  checkpoint starting: shutdown immediate
+postgres-1  | 2026-10-15T23:18:55.270807960Z 2026-10-15 23:18:55.270 UTC [49] LOG:  checkpoint complete: wrote 1846 buffers (11.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.033 s, sync=0.169 s, total=0.216 s; sync files=597, longest=0.007 s, average=0.001 s; distance=8546 kB, estimate=8546 kB; lsn=0/1D4B350, redo lsn=0/1D4B350
+postgres-1  | 2026-10-15T23:18:55.277484495Z 2026-10-15 23:18:55.277 UTC [48] LOG:  database system is shut down
+postgres-1  | 2026-10-15T23:18:55.348824549Z  done
+postgres-1  | 2026-10-15T23:18:55.348850740Z server stopped
+postgres-1  | 2026-10-15T23:18:55.349726002Z 
+postgres-1  | 2026-10-15T23:18:55.349735823Z PostgreSQL init process complete; ready for start up.
+postgres-1  | 2026-10-15T23:18:55.349738573Z 
+postgres-1  | 2026-10-15T23:18:55.366859282Z 2026-10-15 23:18:55.366 UTC [1] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+postgres-1  | 2026-10-15T23:18:55.366963324Z 2026-10-15 23:18:55.366 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-1  | 2026-10-15T23:18:55.366967964Z 2026-10-15 23:18:55.366 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-1  | 2026-10-15T23:18:55.371079388Z 2026-10-15 23:18:55.370 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1  | 2026-10-15T23:18:55.375328446Z 2026-10-15 23:18:55.375 UTC [66] LOG:  database system was shut down at 2026-10-15 23:18:55 UTC
+postgres-1  | 2026-10-15T23:18:55.393292900Z 2026-10-15 23:18:55.393 UTC [1] LOG:  database system is ready to accept connections
+postgres-1  | 2026-10-15T23:23:55.462113076Z 2026-10-15 23:23:55.461 UTC [64] LOG:  checkpoint starting: time
+postgres-1  | 2026-10-15T23:24:07.224555455Z 2026-10-15 23:24:07.224 UTC [64] LOG:  checkpoint complete: wrote 120 buffers (0.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=11.737 s, sync=0.014 s, total=11.763 s; sync files=61, longest=0.002 s, average=0.001 s; distance=577 kB, estimate=577 kB; lsn=0/1DDB7A0, redo lsn=0/1DDB768

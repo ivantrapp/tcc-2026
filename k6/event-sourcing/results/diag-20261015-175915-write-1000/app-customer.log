@@ -1,0 +1,18 @@
+﻿customer-1  | 2026-10-15T20:59:33.367092759Z 
+customer-1  | 2026-10-15T20:59:33.367142363Z   .   ____          _            __ _ _
+customer-1  | 2026-10-15T20:59:33.367146164Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+customer-1  | 2026-10-15T20:59:33.367147864Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+customer-1  | 2026-10-15T20:59:33.367149734Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+customer-1  | 2026-10-15T20:59:33.367151524Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+customer-1  | 2026-10-15T20:59:33.367153694Z  =========|_|==============|___/=/_/_/_/
+customer-1  | 2026-10-15T20:59:33.367155244Z 
+customer-1  | 2026-10-15T20:59:33.367433494Z  :: Spring Boot ::                (v4.0.6)
+customer-1  | 2026-10-15T20:59:33.367440934Z 
+customer-1  | 2026-10-15T20:59:33.430898309Z 20:59:33.427 [main] INFO  [customer] com.cqrs.Application - Starting Application v0.0.1-SNAPSHOT using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+customer-1  | 2026-10-15T20:59:33.430920391Z 20:59:33.430 [main] INFO  [customer] com.cqrs.Application - No active profile set, falling back to 1 default profile: "default"
+customer-1  | 2026-10-15T20:59:36.420762159Z 20:59:36.420 [main] WARN  [customer] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+customer-1  | 2026-10-15T20:59:38.719890322Z 20:59:38.717 [main] INFO  [customer] com.cqrs.Application - Started Application in 5.78 seconds (process running for 6.2)
+customer-1  | 2026-10-15T21:00:46.839836918Z 21:00:46.839 [tomcat-handler-2] INFO  [customer] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+customer-1  | 2026-10-15T21:00:46.841089886Z 21:00:46.840 [tomcat-handler-2] INFO  [customer] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+customer-1  | 2026-10-15T21:00:47.029159301Z 21:00:47.028 [tomcat-handler-2] INFO  [customer] o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+customer-1  | 2026-10-15T21:00:47.067456534Z 21:00:47.066 [tomcat-handler-2] INFO  [customer] o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#3b8c15de:0/SimpleConnection@22e56b7d [delegate=amqp://guest@172.18.0.6:5672/, localPort=36208]

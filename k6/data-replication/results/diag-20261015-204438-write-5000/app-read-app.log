@@ -1,0 +1,56 @@
+﻿read-app-1  | 2026-10-15T23:45:01.200115303Z 
+read-app-1  | 2026-10-15T23:45:01.200149035Z   .   ____          _            __ _ _
+read-app-1  | 2026-10-15T23:45:01.200151755Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+read-app-1  | 2026-10-15T23:45:01.200153135Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+read-app-1  | 2026-10-15T23:45:01.200154396Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+read-app-1  | 2026-10-15T23:45:01.200155586Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+read-app-1  | 2026-10-15T23:45:01.200159086Z  =========|_|==============|___/=/_/_/_/
+read-app-1  | 2026-10-15T23:45:01.200160316Z 
+read-app-1  | 2026-10-15T23:45:01.200437482Z  :: Spring Boot ::                (v4.0.6)
+read-app-1  | 2026-10-15T23:45:01.200444362Z 
+read-app-1  | 2026-10-15T23:45:01.250170268Z 2026-10-15T23:45:01.248Z  INFO 1 --- [read] [           main] com.cqrs.Application                     : Starting Application v0.0.1-SNAPSHOT using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+read-app-1  | 2026-10-15T23:45:01.250780773Z 2026-10-15T23:45:01.250Z  INFO 1 --- [read] [           main] com.cqrs.Application                     : No active profile set, falling back to 1 default profile: "default"
+read-app-1  | 2026-10-15T23:45:01.688627858Z 2026-10-15T23:45:01.688Z  INFO 1 --- [read] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+read-app-1  | 2026-10-15T23:45:01.722604211Z 2026-10-15T23:45:01.722Z  INFO 1 --- [read] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 4 JPA repository interfaces.
+read-app-1  | 2026-10-15T23:45:02.075857823Z 2026-10-15T23:45:02.075Z  INFO 1 --- [read] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+read-app-1  | 2026-10-15T23:45:02.084352704Z 2026-10-15T23:45:02.083Z  INFO 1 --- [read] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+read-app-1  | 2026-10-15T23:45:02.084518179Z 2026-10-15T23:45:02.084Z  INFO 1 --- [read] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+read-app-1  | 2026-10-15T23:45:02.102853267Z 2026-10-15T23:45:02.102Z  INFO 1 --- [read] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 814 ms
+read-app-1  | 2026-10-15T23:45:02.233347547Z 2026-10-15T23:45:02.232Z  INFO 1 --- [read] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+read-app-1  | 2026-10-15T23:45:02.259803997Z 2026-10-15T23:45:02.259Z  INFO 1 --- [read] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+read-app-1  | 2026-10-15T23:45:02.554255171Z 2026-10-15T23:45:02.553Z  INFO 1 --- [read] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+read-app-1  | 2026-10-15T23:45:02.575585766Z 2026-10-15T23:45:02.575Z  INFO 1 --- [read] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+read-app-1  | 2026-10-15T23:45:02.688562119Z 2026-10-15T23:45:02.688Z  INFO 1 --- [read] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1c58d7be
+read-app-1  | 2026-10-15T23:45:02.689262253Z 2026-10-15T23:45:02.689Z  INFO 1 --- [read] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+read-app-1  | 2026-10-15T23:45:02.705114085Z 2026-10-15T23:45:02.704Z  WARN 1 --- [read] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+read-app-1  | 2026-10-15T23:45:02.717009019Z 2026-10-15T23:45:02.716Z  INFO 1 --- [read] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+read-app-1  | 2026-10-15T23:45:02.717028410Z 	Database JDBC URL [jdbc:postgresql://db-read:5432/crm_read]
+read-app-1  | 2026-10-15T23:45:02.717031220Z 	Database driver: PostgreSQL JDBC Driver
+read-app-1  | 2026-10-15T23:45:02.717034091Z 	Database dialect: PostgreSQLDialect
+read-app-1  | 2026-10-15T23:45:02.717036001Z 	Database version: 16.15
+read-app-1  | 2026-10-15T23:45:02.717038471Z 	Default catalog/schema: crm_read/public
+read-app-1  | 2026-10-15T23:45:02.717078733Z 	Autocommit mode: undefined/unknown
+read-app-1  | 2026-10-15T23:45:02.717081523Z 	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+read-app-1  | 2026-10-15T23:45:02.717096414Z 	JDBC fetch size: none
+read-app-1  | 2026-10-15T23:45:02.717098614Z 	Pool: DataSourceConnectionProvider
+read-app-1  | 2026-10-15T23:45:02.717100494Z 	Minimum pool size: undefined/unknown
+read-app-1  | 2026-10-15T23:45:02.717102364Z 	Maximum pool size: undefined/unknown
+read-app-1  | 2026-10-15T23:45:03.271063037Z 2026-10-15T23:45:03.270Z  INFO 1 --- [read] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+read-app-1  | 2026-10-15T23:45:03.275079371Z 2026-10-15T23:45:03.274Z  INFO 1 --- [read] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+read-app-1  | 2026-10-15T23:45:03.324693742Z 2026-10-15T23:45:03.324Z  INFO 1 --- [read] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+read-app-1  | 2026-10-15T23:45:03.560601969Z 2026-10-15T23:45:03.560Z  INFO 1 --- [read] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://db-read:5432/crm_read (PostgreSQL 16.15)
+read-app-1  | 2026-10-15T23:45:03.595934727Z 2026-10-15T23:45:03.595Z  INFO 1 --- [read] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+read-app-1  | 2026-10-15T23:45:03.597519859Z 2026-10-15T23:45:03.597Z  INFO 1 --- [read] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.009s)
+read-app-1  | 2026-10-15T23:45:03.602828723Z 2026-10-15T23:45:03.602Z  INFO 1 --- [read] [           main] org.flywaydb.core.Flyway                 : All configured schemas are empty; a baseline marker will not be added to Flyway's schema history table. A baseline or migration script with a lower version than the baseline version may execute if available. Check the Schemas parameter if this is not intended. See https://help.red-gate.com/help/flyway-cli12/help_6.aspx?topic=baseline-on-migrate for more info
+read-app-1  | 2026-10-15T23:45:03.604967152Z 2026-10-15T23:45:03.604Z  INFO 1 --- [read] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+read-app-1  | 2026-10-15T23:45:03.636694678Z 2026-10-15T23:45:03.636Z  INFO 1 --- [read] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+read-app-1  | 2026-10-15T23:45:03.650046627Z 2026-10-15T23:45:03.649Z  INFO 1 --- [read] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - create read schema"
+read-app-1  | 2026-10-15T23:45:03.687837832Z 2026-10-15T23:45:03.687Z  INFO 1 --- [read] [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 1 migration to schema "public", now at version v1 (execution time 00:00.027s)
+read-app-1  | 2026-10-15T23:45:03.728391660Z 2026-10-15T23:45:03.728Z  INFO 1 --- [read] [           main] com.cqrs.config.SubscriptionConfig       : WAL subscription 'crm_staff_subscription' criada
+read-app-1  | 2026-10-15T23:45:03.754222747Z 2026-10-15T23:45:03.753Z  INFO 1 --- [read] [           main] com.cqrs.config.SubscriptionConfig       : WAL subscription 'crm_customer_subscription' criada
+read-app-1  | 2026-10-15T23:45:03.783897358Z 2026-10-15T23:45:03.783Z  INFO 1 --- [read] [           main] com.cqrs.config.SubscriptionConfig       : WAL subscription 'crm_wallet_subscription' criada
+read-app-1  | 2026-10-15T23:45:04.026097014Z 2026-10-15T23:45:04.025Z  INFO 1 --- [read] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+read-app-1  | 2026-10-15T23:45:04.031202234Z 2026-10-15T23:45:04.030Z  INFO 1 --- [read] [           main] com.cqrs.Application                     : Started Application in 3.084 seconds (process running for 3.45)
+read-app-1  | 2026-10-15T23:46:13.341776808Z 2026-10-15T23:46:13.341Z  INFO 1 --- [read] [nio-8081-exec-7] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+read-app-1  | 2026-10-15T23:46:13.341931879Z 2026-10-15T23:46:13.341Z  INFO 1 --- [read] [nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+read-app-1  | 2026-10-15T23:46:13.343450287Z 2026-10-15T23:46:13.343Z  INFO 1 --- [read] [nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms

@@ -1,0 +1,10 @@
+﻿NAME                                      IMAGE                   COMMAND                  SERVICE             CREATED         STATUS                   PORTS
+cqrs-event-sourcing-customer-1            cqrs/customer:latest    "java -jar app.jar"      customer            9 minutes ago   Up 9 minutes             0.0.0.0:8083->8083/tcp, [::]:8083->8083/tcp
+cqrs-event-sourcing-postgres-1            postgres:16             "docker-entrypoint.s…"   postgres            9 minutes ago   Up 9 minutes (healthy)   0.0.0.0:5440->5432/tcp, [::]:5440->5432/tcp
+cqrs-event-sourcing-postgres-customer-1   postgres:16             "docker-entrypoint.s…"   postgres-customer   9 minutes ago   Up 9 minutes (healthy)   0.0.0.0:5442->5432/tcp, [::]:5442->5432/tcp
+cqrs-event-sourcing-postgres-staff-1      postgres:16             "docker-entrypoint.s…"   postgres-staff      9 minutes ago   Up 9 minutes (healthy)   0.0.0.0:5441->5432/tcp, [::]:5441->5432/tcp
+cqrs-event-sourcing-postgres-wallet-1     postgres:16             "docker-entrypoint.s…"   postgres-wallet     9 minutes ago   Up 9 minutes (healthy)   0.0.0.0:5443->5432/tcp, [::]:5443->5432/tcp
+cqrs-event-sourcing-rabbitmq-1            rabbitmq:4-management   "docker-entrypoint.s…"   rabbitmq            9 minutes ago   Up 9 minutes (healthy)   0.0.0.0:5672->5672/tcp, [::]:5672->5672/tcp, 0.0.0.0:15672->15672/tcp, [::]:15672->15672/tcp
+cqrs-event-sourcing-read-1                cqrs/read:latest        "java -jar app.jar"      read                9 minutes ago   Up 9 minutes             0.0.0.0:8081->8081/tcp, [::]:8081->8081/tcp
+cqrs-event-sourcing-staff-1               cqrs/staff:latest       "java -jar app.jar"      staff               9 minutes ago   Up 9 minutes             0.0.0.0:8082->8082/tcp, [::]:8082->8082/tcp
+cqrs-event-sourcing-wallet-1              cqrs/wallet:latest      "java -jar app.jar"      wallet              9 minutes ago   Up 9 minutes             0.0.0.0:8084->8084/tcp, [::]:8084->8084/tcp

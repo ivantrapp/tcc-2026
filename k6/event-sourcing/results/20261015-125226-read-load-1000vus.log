@@ -1,0 +1,2241 @@
+﻿================================================================
+Run ID    : 20261015-125226
+Teste     : 02-read-load-1000.js
+VUs       : 1000
+Iniciado  : 10/15/2026 12:52:35
+================================================================
+
+
+         /\      Grafana   /ÔÇ¥ÔÇ¥/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ÔÇ¥ÔÇ¥\ 
+  /          \   |   (  |  (ÔÇ¥)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/02-read-load-1000.js
+        output: InfluxDBv1 (http://host.docker.internal:8086)
+
+     scenarios: (100.00%) 1 scenario, 1000 max VUs, 5m30s max duration (incl. graceful stop):
+              * read_load: Up to 1000 looping VUs for 5m0s over 7 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+Run         [ 100% ] setup()
+read_load   [   0% ]
+
+Run         [ 100% ] setup()
+read_load   [   0% ]
+
+Run         [ 100% ] setup()
+read_load   [   0% ]
+
+Run         [ 100% ] setup()
+read_load   [   0% ]
+
+Run         [ 100% ] setup()
+read_load   [   0% ]
+
+Run         [ 100% ] setup()
+read_load   [   0% ]
+time="2026-10-15T15:52:43Z" level=info msg="[setup] 50/50 customers prontos" source=console
+No linha:3 caractere:9
++         & $k6ExeInner @k6ArgsInner 2>&1
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (time="2026-10-1... source=console:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+running (0m06.9s), 0005/1000 VUs, 284 complete and 0 interrupted iterations
+read_load   [   0% ] 0005/1000 VUs  0m00.5s/5m00.0s
+
+running (0m07.9s), 0016/1000 VUs, 5135 complete and 0 interrupted iterations
+read_load   [   0% ] 0016/1000 VUs  0m01.5s/5m00.0s
+
+running (0m08.9s), 0027/1000 VUs, 11950 complete and 0 interrupted iterations
+read_load   [   1% ] 0027/1000 VUs  0m02.5s/5m00.0s
+
+running (0m09.9s), 0038/1000 VUs, 20952 complete and 0 interrupted iterations
+read_load   [   1% ] 0038/1000 VUs  0m03.5s/5m00.0s
+time="2026-10-15T15:52:47Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m10.9s), 0049/1000 VUs, 35322 complete and 0 interrupted iterations
+read_load   [   1% ] 0049/1000 VUs  0m04.5s/5m00.0s
+time="2026-10-15T15:52:48Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m11.9s), 0060/1000 VUs, 54635 complete and 0 interrupted iterations
+read_load   [   2% ] 0060/1000 VUs  0m05.5s/5m00.0s
+
+running (0m12.9s), 0071/1000 VUs, 73906 complete and 0 interrupted iterations
+read_load   [   2% ] 0071/1000 VUs  0m06.5s/5m00.0s
+time="2026-10-15T15:52:50Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m13.9s), 0082/1000 VUs, 91497 complete and 0 interrupted iterations
+read_load   [   2% ] 0082/1000 VUs  0m07.5s/5m00.0s
+time="2026-10-15T15:52:51Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:52:52Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m14.9s), 0094/1000 VUs, 111103 complete and 0 interrupted iterations
+read_load   [   3% ] 0094/1000 VUs  0m08.5s/5m00.0s
+
+running (0m16.0s), 0105/1000 VUs, 130371 complete and 0 interrupted iterations
+read_load   [   3% ] 0105/1000 VUs  0m09.5s/5m00.0s
+time="2026-10-15T15:52:53Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m16.9s), 0116/1000 VUs, 149196 complete and 0 interrupted iterations
+read_load   [   3% ] 0116/1000 VUs  0m10.5s/5m00.0s
+time="2026-10-15T15:52:54Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:52:55Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m18.0s), 0127/1000 VUs, 166757 complete and 0 interrupted iterations
+read_load   [   4% ] 0127/1000 VUs  0m11.5s/5m00.0s
+
+running (0m18.9s), 0138/1000 VUs, 181682 complete and 0 interrupted iterations
+read_load   [   4% ] 0138/1000 VUs  0m12.5s/5m00.0s
+time="2026-10-15T15:52:56Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:52:56Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m19.9s), 0149/1000 VUs, 199855 complete and 0 interrupted iterations
+read_load   [   4% ] 0149/1000 VUs  0m13.5s/5m00.0s
+
+running (0m20.9s), 0160/1000 VUs, 218851 complete and 0 interrupted iterations
+read_load   [   5% ] 0160/1000 VUs  0m14.5s/5m00.0s
+time="2026-10-15T15:52:58Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m21.9s), 0171/1000 VUs, 236791 complete and 0 interrupted iterations
+read_load   [   5% ] 0171/1000 VUs  0m15.5s/5m00.0s
+time="2026-10-15T15:52:59Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:29040->192.168.65.254:8086: write tcp 172.19.0.11:29040->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+time="2026-10-15T15:53:00Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m22.9s), 0182/1000 VUs, 256294 complete and 0 interrupted iterations
+read_load   [   5% ] 0182/1000 VUs  0m16.5s/5m00.0s
+
+running (0m23.9s), 0193/1000 VUs, 275667 complete and 0 interrupted iterations
+read_load   [   6% ] 0193/1000 VUs  0m17.5s/5m00.0s
+time="2026-10-15T15:53:01Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m24.9s), 0205/1000 VUs, 295078 complete and 0 interrupted iterations
+read_load   [   6% ] 0205/1000 VUs  0m18.5s/5m00.0s
+time="2026-10-15T15:53:02Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m25.9s), 0216/1000 VUs, 314676 complete and 0 interrupted iterations
+read_load   [   6% ] 0216/1000 VUs  0m19.5s/5m00.0s
+time="2026-10-15T15:53:03Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m27.0s), 0227/1000 VUs, 334198 complete and 0 interrupted iterations
+read_load   [   7% ] 0227/1000 VUs  0m20.5s/5m00.0s
+time="2026-10-15T15:53:04Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m27.9s), 0238/1000 VUs, 352379 complete and 0 interrupted iterations
+read_load   [   7% ] 0238/1000 VUs  0m21.5s/5m00.0s
+time="2026-10-15T15:53:06Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m28.9s), 0249/1000 VUs, 370137 complete and 0 interrupted iterations
+read_load   [   7% ] 0249/1000 VUs  0m22.5s/5m00.0s
+time="2026-10-15T15:53:07Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m29.9s), 0260/1000 VUs, 388884 complete and 0 interrupted iterations
+read_load   [   8% ] 0260/1000 VUs  0m23.5s/5m00.0s
+time="2026-10-15T15:53:08Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m30.9s), 0271/1000 VUs, 407738 complete and 0 interrupted iterations
+read_load   [   8% ] 0271/1000 VUs  0m24.5s/5m00.0s
+
+running (0m31.9s), 0282/1000 VUs, 427715 complete and 0 interrupted iterations
+read_load   [   8% ] 0282/1000 VUs  0m25.5s/5m00.0s
+time="2026-10-15T15:53:09Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:37196->192.168.65.254:8086: write tcp 172.19.0.11:37196->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (0m32.9s), 0293/1000 VUs, 446137 complete and 0 interrupted iterations
+read_load   [   9% ] 0293/1000 VUs  0m26.5s/5m00.0s
+time="2026-10-15T15:53:10Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m33.9s), 0304/1000 VUs, 465404 complete and 0 interrupted iterations
+read_load   [   9% ] 0304/1000 VUs  0m27.5s/5m00.0s
+time="2026-10-15T15:53:11Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:37228->192.168.65.254:8086: write tcp 172.19.0.11:37228->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (0m34.9s), 0316/1000 VUs, 485223 complete and 0 interrupted iterations
+read_load   [   9% ] 0316/1000 VUs  0m28.5s/5m00.0s
+time="2026-10-15T15:53:12Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:37238->192.168.65.254:8086: write tcp 172.19.0.11:37238->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (0m36.0s), 0327/1000 VUs, 505375 complete and 0 interrupted iterations
+read_load   [  10% ] 0327/1000 VUs  0m29.5s/5m00.0s
+time="2026-10-15T15:53:13Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m36.9s), 0333/1000 VUs, 524412 complete and 0 interrupted iterations
+read_load   [  10% ] 0333/1000 VUs  0m30.5s/5m00.0s
+time="2026-10-15T15:53:14Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m37.9s), 0333/1000 VUs, 543557 complete and 0 interrupted iterations
+read_load   [  10% ] 0333/1000 VUs  0m31.5s/5m00.0s
+time="2026-10-15T15:53:15Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m38.9s), 0333/1000 VUs, 562807 complete and 0 interrupted iterations
+read_load   [  11% ] 0333/1000 VUs  0m32.5s/5m00.0s
+time="2026-10-15T15:53:16Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:24350->192.168.65.254:8086: write tcp 172.19.0.11:24350->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (0m39.9s), 0333/1000 VUs, 580900 complete and 0 interrupted iterations
+read_load   [  11% ] 0333/1000 VUs  0m33.5s/5m00.0s
+time="2026-10-15T15:53:17Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m40.9s), 0333/1000 VUs, 591897 complete and 0 interrupted iterations
+read_load   [  11% ] 0333/1000 VUs  0m34.5s/5m00.0s
+time="2026-10-15T15:53:18Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:53:18Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m41.9s), 0333/1000 VUs, 608534 complete and 0 interrupted iterations
+read_load   [  12% ] 0333/1000 VUs  0m35.5s/5m00.0s
+time="2026-10-15T15:53:20Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m42.9s), 0333/1000 VUs, 627359 complete and 0 interrupted iterations
+read_load   [  12% ] 0333/1000 VUs  0m36.5s/5m00.0s
+
+running (0m43.9s), 0333/1000 VUs, 645697 complete and 0 interrupted iterations
+read_load   [  12% ] 0333/1000 VUs  0m37.5s/5m00.0s
+time="2026-10-15T15:53:21Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:24378->192.168.65.254:8086: write tcp 172.19.0.11:24378->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (0m44.9s), 0333/1000 VUs, 665171 complete and 0 interrupted iterations
+read_load   [  13% ] 0333/1000 VUs  0m38.5s/5m00.0s
+time="2026-10-15T15:53:22Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m45.9s), 0333/1000 VUs, 684513 complete and 0 interrupted iterations
+read_load   [  13% ] 0333/1000 VUs  0m39.5s/5m00.0s
+time="2026-10-15T15:53:23Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:24400->192.168.65.254:8086: write tcp 172.19.0.11:24400->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (0m47.0s), 0333/1000 VUs, 703619 complete and 0 interrupted iterations
+read_load   [  13% ] 0333/1000 VUs  0m40.5s/5m00.0s
+time="2026-10-15T15:53:24Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:37366->192.168.65.254:8086: write tcp 172.19.0.11:37366->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (0m47.9s), 0333/1000 VUs, 722683 complete and 0 interrupted iterations
+read_load   [  14% ] 0333/1000 VUs  0m41.5s/5m00.0s
+time="2026-10-15T15:53:25Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m48.9s), 0333/1000 VUs, 740753 complete and 0 interrupted iterations
+read_load   [  14% ] 0333/1000 VUs  0m42.5s/5m00.0s
+time="2026-10-15T15:53:26Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m50.0s), 0333/1000 VUs, 757783 complete and 0 interrupted iterations
+read_load   [  14% ] 0333/1000 VUs  0m43.5s/5m00.0s
+time="2026-10-15T15:53:27Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:53:28Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m50.9s), 0333/1000 VUs, 774508 complete and 0 interrupted iterations
+read_load   [  15% ] 0333/1000 VUs  0m44.5s/5m00.0s
+time="2026-10-15T15:53:29Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m51.9s), 0333/1000 VUs, 793456 complete and 0 interrupted iterations
+read_load   [  15% ] 0333/1000 VUs  0m45.5s/5m00.0s
+time="2026-10-15T15:53:30Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m52.9s), 0333/1000 VUs, 813037 complete and 0 interrupted iterations
+read_load   [  15% ] 0333/1000 VUs  0m46.5s/5m00.0s
+
+running (0m53.9s), 0333/1000 VUs, 832996 complete and 0 interrupted iterations
+read_load   [  16% ] 0333/1000 VUs  0m47.5s/5m00.0s
+time="2026-10-15T15:53:31Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:37436->192.168.65.254:8086: write tcp 172.19.0.11:37436->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (0m54.9s), 0333/1000 VUs, 849248 complete and 0 interrupted iterations
+read_load   [  16% ] 0333/1000 VUs  0m48.5s/5m00.0s
+time="2026-10-15T15:53:32Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:37452->192.168.65.254:8086: write tcp 172.19.0.11:37452->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+time="2026-10-15T15:53:33Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m55.9s), 0333/1000 VUs, 866987 complete and 0 interrupted iterations
+read_load   [  16% ] 0333/1000 VUs  0m49.5s/5m00.0s
+time="2026-10-15T15:53:34Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m56.9s), 0333/1000 VUs, 886409 complete and 0 interrupted iterations
+read_load   [  17% ] 0333/1000 VUs  0m50.5s/5m00.0s
+time="2026-10-15T15:53:35Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:54654->192.168.65.254:8086: write tcp 172.19.0.11:54654->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (0m58.0s), 0333/1000 VUs, 905954 complete and 0 interrupted iterations
+read_load   [  17% ] 0333/1000 VUs  0m51.5s/5m00.0s
+
+running (0m58.9s), 0333/1000 VUs, 925320 complete and 0 interrupted iterations
+read_load   [  17% ] 0333/1000 VUs  0m52.5s/5m00.0s
+time="2026-10-15T15:53:36Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (0m59.9s), 0333/1000 VUs, 943777 complete and 0 interrupted iterations
+read_load   [  18% ] 0333/1000 VUs  0m53.5s/5m00.0s
+time="2026-10-15T15:53:37Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:53:38Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m00.9s), 0333/1000 VUs, 961473 complete and 0 interrupted iterations
+read_load   [  18% ] 0333/1000 VUs  0m54.5s/5m00.0s
+
+running (1m01.9s), 0333/1000 VUs, 977113 complete and 0 interrupted iterations
+read_load   [  18% ] 0333/1000 VUs  0m55.5s/5m00.0s
+time="2026-10-15T15:53:39Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:53:40Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:54696->192.168.65.254:8086: write tcp 172.19.0.11:54696->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (1m02.9s), 0333/1000 VUs, 994742 complete and 0 interrupted iterations
+read_load   [  19% ] 0333/1000 VUs  0m56.5s/5m00.0s
+time="2026-10-15T15:53:41Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m03.9s), 0333/1000 VUs, 1013812 complete and 0 interrupted iterations
+read_load   [  19% ] 0333/1000 VUs  0m57.5s/5m00.0s
+time="2026-10-15T15:53:42Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m04.9s), 0333/1000 VUs, 1032641 complete and 0 interrupted iterations
+read_load   [  19% ] 0333/1000 VUs  0m58.5s/5m00.0s
+
+running (1m05.9s), 0333/1000 VUs, 1052460 complete and 0 interrupted iterations
+read_load   [  20% ] 0333/1000 VUs  0m59.5s/5m00.0s
+time="2026-10-15T15:53:43Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m07.0s), 0333/1000 VUs, 1072556 complete and 0 interrupted iterations
+read_load   [  20% ] 0333/1000 VUs  1m00.5s/5m00.0s
+time="2026-10-15T15:53:44Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m07.9s), 0333/1000 VUs, 1090333 complete and 0 interrupted iterations
+read_load   [  20% ] 0333/1000 VUs  1m01.5s/5m00.0s
+time="2026-10-15T15:53:45Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m08.9s), 0333/1000 VUs, 1107508 complete and 0 interrupted iterations
+read_load   [  21% ] 0333/1000 VUs  1m02.5s/5m00.0s
+time="2026-10-15T15:53:46Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:40144->192.168.65.254:8086: write tcp 172.19.0.11:40144->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+time="2026-10-15T15:53:47Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m09.9s), 0333/1000 VUs, 1126160 complete and 0 interrupted iterations
+read_load   [  21% ] 0333/1000 VUs  1m03.5s/5m00.0s
+time="2026-10-15T15:53:48Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m10.9s), 0333/1000 VUs, 1145392 complete and 0 interrupted iterations
+read_load   [  21% ] 0333/1000 VUs  1m04.5s/5m00.0s
+
+running (1m11.9s), 0333/1000 VUs, 1163238 complete and 0 interrupted iterations
+read_load   [  22% ] 0333/1000 VUs  1m05.5s/5m00.0s
+time="2026-10-15T15:53:49Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:53:50Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m12.9s), 0333/1000 VUs, 1182258 complete and 0 interrupted iterations
+read_load   [  22% ] 0333/1000 VUs  1m06.5s/5m00.0s
+
+running (1m13.9s), 0333/1000 VUs, 1202236 complete and 0 interrupted iterations
+read_load   [  22% ] 0333/1000 VUs  1m07.5s/5m00.0s
+time="2026-10-15T15:53:51Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m15.0s), 0333/1000 VUs, 1221521 complete and 0 interrupted iterations
+read_load   [  23% ] 0333/1000 VUs  1m08.5s/5m00.0s
+time="2026-10-15T15:53:52Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:40206->192.168.65.254:8086: write tcp 172.19.0.11:40206->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (1m16.0s), 0333/1000 VUs, 1240953 complete and 0 interrupted iterations
+read_load   [  23% ] 0333/1000 VUs  1m09.5s/5m00.0s
+time="2026-10-15T15:53:53Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m16.9s), 0333/1000 VUs, 1259627 complete and 0 interrupted iterations
+read_load   [  23% ] 0333/1000 VUs  1m10.5s/5m00.0s
+time="2026-10-15T15:53:54Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:43472->192.168.65.254:8086: write tcp 172.19.0.11:43472->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+time="2026-10-15T15:53:55Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m17.9s), 0333/1000 VUs, 1278401 complete and 0 interrupted iterations
+read_load   [  24% ] 0333/1000 VUs  1m11.5s/5m00.0s
+
+running (1m18.9s), 0333/1000 VUs, 1298061 complete and 0 interrupted iterations
+read_load   [  24% ] 0333/1000 VUs  1m12.5s/5m00.0s
+time="2026-10-15T15:53:56Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m19.9s), 0333/1000 VUs, 1317220 complete and 0 interrupted iterations
+read_load   [  24% ] 0333/1000 VUs  1m13.5s/5m00.0s
+time="2026-10-15T15:53:57Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m20.9s), 0333/1000 VUs, 1336615 complete and 0 interrupted iterations
+read_load   [  25% ] 0333/1000 VUs  1m14.5s/5m00.0s
+time="2026-10-15T15:53:58Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m21.9s), 0333/1000 VUs, 1355035 complete and 0 interrupted iterations
+read_load   [  25% ] 0333/1000 VUs  1m15.5s/5m00.0s
+time="2026-10-15T15:53:59Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:54:00Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m22.9s), 0333/1000 VUs, 1373033 complete and 0 interrupted iterations
+read_load   [  25% ] 0333/1000 VUs  1m16.5s/5m00.0s
+
+running (1m23.9s), 0333/1000 VUs, 1392498 complete and 0 interrupted iterations
+read_load   [  26% ] 0333/1000 VUs  1m17.5s/5m00.0s
+time="2026-10-15T15:54:01Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m24.9s), 0333/1000 VUs, 1412621 complete and 0 interrupted iterations
+read_load   [  26% ] 0333/1000 VUs  1m18.5s/5m00.0s
+time="2026-10-15T15:54:02Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m25.9s), 0333/1000 VUs, 1432306 complete and 0 interrupted iterations
+read_load   [  26% ] 0333/1000 VUs  1m19.5s/5m00.0s
+time="2026-10-15T15:54:03Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:43548->192.168.65.254:8086: write tcp 172.19.0.11:43548->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+time="2026-10-15T15:54:04Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m26.9s), 0333/1000 VUs, 1451690 complete and 0 interrupted iterations
+read_load   [  27% ] 0333/1000 VUs  1m20.5s/5m00.0s
+
+running (1m27.9s), 0333/1000 VUs, 1471467 complete and 0 interrupted iterations
+read_load   [  27% ] 0333/1000 VUs  1m21.5s/5m00.0s
+time="2026-10-15T15:54:05Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:54:06Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m28.9s), 0333/1000 VUs, 1490721 complete and 0 interrupted iterations
+read_load   [  27% ] 0333/1000 VUs  1m22.5s/5m00.0s
+time="2026-10-15T15:54:07Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m29.9s), 0333/1000 VUs, 1509934 complete and 0 interrupted iterations
+read_load   [  28% ] 0333/1000 VUs  1m23.5s/5m00.0s
+
+running (1m30.9s), 0333/1000 VUs, 1529108 complete and 0 interrupted iterations
+read_load   [  28% ] 0333/1000 VUs  1m24.5s/5m00.0s
+time="2026-10-15T15:54:08Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:54:09Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m31.9s), 0333/1000 VUs, 1548758 complete and 0 interrupted iterations
+read_load   [  28% ] 0333/1000 VUs  1m25.5s/5m00.0s
+
+running (1m32.9s), 0333/1000 VUs, 1568097 complete and 0 interrupted iterations
+read_load   [  29% ] 0333/1000 VUs  1m26.5s/5m00.0s
+time="2026-10-15T15:54:10Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m34.0s), 0333/1000 VUs, 1586432 complete and 0 interrupted iterations
+read_load   [  29% ] 0333/1000 VUs  1m27.5s/5m00.0s
+time="2026-10-15T15:54:11Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:54:12Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m34.9s), 0333/1000 VUs, 1605754 complete and 0 interrupted iterations
+read_load   [  29% ] 0333/1000 VUs  1m28.5s/5m00.0s
+time="2026-10-15T15:54:13Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m35.9s), 0333/1000 VUs, 1625696 complete and 0 interrupted iterations
+read_load   [  30% ] 0333/1000 VUs  1m29.5s/5m00.0s
+time="2026-10-15T15:54:14Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m36.9s), 0338/1000 VUs, 1645949 complete and 0 interrupted iterations
+read_load   [  30% ] 0338/1000 VUs  1m30.5s/5m00.0s
+
+running (1m37.9s), 0349/1000 VUs, 1665432 complete and 0 interrupted iterations
+read_load   [  30% ] 0349/1000 VUs  1m31.5s/5m00.0s
+time="2026-10-15T15:54:15Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:54:16Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m38.9s), 0360/1000 VUs, 1684621 complete and 0 interrupted iterations
+read_load   [  31% ] 0360/1000 VUs  1m32.5s/5m00.0s
+time="2026-10-15T15:54:17Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m39.9s), 0371/1000 VUs, 1704100 complete and 0 interrupted iterations
+read_load   [  31% ] 0371/1000 VUs  1m33.5s/5m00.0s
+
+running (1m40.9s), 0382/1000 VUs, 1723316 complete and 0 interrupted iterations
+read_load   [  31% ] 0382/1000 VUs  1m34.5s/5m00.0s
+time="2026-10-15T15:54:18Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:54:19Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m41.9s), 0393/1000 VUs, 1742988 complete and 0 interrupted iterations
+read_load   [  32% ] 0393/1000 VUs  1m35.5s/5m00.0s
+
+running (1m42.9s), 0405/1000 VUs, 1762669 complete and 0 interrupted iterations
+read_load   [  32% ] 0405/1000 VUs  1m36.5s/5m00.0s
+time="2026-10-15T15:54:20Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m43.9s), 0416/1000 VUs, 1781292 complete and 0 interrupted iterations
+read_load   [  32% ] 0416/1000 VUs  1m37.5s/5m00.0s
+time="2026-10-15T15:54:21Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m44.9s), 0427/1000 VUs, 1799325 complete and 0 interrupted iterations
+read_load   [  33% ] 0427/1000 VUs  1m38.5s/5m00.0s
+time="2026-10-15T15:54:22Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:54:23Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m45.9s), 0438/1000 VUs, 1818148 complete and 0 interrupted iterations
+read_load   [  33% ] 0438/1000 VUs  1m39.5s/5m00.0s
+time="2026-10-15T15:54:24Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m46.9s), 0449/1000 VUs, 1838219 complete and 0 interrupted iterations
+read_load   [  33% ] 0449/1000 VUs  1m40.5s/5m00.0s
+
+running (1m47.9s), 0460/1000 VUs, 1857673 complete and 0 interrupted iterations
+read_load   [  34% ] 0460/1000 VUs  1m41.5s/5m00.0s
+time="2026-10-15T15:54:25Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m48.9s), 0471/1000 VUs, 1876233 complete and 0 interrupted iterations
+read_load   [  34% ] 0471/1000 VUs  1m42.5s/5m00.0s
+time="2026-10-15T15:54:26Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:39800->192.168.65.254:8086: write tcp 172.19.0.11:39800->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+time="2026-10-15T15:54:27Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m49.9s), 0482/1000 VUs, 1896079 complete and 0 interrupted iterations
+read_load   [  34% ] 0482/1000 VUs  1m43.5s/5m00.0s
+
+running (1m50.9s), 0494/1000 VUs, 1914639 complete and 0 interrupted iterations
+read_load   [  35% ] 0494/1000 VUs  1m44.5s/5m00.0s
+time="2026-10-15T15:54:28Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:54:29Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m51.9s), 0505/1000 VUs, 1933726 complete and 0 interrupted iterations
+read_load   [  35% ] 0505/1000 VUs  1m45.5s/5m00.0s
+
+running (1m52.9s), 0516/1000 VUs, 1953102 complete and 0 interrupted iterations
+read_load   [  35% ] 0516/1000 VUs  1m46.5s/5m00.0s
+time="2026-10-15T15:54:30Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:54:31Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:39848->192.168.65.254:8086: write tcp 172.19.0.11:39848->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (1m53.9s), 0527/1000 VUs, 1973106 complete and 0 interrupted iterations
+read_load   [  36% ] 0527/1000 VUs  1m47.5s/5m00.0s
+
+running (1m54.9s), 0538/1000 VUs, 1991311 complete and 0 interrupted iterations
+read_load   [  36% ] 0538/1000 VUs  1m48.5s/5m00.0s
+time="2026-10-15T15:54:32Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:54:33Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m56.0s), 0549/1000 VUs, 2010897 complete and 0 interrupted iterations
+read_load   [  36% ] 0549/1000 VUs  1m49.5s/5m00.0s
+time="2026-10-15T15:54:34Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m56.9s), 0560/1000 VUs, 2030476 complete and 0 interrupted iterations
+read_load   [  37% ] 0560/1000 VUs  1m50.5s/5m00.0s
+
+running (1m57.9s), 0572/1000 VUs, 2049546 complete and 0 interrupted iterations
+read_load   [  37% ] 0572/1000 VUs  1m51.5s/5m00.0s
+time="2026-10-15T15:54:35Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m59.0s), 0583/1000 VUs, 2068601 complete and 0 interrupted iterations
+read_load   [  37% ] 0583/1000 VUs  1m52.5s/5m00.0s
+time="2026-10-15T15:54:36Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (1m59.9s), 0594/1000 VUs, 2087438 complete and 0 interrupted iterations
+read_load   [  38% ] 0594/1000 VUs  1m53.5s/5m00.0s
+time="2026-10-15T15:54:37Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:54:38Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m00.9s), 0605/1000 VUs, 2105456 complete and 0 interrupted iterations
+read_load   [  38% ] 0605/1000 VUs  1m54.5s/5m00.0s
+time="2026-10-15T15:54:39Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:29302->192.168.65.254:8086: write tcp 172.19.0.11:29302->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (2m01.9s), 0616/1000 VUs, 2125336 complete and 0 interrupted iterations
+read_load   [  38% ] 0616/1000 VUs  1m55.5s/5m00.0s
+
+running (2m02.9s), 0627/1000 VUs, 2145195 complete and 0 interrupted iterations
+read_load   [  39% ] 0627/1000 VUs  1m56.5s/5m00.0s
+time="2026-10-15T15:54:40Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m03.9s), 0638/1000 VUs, 2165562 complete and 0 interrupted iterations
+read_load   [  39% ] 0638/1000 VUs  1m57.5s/5m00.0s
+time="2026-10-15T15:54:41Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m04.9s), 0649/1000 VUs, 2185284 complete and 0 interrupted iterations
+read_load   [  39% ] 0649/1000 VUs  1m58.5s/5m00.0s
+time="2026-10-15T15:54:42Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m05.9s), 0661/1000 VUs, 2201798 complete and 0 interrupted iterations
+read_load   [  40% ] 0661/1000 VUs  1m59.5s/5m00.0s
+time="2026-10-15T15:54:43Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:54:44Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m06.9s), 0667/1000 VUs, 2220841 complete and 0 interrupted iterations
+read_load   [  40% ] 0667/1000 VUs  2m00.5s/5m00.0s
+
+running (2m07.9s), 0667/1000 VUs, 2239926 complete and 0 interrupted iterations
+read_load   [  40% ] 0667/1000 VUs  2m01.5s/5m00.0s
+time="2026-10-15T15:54:45Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:54:46Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m08.9s), 0667/1000 VUs, 2258868 complete and 0 interrupted iterations
+read_load   [  41% ] 0667/1000 VUs  2m02.5s/5m00.0s
+
+running (2m09.9s), 0667/1000 VUs, 2278743 complete and 0 interrupted iterations
+read_load   [  41% ] 0667/1000 VUs  2m03.5s/5m00.0s
+time="2026-10-15T15:54:47Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m10.9s), 0667/1000 VUs, 2296231 complete and 0 interrupted iterations
+read_load   [  41% ] 0667/1000 VUs  2m04.5s/5m00.0s
+time="2026-10-15T15:54:48Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:54:49Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m11.9s), 0667/1000 VUs, 2316332 complete and 0 interrupted iterations
+read_load   [  42% ] 0667/1000 VUs  2m05.5s/5m00.0s
+time="2026-10-15T15:54:50Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m12.9s), 0667/1000 VUs, 2335850 complete and 0 interrupted iterations
+read_load   [  42% ] 0667/1000 VUs  2m06.5s/5m00.0s
+time="2026-10-15T15:54:51Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m13.9s), 0667/1000 VUs, 2355623 complete and 0 interrupted iterations
+read_load   [  42% ] 0667/1000 VUs  2m07.5s/5m00.0s
+time="2026-10-15T15:54:52Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m14.9s), 0667/1000 VUs, 2375287 complete and 0 interrupted iterations
+read_load   [  43% ] 0667/1000 VUs  2m08.5s/5m00.0s
+
+running (2m15.9s), 0667/1000 VUs, 2394879 complete and 0 interrupted iterations
+read_load   [  43% ] 0667/1000 VUs  2m09.5s/5m00.0s
+time="2026-10-15T15:54:53Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m16.9s), 0667/1000 VUs, 2412856 complete and 0 interrupted iterations
+read_load   [  43% ] 0667/1000 VUs  2m10.5s/5m00.0s
+time="2026-10-15T15:54:54Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:54:55Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:57932->192.168.65.254:8086: write tcp 172.19.0.11:57932->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (2m17.9s), 0667/1000 VUs, 2432314 complete and 0 interrupted iterations
+read_load   [  44% ] 0667/1000 VUs  2m11.5s/5m00.0s
+
+running (2m19.0s), 0667/1000 VUs, 2450940 complete and 0 interrupted iterations
+read_load   [  44% ] 0667/1000 VUs  2m12.5s/5m00.0s
+time="2026-10-15T15:54:56Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:54:57Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m19.9s), 0667/1000 VUs, 2470509 complete and 0 interrupted iterations
+read_load   [  44% ] 0667/1000 VUs  2m13.5s/5m00.0s
+
+running (2m20.9s), 0667/1000 VUs, 2489064 complete and 0 interrupted iterations
+read_load   [  45% ] 0667/1000 VUs  2m14.5s/5m00.0s
+time="2026-10-15T15:54:58Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:54:59Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m21.9s), 0667/1000 VUs, 2507889 complete and 0 interrupted iterations
+read_load   [  45% ] 0667/1000 VUs  2m15.5s/5m00.0s
+time="2026-10-15T15:55:00Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m22.9s), 0667/1000 VUs, 2527909 complete and 0 interrupted iterations
+read_load   [  45% ] 0667/1000 VUs  2m16.5s/5m00.0s
+
+running (2m23.9s), 0667/1000 VUs, 2547912 complete and 0 interrupted iterations
+read_load   [  46% ] 0667/1000 VUs  2m17.5s/5m00.0s
+time="2026-10-15T15:55:01Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m24.9s), 0667/1000 VUs, 2567499 complete and 0 interrupted iterations
+read_load   [  46% ] 0667/1000 VUs  2m18.5s/5m00.0s
+time="2026-10-15T15:55:02Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:55:03Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m25.9s), 0667/1000 VUs, 2586750 complete and 0 interrupted iterations
+read_load   [  46% ] 0667/1000 VUs  2m19.5s/5m00.0s
+
+running (2m26.9s), 0667/1000 VUs, 2605863 complete and 0 interrupted iterations
+read_load   [  47% ] 0667/1000 VUs  2m20.5s/5m00.0s
+time="2026-10-15T15:55:04Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m27.9s), 0667/1000 VUs, 2624471 complete and 0 interrupted iterations
+read_load   [  47% ] 0667/1000 VUs  2m21.5s/5m00.0s
+time="2026-10-15T15:55:05Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m28.9s), 0667/1000 VUs, 2643394 complete and 0 interrupted iterations
+read_load   [  47% ] 0667/1000 VUs  2m22.5s/5m00.0s
+time="2026-10-15T15:55:06Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:55:07Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m29.9s), 0667/1000 VUs, 2662764 complete and 0 interrupted iterations
+read_load   [  48% ] 0667/1000 VUs  2m23.5s/5m00.0s
+
+running (2m30.9s), 0667/1000 VUs, 2680223 complete and 0 interrupted iterations
+read_load   [  48% ] 0667/1000 VUs  2m24.5s/5m00.0s
+time="2026-10-15T15:55:08Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:55:09Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m31.9s), 0667/1000 VUs, 2698609 complete and 0 interrupted iterations
+read_load   [  48% ] 0667/1000 VUs  2m25.5s/5m00.0s
+
+running (2m32.9s), 0667/1000 VUs, 2711107 complete and 0 interrupted iterations
+read_load   [  49% ] 0667/1000 VUs  2m26.5s/5m00.0s
+time="2026-10-15T15:55:10Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:49412->192.168.65.254:8086: write tcp 172.19.0.11:49412->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+time="2026-10-15T15:55:10Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m33.9s), 0667/1000 VUs, 2729698 complete and 0 interrupted iterations
+read_load   [  49% ] 0667/1000 VUs  2m27.5s/5m00.0s
+
+running (2m35.0s), 0667/1000 VUs, 2749081 complete and 0 interrupted iterations
+read_load   [  50% ] 0667/1000 VUs  2m28.5s/5m00.0s
+time="2026-10-15T15:55:12Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:55:13Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m35.9s), 0667/1000 VUs, 2767993 complete and 0 interrupted iterations
+read_load   [  50% ] 0667/1000 VUs  2m29.5s/5m00.0s
+
+running (2m36.9s), 0667/1000 VUs, 2786864 complete and 0 interrupted iterations
+read_load   [  50% ] 0667/1000 VUs  2m30.5s/5m00.0s
+time="2026-10-15T15:55:14Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:55:15Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m37.9s), 0667/1000 VUs, 2805065 complete and 0 interrupted iterations
+read_load   [  50% ] 0667/1000 VUs  2m31.5s/5m00.0s
+
+running (2m38.9s), 0667/1000 VUs, 2823005 complete and 0 interrupted iterations
+read_load   [  51% ] 0667/1000 VUs  2m32.5s/5m00.0s
+time="2026-10-15T15:55:16Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:55:17Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m39.9s), 0667/1000 VUs, 2843036 complete and 0 interrupted iterations
+read_load   [  51% ] 0667/1000 VUs  2m33.5s/5m00.0s
+
+running (2m40.9s), 0667/1000 VUs, 2861403 complete and 0 interrupted iterations
+read_load   [  51% ] 0667/1000 VUs  2m34.5s/5m00.0s
+time="2026-10-15T15:55:18Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:55:19Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m41.9s), 0667/1000 VUs, 2881089 complete and 0 interrupted iterations
+read_load   [  52% ] 0667/1000 VUs  2m35.5s/5m00.0s
+time="2026-10-15T15:55:20Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m42.9s), 0667/1000 VUs, 2900037 complete and 0 interrupted iterations
+read_load   [  52% ] 0667/1000 VUs  2m36.5s/5m00.0s
+time="2026-10-15T15:55:21Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m43.9s), 0667/1000 VUs, 2920415 complete and 0 interrupted iterations
+read_load   [  52% ] 0667/1000 VUs  2m37.5s/5m00.0s
+
+running (2m44.9s), 0667/1000 VUs, 2940128 complete and 0 interrupted iterations
+read_load   [  53% ] 0667/1000 VUs  2m38.5s/5m00.0s
+time="2026-10-15T15:55:22Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m45.9s), 0667/1000 VUs, 2959533 complete and 0 interrupted iterations
+read_load   [  53% ] 0667/1000 VUs  2m39.5s/5m00.0s
+time="2026-10-15T15:55:23Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:55:24Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m46.9s), 0667/1000 VUs, 2978894 complete and 0 interrupted iterations
+read_load   [  53% ] 0667/1000 VUs  2m40.5s/5m00.0s
+time="2026-10-15T15:55:25Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m47.9s), 0667/1000 VUs, 2997557 complete and 0 interrupted iterations
+read_load   [  54% ] 0667/1000 VUs  2m41.5s/5m00.0s
+time="2026-10-15T15:55:26Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m48.9s), 0667/1000 VUs, 3014820 complete and 0 interrupted iterations
+read_load   [  54% ] 0667/1000 VUs  2m42.5s/5m00.0s
+time="2026-10-15T15:55:27Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m49.9s), 0667/1000 VUs, 3034223 complete and 0 interrupted iterations
+read_load   [  54% ] 0667/1000 VUs  2m43.5s/5m00.0s
+
+running (2m50.9s), 0667/1000 VUs, 3052983 complete and 0 interrupted iterations
+read_load   [  55% ] 0667/1000 VUs  2m44.5s/5m00.0s
+time="2026-10-15T15:55:28Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:55:29Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m51.9s), 0667/1000 VUs, 3072289 complete and 0 interrupted iterations
+read_load   [  55% ] 0667/1000 VUs  2m45.5s/5m00.0s
+time="2026-10-15T15:55:30Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m52.9s), 0667/1000 VUs, 3092077 complete and 0 interrupted iterations
+read_load   [  55% ] 0667/1000 VUs  2m46.5s/5m00.0s
+time="2026-10-15T15:55:31Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m53.9s), 0667/1000 VUs, 3111907 complete and 0 interrupted iterations
+read_load   [  56% ] 0667/1000 VUs  2m47.5s/5m00.0s
+
+running (2m54.9s), 0667/1000 VUs, 3131303 complete and 0 interrupted iterations
+read_load   [  56% ] 0667/1000 VUs  2m48.5s/5m00.0s
+time="2026-10-15T15:55:32Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m55.9s), 0667/1000 VUs, 3151090 complete and 0 interrupted iterations
+read_load   [  56% ] 0667/1000 VUs  2m49.5s/5m00.0s
+time="2026-10-15T15:55:33Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:1088->192.168.65.254:8086: write tcp 172.19.0.11:1088->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+time="2026-10-15T15:55:34Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:11140->192.168.65.254:8086: write tcp 172.19.0.11:11140->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (2m56.9s), 0667/1000 VUs, 3170154 complete and 0 interrupted iterations
+read_load   [  57% ] 0667/1000 VUs  2m50.5s/5m00.0s
+time="2026-10-15T15:55:35Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m57.9s), 0667/1000 VUs, 3189579 complete and 0 interrupted iterations
+read_load   [  57% ] 0667/1000 VUs  2m51.5s/5m00.0s
+time="2026-10-15T15:55:36Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (2m58.9s), 0667/1000 VUs, 3208706 complete and 0 interrupted iterations
+read_load   [  57% ] 0667/1000 VUs  2m52.5s/5m00.0s
+
+running (2m59.9s), 0667/1000 VUs, 3226011 complete and 0 interrupted iterations
+read_load   [  58% ] 0667/1000 VUs  2m53.5s/5m00.0s
+time="2026-10-15T15:55:37Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:55:38Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m00.9s), 0667/1000 VUs, 3245418 complete and 0 interrupted iterations
+read_load   [  58% ] 0667/1000 VUs  2m54.5s/5m00.0s
+
+running (3m01.9s), 0667/1000 VUs, 3264660 complete and 0 interrupted iterations
+read_load   [  58% ] 0667/1000 VUs  2m55.5s/5m00.0s
+time="2026-10-15T15:55:39Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m02.9s), 0667/1000 VUs, 3283918 complete and 0 interrupted iterations
+read_load   [  59% ] 0667/1000 VUs  2m56.5s/5m00.0s
+time="2026-10-15T15:55:40Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:55:41Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:11210->192.168.65.254:8086: write tcp 172.19.0.11:11210->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (3m03.9s), 0667/1000 VUs, 3304180 complete and 0 interrupted iterations
+read_load   [  59% ] 0667/1000 VUs  2m57.5s/5m00.0s
+
+running (3m04.9s), 0667/1000 VUs, 3324187 complete and 0 interrupted iterations
+read_load   [  59% ] 0667/1000 VUs  2m58.5s/5m00.0s
+time="2026-10-15T15:55:42Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m05.9s), 0667/1000 VUs, 3344295 complete and 0 interrupted iterations
+read_load   [  60% ] 0667/1000 VUs  2m59.5s/5m00.0s
+time="2026-10-15T15:55:43Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m06.9s), 0672/1000 VUs, 3363172 complete and 0 interrupted iterations
+read_load   [  60% ] 0672/1000 VUs  3m00.5s/5m00.0s
+time="2026-10-15T15:55:44Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:55:45Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m07.9s), 0683/1000 VUs, 3382634 complete and 0 interrupted iterations
+read_load   [  60% ] 0683/1000 VUs  3m01.5s/5m00.0s
+time="2026-10-15T15:55:46Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m08.9s), 0694/1000 VUs, 3400742 complete and 0 interrupted iterations
+read_load   [  61% ] 0694/1000 VUs  3m02.5s/5m00.0s
+time="2026-10-15T15:55:47Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m09.9s), 0705/1000 VUs, 3419028 complete and 0 interrupted iterations
+read_load   [  61% ] 0705/1000 VUs  3m03.5s/5m00.0s
+time="2026-10-15T15:55:48Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m10.9s), 0716/1000 VUs, 3436832 complete and 0 interrupted iterations
+read_load   [  61% ] 0716/1000 VUs  3m04.5s/5m00.0s
+time="2026-10-15T15:55:49Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m11.9s), 0727/1000 VUs, 3456191 complete and 0 interrupted iterations
+read_load   [  62% ] 0727/1000 VUs  3m05.5s/5m00.0s
+time="2026-10-15T15:55:50Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m12.9s), 0738/1000 VUs, 3476070 complete and 0 interrupted iterations
+read_load   [  62% ] 0738/1000 VUs  3m06.5s/5m00.0s
+time="2026-10-15T15:55:51Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:6130->192.168.65.254:8086: write tcp 172.19.0.11:6130->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (3m13.9s), 0749/1000 VUs, 3495635 complete and 0 interrupted iterations
+read_load   [  62% ] 0749/1000 VUs  3m07.5s/5m00.0s
+time="2026-10-15T15:55:52Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m14.9s), 0761/1000 VUs, 3515385 complete and 0 interrupted iterations
+read_load   [  63% ] 0761/1000 VUs  3m08.5s/5m00.0s
+
+running (3m15.9s), 0772/1000 VUs, 3535541 complete and 0 interrupted iterations
+read_load   [  63% ] 0772/1000 VUs  3m09.5s/5m00.0s
+time="2026-10-15T15:55:53Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m16.9s), 0783/1000 VUs, 3554169 complete and 0 interrupted iterations
+read_load   [  63% ] 0783/1000 VUs  3m10.5s/5m00.0s
+time="2026-10-15T15:55:54Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:55:55Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m17.9s), 0794/1000 VUs, 3573075 complete and 0 interrupted iterations
+read_load   [  64% ] 0794/1000 VUs  3m11.5s/5m00.0s
+time="2026-10-15T15:55:56Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m18.9s), 0805/1000 VUs, 3592065 complete and 0 interrupted iterations
+read_load   [  64% ] 0805/1000 VUs  3m12.5s/5m00.0s
+time="2026-10-15T15:55:57Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m19.9s), 0816/1000 VUs, 3611728 complete and 0 interrupted iterations
+read_load   [  64% ] 0816/1000 VUs  3m13.5s/5m00.0s
+time="2026-10-15T15:55:58Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m20.9s), 0827/1000 VUs, 3629159 complete and 0 interrupted iterations
+read_load   [  65% ] 0827/1000 VUs  3m14.5s/5m00.0s
+time="2026-10-15T15:55:59Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m21.9s), 0838/1000 VUs, 3647385 complete and 0 interrupted iterations
+read_load   [  65% ] 0838/1000 VUs  3m15.5s/5m00.0s
+
+running (3m22.9s), 0849/1000 VUs, 3667171 complete and 0 interrupted iterations
+read_load   [  65% ] 0849/1000 VUs  3m16.5s/5m00.0s
+time="2026-10-15T15:56:00Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:56:01Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m23.9s), 0860/1000 VUs, 3686752 complete and 0 interrupted iterations
+read_load   [  66% ] 0860/1000 VUs  3m17.5s/5m00.0s
+time="2026-10-15T15:56:02Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m24.9s), 0872/1000 VUs, 3706454 complete and 0 interrupted iterations
+read_load   [  66% ] 0872/1000 VUs  3m18.5s/5m00.0s
+time="2026-10-15T15:56:03Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m25.9s), 0883/1000 VUs, 3726677 complete and 0 interrupted iterations
+read_load   [  66% ] 0883/1000 VUs  3m19.5s/5m00.0s
+time="2026-10-15T15:56:04Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m26.9s), 0894/1000 VUs, 3746122 complete and 0 interrupted iterations
+read_load   [  67% ] 0894/1000 VUs  3m20.5s/5m00.0s
+
+running (3m27.9s), 0905/1000 VUs, 3766103 complete and 0 interrupted iterations
+read_load   [  67% ] 0905/1000 VUs  3m21.5s/5m00.0s
+time="2026-10-15T15:56:05Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:56:06Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m28.9s), 0916/1000 VUs, 3785095 complete and 0 interrupted iterations
+read_load   [  67% ] 0916/1000 VUs  3m22.5s/5m00.0s
+time="2026-10-15T15:56:07Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m29.9s), 0927/1000 VUs, 3804792 complete and 0 interrupted iterations
+read_load   [  68% ] 0927/1000 VUs  3m23.5s/5m00.0s
+time="2026-10-15T15:56:08Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m30.9s), 0938/1000 VUs, 3823547 complete and 0 interrupted iterations
+read_load   [  68% ] 0938/1000 VUs  3m24.5s/5m00.0s
+
+running (3m31.9s), 0949/1000 VUs, 3839618 complete and 0 interrupted iterations
+read_load   [  68% ] 0949/1000 VUs  3m25.5s/5m00.0s
+time="2026-10-15T15:56:09Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:56:10Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m32.9s), 0960/1000 VUs, 3855597 complete and 0 interrupted iterations
+read_load   [  69% ] 0960/1000 VUs  3m26.5s/5m00.0s
+time="2026-10-15T15:56:10Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m33.9s), 0971/1000 VUs, 3874918 complete and 0 interrupted iterations
+read_load   [  69% ] 0971/1000 VUs  3m27.5s/5m00.0s
+
+running (3m34.9s), 0983/1000 VUs, 3893063 complete and 0 interrupted iterations
+read_load   [  69% ] 0983/1000 VUs  3m28.5s/5m00.0s
+time="2026-10-15T15:56:12Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:56:13Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m35.9s), 0994/1000 VUs, 3913648 complete and 0 interrupted iterations
+read_load   [  70% ] 0994/1000 VUs  3m29.5s/5m00.0s
+
+running (3m37.0s), 1000/1000 VUs, 3933481 complete and 0 interrupted iterations
+read_load   [  70% ] 1000/1000 VUs  3m30.5s/5m00.0s
+time="2026-10-15T15:56:14Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:56:15Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m37.9s), 1000/1000 VUs, 3952501 complete and 0 interrupted iterations
+read_load   [  70% ] 1000/1000 VUs  3m31.5s/5m00.0s
+
+running (3m38.9s), 1000/1000 VUs, 3971489 complete and 0 interrupted iterations
+read_load   [  71% ] 1000/1000 VUs  3m32.5s/5m00.0s
+time="2026-10-15T15:56:16Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:40044->192.168.65.254:8086: write tcp 172.19.0.11:40044->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+time="2026-10-15T15:56:17Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m39.9s), 1000/1000 VUs, 3990759 complete and 0 interrupted iterations
+read_load   [  71% ] 1000/1000 VUs  3m33.5s/5m00.0s
+time="2026-10-15T15:56:18Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:40054->192.168.65.254:8086: write tcp 172.19.0.11:40054->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (3m40.9s), 1000/1000 VUs, 4009331 complete and 0 interrupted iterations
+read_load   [  71% ] 1000/1000 VUs  3m34.5s/5m00.0s
+time="2026-10-15T15:56:19Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:40056->192.168.65.254:8086: write tcp 172.19.0.11:40056->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (3m41.9s), 1000/1000 VUs, 4028348 complete and 0 interrupted iterations
+read_load   [  72% ] 1000/1000 VUs  3m35.5s/5m00.0s
+time="2026-10-15T15:56:20Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m42.9s), 1000/1000 VUs, 4045395 complete and 0 interrupted iterations
+read_load   [  72% ] 1000/1000 VUs  3m36.5s/5m00.0s
+time="2026-10-15T15:56:20Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m43.9s), 1000/1000 VUs, 4065376 complete and 0 interrupted iterations
+read_load   [  72% ] 1000/1000 VUs  3m37.5s/5m00.0s
+
+running (3m44.9s), 1000/1000 VUs, 4084741 complete and 0 interrupted iterations
+read_load   [  73% ] 1000/1000 VUs  3m38.5s/5m00.0s
+time="2026-10-15T15:56:22Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:56:23Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m45.9s), 1000/1000 VUs, 4104562 complete and 0 interrupted iterations
+read_load   [  73% ] 1000/1000 VUs  3m39.5s/5m00.0s
+
+running (3m46.9s), 1000/1000 VUs, 4122604 complete and 0 interrupted iterations
+read_load   [  73% ] 1000/1000 VUs  3m40.5s/5m00.0s
+time="2026-10-15T15:56:24Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:56:25Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m47.9s), 1000/1000 VUs, 4141069 complete and 0 interrupted iterations
+read_load   [  74% ] 1000/1000 VUs  3m41.5s/5m00.0s
+time="2026-10-15T15:56:26Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m48.9s), 1000/1000 VUs, 4159784 complete and 0 interrupted iterations
+read_load   [  74% ] 1000/1000 VUs  3m42.5s/5m00.0s
+time="2026-10-15T15:56:27Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m49.9s), 1000/1000 VUs, 4179893 complete and 0 interrupted iterations
+read_load   [  74% ] 1000/1000 VUs  3m43.5s/5m00.0s
+
+running (3m50.9s), 1000/1000 VUs, 4198291 complete and 0 interrupted iterations
+read_load   [  75% ] 1000/1000 VUs  3m44.5s/5m00.0s
+time="2026-10-15T15:56:28Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:56:29Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m51.9s), 1000/1000 VUs, 4216701 complete and 0 interrupted iterations
+read_load   [  75% ] 1000/1000 VUs  3m45.5s/5m00.0s
+
+running (3m53.0s), 1000/1000 VUs, 4234144 complete and 0 interrupted iterations
+read_load   [  75% ] 1000/1000 VUs  3m46.5s/5m00.0s
+time="2026-10-15T15:56:30Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:56:31Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m53.9s), 1000/1000 VUs, 4252643 complete and 0 interrupted iterations
+read_load   [  76% ] 1000/1000 VUs  3m47.5s/5m00.0s
+time="2026-10-15T15:56:32Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m54.9s), 1000/1000 VUs, 4272302 complete and 0 interrupted iterations
+read_load   [  76% ] 1000/1000 VUs  3m48.5s/5m00.0s
+
+running (3m55.9s), 1000/1000 VUs, 4292090 complete and 0 interrupted iterations
+read_load   [  76% ] 1000/1000 VUs  3m49.5s/5m00.0s
+time="2026-10-15T15:56:33Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:56:34Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m56.9s), 1000/1000 VUs, 4311475 complete and 0 interrupted iterations
+read_load   [  77% ] 1000/1000 VUs  3m50.5s/5m00.0s
+time="2026-10-15T15:56:35Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m57.9s), 1000/1000 VUs, 4330602 complete and 0 interrupted iterations
+read_load   [  77% ] 1000/1000 VUs  3m51.5s/5m00.0s
+time="2026-10-15T15:56:36Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (3m58.9s), 1000/1000 VUs, 4349567 complete and 0 interrupted iterations
+read_load   [  77% ] 1000/1000 VUs  3m52.5s/5m00.0s
+time="2026-10-15T15:56:37Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:18762->192.168.65.254:8086: write tcp 172.19.0.11:18762->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (3m59.9s), 1000/1000 VUs, 4369020 complete and 0 interrupted iterations
+read_load   [  78% ] 1000/1000 VUs  3m53.5s/5m00.0s
+time="2026-10-15T15:56:38Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m00.9s), 1000/1000 VUs, 4388355 complete and 0 interrupted iterations
+read_load   [  78% ] 1000/1000 VUs  3m54.5s/5m00.0s
+
+running (4m01.9s), 1000/1000 VUs, 4407906 complete and 0 interrupted iterations
+read_load   [  78% ] 1000/1000 VUs  3m55.5s/5m00.0s
+time="2026-10-15T15:56:39Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:56:40Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m02.9s), 1000/1000 VUs, 4426257 complete and 0 interrupted iterations
+read_load   [  79% ] 1000/1000 VUs  3m56.5s/5m00.0s
+time="2026-10-15T15:56:41Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m03.9s), 1000/1000 VUs, 4444232 complete and 0 interrupted iterations
+read_load   [  79% ] 1000/1000 VUs  3m57.5s/5m00.0s
+time="2026-10-15T15:56:42Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m04.9s), 1000/1000 VUs, 4463676 complete and 0 interrupted iterations
+read_load   [  79% ] 1000/1000 VUs  3m58.5s/5m00.0s
+time="2026-10-15T15:56:43Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m05.9s), 1000/1000 VUs, 4484152 complete and 0 interrupted iterations
+read_load   [  80% ] 1000/1000 VUs  3m59.5s/5m00.0s
+time="2026-10-15T15:56:44Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m06.9s), 1000/1000 VUs, 4503596 complete and 0 interrupted iterations
+read_load   [  80% ] 1000/1000 VUs  4m00.5s/5m00.0s
+
+running (4m07.9s), 1000/1000 VUs, 4522718 complete and 0 interrupted iterations
+read_load   [  80% ] 1000/1000 VUs  4m01.5s/5m00.0s
+time="2026-10-15T15:56:45Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m08.9s), 1000/1000 VUs, 4541707 complete and 0 interrupted iterations
+read_load   [  81% ] 1000/1000 VUs  4m02.5s/5m00.0s
+time="2026-10-15T15:56:46Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:56:47Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m09.9s), 1000/1000 VUs, 4561146 complete and 0 interrupted iterations
+read_load   [  81% ] 1000/1000 VUs  4m03.5s/5m00.0s
+time="2026-10-15T15:56:48Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m10.9s), 1000/1000 VUs, 4579322 complete and 0 interrupted iterations
+read_load   [  81% ] 1000/1000 VUs  4m04.5s/5m00.0s
+time="2026-10-15T15:56:49Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:25108->192.168.65.254:8086: write tcp 172.19.0.11:25108->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (4m12.0s), 1000/1000 VUs, 4598589 complete and 0 interrupted iterations
+read_load   [  82% ] 1000/1000 VUs  4m05.5s/5m00.0s
+time="2026-10-15T15:56:50Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:25112->192.168.65.254:8086: write tcp 172.19.0.11:25112->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (4m12.9s), 1000/1000 VUs, 4617482 complete and 0 interrupted iterations
+read_load   [  82% ] 1000/1000 VUs  4m06.5s/5m00.0s
+time="2026-10-15T15:56:51Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m13.9s), 1000/1000 VUs, 4637431 complete and 0 interrupted iterations
+read_load   [  82% ] 1000/1000 VUs  4m07.5s/5m00.0s
+
+running (4m14.9s), 1000/1000 VUs, 4655178 complete and 0 interrupted iterations
+read_load   [  83% ] 1000/1000 VUs  4m08.5s/5m00.0s
+time="2026-10-15T15:56:52Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:56:53Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:25136->192.168.65.254:8086: write tcp 172.19.0.11:25136->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (4m15.9s), 1000/1000 VUs, 4675092 complete and 0 interrupted iterations
+read_load   [  83% ] 1000/1000 VUs  4m09.5s/5m00.0s
+time="2026-10-15T15:56:54Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:30660->192.168.65.254:8086: write tcp 172.19.0.11:30660->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (4m16.9s), 1000/1000 VUs, 4694746 complete and 0 interrupted iterations
+read_load   [  83% ] 1000/1000 VUs  4m10.5s/5m00.0s
+
+running (4m17.9s), 1000/1000 VUs, 4713262 complete and 0 interrupted iterations
+read_load   [  84% ] 1000/1000 VUs  4m11.5s/5m00.0s
+time="2026-10-15T15:56:55Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:56:56Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m18.9s), 1000/1000 VUs, 4732175 complete and 0 interrupted iterations
+read_load   [  84% ] 1000/1000 VUs  4m12.5s/5m00.0s
+time="2026-10-15T15:56:57Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m19.9s), 1000/1000 VUs, 4752387 complete and 0 interrupted iterations
+read_load   [  84% ] 1000/1000 VUs  4m13.5s/5m00.0s
+
+running (4m21.0s), 1000/1000 VUs, 4771437 complete and 0 interrupted iterations
+read_load   [  85% ] 1000/1000 VUs  4m14.5s/5m00.0s
+time="2026-10-15T15:56:58Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:30676->192.168.65.254:8086: write tcp 172.19.0.11:30676->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+time="2026-10-15T15:56:59Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m21.9s), 1000/1000 VUs, 4790091 complete and 0 interrupted iterations
+read_load   [  85% ] 1000/1000 VUs  4m15.5s/5m00.0s
+time="2026-10-15T15:57:00Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m22.9s), 1000/1000 VUs, 4808459 complete and 0 interrupted iterations
+read_load   [  85% ] 1000/1000 VUs  4m16.5s/5m00.0s
+time="2026-10-15T15:57:01Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m23.9s), 1000/1000 VUs, 4828958 complete and 0 interrupted iterations
+read_load   [  86% ] 1000/1000 VUs  4m17.5s/5m00.0s
+time="2026-10-15T15:57:02Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m24.9s), 1000/1000 VUs, 4847660 complete and 0 interrupted iterations
+read_load   [  86% ] 1000/1000 VUs  4m18.5s/5m00.0s
+time="2026-10-15T15:57:03Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:30728->192.168.65.254:8086: write tcp 172.19.0.11:30728->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (4m25.9s), 1000/1000 VUs, 4866361 complete and 0 interrupted iterations
+read_load   [  86% ] 1000/1000 VUs  4m19.5s/5m00.0s
+time="2026-10-15T15:57:04Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m26.9s), 1000/1000 VUs, 4885276 complete and 0 interrupted iterations
+read_load   [  87% ] 1000/1000 VUs  4m20.5s/5m00.0s
+time="2026-10-15T15:57:05Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m27.9s), 1000/1000 VUs, 4904601 complete and 0 interrupted iterations
+read_load   [  87% ] 1000/1000 VUs  4m21.5s/5m00.0s
+
+running (4m28.9s), 1000/1000 VUs, 4923677 complete and 0 interrupted iterations
+read_load   [  87% ] 1000/1000 VUs  4m22.5s/5m00.0s
+time="2026-10-15T15:57:06Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:12970->192.168.65.254:8086: write tcp 172.19.0.11:12970->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+time="2026-10-15T15:57:07Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m29.9s), 1000/1000 VUs, 4942924 complete and 0 interrupted iterations
+read_load   [  88% ] 1000/1000 VUs  4m23.5s/5m00.0s
+time="2026-10-15T15:57:08Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m30.9s), 1000/1000 VUs, 4961188 complete and 0 interrupted iterations
+read_load   [  88% ] 1000/1000 VUs  4m24.5s/5m00.0s
+time="2026-10-15T15:57:09Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m31.9s), 1000/1000 VUs, 4980406 complete and 0 interrupted iterations
+read_load   [  88% ] 1000/1000 VUs  4m25.5s/5m00.0s
+time="2026-10-15T15:57:10Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m32.9s), 1000/1000 VUs, 4999695 complete and 0 interrupted iterations
+read_load   [  89% ] 1000/1000 VUs  4m26.5s/5m00.0s
+time="2026-10-15T15:57:11Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m33.9s), 1000/1000 VUs, 5019835 complete and 0 interrupted iterations
+read_load   [  89% ] 1000/1000 VUs  4m27.5s/5m00.0s
+
+running (4m34.9s), 1000/1000 VUs, 5039469 complete and 0 interrupted iterations
+read_load   [  89% ] 1000/1000 VUs  4m28.5s/5m00.0s
+time="2026-10-15T15:57:12Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:12996->192.168.65.254:8086: write tcp 172.19.0.11:12996->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (4m35.9s), 1000/1000 VUs, 5056016 complete and 0 interrupted iterations
+read_load   [  90% ] 1000/1000 VUs  4m29.5s/5m00.0s
+time="2026-10-15T15:57:13Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:57:14Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m36.9s), 0986/1000 VUs, 5075265 complete and 0 interrupted iterations
+read_load   [  90% ] 0986/1000 VUs  4m30.5s/5m00.0s
+time="2026-10-15T15:57:15Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m37.9s), 0953/1000 VUs, 5095039 complete and 0 interrupted iterations
+read_load   [  90% ] 0953/1000 VUs  4m31.5s/5m00.0s
+
+running (4m38.9s), 0919/1000 VUs, 5113660 complete and 0 interrupted iterations
+read_load   [  91% ] 0919/1000 VUs  4m32.5s/5m00.0s
+time="2026-10-15T15:57:16Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:57:17Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m39.9s), 0887/1000 VUs, 5132835 complete and 0 interrupted iterations
+read_load   [  91% ] 0887/1000 VUs  4m33.5s/5m00.0s
+
+running (4m40.9s), 0853/1000 VUs, 5150401 complete and 0 interrupted iterations
+read_load   [  91% ] 0853/1000 VUs  4m34.5s/5m00.0s
+time="2026-10-15T15:57:18Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:57:19Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m41.9s), 0819/1000 VUs, 5169186 complete and 0 interrupted iterations
+read_load   [  92% ] 0819/1000 VUs  4m35.5s/5m00.0s
+time="2026-10-15T15:57:20Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m42.9s), 0786/1000 VUs, 5187210 complete and 0 interrupted iterations
+read_load   [  92% ] 0786/1000 VUs  4m36.5s/5m00.0s
+time="2026-10-15T15:57:21Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m43.9s), 0752/1000 VUs, 5207508 complete and 0 interrupted iterations
+read_load   [  92% ] 0752/1000 VUs  4m37.5s/5m00.0s
+time="2026-10-15T15:57:22Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m44.9s), 0718/1000 VUs, 5227383 complete and 0 interrupted iterations
+read_load   [  93% ] 0718/1000 VUs  4m38.5s/5m00.0s
+time="2026-10-15T15:57:23Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m45.9s), 0685/1000 VUs, 5247082 complete and 0 interrupted iterations
+read_load   [  93% ] 0685/1000 VUs  4m39.5s/5m00.0s
+time="2026-10-15T15:57:24Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m46.9s), 0652/1000 VUs, 5264530 complete and 0 interrupted iterations
+read_load   [  93% ] 0652/1000 VUs  4m40.5s/5m00.0s
+time="2026-10-15T15:57:25Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m47.9s), 0619/1000 VUs, 5284752 complete and 0 interrupted iterations
+read_load   [  94% ] 0619/1000 VUs  4m41.5s/5m00.0s
+
+running (4m48.9s), 0587/1000 VUs, 5302947 complete and 0 interrupted iterations
+read_load   [  94% ] 0587/1000 VUs  4m42.5s/5m00.0s
+time="2026-10-15T15:57:26Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:57:27Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m49.9s), 0552/1000 VUs, 5322625 complete and 0 interrupted iterations
+read_load   [  94% ] 0552/1000 VUs  4m43.5s/5m00.0s
+
+running (4m50.9s), 0518/1000 VUs, 5340414 complete and 0 interrupted iterations
+read_load   [  95% ] 0518/1000 VUs  4m44.5s/5m00.0s
+time="2026-10-15T15:57:28Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m52.0s), 0486/1000 VUs, 5355416 complete and 0 interrupted iterations
+read_load   [  95% ] 0486/1000 VUs  4m45.5s/5m00.0s
+time="2026-10-15T15:57:29Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:46478->192.168.65.254:8086: write tcp 172.19.0.11:46478->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+
+running (4m53.0s), 0452/1000 VUs, 5369188 complete and 0 interrupted iterations
+read_load   [  95% ] 0452/1000 VUs  4m46.5s/5m00.0s
+time="2026-10-15T15:57:30Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:57:30Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m54.0s), 0418/1000 VUs, 5387765 complete and 0 interrupted iterations
+read_load   [  96% ] 0418/1000 VUs  4m47.5s/5m00.0s
+time="2026-10-15T15:57:32Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m54.9s), 0385/1000 VUs, 5405722 complete and 0 interrupted iterations
+read_load   [  96% ] 0385/1000 VUs  4m48.5s/5m00.0s
+time="2026-10-15T15:57:33Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m55.9s), 0351/1000 VUs, 5426489 complete and 0 interrupted iterations
+read_load   [  96% ] 0351/1000 VUs  4m49.5s/5m00.0s
+time="2026-10-15T15:57:34Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m56.9s), 0319/1000 VUs, 5445993 complete and 0 interrupted iterations
+read_load   [  97% ] 0319/1000 VUs  4m50.5s/5m00.0s
+
+running (4m57.9s), 0286/1000 VUs, 5464623 complete and 0 interrupted iterations
+read_load   [  97% ] 0286/1000 VUs  4m51.5s/5m00.0s
+time="2026-10-15T15:57:35Z" level=error msg="Couldn't write stats" error="Post 
+\"http://host.docker.internal:8086/write?consistency=&db=k6&precision=ns&rp=\": readfrom tcp 
+172.19.0.11:8146->192.168.65.254:8086: write tcp 172.19.0.11:8146->192.168.65.254:8086: write: broken pipe" 
+output=InfluxDBv1
+time="2026-10-15T15:57:36Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (4m58.9s), 0252/1000 VUs, 5483282 complete and 0 interrupted iterations
+read_load   [  97% ] 0252/1000 VUs  4m52.5s/5m00.0s
+
+running (4m59.9s), 0219/1000 VUs, 5503500 complete and 0 interrupted iterations
+read_load   [  98% ] 0219/1000 VUs  4m53.5s/5m00.0s
+time="2026-10-15T15:57:37Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+time="2026-10-15T15:57:38Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (5m00.9s), 0185/1000 VUs, 5521197 complete and 0 interrupted iterations
+read_load   [  98% ] 0185/1000 VUs  4m54.5s/5m00.0s
+time="2026-10-15T15:57:39Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (5m01.9s), 0152/1000 VUs, 5541603 complete and 0 interrupted iterations
+read_load   [  98% ] 0152/1000 VUs  4m55.5s/5m00.0s
+time="2026-10-15T15:57:40Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (5m02.9s), 0118/1000 VUs, 5560703 complete and 0 interrupted iterations
+read_load   [  99% ] 0118/1000 VUs  4m56.5s/5m00.0s
+time="2026-10-15T15:57:41Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (5m03.9s), 0085/1000 VUs, 5579656 complete and 0 interrupted iterations
+read_load   [  99% ] 0085/1000 VUs  4m57.5s/5m00.0s
+time="2026-10-15T15:57:42Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (5m04.9s), 0052/1000 VUs, 5599300 complete and 0 interrupted iterations
+read_load   [  99% ] 0052/1000 VUs  4m58.5s/5m00.0s
+time="2026-10-15T15:57:43Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (5m05.9s), 0018/1000 VUs, 5617560 complete and 0 interrupted iterations
+read_load   [ 100% ] 0018/1000 VUs  4m59.5s/5m00.0s
+time="2026-10-15T15:57:43Z" level=error msg="Couldn't write stats" error="{\"error\":\"Request Entity Too Large\"}\n" 
+output=InfluxDBv1
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s
+
+running (5m06.5s), 0000/1000 VUs, 5623521 complete and 0 interrupted iterations
+read_load Ô£ô [ 100% ] 0000/1000 VUs  5m0s

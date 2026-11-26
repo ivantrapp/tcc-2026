@@ -1,0 +1,12 @@
+﻿[19:33:28] k6 sem saida ha 90s - capturando estado (k6 NAO sera removido)
+cqrs-data-replication-read-app-1 Up 6 minutes
+cqrs-data-replication-wallet-app-1 Up 6 minutes (healthy)
+cqrs-data-replication-customer-app-1 Up 6 minutes (healthy)
+cqrs-data-replication-staff-app-1 Up 6 minutes (healthy)
+cqrs-data-replication-db-read-1 Up 6 minutes (healthy)
+cqrs-data-replication-db-customer-1 Up 6 minutes (healthy)
+cqrs-data-replication-db-staff-1 Up 6 minutes (healthy)
+cqrs-data-replication-db-wallet-1 Up 6 minutes (healthy)
+
+
+

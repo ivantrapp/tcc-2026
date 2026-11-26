@@ -1,0 +1,501 @@
+﻿wallet-1  | 2026-10-15T22:59:00.826056388Z 
+wallet-1  | 2026-10-15T22:59:00.826107622Z   .   ____          _            __ _ _
+wallet-1  | 2026-10-15T22:59:00.826112532Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+wallet-1  | 2026-10-15T22:59:00.826114442Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+wallet-1  | 2026-10-15T22:59:00.826116233Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+wallet-1  | 2026-10-15T22:59:00.826117993Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+wallet-1  | 2026-10-15T22:59:00.826119793Z  =========|_|==============|___/=/_/_/_/
+wallet-1  | 2026-10-15T22:59:00.826121653Z 
+wallet-1  | 2026-10-15T22:59:00.826371043Z  :: Spring Boot ::                (v4.0.6)
+wallet-1  | 2026-10-15T22:59:00.826379394Z 
+wallet-1  | 2026-10-15T22:59:00.904434744Z 22:59:00.901 [main] INFO  [wallet] com.cqrs.Application - Starting Application v0.0.1-SNAPSHOT using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+wallet-1  | 2026-10-15T22:59:00.907543364Z 22:59:00.907 [main] INFO  [wallet] com.cqrs.Application - No active profile set, falling back to 1 default profile: "default"
+wallet-1  | 2026-10-15T22:59:04.187981250Z 22:59:04.187 [main] WARN  [wallet] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+wallet-1  | 2026-10-15T22:59:06.481762233Z 22:59:06.481 [main] INFO  [wallet] com.cqrs.Application - Started Application in 6.152 seconds (process running for 6.628)
+wallet-1  | 2026-10-15T23:00:17.837387956Z 23:00:17.837 [http-nio-8084-exec-3] INFO  [wallet] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+wallet-1  | 2026-10-15T23:00:17.838252966Z 23:00:17.838 [http-nio-8084-exec-3] INFO  [wallet] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+wallet-1  | 2026-10-15T23:00:18.004067174Z 23:00:18.003 [http-nio-8084-exec-3] INFO  [wallet] o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+wallet-1  | 2026-10-15T23:00:18.038276620Z 23:00:18.037 [http-nio-8084-exec-3] INFO  [wallet] o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#19f9404d:0/SimpleConnection@609f9d02 [delegate=amqp://guest@172.18.0.2:5672/, localPort=42604]
+wallet-1  | 2026-10-15T23:00:18.525396490Z 23:00:18.525 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.525418422Z 23:00:18.525 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.525421322Z 23:00:18.525 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.525424712Z   Detail: Key (stream_id, version)=(Wallet-73e48c89-a849-4026-88eb-81cb0f447b04, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.525428023Z 23:00:18.525 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.525431263Z   Detail: Key (stream_id, version)=(Wallet-73e48c89-a849-4026-88eb-81cb0f447b04, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.525719941Z 23:00:18.525 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.525732312Z 23:00:18.525 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.525737852Z   Detail: Key (stream_id, version)=(Wallet-73e48c89-a849-4026-88eb-81cb0f447b04, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.525872643Z 23:00:18.525 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.525880774Z 23:00:18.525 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.525884024Z   Detail: Key (stream_id, version)=(Wallet-73e48c89-a849-4026-88eb-81cb0f447b04, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.541408608Z 23:00:18.539 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.541428110Z 23:00:18.541 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.541445081Z   Detail: Key (stream_id, version)=(Wallet-d031fda1-4048-4ead-8cb0-81461107a813, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.551728070Z 23:00:18.551 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.551744361Z 23:00:18.551 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.551747242Z 23:00:18.551 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.551749902Z   Detail: Key (stream_id, version)=(Wallet-ff5ff797-786d-4c0c-ac9f-2132a160fca6, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.551856881Z 23:00:18.551 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.551863841Z   Detail: Key (stream_id, version)=(Wallet-ff5ff797-786d-4c0c-ac9f-2132a160fca6, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.554371042Z 23:00:18.554 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.554439797Z 23:00:18.554 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.554444808Z   Detail: Key (stream_id, version)=(Wallet-d031fda1-4048-4ead-8cb0-81461107a813, 3) already exists.
+wallet-1  | 2026-10-15T23:00:18.562920117Z 23:00:18.562 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.562938378Z 23:00:18.562 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.562942049Z   Detail: Key (stream_id, version)=(Wallet-ff5ff797-786d-4c0c-ac9f-2132a160fca6, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.564638804Z 23:00:18.564 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.564678178Z 23:00:18.564 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.564704330Z 23:00:18.564 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.564707550Z   Detail: Key (stream_id, version)=(Wallet-aa151db4-81aa-4c48-8cd8-809bc3d6d0c0, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.564825030Z 23:00:18.564 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.564830990Z 23:00:18.564 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.564836340Z   Detail: Key (stream_id, version)=(Wallet-aa151db4-81aa-4c48-8cd8-809bc3d6d0c0, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.565078835Z 23:00:18.564 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.565085206Z   Detail: Key (stream_id, version)=(Wallet-aa151db4-81aa-4c48-8cd8-809bc3d6d0c0, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.573819670Z 23:00:18.573 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.573833551Z 23:00:18.573 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.573836142Z 23:00:18.573 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.573944026Z 23:00:18.573 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.573967628Z 23:00:18.573 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.573971418Z   Detail: Key (stream_id, version)=(Wallet-37cbae8e-cb87-49ad-995e-2430ff02a0b3, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.574047779Z 23:00:18.573 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.574055179Z   Detail: Key (stream_id, version)=(Wallet-37cbae8e-cb87-49ad-995e-2430ff02a0b3, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.574177707Z 23:00:18.573 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.574183927Z   Detail: Key (stream_id, version)=(Wallet-37cbae8e-cb87-49ad-995e-2430ff02a0b3, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.574186358Z 23:00:18.573 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.574188428Z   Detail: Key (stream_id, version)=(Wallet-37cbae8e-cb87-49ad-995e-2430ff02a0b3, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.584413620Z 23:00:18.584 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.584431821Z 23:00:18.584 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.584512857Z 23:00:18.584 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.584520298Z 23:00:18.584 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.584523778Z   Detail: Key (stream_id, version)=(Wallet-a11256f5-c936-47e4-b043-18dd6fca7b01, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.584601799Z 23:00:18.584 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.584609730Z   Detail: Key (stream_id, version)=(Wallet-a11256f5-c936-47e4-b043-18dd6fca7b01, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.585084623Z 23:00:18.584 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.585089843Z 23:00:18.584 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.585092454Z   Detail: Key (stream_id, version)=(Wallet-a11256f5-c936-47e4-b043-18dd6fca7b01, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.585094624Z 23:00:18.584 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.585096594Z   Detail: Key (stream_id, version)=(Wallet-a11256f5-c936-47e4-b043-18dd6fca7b01, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.593393643Z 23:00:18.593 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.593408635Z 23:00:18.593 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.593425256Z   Detail: Key (stream_id, version)=(Wallet-3b8fd3a3-a853-4bac-ac0f-9223684d4e20, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.593920991Z 23:00:18.593 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.593928092Z 23:00:18.593 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.593930632Z   Detail: Key (stream_id, version)=(Wallet-4ef263b2-02a6-49b1-a0ac-391bf0916519, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.594747387Z 23:00:18.594 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.594772740Z 23:00:18.594 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.594777260Z   Detail: Key (stream_id, version)=(Wallet-3b8fd3a3-a853-4bac-ac0f-9223684d4e20, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.595339540Z 23:00:18.595 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.595344940Z 23:00:18.595 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.595347481Z   Detail: Key (stream_id, version)=(Wallet-3b8fd3a3-a853-4bac-ac0f-9223684d4e20, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.605711430Z 23:00:18.605 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.605723721Z 23:00:18.605 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.605726042Z 23:00:18.605 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.605729012Z   Detail: Key (stream_id, version)=(Wallet-8d2742ed-b88e-4c3f-a636-aea68ef817d2, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.605731312Z 23:00:18.605 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.605733312Z   Detail: Key (stream_id, version)=(Wallet-8d2742ed-b88e-4c3f-a636-aea68ef817d2, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.606135600Z 23:00:18.605 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.606209196Z 23:00:18.606 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.606215287Z   Detail: Key (stream_id, version)=(Wallet-4ef263b2-02a6-49b1-a0ac-391bf0916519, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.607324215Z 23:00:18.606 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.607339346Z 23:00:18.606 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.607342166Z   Detail: Key (stream_id, version)=(Wallet-4ef263b2-02a6-49b1-a0ac-391bf0916519, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.615784803Z 23:00:18.615 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.615800565Z 23:00:18.615 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.616117830Z 23:00:18.615 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.616126540Z   Detail: Key (stream_id, version)=(Wallet-739b6ddc-85d4-4b0c-81b4-691f273a1aea, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.616128901Z 23:00:18.615 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.616130601Z   Detail: Key (stream_id, version)=(Wallet-739b6ddc-85d4-4b0c-81b4-691f273a1aea, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.616132061Z 23:00:18.615 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.616181485Z 23:00:18.616 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.616198187Z   Detail: Key (stream_id, version)=(Wallet-739b6ddc-85d4-4b0c-81b4-691f273a1aea, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.616935435Z 23:00:18.616 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.616963307Z 23:00:18.616 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.616966338Z   Detail: Key (stream_id, version)=(Wallet-8d2742ed-b88e-4c3f-a636-aea68ef817d2, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.634564373Z 23:00:18.634 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.634579194Z 23:00:18.634 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.634581234Z 23:00:18.634 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.634583654Z   Detail: Key (stream_id, version)=(Wallet-16115ae6-5d96-4c14-9932-1250ec48b0b5, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.634586194Z 23:00:18.634 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.634587974Z 23:00:18.634 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.634589755Z   Detail: Key (stream_id, version)=(Wallet-16115ae6-5d96-4c14-9932-1250ec48b0b5, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.634594545Z 23:00:18.634 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.634596385Z   Detail: Key (stream_id, version)=(Wallet-16115ae6-5d96-4c14-9932-1250ec48b0b5, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.634704479Z 23:00:18.634 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.634711490Z 23:00:18.634 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.634714630Z   Detail: Key (stream_id, version)=(Wallet-16115ae6-5d96-4c14-9932-1250ec48b0b5, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.642232818Z 23:00:18.641 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.642246969Z 23:00:18.642 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.642250599Z   Detail: Key (stream_id, version)=(Wallet-9cdd6fd3-24d3-463b-b145-0d3b7400b733, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.642672223Z 23:00:18.642 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.642889215Z 23:00:18.642 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.642895115Z 23:00:18.642 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.642897376Z 23:00:18.642 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.642899826Z   Detail: Key (stream_id, version)=(Wallet-88894bb5-a337-44dd-9686-910c3a75c605, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.642932698Z 23:00:18.642 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.642935949Z   Detail: Key (stream_id, version)=(Wallet-88894bb5-a337-44dd-9686-910c3a75c605, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.643021930Z 23:00:18.642 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.643033231Z   Detail: Key (stream_id, version)=(Wallet-88894bb5-a337-44dd-9686-910c3a75c605, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.650517836Z 23:00:18.650 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.650555149Z 23:00:18.650 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.650561230Z 23:00:18.650 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.650564570Z   Detail: Key (stream_id, version)=(Wallet-9cdd6fd3-24d3-463b-b145-0d3b7400b733, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.650567410Z 23:00:18.650 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.650569371Z   Detail: Key (stream_id, version)=(Wallet-9cdd6fd3-24d3-463b-b145-0d3b7400b733, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.650962542Z 23:00:18.650 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.650968452Z 23:00:18.650 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.650971153Z   Detail: Key (stream_id, version)=(Wallet-12fcfd3f-3490-4378-ab53-ed9dcc82b67f, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.650986722Z 23:00:18.650 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.651096583Z 23:00:18.650 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.651101393Z   Detail: Key (stream_id, version)=(Wallet-12fcfd3f-3490-4378-ab53-ed9dcc82b67f, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.658901068Z 23:00:18.658 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.658911079Z 23:00:18.658 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.658914499Z 23:00:18.658 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.658918440Z   Detail: Key (stream_id, version)=(Wallet-cb6e1d15-5110-43a7-a2d6-2833de5177cf, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.658921040Z 23:00:18.658 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.658923220Z   Detail: Key (stream_id, version)=(Wallet-cb6e1d15-5110-43a7-a2d6-2833de5177cf, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.659091473Z 23:00:18.658 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.659098664Z 23:00:18.658 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.659103994Z   Detail: Key (stream_id, version)=(Wallet-12fcfd3f-3490-4378-ab53-ed9dcc82b67f, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.659145627Z 23:00:18.658 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.659387427Z 23:00:18.659 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.659394118Z   Detail: Key (stream_id, version)=(Wallet-cb6e1d15-5110-43a7-a2d6-2833de5177cf, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.665988121Z 23:00:18.665 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.666009273Z 23:00:18.665 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.666013013Z 23:00:18.665 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.666016954Z   Detail: Key (stream_id, version)=(Wallet-ab41324a-91c2-46c6-8c17-2f00ca5c04d5, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.666019484Z 23:00:18.665 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.666021274Z   Detail: Key (stream_id, version)=(Wallet-ab41324a-91c2-46c6-8c17-2f00ca5c04d5, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.666100520Z 23:00:18.665 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.666105561Z 23:00:18.666 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.666107861Z   Detail: Key (stream_id, version)=(Wallet-ab41324a-91c2-46c6-8c17-2f00ca5c04d5, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.675063728Z 23:00:18.674 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.675077000Z 23:00:18.674 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.675079440Z 23:00:18.674 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.675082190Z   Detail: Key (stream_id, version)=(Wallet-17fd3120-2c04-48f3-8ae8-dfe2f22d0ec0, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.675138740Z 23:00:18.675 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.675144830Z   Detail: Key (stream_id, version)=(Wallet-17fd3120-2c04-48f3-8ae8-dfe2f22d0ec0, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.675147590Z 23:00:18.675 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.675149781Z 23:00:18.675 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.675151831Z   Detail: Key (stream_id, version)=(Wallet-17fd3120-2c04-48f3-8ae8-dfe2f22d0ec0, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.675289447Z 23:00:18.674 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.675294667Z 23:00:18.675 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.675296867Z   Detail: Key (stream_id, version)=(Wallet-17fd3120-2c04-48f3-8ae8-dfe2f22d0ec0, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.682045573Z 23:00:18.681 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.682058574Z 23:00:18.681 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.682060674Z 23:00:18.681 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.682063394Z   Detail: Key (stream_id, version)=(Wallet-82d38bbb-6aab-40a3-8bc8-a1f4559abe30, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.682065934Z 23:00:18.681 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.682067705Z   Detail: Key (stream_id, version)=(Wallet-82d38bbb-6aab-40a3-8bc8-a1f4559abe30, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.682069475Z 23:00:18.681 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.682217437Z 23:00:18.682 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.682222827Z   Detail: Key (stream_id, version)=(Wallet-82d38bbb-6aab-40a3-8bc8-a1f4559abe30, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.683010490Z 23:00:18.682 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.683023081Z 23:00:18.682 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.683026212Z   Detail: Key (stream_id, version)=(Wallet-ea936746-6ea1-4e3e-afba-ec17042a9904, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.693368830Z 23:00:18.692 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.693401553Z 23:00:18.692 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.693407933Z   Detail: Key (stream_id, version)=(Wallet-d92ab652-d571-4224-9d1c-c2df4c5ee003, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.693410393Z 23:00:18.692 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.693412603Z 23:00:18.692 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.693414644Z   Detail: Key (stream_id, version)=(Wallet-d92ab652-d571-4224-9d1c-c2df4c5ee003, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.694323071Z 23:00:18.694 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.694492035Z 23:00:18.694 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.694653861Z 23:00:18.694 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.694663242Z   Detail: Key (stream_id, version)=(Wallet-ea936746-6ea1-4e3e-afba-ec17042a9904, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.694667772Z 23:00:18.694 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.694669202Z   Detail: Key (stream_id, version)=(Wallet-ea936746-6ea1-4e3e-afba-ec17042a9904, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.703724195Z 23:00:18.701 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.704824508Z 23:00:18.703 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.704833899Z   Detail: Key (stream_id, version)=(Wallet-d92ab652-d571-4224-9d1c-c2df4c5ee003, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.714731722Z 23:00:18.714 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.714744613Z 23:00:18.714 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.714746833Z 23:00:18.714 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.714752133Z   Detail: Key (stream_id, version)=(Wallet-91d44ffe-56bf-4117-af87-16cfa82622a5, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.714926142Z 23:00:18.714 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.714931663Z 23:00:18.714 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.714946624Z   Detail: Key (stream_id, version)=(Wallet-91d44ffe-56bf-4117-af87-16cfa82622a5, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.715496973Z 23:00:18.714 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.715504374Z   Detail: Key (stream_id, version)=(Wallet-91d44ffe-56bf-4117-af87-16cfa82622a5, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.715511634Z 23:00:18.715 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.715514395Z 23:00:18.715 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.715517845Z   Detail: Key (stream_id, version)=(Wallet-91d44ffe-56bf-4117-af87-16cfa82622a5, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.724627275Z 23:00:18.724 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.724645387Z 23:00:18.724 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.724647487Z 23:00:18.724 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.724649997Z   Detail: Key (stream_id, version)=(Wallet-ccc561b7-bbf9-4815-b9e6-50cb0ef3a787, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.724652797Z 23:00:18.724 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.724654537Z   Detail: Key (stream_id, version)=(Wallet-ccc561b7-bbf9-4815-b9e6-50cb0ef3a787, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.724925829Z 23:00:18.724 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.724933039Z 23:00:18.724 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.724935539Z   Detail: Key (stream_id, version)=(Wallet-ccc561b7-bbf9-4815-b9e6-50cb0ef3a787, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.725480163Z 23:00:18.725 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.725487934Z 23:00:18.725 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.725490784Z   Detail: Key (stream_id, version)=(Wallet-ebd87af3-8c9f-4eaf-b966-3a04412746c2, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.733576242Z 23:00:18.733 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.733681555Z 23:00:18.733 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.733688956Z   Detail: Key (stream_id, version)=(Wallet-ebd87af3-8c9f-4eaf-b966-3a04412746c2, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.734609189Z 23:00:18.734 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.734653973Z 23:00:18.734 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.734657393Z   Detail: Key (stream_id, version)=(Wallet-85ec1b80-bda0-4dac-9e47-557f375b0d65, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.735239845Z 23:00:18.735 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.735245256Z 23:00:18.735 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.735258607Z   Detail: Key (stream_id, version)=(Wallet-85ec1b80-bda0-4dac-9e47-557f375b0d65, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.738918775Z 23:00:18.738 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.740298800Z 23:00:18.739 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.740310511Z   Detail: Key (stream_id, version)=(Wallet-85ec1b80-bda0-4dac-9e47-557f375b0d65, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.746895209Z 23:00:18.746 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.746911600Z 23:00:18.746 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.746914711Z 23:00:18.746 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.746917341Z   Detail: Key (stream_id, version)=(Wallet-3e42a42b-ee91-4568-91a6-e0df447cbe43, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.746920051Z 23:00:18.746 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.746922041Z   Detail: Key (stream_id, version)=(Wallet-3e42a42b-ee91-4568-91a6-e0df447cbe43, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.754513958Z 23:00:18.754 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.754544470Z 23:00:18.754 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.754548700Z   Detail: Key (stream_id, version)=(Wallet-01e9fd7f-3bd4-43ce-9e28-e185717d5a26, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.754765190Z 23:00:18.754 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.754772140Z 23:00:18.754 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.754774781Z   Detail: Key (stream_id, version)=(Wallet-01e9fd7f-3bd4-43ce-9e28-e185717d5a26, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.755756367Z 23:00:18.755 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.755762328Z 23:00:18.755 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.755764918Z   Detail: Key (stream_id, version)=(Wallet-3e42a42b-ee91-4568-91a6-e0df447cbe43, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.757025581Z 23:00:18.756 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.757031201Z 23:00:18.756 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.757033782Z   Detail: Key (stream_id, version)=(Wallet-01e9fd7f-3bd4-43ce-9e28-e185717d5a26, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.762479183Z 23:00:18.762 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.762489944Z 23:00:18.762 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.762491684Z 23:00:18.762 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.762493684Z   Detail: Key (stream_id, version)=(Wallet-7db8e391-1b0d-4717-8b5b-8b6dd88a30fe, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.762581081Z 23:00:18.762 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.762589521Z 23:00:18.762 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.762591682Z 23:00:18.762 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.762593722Z   Detail: Key (stream_id, version)=(Wallet-7db8e391-1b0d-4717-8b5b-8b6dd88a30fe, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.762595832Z 23:00:18.762 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.762597902Z   Detail: Key (stream_id, version)=(Wallet-7db8e391-1b0d-4717-8b5b-8b6dd88a30fe, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.762669808Z 23:00:18.762 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.762674468Z   Detail: Key (stream_id, version)=(Wallet-7db8e391-1b0d-4717-8b5b-8b6dd88a30fe, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.769042642Z 23:00:18.768 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.769052343Z 23:00:18.768 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.769054003Z 23:00:18.768 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.769056063Z   Detail: Key (stream_id, version)=(Wallet-474d4138-a6d3-49ab-b4b6-bddf3ebde2af, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.769079107Z 23:00:18.768 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.769085848Z 23:00:18.769 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.769088848Z   Detail: Key (stream_id, version)=(Wallet-474d4138-a6d3-49ab-b4b6-bddf3ebde2af, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.769172604Z 23:00:18.768 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.769177725Z 23:00:18.769 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.769180025Z   Detail: Key (stream_id, version)=(Wallet-474d4138-a6d3-49ab-b4b6-bddf3ebde2af, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.769420084Z 23:00:18.769 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.769425675Z   Detail: Key (stream_id, version)=(Wallet-474d4138-a6d3-49ab-b4b6-bddf3ebde2af, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.777092444Z 23:00:18.776 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.777106655Z 23:00:18.776 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.777109646Z 23:00:18.776 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.777114376Z   Detail: Key (stream_id, version)=(Wallet-469e1146-bcb2-43fa-9e50-100216e12629, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.777117426Z 23:00:18.777 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.777119516Z   Detail: Key (stream_id, version)=(Wallet-469e1146-bcb2-43fa-9e50-100216e12629, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.777381577Z 23:00:18.777 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.777394538Z 23:00:18.777 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.777397558Z   Detail: Key (stream_id, version)=(Wallet-469e1146-bcb2-43fa-9e50-100216e12629, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.777729060Z 23:00:18.777 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.777734810Z 23:00:18.777 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.777739861Z   Detail: Key (stream_id, version)=(Wallet-6dc41698-4fa7-4998-a19c-93e3cb8395c7, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.784289924Z 23:00:18.784 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.784302595Z 23:00:18.784 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.784307535Z   Detail: Key (stream_id, version)=(Wallet-6dc41698-4fa7-4998-a19c-93e3cb8395c7, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.784375293Z 23:00:18.784 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.784833219Z 23:00:18.784 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.784839540Z   Detail: Key (stream_id, version)=(Wallet-6dc41698-4fa7-4998-a19c-93e3cb8395c7, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.791807729Z 23:00:18.791 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.791820980Z 23:00:18.791 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.791824160Z 23:00:18.791 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.791826280Z   Detail: Key (stream_id, version)=(Wallet-84a31044-0404-4091-941c-eb27aeeca63b, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.791835641Z 23:00:18.791 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.791837661Z   Detail: Key (stream_id, version)=(Wallet-84a31044-0404-4091-941c-eb27aeeca63b, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.792010069Z 23:00:18.791 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.792017660Z 23:00:18.791 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.792020360Z   Detail: Key (stream_id, version)=(Wallet-84a31044-0404-4091-941c-eb27aeeca63b, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.792273106Z 23:00:18.791 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.792278986Z 23:00:18.792 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.792281467Z   Detail: Key (stream_id, version)=(Wallet-84a31044-0404-4091-941c-eb27aeeca63b, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.799577645Z 23:00:18.799 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.799589716Z 23:00:18.799 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.799592837Z 23:00:18.799 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.799605068Z   Detail: Key (stream_id, version)=(Wallet-934734d0-6f31-4f5a-8b6c-14c93c83588f, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.799607528Z 23:00:18.799 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.799609008Z   Detail: Key (stream_id, version)=(Wallet-934734d0-6f31-4f5a-8b6c-14c93c83588f, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.799897747Z 23:00:18.799 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.799904717Z 23:00:18.799 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.799907177Z   Detail: Key (stream_id, version)=(Wallet-934734d0-6f31-4f5a-8b6c-14c93c83588f, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.800823635Z 23:00:18.800 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.800830786Z 23:00:18.800 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.800833336Z   Detail: Key (stream_id, version)=(Wallet-996a8aaf-a562-4bde-8b47-38be2bbfdfb7, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.808125566Z 23:00:18.807 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.808139717Z 23:00:18.807 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.808142067Z 23:00:18.808 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.808144688Z   Detail: Key (stream_id, version)=(Wallet-045ac722-2d38-48bf-8eb0-7ef96a04a710, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.808147708Z 23:00:18.808 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.808149598Z   Detail: Key (stream_id, version)=(Wallet-045ac722-2d38-48bf-8eb0-7ef96a04a710, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.808820811Z 23:00:18.808 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.808829322Z 23:00:18.808 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.808831312Z 23:00:18.808 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.808833632Z   Detail: Key (stream_id, version)=(Wallet-996a8aaf-a562-4bde-8b47-38be2bbfdfb7, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.808836423Z 23:00:18.808 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.808839593Z   Detail: Key (stream_id, version)=(Wallet-996a8aaf-a562-4bde-8b47-38be2bbfdfb7, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.815606180Z 23:00:18.815 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.815617991Z 23:00:18.815 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.815620141Z 23:00:18.815 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.815623211Z   Detail: Key (stream_id, version)=(Wallet-e6f1b0bd-f1c9-4faa-85ad-a57f1cbca09f, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.815635382Z 23:00:18.815 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.815646963Z   Detail: Key (stream_id, version)=(Wallet-e6f1b0bd-f1c9-4faa-85ad-a57f1cbca09f, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.815731163Z 23:00:18.815 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.815736554Z 23:00:18.815 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.815738964Z   Detail: Key (stream_id, version)=(Wallet-e6f1b0bd-f1c9-4faa-85ad-a57f1cbca09f, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.816452853Z 23:00:18.816 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.816459624Z 23:00:18.816 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.816462654Z   Detail: Key (stream_id, version)=(Wallet-045ac722-2d38-48bf-8eb0-7ef96a04a710, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.823806797Z 23:00:18.823 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.823820118Z 23:00:18.823 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.823823478Z 23:00:18.823 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.823827679Z   Detail: Key (stream_id, version)=(Wallet-ee29c138-4835-4553-bef4-fafc62132739, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.823883628Z 23:00:18.823 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.823889989Z 23:00:18.823 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.823974856Z 23:00:18.823 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.823980057Z   Detail: Key (stream_id, version)=(Wallet-ee29c138-4835-4553-bef4-fafc62132739, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.824039271Z 23:00:18.823 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.824043721Z   Detail: Key (stream_id, version)=(Wallet-ee29c138-4835-4553-bef4-fafc62132739, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.824333690Z 23:00:18.823 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.824339540Z   Detail: Key (stream_id, version)=(Wallet-ee29c138-4835-4553-bef4-fafc62132739, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.832642346Z 23:00:18.832 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.832656447Z 23:00:18.832 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.832715766Z 23:00:18.832 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.832721706Z   Detail: Key (stream_id, version)=(Wallet-40175004-dcdc-4926-83d0-1f51a69f491a, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.833014185Z 23:00:18.832 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.833020286Z 23:00:18.832 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.833022106Z 23:00:18.832 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.833024326Z   Detail: Key (stream_id, version)=(Wallet-40175004-dcdc-4926-83d0-1f51a69f491a, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.833050773Z 23:00:18.832 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.833056094Z   Detail: Key (stream_id, version)=(Wallet-40175004-dcdc-4926-83d0-1f51a69f491a, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.833377525Z 23:00:18.832 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.833383085Z   Detail: Key (stream_id, version)=(Wallet-40175004-dcdc-4926-83d0-1f51a69f491a, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.839225368Z 23:00:18.838 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.839235689Z 23:00:18.838 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.839237359Z 23:00:18.839 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.839239479Z   Detail: Key (stream_id, version)=(Wallet-72d6a488-475d-4b87-a50e-be6a16aa50f1, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.839242480Z 23:00:18.838 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.839359849Z 23:00:18.839 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.839365889Z   Detail: Key (stream_id, version)=(Wallet-72d6a488-475d-4b87-a50e-be6a16aa50f1, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.839368320Z 23:00:18.839 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.839370690Z   Detail: Key (stream_id, version)=(Wallet-72d6a488-475d-4b87-a50e-be6a16aa50f1, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.839777302Z 23:00:18.839 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.839781682Z 23:00:18.839 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.839783842Z   Detail: Key (stream_id, version)=(Wallet-eecacec8-8f54-47c6-b277-778db24c639b, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.846759186Z 23:00:18.846 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.846770527Z 23:00:18.846 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.846773337Z   Detail: Key (stream_id, version)=(Wallet-fa8ea096-5dd2-45cd-9cf6-48820af1cce6, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.846777928Z 23:00:18.846 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.846780698Z 23:00:18.846 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.846782748Z   Detail: Key (stream_id, version)=(Wallet-fa8ea096-5dd2-45cd-9cf6-48820af1cce6, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.847294589Z 23:00:18.847 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.847301300Z 23:00:18.847 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.847304080Z   Detail: Key (stream_id, version)=(Wallet-eecacec8-8f54-47c6-b277-778db24c639b, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.847389017Z 23:00:18.846 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.847425610Z 23:00:18.847 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.847428050Z   Detail: Key (stream_id, version)=(Wallet-eecacec8-8f54-47c6-b277-778db24c639b, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.860716220Z 23:00:18.860 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.861218530Z 23:00:18.860 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.861229781Z   Detail: Key (stream_id, version)=(Wallet-fa8ea096-5dd2-45cd-9cf6-48820af1cce6, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.871381735Z 23:00:18.870 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.871395716Z 23:00:18.871 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.871398036Z 23:00:18.871 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.871400867Z   Detail: Key (stream_id, version)=(Wallet-c41c2f25-7ea4-42ba-ad6e-93be5bff4070, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.871404187Z 23:00:18.870 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.871408197Z 23:00:18.871 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.871410927Z   Detail: Key (stream_id, version)=(Wallet-c41c2f25-7ea4-42ba-ad6e-93be5bff4070, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.871483598Z 23:00:18.871 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.871490829Z   Detail: Key (stream_id, version)=(Wallet-c41c2f25-7ea4-42ba-ad6e-93be5bff4070, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.871662752Z 23:00:18.871 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.871667973Z 23:00:18.871 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.871670273Z   Detail: Key (stream_id, version)=(Wallet-1043e84e-aa34-4d33-9405-fae2ce7a0f36, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.877650162Z 23:00:18.877 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.877664464Z 23:00:18.877 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.877666844Z 23:00:18.877 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.877670524Z   Detail: Key (stream_id, version)=(Wallet-bf160868-5d62-4372-b329-d9527a0b6e8b, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.877772017Z 23:00:18.877 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.877779608Z 23:00:18.877 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.877782688Z   Detail: Key (stream_id, version)=(Wallet-bf160868-5d62-4372-b329-d9527a0b6e8b, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.877784778Z 23:00:18.877 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.877854114Z 23:00:18.877 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.877871775Z   Detail: Key (stream_id, version)=(Wallet-bf160868-5d62-4372-b329-d9527a0b6e8b, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.878045396Z 23:00:18.877 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.878050467Z   Detail: Key (stream_id, version)=(Wallet-bf160868-5d62-4372-b329-d9527a0b6e8b, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.885491560Z 23:00:18.885 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.885525723Z 23:00:18.885 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.885529673Z 23:00:18.885 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.885532603Z   Detail: Key (stream_id, version)=(Wallet-27cfd42c-d5d7-49b5-92c2-873e317a756e, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.885537574Z 23:00:18.885 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.885542394Z   Detail: Key (stream_id, version)=(Wallet-27cfd42c-d5d7-49b5-92c2-873e317a756e, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.885654873Z 23:00:18.885 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.885660453Z 23:00:18.885 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.885662914Z   Detail: Key (stream_id, version)=(Wallet-27cfd42c-d5d7-49b5-92c2-873e317a756e, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.885944561Z 23:00:18.885 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.885949382Z 23:00:18.885 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.885951182Z   Detail: Key (stream_id, version)=(Wallet-1043e84e-aa34-4d33-9405-fae2ce7a0f36, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.893751672Z 23:00:18.893 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.893765183Z 23:00:18.893 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.893767354Z 23:00:18.893 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.893769974Z   Detail: Key (stream_id, version)=(Wallet-15383f15-aaee-4cf7-9e50-b050cce57b1e, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.893878843Z 23:00:18.893 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.893884623Z 23:00:18.893 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.893886963Z   Detail: Key (stream_id, version)=(Wallet-15383f15-aaee-4cf7-9e50-b050cce57b1e, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.894109756Z 23:00:18.893 [http-nio-8084-exec-6] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.894126217Z   Detail: Key (stream_id, version)=(Wallet-15383f15-aaee-4cf7-9e50-b050cce57b1e, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.900021479Z 23:00:18.899 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.900033390Z 23:00:18.899 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.900041901Z   Detail: Key (stream_id, version)=(Wallet-58daa3d4-b38a-44d9-ae1c-18eb6a8ab6e5, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.900205550Z 23:00:18.900 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.900212080Z 23:00:18.900 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.900214590Z   Detail: Key (stream_id, version)=(Wallet-58daa3d4-b38a-44d9-ae1c-18eb6a8ab6e5, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.900276920Z 23:00:18.900 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.900281180Z 23:00:18.900 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.900282870Z   Detail: Key (stream_id, version)=(Wallet-58daa3d4-b38a-44d9-ae1c-18eb6a8ab6e5, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.900575424Z 23:00:18.900 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.900580064Z 23:00:18.900 [http-nio-8084-exec-1] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.900581754Z   Detail: Key (stream_id, version)=(Wallet-58daa3d4-b38a-44d9-ae1c-18eb6a8ab6e5, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.908302378Z 23:00:18.908 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.908314969Z 23:00:18.908 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.908316559Z 23:00:18.908 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.908383615Z 23:00:18.908 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.908389105Z 23:00:18.908 [http-nio-8084-exec-9] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.908394036Z   Detail: Key (stream_id, version)=(Wallet-2b77c3a3-e5b1-493d-853d-829a21a3aa34, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.908439909Z 23:00:18.908 [http-nio-8084-exec-4] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.908445010Z   Detail: Key (stream_id, version)=(Wallet-2b77c3a3-e5b1-493d-853d-829a21a3aa34, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.908447600Z 23:00:18.908 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.908449720Z   Detail: Key (stream_id, version)=(Wallet-2b77c3a3-e5b1-493d-853d-829a21a3aa34, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.909260660Z 23:00:18.908 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.909267880Z   Detail: Key (stream_id, version)=(Wallet-2b77c3a3-e5b1-493d-853d-829a21a3aa34, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.916314235Z 23:00:18.916 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.916326296Z 23:00:18.916 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.916328486Z 23:00:18.916 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.916331506Z   Detail: Key (stream_id, version)=(Wallet-1d64204a-b447-4318-aaab-2cb64000714c, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.916337127Z 23:00:18.916 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.916347248Z   Detail: Key (stream_id, version)=(Wallet-1d64204a-b447-4318-aaab-2cb64000714c, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.916350768Z 23:00:18.916 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.916352468Z 23:00:18.916 [http-nio-8084-exec-5] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.916354378Z   Detail: Key (stream_id, version)=(Wallet-1d64204a-b447-4318-aaab-2cb64000714c, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.917263417Z 23:00:18.917 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.917273427Z 23:00:18.917 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.917277678Z   Detail: Key (stream_id, version)=(Wallet-112885ea-f06e-44ca-b807-a1cb73ff9027, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.921968493Z 23:00:18.921 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.921981004Z 23:00:18.921 [http-nio-8084-exec-8] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.921985364Z   Detail: Key (stream_id, version)=(Wallet-5250cc2a-6adb-44e6-b775-f48019a568d0, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.922567527Z 23:00:18.922 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.922580088Z 23:00:18.922 [http-nio-8084-exec-3] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.922582898Z   Detail: Key (stream_id, version)=(Wallet-112885ea-f06e-44ca-b807-a1cb73ff9027, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.923344044Z 23:00:18.922 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.923351264Z 23:00:18.922 [http-nio-8084-exec-7] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.923356805Z   Detail: Key (stream_id, version)=(Wallet-112885ea-f06e-44ca-b807-a1cb73ff9027, 2) already exists.
+wallet-1  | 2026-10-15T23:00:18.923359715Z 23:00:18.923 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.923788464Z 23:00:18.923 [http-nio-8084-exec-10] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.923799935Z   Detail: Key (stream_id, version)=(Wallet-5250cc2a-6adb-44e6-b775-f48019a568d0, 1) already exists.
+wallet-1  | 2026-10-15T23:00:18.928553010Z 23:00:18.928 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 23505
+wallet-1  | 2026-10-15T23:00:18.928564711Z 23:00:18.928 [http-nio-8084-exec-2] WARN  [wallet] org.hibernate.orm.jdbc.error - ERROR: duplicate key value violates unique constraint "uq_event_stream_version"
+wallet-1  | 2026-10-15T23:00:18.928566732Z   Detail: Key (stream_id, version)=(Wallet-5250cc2a-6adb-44e6-b775-f48019a568d0, 2) already exists.

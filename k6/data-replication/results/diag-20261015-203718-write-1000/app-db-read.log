@@ -1,0 +1,79 @@
+﻿db-read-1  | 2026-10-15T23:37:24.781758217Z The files belonging to this database system will be owned by user "postgres".
+db-read-1  | 2026-10-15T23:37:24.781779559Z This user must also own the server process.
+db-read-1  | 2026-10-15T23:37:24.781782179Z 
+db-read-1  | 2026-10-15T23:37:24.781845173Z The database cluster will be initialized with locale "en_US.utf8".
+db-read-1  | 2026-10-15T23:37:24.781849574Z The default database encoding has accordingly been set to "UTF8".
+db-read-1  | 2026-10-15T23:37:24.781851114Z The default text search configuration will be set to "english".
+db-read-1  | 2026-10-15T23:37:24.781853104Z 
+db-read-1  | 2026-10-15T23:37:24.781871675Z Data page checksums are disabled.
+db-read-1  | 2026-10-15T23:37:24.781874475Z 
+db-read-1  | 2026-10-15T23:37:24.781926114Z fixing permissions on existing directory /var/lib/postgresql/data ... ok
+db-read-1  | 2026-10-15T23:37:24.788634485Z creating subdirectories ... ok
+db-read-1  | 2026-10-15T23:37:24.788672568Z selecting dynamic shared memory implementation ... posix
+db-read-1  | 2026-10-15T23:37:24.800649190Z selecting default max_connections ... 100
+db-read-1  | 2026-10-15T23:37:24.819378541Z selecting default shared_buffers ... 128MB
+db-read-1  | 2026-10-15T23:37:24.839465042Z selecting default time zone ... Etc/UTC
+db-read-1  | 2026-10-15T23:37:24.840011250Z creating configuration files ... ok
+db-read-1  | 2026-10-15T23:37:24.933825062Z running bootstrap script ... ok
+db-read-1  | 2026-10-15T23:37:25.148332109Z performing post-bootstrap initialization ... ok
+db-read-1  | 2026-10-15T23:37:25.436157661Z syncing data to disk ... ok
+db-read-1  | 2026-10-15T23:37:25.436168751Z 
+db-read-1  | 2026-10-15T23:37:25.436170572Z 
+db-read-1  | 2026-10-15T23:37:25.436172062Z Success. You can now start the database server using:
+db-read-1  | 2026-10-15T23:37:25.436174372Z 
+db-read-1  | 2026-10-15T23:37:25.436175822Z     pg_ctl -D /var/lib/postgresql/data -l logfile start
+db-read-1  | 2026-10-15T23:37:25.436177362Z 
+db-read-1  | 2026-10-15T23:37:25.436187321Z initdb: warning: enabling "trust" authentication for local connections
+db-read-1  | 2026-10-15T23:37:25.436192841Z initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+db-read-1  | 2026-10-15T23:37:25.468155045Z waiting for server to start....2026-10-15 23:37:25.468 UTC [48] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+db-read-1  | 2026-10-15T23:37:25.470162475Z 2026-10-15 23:37:25.470 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-read-1  | 2026-10-15T23:37:25.478243728Z 2026-10-15 23:37:25.478 UTC [51] LOG:  database system was shut down at 2026-10-15 23:37:25 UTC
+db-read-1  | 2026-10-15T23:37:25.483007183Z 2026-10-15 23:37:25.482 UTC [48] LOG:  database system is ready to accept connections
+db-read-1  | 2026-10-15T23:37:25.551149915Z  done
+db-read-1  | 2026-10-15T23:37:25.551161856Z server started
+db-read-1  | 2026-10-15T23:37:25.625696453Z CREATE DATABASE
+db-read-1  | 2026-10-15T23:37:25.626404262Z 
+db-read-1  | 2026-10-15T23:37:25.626498372Z 
+db-read-1  | 2026-10-15T23:37:25.626503482Z /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/init.sql
+db-read-1  | 2026-10-15T23:37:25.650862447Z DO
+db-read-1  | 2026-10-15T23:37:25.651749329Z GRANT
+db-read-1  | 2026-10-15T23:37:25.652482771Z GRANT
+db-read-1  | 2026-10-15T23:37:25.653328830Z GRANT ROLE
+db-read-1  | 2026-10-15T23:37:25.653875456Z 
+db-read-1  | 2026-10-15T23:37:25.653880147Z 
+db-read-1  | 2026-10-15T23:37:25.654652293Z waiting for server to shut down...2026-10-15 23:37:25.654 UTC [48] LOG:  received fast shutdown request
+db-read-1  | 2026-10-15T23:37:25.656501123Z .2026-10-15 23:37:25.656 UTC [48] LOG:  aborting any active transactions
+db-read-1  | 2026-10-15T23:37:25.658163534Z 2026-10-15 23:37:25.658 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+db-read-1  | 2026-10-15T23:37:25.658346530Z 2026-10-15 23:37:25.658 UTC [49] LOG:  shutting down
+db-read-1  | 2026-10-15T23:37:25.659552287Z 2026-10-15 23:37:25.659 UTC [49] LOG:  checkpoint starting: shutdown immediate
+db-read-1  | 2026-10-15T23:37:25.754406251Z 2026-10-15 23:37:25.754 UTC [49] LOG:  checkpoint complete: wrote 941 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.017 s, sync=0.075 s, total=0.096 s; sync files=314, longest=0.031 s, average=0.001 s; distance=4279 kB, estimate=4279 kB; lsn=0/1920708, redo lsn=0/1920708
+db-read-1  | 2026-10-15T23:37:25.761087796Z 2026-10-15 23:37:25.760 UTC [48] LOG:  database system is shut down
+db-read-1  | 2026-10-15T23:37:25.855001949Z  done
+db-read-1  | 2026-10-15T23:37:25.855017600Z server stopped
+db-read-1  | 2026-10-15T23:37:25.855896392Z 
+db-read-1  | 2026-10-15T23:37:25.855901083Z PostgreSQL init process complete; ready for start up.
+db-read-1  | 2026-10-15T23:37:25.855903703Z 
+db-read-1  | 2026-10-15T23:37:25.871902367Z 2026-10-15 23:37:25.871 UTC [1] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+db-read-1  | 2026-10-15T23:37:25.871990543Z 2026-10-15 23:37:25.871 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-read-1  | 2026-10-15T23:37:25.871995834Z 2026-10-15 23:37:25.871 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-read-1  | 2026-10-15T23:37:25.874454466Z 2026-10-15 23:37:25.874 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-read-1  | 2026-10-15T23:37:25.878090531Z 2026-10-15 23:37:25.877 UTC [66] LOG:  database system was shut down at 2026-10-15 23:37:25 UTC
+db-read-1  | 2026-10-15T23:37:25.882096957Z 2026-10-15 23:37:25.881 UTC [1] LOG:  database system is ready to accept connections
+db-read-1  | 2026-10-15T23:37:39.802800012Z 2026-10-15 23:37:39.802 UTC [106] LOG:  logical replication apply worker for subscription "crm_staff_subscription" has started
+db-read-1  | 2026-10-15T23:37:39.810947331Z 2026-10-15 23:37:39.810 UTC [107] LOG:  logical replication table synchronization worker for subscription "crm_staff_subscription", table "branches" has started
+db-read-1  | 2026-10-15T23:37:39.821089311Z 2026-10-15 23:37:39.820 UTC [108] LOG:  logical replication table synchronization worker for subscription "crm_staff_subscription", table "account_managers" has started
+db-read-1  | 2026-10-15T23:37:39.828397878Z 2026-10-15 23:37:39.828 UTC [109] LOG:  logical replication apply worker for subscription "crm_customer_subscription" has started
+db-read-1  | 2026-10-15T23:37:39.833701930Z 2026-10-15 23:37:39.833 UTC [109] WARNING:  out of logical replication worker slots
+db-read-1  | 2026-10-15T23:37:39.833710180Z 2026-10-15 23:37:39.833 UTC [109] HINT:  You might need to increase max_logical_replication_workers.
+db-read-1  | 2026-10-15T23:37:39.855957031Z 2026-10-15 23:37:39.855 UTC [107] LOG:  logical replication table synchronization worker for subscription "crm_staff_subscription", table "branches" has finished
+db-read-1  | 2026-10-15T23:37:39.858673632Z 2026-10-15 23:37:39.858 UTC [110] LOG:  logical replication apply worker for subscription "crm_wallet_subscription" has started
+db-read-1  | 2026-10-15T23:37:39.860314316Z 2026-10-15 23:37:39.860 UTC [108] LOG:  logical replication table synchronization worker for subscription "crm_staff_subscription", table "account_managers" has finished
+db-read-1  | 2026-10-15T23:37:39.867326311Z 2026-10-15 23:37:39.867 UTC [111] LOG:  logical replication table synchronization worker for subscription "crm_wallet_subscription", table "transactions" has started
+db-read-1  | 2026-10-15T23:37:39.875915295Z 2026-10-15 23:37:39.875 UTC [110] WARNING:  out of logical replication worker slots
+db-read-1  | 2026-10-15T23:37:39.875936577Z 2026-10-15 23:37:39.875 UTC [110] HINT:  You might need to increase max_logical_replication_workers.
+db-read-1  | 2026-10-15T23:37:39.897475402Z 2026-10-15 23:37:39.897 UTC [111] LOG:  logical replication table synchronization worker for subscription "crm_wallet_subscription", table "transactions" has finished
+db-read-1  | 2026-10-15T23:37:45.096415765Z 2026-10-15 23:37:45.096 UTC [128] LOG:  logical replication table synchronization worker for subscription "crm_wallet_subscription", table "wallets" has started
+db-read-1  | 2026-10-15T23:37:45.122988168Z 2026-10-15 23:37:45.122 UTC [128] LOG:  logical replication table synchronization worker for subscription "crm_wallet_subscription", table "wallets" has finished
+db-read-1  | 2026-10-15T23:37:45.632322520Z 2026-10-15 23:37:45.632 UTC [129] LOG:  logical replication table synchronization worker for subscription "crm_customer_subscription", table "customers" has started
+db-read-1  | 2026-10-15T23:37:45.657027260Z 2026-10-15 23:37:45.656 UTC [129] LOG:  logical replication table synchronization worker for subscription "crm_customer_subscription", table "customers" has finished
+db-read-1  | 2026-10-15T23:41:24.878846061Z 2026-10-15 23:41:24.878 UTC [64] LOG:  checkpoint starting: wal

@@ -1,0 +1,18 @@
+﻿staff-1  | 2026-10-18T21:06:07.680427164Z 
+staff-1  | 2026-10-18T21:06:07.680958034Z   .   ____          _            __ _ _
+staff-1  | 2026-10-18T21:06:07.680963934Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+staff-1  | 2026-10-18T21:06:07.680966094Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+staff-1  | 2026-10-18T21:06:07.680967875Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+staff-1  | 2026-10-18T21:06:07.680969825Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+staff-1  | 2026-10-18T21:06:07.680971925Z  =========|_|==============|___/=/_/_/_/
+staff-1  | 2026-10-18T21:06:07.680973725Z 
+staff-1  | 2026-10-18T21:06:07.681295799Z  :: Spring Boot ::                (v4.0.6)
+staff-1  | 2026-10-18T21:06:07.681306550Z 
+staff-1  | 2026-10-18T21:06:07.766240076Z 21:06:07.763 [main] INFO  [staff] com.cqrs.Application - Starting Application v0.0.1-SNAPSHOT using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+staff-1  | 2026-10-18T21:06:07.770054771Z 21:06:07.769 [main] INFO  [staff] com.cqrs.Application - No active profile set, falling back to 1 default profile: "default"
+staff-1  | 2026-10-18T21:06:11.006474091Z 21:06:11.006 [main] WARN  [staff] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+staff-1  | 2026-10-18T21:06:13.284340794Z 21:06:13.284 [main] INFO  [staff] com.cqrs.Application - Started Application in 6.006 seconds (process running for 6.535)
+staff-1  | 2026-10-18T21:07:21.338554716Z 21:07:21.338 [http-nio-8082-exec-2] INFO  [staff] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+staff-1  | 2026-10-18T21:07:21.339296962Z 21:07:21.339 [http-nio-8082-exec-2] INFO  [staff] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+staff-1  | 2026-10-18T21:07:21.455895897Z 21:07:21.455 [http-nio-8082-exec-2] INFO  [staff] o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+staff-1  | 2026-10-18T21:07:21.486462455Z 21:07:21.486 [http-nio-8082-exec-2] INFO  [staff] o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#31c800a5:0/SimpleConnection@32956396 [delegate=amqp://guest@172.18.0.4:5672/, localPort=58958]

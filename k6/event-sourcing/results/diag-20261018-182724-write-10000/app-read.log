@@ -1,0 +1,18 @@
+﻿read-1  | 2026-10-18T21:27:42.361138103Z 
+read-1  | 2026-10-18T21:27:42.361189477Z   .   ____          _            __ _ _
+read-1  | 2026-10-18T21:27:42.361193218Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+read-1  | 2026-10-18T21:27:42.361195278Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+read-1  | 2026-10-18T21:27:42.361196908Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+read-1  | 2026-10-18T21:27:42.361198678Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+read-1  | 2026-10-18T21:27:42.361200488Z  =========|_|==============|___/=/_/_/_/
+read-1  | 2026-10-18T21:27:42.361202198Z 
+read-1  | 2026-10-18T21:27:42.361422591Z  :: Spring Boot ::                (v4.0.6)
+read-1  | 2026-10-18T21:27:42.361427971Z 
+read-1  | 2026-10-18T21:27:42.420599796Z 21:27:42.418 [main] INFO  [read] com.cqrs.Application - Starting Application v0.0.1-SNAPSHOT using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+read-1  | 2026-10-18T21:27:42.421694698Z 21:27:42.421 [main] INFO  [read] com.cqrs.Application - No active profile set, falling back to 1 default profile: "default"
+read-1  | 2026-10-18T21:27:45.456166690Z 21:27:45.455 [main] WARN  [read] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+read-1  | 2026-10-18T21:27:47.697802985Z 21:27:47.697 [main] INFO  [read] o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+read-1  | 2026-10-18T21:27:47.753615593Z 21:27:47.753 [main] INFO  [read] o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#5cc28282:0/SimpleConnection@3c88db1 [delegate=amqp://guest@172.18.0.4:5672/, localPort=34170]
+read-1  | 2026-10-18T21:27:47.879996837Z 21:27:47.876 [main] INFO  [read] com.cqrs.Application - Started Application in 5.992 seconds (process running for 6.41)
+read-1  | 2026-10-18T21:28:55.127899281Z 21:28:55.127 [http-nio-8081-exec-1] INFO  [read] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+read-1  | 2026-10-18T21:28:55.128911691Z 21:28:55.128 [http-nio-8081-exec-1] INFO  [read] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms

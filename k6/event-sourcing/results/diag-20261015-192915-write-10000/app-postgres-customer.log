@@ -1,0 +1,58 @@
+﻿postgres-customer-1  | 2026-10-15T22:29:21.125873256Z The files belonging to this database system will be owned by user "postgres".
+postgres-customer-1  | 2026-10-15T22:29:21.125899218Z This user must also own the server process.
+postgres-customer-1  | 2026-10-15T22:29:21.125901518Z 
+postgres-customer-1  | 2026-10-15T22:29:21.125903319Z The database cluster will be initialized with locale "en_US.utf8".
+postgres-customer-1  | 2026-10-15T22:29:21.125905059Z The default database encoding has accordingly been set to "UTF8".
+postgres-customer-1  | 2026-10-15T22:29:21.125906719Z The default text search configuration will be set to "english".
+postgres-customer-1  | 2026-10-15T22:29:21.125908859Z 
+postgres-customer-1  | 2026-10-15T22:29:21.125910389Z Data page checksums are disabled.
+postgres-customer-1  | 2026-10-15T22:29:21.125968217Z 
+postgres-customer-1  | 2026-10-15T22:29:21.125973627Z fixing permissions on existing directory /var/lib/postgresql/data ... ok
+postgres-customer-1  | 2026-10-15T22:29:21.132156969Z creating subdirectories ... ok
+postgres-customer-1  | 2026-10-15T22:29:21.132257653Z selecting dynamic shared memory implementation ... posix
+postgres-customer-1  | 2026-10-15T22:29:21.146072219Z selecting default max_connections ... 100
+postgres-customer-1  | 2026-10-15T22:29:21.164261556Z selecting default shared_buffers ... 128MB
+postgres-customer-1  | 2026-10-15T22:29:21.185125592Z selecting default time zone ... Etc/UTC
+postgres-customer-1  | 2026-10-15T22:29:21.185716750Z creating configuration files ... ok
+postgres-customer-1  | 2026-10-15T22:29:21.293768011Z running bootstrap script ... ok
+postgres-customer-1  | 2026-10-15T22:29:21.518126441Z performing post-bootstrap initialization ... ok
+postgres-customer-1  | 2026-10-15T22:29:21.732432122Z initdb: warning: enabling "trust" authentication for local connections
+postgres-customer-1  | 2026-10-15T22:29:21.732465125Z initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+postgres-customer-1  | 2026-10-15T22:29:21.732431792Z syncing data to disk ... ok
+postgres-customer-1  | 2026-10-15T22:29:21.732474205Z 
+postgres-customer-1  | 2026-10-15T22:29:21.732476076Z 
+postgres-customer-1  | 2026-10-15T22:29:21.732478566Z Success. You can now start the database server using:
+postgres-customer-1  | 2026-10-15T22:29:21.732480906Z 
+postgres-customer-1  | 2026-10-15T22:29:21.732484706Z     pg_ctl -D /var/lib/postgresql/data -l logfile start
+postgres-customer-1  | 2026-10-15T22:29:21.732489957Z 
+postgres-customer-1  | 2026-10-15T22:29:21.779160093Z waiting for server to start....2026-10-15 22:29:21.778 UTC [48] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+postgres-customer-1  | 2026-10-15T22:29:21.781245332Z 2026-10-15 22:29:21.781 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-customer-1  | 2026-10-15T22:29:21.790319351Z 2026-10-15 22:29:21.790 UTC [51] LOG:  database system was shut down at 2026-10-15 22:29:21 UTC
+postgres-customer-1  | 2026-10-15T22:29:21.796504768Z 2026-10-15 22:29:21.796 UTC [48] LOG:  database system is ready to accept connections
+postgres-customer-1  | 2026-10-15T22:29:21.859243873Z  done
+postgres-customer-1  | 2026-10-15T22:29:21.859262004Z server started
+postgres-customer-1  | 2026-10-15T22:29:21.965984930Z CREATE DATABASE
+postgres-customer-1  | 2026-10-15T22:29:21.966527919Z 
+postgres-customer-1  | 2026-10-15T22:29:21.966562842Z 
+postgres-customer-1  | 2026-10-15T22:29:21.966569153Z /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+postgres-customer-1  | 2026-10-15T22:29:21.966572883Z 
+postgres-customer-1  | 2026-10-15T22:29:21.967660283Z waiting for server to shut down...2026-10-15 22:29:21.967 UTC [48] LOG:  received fast shutdown request
+postgres-customer-1  | 2026-10-15T22:29:21.970540174Z .2026-10-15 22:29:21.970 UTC [48] LOG:  aborting any active transactions
+postgres-customer-1  | 2026-10-15T22:29:21.972031529Z 2026-10-15 22:29:21.971 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+postgres-customer-1  | 2026-10-15T22:29:21.972168732Z 2026-10-15 22:29:21.972 UTC [49] LOG:  shutting down
+postgres-customer-1  | 2026-10-15T22:29:21.973746735Z 2026-10-15 22:29:21.973 UTC [49] LOG:  checkpoint starting: shutdown immediate
+postgres-customer-1  | 2026-10-15T22:29:22.115646786Z 2026-10-15 22:29:22.115 UTC [49] LOG:  checkpoint complete: wrote 926 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.021 s, sync=0.111 s, total=0.144 s; sync files=301, longest=0.004 s, average=0.001 s; distance=4273 kB, estimate=4273 kB; lsn=0/191F0E8, redo lsn=0/191F0E8
+postgres-customer-1  | 2026-10-15T22:29:22.123054489Z 2026-10-15 22:29:22.122 UTC [48] LOG:  database system is shut down
+postgres-customer-1  | 2026-10-15T22:29:22.167986860Z  done
+postgres-customer-1  | 2026-10-15T22:29:22.168000582Z server stopped
+postgres-customer-1  | 2026-10-15T22:29:22.169092251Z 
+postgres-customer-1  | 2026-10-15T22:29:22.169131924Z PostgreSQL init process complete; ready for start up.
+postgres-customer-1  | 2026-10-15T22:29:22.169135985Z 
+postgres-customer-1  | 2026-10-15T22:29:22.193879091Z 2026-10-15 22:29:22.193 UTC [1] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+postgres-customer-1  | 2026-10-15T22:29:22.194039127Z 2026-10-15 22:29:22.193 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-customer-1  | 2026-10-15T22:29:22.194046998Z 2026-10-15 22:29:22.193 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-customer-1  | 2026-10-15T22:29:22.201354637Z 2026-10-15 22:29:22.201 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-customer-1  | 2026-10-15T22:29:22.207537894Z 2026-10-15 22:29:22.207 UTC [64] LOG:  database system was shut down at 2026-10-15 22:29:22 UTC
+postgres-customer-1  | 2026-10-15T22:29:22.212405702Z 2026-10-15 22:29:22.212 UTC [1] LOG:  database system is ready to accept connections
+postgres-customer-1  | 2026-10-15T22:34:22.284995531Z 2026-10-15 22:34:22.284 UTC [62] LOG:  checkpoint starting: time
+postgres-customer-1  | 2026-10-15T22:36:24.270240048Z 2026-10-15 22:36:24.270 UTC [62] LOG:  checkpoint complete: wrote 1218 buffers (7.4%); 0 WAL file(s) added, 0 removed, 1 recycled; write=121.962 s, sync=0.014 s, total=121.986 s; sync files=78, longest=0.002 s, average=0.001 s; distance=11683 kB, estimate=11683 kB; lsn=0/2487ED8, redo lsn=0/2487EA0

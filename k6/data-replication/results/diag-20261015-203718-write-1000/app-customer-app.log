@@ -1,0 +1,55 @@
+﻿customer-app-1  | 2026-10-15T23:37:31.034425426Z 
+customer-app-1  | 2026-10-15T23:37:31.034478380Z   .   ____          _            __ _ _
+customer-app-1  | 2026-10-15T23:37:31.034482190Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+customer-app-1  | 2026-10-15T23:37:31.034483940Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+customer-app-1  | 2026-10-15T23:37:31.034485560Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+customer-app-1  | 2026-10-15T23:37:31.034487350Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+customer-app-1  | 2026-10-15T23:37:31.034488911Z  =========|_|==============|___/=/_/_/_/
+customer-app-1  | 2026-10-15T23:37:31.034490581Z 
+customer-app-1  | 2026-10-15T23:37:31.034778323Z  :: Spring Boot ::                (v4.0.6)
+customer-app-1  | 2026-10-15T23:37:31.034783773Z 
+customer-app-1  | 2026-10-15T23:37:31.139042216Z 2026-10-15T23:37:31.136Z  INFO 1 --- [customer] [           main] com.cqrs.Application                     : Starting Application v0.0.1-SNAPSHOT using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+customer-app-1  | 2026-10-15T23:37:31.140043071Z 2026-10-15T23:37:31.139Z  INFO 1 --- [customer] [           main] com.cqrs.Application                     : No active profile set, falling back to 1 default profile: "default"
+customer-app-1  | 2026-10-15T23:37:31.815182085Z 2026-10-15T23:37:31.814Z  INFO 1 --- [customer] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+customer-app-1  | 2026-10-15T23:37:31.864380400Z 2026-10-15T23:37:31.863Z  INFO 1 --- [customer] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39 ms. Found 1 JPA repository interface.
+customer-app-1  | 2026-10-15T23:37:32.423560967Z 2026-10-15T23:37:32.423Z  INFO 1 --- [customer] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8083 (http)
+customer-app-1  | 2026-10-15T23:37:32.437544387Z 2026-10-15T23:37:32.437Z  INFO 1 --- [customer] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+customer-app-1  | 2026-10-15T23:37:32.437616308Z 2026-10-15T23:37:32.437Z  INFO 1 --- [customer] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+customer-app-1  | 2026-10-15T23:37:32.463153822Z 2026-10-15T23:37:32.462Z  INFO 1 --- [customer] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1262 ms
+customer-app-1  | 2026-10-15T23:37:32.691412001Z 2026-10-15T23:37:32.689Z  INFO 1 --- [customer] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+customer-app-1  | 2026-10-15T23:37:32.758733178Z 2026-10-15T23:37:32.758Z  INFO 1 --- [customer] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+customer-app-1  | 2026-10-15T23:37:33.297479891Z 2026-10-15T23:37:33.297Z  INFO 1 --- [customer] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+customer-app-1  | 2026-10-15T23:37:33.321953383Z 2026-10-15T23:37:33.321Z  INFO 1 --- [customer] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+customer-app-1  | 2026-10-15T23:37:33.522220386Z 2026-10-15T23:37:33.521Z  INFO 1 --- [customer] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3c4059a
+customer-app-1  | 2026-10-15T23:37:33.523838755Z 2026-10-15T23:37:33.523Z  INFO 1 --- [customer] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+customer-app-1  | 2026-10-15T23:37:33.550759393Z 2026-10-15T23:37:33.550Z  WARN 1 --- [customer] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+customer-app-1  | 2026-10-15T23:37:33.573361128Z 2026-10-15T23:37:33.572Z  INFO 1 --- [customer] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+customer-app-1  | 2026-10-15T23:37:33.573385190Z 	Database JDBC URL [jdbc:postgresql://db-customer:5432/crm_customer]
+customer-app-1  | 2026-10-15T23:37:33.573388810Z 	Database driver: PostgreSQL JDBC Driver
+customer-app-1  | 2026-10-15T23:37:33.573391580Z 	Database dialect: PostgreSQLDialect
+customer-app-1  | 2026-10-15T23:37:33.573393340Z 	Database version: 16.15
+customer-app-1  | 2026-10-15T23:37:33.573395840Z 	Default catalog/schema: crm_customer/public
+customer-app-1  | 2026-10-15T23:37:33.573397720Z 	Autocommit mode: undefined/unknown
+customer-app-1  | 2026-10-15T23:37:33.573413462Z 	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+customer-app-1  | 2026-10-15T23:37:33.573416322Z 	JDBC fetch size: none
+customer-app-1  | 2026-10-15T23:37:33.573418162Z 	Pool: DataSourceConnectionProvider
+customer-app-1  | 2026-10-15T23:37:33.573419842Z 	Minimum pool size: undefined/unknown
+customer-app-1  | 2026-10-15T23:37:33.573421552Z 	Maximum pool size: undefined/unknown
+customer-app-1  | 2026-10-15T23:37:34.269981588Z 2026-10-15T23:37:34.269Z  INFO 1 --- [customer] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+customer-app-1  | 2026-10-15T23:37:34.275241780Z 2026-10-15T23:37:34.274Z  INFO 1 --- [customer] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+customer-app-1  | 2026-10-15T23:37:34.450513807Z 2026-10-15T23:37:34.450Z  INFO 1 --- [customer] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+customer-app-1  | 2026-10-15T23:37:34.750062066Z 2026-10-15T23:37:34.749Z  INFO 1 --- [customer] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://db-customer:5432/crm_customer (PostgreSQL 16.15)
+customer-app-1  | 2026-10-15T23:37:34.805373502Z 2026-10-15T23:37:34.804Z  INFO 1 --- [customer] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+customer-app-1  | 2026-10-15T23:37:34.809126761Z 2026-10-15T23:37:34.808Z  INFO 1 --- [customer] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.020s)
+customer-app-1  | 2026-10-15T23:37:34.821006006Z 2026-10-15T23:37:34.820Z  INFO 1 --- [customer] [           main] org.flywaydb.core.Flyway                 : All configured schemas are empty; a baseline marker will not be added to Flyway's schema history table. A baseline or migration script with a lower version than the baseline version may execute if available. Check the Schemas parameter if this is not intended. See https://help.red-gate.com/help/flyway-cli12/help_6.aspx?topic=baseline-on-migrate for more info
+customer-app-1  | 2026-10-15T23:37:34.826079111Z 2026-10-15T23:37:34.825Z  INFO 1 --- [customer] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+customer-app-1  | 2026-10-15T23:37:34.877066905Z 2026-10-15T23:37:34.876Z  INFO 1 --- [customer] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+customer-app-1  | 2026-10-15T23:37:34.886312849Z 2026-10-15T23:37:34.885Z  INFO 1 --- [customer] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - create schema"
+customer-app-1  | 2026-10-15T23:37:34.916727420Z 2026-10-15T23:37:34.916Z  INFO 1 --- [customer] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "2 - create publication"
+customer-app-1  | 2026-10-15T23:37:34.919271803Z 2026-10-15T23:37:34.918Z  INFO 1 --- [customer] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: publication "crm_customer_publication" does not exist, skipping
+customer-app-1  | 2026-10-15T23:37:34.931330433Z 2026-10-15T23:37:34.930Z  INFO 1 --- [customer] [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "public", now at version v2 (execution time 00:00.021s)
+customer-app-1  | 2026-10-15T23:37:35.273547725Z 2026-10-15T23:37:35.273Z  INFO 1 --- [customer] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8083 (http) with context path '/'
+customer-app-1  | 2026-10-15T23:37:35.279639974Z 2026-10-15T23:37:35.279Z  INFO 1 --- [customer] [           main] com.cqrs.Application                     : Started Application in 4.608 seconds (process running for 5.034)
+customer-app-1  | 2026-10-15T23:38:50.292468535Z 2026-10-15T23:38:50.292Z  INFO 1 --- [customer] [nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+customer-app-1  | 2026-10-15T23:38:50.292494406Z 2026-10-15T23:38:50.292Z  INFO 1 --- [customer] [nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+customer-app-1  | 2026-10-15T23:38:50.293589997Z 2026-10-15T23:38:50.293Z  INFO 1 --- [customer] [nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms

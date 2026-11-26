@@ -1,0 +1,19 @@
+﻿read-app-1  | 2026-10-18T22:19:47.573124718Z 
+read-app-1  | 2026-10-18T22:19:47.573158621Z   .   ____          _            __ _ _
+read-app-1  | 2026-10-18T22:19:47.573160931Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+read-app-1  | 2026-10-18T22:19:47.573162241Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+read-app-1  | 2026-10-18T22:19:47.573163551Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+read-app-1  | 2026-10-18T22:19:47.573164761Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+read-app-1  | 2026-10-18T22:19:47.573165962Z  =========|_|==============|___/=/_/_/_/
+read-app-1  | 2026-10-18T22:19:47.573167242Z 
+read-app-1  | 2026-10-18T22:19:47.573283602Z  :: Spring Boot ::                (v4.0.6)
+read-app-1  | 2026-10-18T22:19:47.573289063Z 
+read-app-1  | 2026-10-18T22:19:47.615712775Z 22:19:47.614 [main] INFO  [read] com.cqrs.Application - Starting Application v0.0.1-SNAPSHOT using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+read-app-1  | 2026-10-18T22:19:47.616313480Z 22:19:47.616 [main] INFO  [read] com.cqrs.Application - No active profile set, falling back to 1 default profile: "default"
+read-app-1  | 2026-10-18T22:19:48.929085062Z 22:19:48.928 [main] WARN  [read] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+read-app-1  | 2026-10-18T22:19:49.866212671Z 22:19:49.865 [main] INFO  [read] com.cqrs.config.SubscriptionConfig - WAL subscription 'crm_staff_subscription' criada
+read-app-1  | 2026-10-18T22:19:49.894313102Z 22:19:49.894 [main] INFO  [read] com.cqrs.config.SubscriptionConfig - WAL subscription 'crm_customer_subscription' criada
+read-app-1  | 2026-10-18T22:19:49.926734763Z 22:19:49.926 [main] INFO  [read] com.cqrs.config.SubscriptionConfig - WAL subscription 'crm_wallet_subscription' criada
+read-app-1  | 2026-10-18T22:19:50.186287253Z 22:19:50.185 [main] INFO  [read] com.cqrs.Application - Started Application in 2.872 seconds (process running for 3.193)
+read-app-1  | 2026-10-18T22:20:59.603460505Z 22:20:59.603 [http-nio-8081-exec-2] INFO  [read] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+read-app-1  | 2026-10-18T22:20:59.604563046Z 22:20:59.604 [http-nio-8081-exec-2] INFO  [read] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms

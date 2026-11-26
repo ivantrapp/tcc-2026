@@ -1,0 +1,16 @@
+﻿staff-app-1  | 2026-10-18T21:57:44.641664810Z 
+staff-app-1  | 2026-10-18T21:57:44.641705992Z   .   ____          _            __ _ _
+staff-app-1  | 2026-10-18T21:57:44.641709493Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+staff-app-1  | 2026-10-18T21:57:44.641711413Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+staff-app-1  | 2026-10-18T21:57:44.641713193Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+staff-app-1  | 2026-10-18T21:57:44.641715063Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+staff-app-1  | 2026-10-18T21:57:44.641716863Z  =========|_|==============|___/=/_/_/_/
+staff-app-1  | 2026-10-18T21:57:44.641718633Z 
+staff-app-1  | 2026-10-18T21:57:44.641839212Z  :: Spring Boot ::                (v4.0.6)
+staff-app-1  | 2026-10-18T21:57:44.641843792Z 
+staff-app-1  | 2026-10-18T21:57:44.702448632Z 21:57:44.700 [main] INFO  [staff] com.cqrs.Application - Starting Application v0.0.1-SNAPSHOT using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+staff-app-1  | 2026-10-18T21:57:44.703726920Z 21:57:44.703 [main] INFO  [staff] com.cqrs.Application - No active profile set, falling back to 1 default profile: "default"
+staff-app-1  | 2026-10-18T21:57:46.990854977Z 21:57:46.988 [main] WARN  [staff] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+staff-app-1  | 2026-10-18T21:57:48.544076745Z 21:57:48.543 [main] INFO  [staff] com.cqrs.Application - Started Application in 4.249 seconds (process running for 4.645)
+staff-app-1  | 2026-10-18T21:59:02.146694798Z 21:59:02.146 [http-nio-8082-exec-7] INFO  [staff] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+staff-app-1  | 2026-10-18T21:59:02.147930433Z 21:59:02.147 [http-nio-8082-exec-7] INFO  [staff] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms

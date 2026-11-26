@@ -1,0 +1,55 @@
+﻿wallet-app-1  | 2026-10-15T23:37:31.517940094Z 
+wallet-app-1  | 2026-10-15T23:37:31.517985647Z   .   ____          _            __ _ _
+wallet-app-1  | 2026-10-15T23:37:31.517990837Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+wallet-app-1  | 2026-10-15T23:37:31.517992967Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+wallet-app-1  | 2026-10-15T23:37:31.517994818Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+wallet-app-1  | 2026-10-15T23:37:31.517996678Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+wallet-app-1  | 2026-10-15T23:37:31.517998368Z  =========|_|==============|___/=/_/_/_/
+wallet-app-1  | 2026-10-15T23:37:31.518000398Z 
+wallet-app-1  | 2026-10-15T23:37:31.518391599Z  :: Spring Boot ::                (v4.0.6)
+wallet-app-1  | 2026-10-15T23:37:31.518399750Z 
+wallet-app-1  | 2026-10-15T23:37:31.600278671Z 2026-10-15T23:37:31.591Z  INFO 1 --- [wallet] [           main] com.cqrs.Application                     : Starting Application v0.0.1-SNAPSHOT using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+wallet-app-1  | 2026-10-15T23:37:31.601731365Z 2026-10-15T23:37:31.601Z  INFO 1 --- [wallet] [           main] com.cqrs.Application                     : No active profile set, falling back to 1 default profile: "default"
+wallet-app-1  | 2026-10-15T23:37:32.266296069Z 2026-10-15T23:37:32.265Z  INFO 1 --- [wallet] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+wallet-app-1  | 2026-10-15T23:37:32.319542151Z 2026-10-15T23:37:32.318Z  INFO 1 --- [wallet] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 2 JPA repository interfaces.
+wallet-app-1  | 2026-10-15T23:37:32.955370268Z 2026-10-15T23:37:32.954Z  INFO 1 --- [wallet] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8084 (http)
+wallet-app-1  | 2026-10-15T23:37:32.975464022Z 2026-10-15T23:37:32.973Z  INFO 1 --- [wallet] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+wallet-app-1  | 2026-10-15T23:37:32.975488664Z 2026-10-15T23:37:32.973Z  INFO 1 --- [wallet] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+wallet-app-1  | 2026-10-15T23:37:33.010115737Z 2026-10-15T23:37:33.009Z  INFO 1 --- [wallet] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1353 ms
+wallet-app-1  | 2026-10-15T23:37:33.235517262Z 2026-10-15T23:37:33.235Z  INFO 1 --- [wallet] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+wallet-app-1  | 2026-10-15T23:37:33.285463449Z 2026-10-15T23:37:33.285Z  INFO 1 --- [wallet] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+wallet-app-1  | 2026-10-15T23:37:33.699454264Z 2026-10-15T23:37:33.699Z  INFO 1 --- [wallet] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+wallet-app-1  | 2026-10-15T23:37:33.719930406Z 2026-10-15T23:37:33.719Z  INFO 1 --- [wallet] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+wallet-app-1  | 2026-10-15T23:37:33.860339489Z 2026-10-15T23:37:33.859Z  INFO 1 --- [wallet] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@26270b77
+wallet-app-1  | 2026-10-15T23:37:33.861148846Z 2026-10-15T23:37:33.860Z  INFO 1 --- [wallet] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+wallet-app-1  | 2026-10-15T23:37:33.880638451Z 2026-10-15T23:37:33.880Z  WARN 1 --- [wallet] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+wallet-app-1  | 2026-10-15T23:37:33.894992837Z 2026-10-15T23:37:33.894Z  INFO 1 --- [wallet] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+wallet-app-1  | 2026-10-15T23:37:33.895009148Z 	Database JDBC URL [jdbc:postgresql://db-wallet:5432/crm_wallet]
+wallet-app-1  | 2026-10-15T23:37:33.895011198Z 	Database driver: PostgreSQL JDBC Driver
+wallet-app-1  | 2026-10-15T23:37:33.895013368Z 	Database dialect: PostgreSQLDialect
+wallet-app-1  | 2026-10-15T23:37:33.895014678Z 	Database version: 16.15
+wallet-app-1  | 2026-10-15T23:37:33.895016868Z 	Default catalog/schema: crm_wallet/public
+wallet-app-1  | 2026-10-15T23:37:33.895018108Z 	Autocommit mode: undefined/unknown
+wallet-app-1  | 2026-10-15T23:37:33.895030849Z 	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+wallet-app-1  | 2026-10-15T23:37:33.895032569Z 	JDBC fetch size: none
+wallet-app-1  | 2026-10-15T23:37:33.895033880Z 	Pool: DataSourceConnectionProvider
+wallet-app-1  | 2026-10-15T23:37:33.895035190Z 	Minimum pool size: undefined/unknown
+wallet-app-1  | 2026-10-15T23:37:33.895036490Z 	Maximum pool size: undefined/unknown
+wallet-app-1  | 2026-10-15T23:37:34.578385772Z 2026-10-15T23:37:34.577Z  INFO 1 --- [wallet] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+wallet-app-1  | 2026-10-15T23:37:34.584507944Z 2026-10-15T23:37:34.583Z  INFO 1 --- [wallet] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+wallet-app-1  | 2026-10-15T23:37:34.811283564Z 2026-10-15T23:37:34.810Z  INFO 1 --- [wallet] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+wallet-app-1  | 2026-10-15T23:37:35.091160361Z 2026-10-15T23:37:35.090Z  INFO 1 --- [wallet] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://db-wallet:5432/crm_wallet (PostgreSQL 16.15)
+wallet-app-1  | 2026-10-15T23:37:35.143948295Z 2026-10-15T23:37:35.143Z  INFO 1 --- [wallet] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+wallet-app-1  | 2026-10-15T23:37:35.147008068Z 2026-10-15T23:37:35.146Z  INFO 1 --- [wallet] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.016s)
+wallet-app-1  | 2026-10-15T23:37:35.155253368Z 2026-10-15T23:37:35.154Z  INFO 1 --- [wallet] [           main] org.flywaydb.core.Flyway                 : All configured schemas are empty; a baseline marker will not be added to Flyway's schema history table. A baseline or migration script with a lower version than the baseline version may execute if available. Check the Schemas parameter if this is not intended. See https://help.red-gate.com/help/flyway-cli12/help_6.aspx?topic=baseline-on-migrate for more info
+wallet-app-1  | 2026-10-15T23:37:35.160191557Z 2026-10-15T23:37:35.159Z  INFO 1 --- [wallet] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+wallet-app-1  | 2026-10-15T23:37:35.211610307Z 2026-10-15T23:37:35.211Z  INFO 1 --- [wallet] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+wallet-app-1  | 2026-10-15T23:37:35.221308749Z 2026-10-15T23:37:35.220Z  INFO 1 --- [wallet] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - create schema"
+wallet-app-1  | 2026-10-15T23:37:35.250679446Z 2026-10-15T23:37:35.250Z  INFO 1 --- [wallet] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "2 - create publication"
+wallet-app-1  | 2026-10-15T23:37:35.253466005Z 2026-10-15T23:37:35.253Z  INFO 1 --- [wallet] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: publication "crm_wallet_publication" does not exist, skipping
+wallet-app-1  | 2026-10-15T23:37:35.266497228Z 2026-10-15T23:37:35.266Z  INFO 1 --- [wallet] [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "public", now at version v2 (execution time 00:00.023s)
+wallet-app-1  | 2026-10-15T23:37:35.543358264Z 2026-10-15T23:37:35.542Z  INFO 1 --- [wallet] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8084 (http) with context path '/'
+wallet-app-1  | 2026-10-15T23:37:35.548342147Z 2026-10-15T23:37:35.547Z  INFO 1 --- [wallet] [           main] com.cqrs.Application                     : Started Application in 4.454 seconds (process running for 4.97)
+wallet-app-1  | 2026-10-15T23:38:52.107334183Z 2026-10-15T23:38:52.106Z  INFO 1 --- [wallet] [nio-8084-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+wallet-app-1  | 2026-10-15T23:38:52.107542564Z 2026-10-15T23:38:52.107Z  INFO 1 --- [wallet] [nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+wallet-app-1  | 2026-10-15T23:38:52.108942920Z 2026-10-15T23:38:52.108Z  INFO 1 --- [wallet] [nio-8084-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms

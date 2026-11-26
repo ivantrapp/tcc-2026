@@ -1,0 +1,16 @@
+﻿customer-app-1  | 2026-10-18T22:05:10.334511484Z 
+customer-app-1  | 2026-10-18T22:05:10.334554186Z   .   ____          _            __ _ _
+customer-app-1  | 2026-10-18T22:05:10.334557867Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+customer-app-1  | 2026-10-18T22:05:10.334559857Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+customer-app-1  | 2026-10-18T22:05:10.334561687Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+customer-app-1  | 2026-10-18T22:05:10.334563497Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+customer-app-1  | 2026-10-18T22:05:10.334565277Z  =========|_|==============|___/=/_/_/_/
+customer-app-1  | 2026-10-18T22:05:10.334567527Z 
+customer-app-1  | 2026-10-18T22:05:10.334970648Z  :: Spring Boot ::                (v4.0.6)
+customer-app-1  | 2026-10-18T22:05:10.334987629Z 
+customer-app-1  | 2026-10-18T22:05:10.397946615Z 22:05:10.395 [main] INFO  [customer] com.cqrs.Application - Starting Application v0.0.1-SNAPSHOT using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+customer-app-1  | 2026-10-18T22:05:10.398739518Z 22:05:10.398 [main] INFO  [customer] com.cqrs.Application - No active profile set, falling back to 1 default profile: "default"
+customer-app-1  | 2026-10-18T22:05:12.722875382Z 22:05:12.722 [main] WARN  [customer] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+customer-app-1  | 2026-10-18T22:05:14.418367934Z 22:05:14.418 [main] INFO  [customer] com.cqrs.Application - Started Application in 4.526 seconds (process running for 4.945)
+customer-app-1  | 2026-10-18T22:06:24.939370772Z 22:06:24.939 [http-nio-8083-exec-7] INFO  [customer] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+customer-app-1  | 2026-10-18T22:06:24.940396361Z 22:06:24.940 [http-nio-8083-exec-7] INFO  [customer] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms

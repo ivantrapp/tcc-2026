@@ -1,0 +1,18 @@
+﻿customer-1  | 2026-10-16T02:35:09.123395093Z 
+customer-1  | 2026-10-16T02:35:09.123454407Z   .   ____          _            __ _ _
+customer-1  | 2026-10-16T02:35:09.123457988Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+customer-1  | 2026-10-16T02:35:09.123459818Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+customer-1  | 2026-10-16T02:35:09.123461698Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+customer-1  | 2026-10-16T02:35:09.123463428Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+customer-1  | 2026-10-16T02:35:09.123465198Z  =========|_|==============|___/=/_/_/_/
+customer-1  | 2026-10-16T02:35:09.123466748Z 
+customer-1  | 2026-10-16T02:35:09.123673399Z  :: Spring Boot ::                (v4.0.6)
+customer-1  | 2026-10-16T02:35:09.123679759Z 
+customer-1  | 2026-10-16T02:35:09.201440845Z 02:35:09.198 [main] INFO  [customer] com.cqrs.Application - Starting Application v0.0.1-SNAPSHOT using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+customer-1  | 2026-10-16T02:35:09.201805423Z 02:35:09.201 [main] INFO  [customer] com.cqrs.Application - No active profile set, falling back to 1 default profile: "default"
+customer-1  | 2026-10-16T02:35:12.526316759Z 02:35:12.525 [main] WARN  [customer] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+customer-1  | 2026-10-16T02:35:14.761277205Z 02:35:14.760 [main] INFO  [customer] com.cqrs.Application - Started Application in 6.087 seconds (process running for 6.566)
+customer-1  | 2026-10-16T02:36:26.213625227Z 02:36:26.213 [http-nio-8083-exec-7] INFO  [customer] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+customer-1  | 2026-10-16T02:36:26.214645224Z 02:36:26.214 [http-nio-8083-exec-7] INFO  [customer] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+customer-1  | 2026-10-16T02:36:26.437626891Z 02:36:26.437 [http-nio-8083-exec-2] INFO  [customer] o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+customer-1  | 2026-10-16T02:36:26.467065455Z 02:36:26.466 [http-nio-8083-exec-2] INFO  [customer] o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#6ce1cc03:0/SimpleConnection@121cf6e9 [delegate=amqp://guest@172.18.0.5:5672/, localPort=49296]

@@ -1,0 +1,55 @@
+﻿staff-app-1  | 2026-10-15T23:44:50.530336716Z 
+staff-app-1  | 2026-10-15T23:44:50.530384840Z   .   ____          _            __ _ _
+staff-app-1  | 2026-10-15T23:44:50.530388740Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+staff-app-1  | 2026-10-15T23:44:50.530390570Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+staff-app-1  | 2026-10-15T23:44:50.530392490Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+staff-app-1  | 2026-10-15T23:44:50.530394521Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+staff-app-1  | 2026-10-15T23:44:50.530396361Z  =========|_|==============|___/=/_/_/_/
+staff-app-1  | 2026-10-15T23:44:50.530398181Z 
+staff-app-1  | 2026-10-15T23:44:50.530701098Z  :: Spring Boot ::                (v4.0.6)
+staff-app-1  | 2026-10-15T23:44:50.530715319Z 
+staff-app-1  | 2026-10-15T23:44:50.617567901Z 2026-10-15T23:44:50.614Z  INFO 1 --- [staff] [           main] com.cqrs.Application                     : Starting Application v0.0.1-SNAPSHOT using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+staff-app-1  | 2026-10-15T23:44:50.619082028Z 2026-10-15T23:44:50.618Z  INFO 1 --- [staff] [           main] com.cqrs.Application                     : No active profile set, falling back to 1 default profile: "default"
+staff-app-1  | 2026-10-15T23:44:51.389527843Z 2026-10-15T23:44:51.389Z  INFO 1 --- [staff] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+staff-app-1  | 2026-10-15T23:44:51.425960093Z 2026-10-15T23:44:51.425Z  INFO 1 --- [staff] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 2 JPA repository interfaces.
+staff-app-1  | 2026-10-15T23:44:52.010833710Z 2026-10-15T23:44:52.010Z  INFO 1 --- [staff] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+staff-app-1  | 2026-10-15T23:44:52.031490753Z 2026-10-15T23:44:52.028Z  INFO 1 --- [staff] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+staff-app-1  | 2026-10-15T23:44:52.031551257Z 2026-10-15T23:44:52.028Z  INFO 1 --- [staff] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+staff-app-1  | 2026-10-15T23:44:52.065710597Z 2026-10-15T23:44:52.065Z  INFO 1 --- [staff] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1365 ms
+staff-app-1  | 2026-10-15T23:44:52.362758512Z 2026-10-15T23:44:52.362Z  INFO 1 --- [staff] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+staff-app-1  | 2026-10-15T23:44:52.422336371Z 2026-10-15T23:44:52.421Z  INFO 1 --- [staff] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+staff-app-1  | 2026-10-15T23:44:52.952552866Z 2026-10-15T23:44:52.951Z  INFO 1 --- [staff] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+staff-app-1  | 2026-10-15T23:44:52.988911146Z 2026-10-15T23:44:52.988Z  INFO 1 --- [staff] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+staff-app-1  | 2026-10-15T23:44:53.171895046Z 2026-10-15T23:44:53.171Z  INFO 1 --- [staff] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4e5d5ac1
+staff-app-1  | 2026-10-15T23:44:53.172749286Z 2026-10-15T23:44:53.172Z  INFO 1 --- [staff] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+staff-app-1  | 2026-10-15T23:44:53.192851956Z 2026-10-15T23:44:53.192Z  WARN 1 --- [staff] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+staff-app-1  | 2026-10-15T23:44:53.214139453Z 2026-10-15T23:44:53.213Z  INFO 1 --- [staff] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+staff-app-1  | 2026-10-15T23:44:53.214163625Z 	Database JDBC URL [jdbc:postgresql://db-staff:5432/crm_staff]
+staff-app-1  | 2026-10-15T23:44:53.214166255Z 	Database driver: PostgreSQL JDBC Driver
+staff-app-1  | 2026-10-15T23:44:53.214169126Z 	Database dialect: PostgreSQLDialect
+staff-app-1  | 2026-10-15T23:44:53.214171226Z 	Database version: 16.15
+staff-app-1  | 2026-10-15T23:44:53.214176256Z 	Default catalog/schema: crm_staff/public
+staff-app-1  | 2026-10-15T23:44:53.214178886Z 	Autocommit mode: undefined/unknown
+staff-app-1  | 2026-10-15T23:44:53.214197818Z 	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+staff-app-1  | 2026-10-15T23:44:53.214199358Z 	JDBC fetch size: none
+staff-app-1  | 2026-10-15T23:44:53.214200908Z 	Pool: DataSourceConnectionProvider
+staff-app-1  | 2026-10-15T23:44:53.214202368Z 	Minimum pool size: undefined/unknown
+staff-app-1  | 2026-10-15T23:44:53.214203688Z 	Maximum pool size: undefined/unknown
+staff-app-1  | 2026-10-15T23:44:53.849532123Z 2026-10-15T23:44:53.849Z  INFO 1 --- [staff] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+staff-app-1  | 2026-10-15T23:44:53.855994130Z 2026-10-15T23:44:53.855Z  INFO 1 --- [staff] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+staff-app-1  | 2026-10-15T23:44:53.920366185Z 2026-10-15T23:44:53.919Z  INFO 1 --- [staff] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+staff-app-1  | 2026-10-15T23:44:54.190186066Z 2026-10-15T23:44:54.189Z  INFO 1 --- [staff] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://db-staff:5432/crm_staff (PostgreSQL 16.15)
+staff-app-1  | 2026-10-15T23:44:54.251437689Z 2026-10-15T23:44:54.251Z  INFO 1 --- [staff] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+staff-app-1  | 2026-10-15T23:44:54.253988978Z 2026-10-15T23:44:54.253Z  INFO 1 --- [staff] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.017s)
+staff-app-1  | 2026-10-15T23:44:54.260255139Z 2026-10-15T23:44:54.259Z  INFO 1 --- [staff] [           main] org.flywaydb.core.Flyway                 : All configured schemas are empty; a baseline marker will not be added to Flyway's schema history table. A baseline or migration script with a lower version than the baseline version may execute if available. Check the Schemas parameter if this is not intended. See https://help.red-gate.com/help/flyway-cli12/help_6.aspx?topic=baseline-on-migrate for more info
+staff-app-1  | 2026-10-15T23:44:54.265084630Z 2026-10-15T23:44:54.264Z  INFO 1 --- [staff] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+staff-app-1  | 2026-10-15T23:44:54.306401262Z 2026-10-15T23:44:54.306Z  INFO 1 --- [staff] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+staff-app-1  | 2026-10-15T23:44:54.312550218Z 2026-10-15T23:44:54.312Z  INFO 1 --- [staff] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - create schema"
+staff-app-1  | 2026-10-15T23:44:54.339111749Z 2026-10-15T23:44:54.338Z  INFO 1 --- [staff] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "2 - create publication"
+staff-app-1  | 2026-10-15T23:44:54.341368914Z 2026-10-15T23:44:54.341Z  INFO 1 --- [staff] [           main] o.f.c.i.s.DefaultSqlScriptExecutor       : DB: publication "crm_staff_publication" does not exist, skipping
+staff-app-1  | 2026-10-15T23:44:54.352811497Z 2026-10-15T23:44:54.352Z  INFO 1 --- [staff] [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "public", now at version v2 (execution time 00:00.016s)
+staff-app-1  | 2026-10-15T23:44:54.800720695Z 2026-10-15T23:44:54.800Z  INFO 1 --- [staff] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+staff-app-1  | 2026-10-15T23:44:54.808257183Z 2026-10-15T23:44:54.807Z  INFO 1 --- [staff] [           main] com.cqrs.Application                     : Started Application in 4.664 seconds (process running for 5.089)
+staff-app-1  | 2026-10-15T23:46:12.816273619Z 2026-10-15T23:46:12.815Z  INFO 1 --- [staff] [nio-8082-exec-7] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+staff-app-1  | 2026-10-15T23:46:12.816577905Z 2026-10-15T23:46:12.816Z  INFO 1 --- [staff] [nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+staff-app-1  | 2026-10-15T23:46:12.817763304Z 2026-10-15T23:46:12.817Z  INFO 1 --- [staff] [nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms

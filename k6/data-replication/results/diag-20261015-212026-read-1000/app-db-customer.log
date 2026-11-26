@@ -1,0 +1,82 @@
+﻿db-customer-1  | 2026-10-16T00:20:31.261117414Z The files belonging to this database system will be owned by user "postgres".
+db-customer-1  | 2026-10-16T00:20:31.261139745Z This user must also own the server process.
+db-customer-1  | 2026-10-16T00:20:31.261142675Z 
+db-customer-1  | 2026-10-16T00:20:31.261144716Z The database cluster will be initialized with locale "en_US.utf8".
+db-customer-1  | 2026-10-16T00:20:31.261146696Z The default database encoding has accordingly been set to "UTF8".
+db-customer-1  | 2026-10-16T00:20:31.261148566Z The default text search configuration will be set to "english".
+db-customer-1  | 2026-10-16T00:20:31.261150576Z 
+db-customer-1  | 2026-10-16T00:20:31.261152396Z Data page checksums are disabled.
+db-customer-1  | 2026-10-16T00:20:31.261218250Z 
+db-customer-1  | 2026-10-16T00:20:31.261222940Z fixing permissions on existing directory /var/lib/postgresql/data ... ok
+db-customer-1  | 2026-10-16T00:20:31.267534591Z creating subdirectories ... ok
+db-customer-1  | 2026-10-16T00:20:31.267544252Z selecting dynamic shared memory implementation ... posix
+db-customer-1  | 2026-10-16T00:20:31.278135051Z selecting default max_connections ... 100
+db-customer-1  | 2026-10-16T00:20:31.293496414Z selecting default shared_buffers ... 128MB
+db-customer-1  | 2026-10-16T00:20:31.316415265Z selecting default time zone ... Etc/UTC
+db-customer-1  | 2026-10-16T00:20:31.316846778Z creating configuration files ... ok
+db-customer-1  | 2026-10-16T00:20:31.421654329Z running bootstrap script ... ok
+db-customer-1  | 2026-10-16T00:20:31.649039661Z performing post-bootstrap initialization ... ok
+db-customer-1  | 2026-10-16T00:20:31.964181694Z syncing data to disk ... ok
+db-customer-1  | 2026-10-16T00:20:31.964197215Z 
+db-customer-1  | 2026-10-16T00:20:31.964199795Z 
+db-customer-1  | 2026-10-16T00:20:31.964201935Z Success. You can now start the database server using:
+db-customer-1  | 2026-10-16T00:20:31.964205346Z 
+db-customer-1  | 2026-10-16T00:20:31.964207436Z     pg_ctl -D /var/lib/postgresql/data -l logfile start
+db-customer-1  | 2026-10-16T00:20:31.964209606Z 
+db-customer-1  | 2026-10-16T00:20:31.964217356Z initdb: warning: enabling "trust" authentication for local connections
+db-customer-1  | 2026-10-16T00:20:31.964220347Z initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+db-customer-1  | 2026-10-16T00:20:32.000459723Z waiting for server to start....2026-10-16 00:20:32.000 UTC [48] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+db-customer-1  | 2026-10-16T00:20:32.001888141Z 2026-10-16 00:20:32.001 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-customer-1  | 2026-10-16T00:20:32.007727386Z 2026-10-16 00:20:32.007 UTC [51] LOG:  database system was shut down at 2026-10-16 00:20:31 UTC
+db-customer-1  | 2026-10-16T00:20:32.013982903Z 2026-10-16 00:20:32.013 UTC [48] LOG:  database system is ready to accept connections
+db-customer-1  | 2026-10-16T00:20:32.078690575Z  done
+db-customer-1  | 2026-10-16T00:20:32.078702426Z server started
+db-customer-1  | 2026-10-16T00:20:32.151236467Z CREATE DATABASE
+db-customer-1  | 2026-10-16T00:20:32.151651204Z 
+db-customer-1  | 2026-10-16T00:20:32.151720464Z 
+db-customer-1  | 2026-10-16T00:20:32.151725034Z /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/init.sql
+db-customer-1  | 2026-10-16T00:20:32.175368821Z DO
+db-customer-1  | 2026-10-16T00:20:32.176129881Z GRANT
+db-customer-1  | 2026-10-16T00:20:32.176831441Z GRANT
+db-customer-1  | 2026-10-16T00:20:32.179616778Z DO
+db-customer-1  | 2026-10-16T00:20:32.180547229Z ALTER DEFAULT PRIVILEGES
+db-customer-1  | 2026-10-16T00:20:32.181145472Z 
+db-customer-1  | 2026-10-16T00:20:32.181151823Z 
+db-customer-1  | 2026-10-16T00:20:32.181988007Z waiting for server to shut down...2026-10-16 00:20:32.181 UTC [48] LOG:  received fast shutdown request
+db-customer-1  | 2026-10-16T00:20:32.183886437Z .2026-10-16 00:20:32.183 UTC [48] LOG:  aborting any active transactions
+db-customer-1  | 2026-10-16T00:20:32.184922434Z 2026-10-16 00:20:32.184 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+db-customer-1  | 2026-10-16T00:20:32.185235829Z 2026-10-16 00:20:32.185 UTC [49] LOG:  shutting down
+db-customer-1  | 2026-10-16T00:20:32.186436487Z 2026-10-16 00:20:32.186 UTC [49] LOG:  checkpoint starting: shutdown immediate
+db-customer-1  | 2026-10-16T00:20:32.252102821Z 2026-10-16 00:20:32.251 UTC [49] LOG:  checkpoint complete: wrote 938 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.016 s, sync=0.046 s, total=0.067 s; sync files=308, longest=0.004 s, average=0.001 s; distance=4280 kB, estimate=4280 kB; lsn=0/1920E48, redo lsn=0/1920E48
+db-customer-1  | 2026-10-16T00:20:32.258570313Z 2026-10-16 00:20:32.258 UTC [48] LOG:  database system is shut down
+db-customer-1  | 2026-10-16T00:20:32.282189880Z  done
+db-customer-1  | 2026-10-16T00:20:32.282201660Z server stopped
+db-customer-1  | 2026-10-16T00:20:32.283009138Z 
+db-customer-1  | 2026-10-16T00:20:32.283017258Z PostgreSQL init process complete; ready for start up.
+db-customer-1  | 2026-10-16T00:20:32.283019428Z 
+db-customer-1  | 2026-10-16T00:20:32.299669655Z 2026-10-16 00:20:32.299 UTC [1] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+db-customer-1  | 2026-10-16T00:20:32.299773908Z 2026-10-16 00:20:32.299 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-customer-1  | 2026-10-16T00:20:32.299778798Z 2026-10-16 00:20:32.299 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-customer-1  | 2026-10-16T00:20:32.303761832Z 2026-10-16 00:20:32.303 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-customer-1  | 2026-10-16T00:20:32.310289876Z 2026-10-16 00:20:32.310 UTC [66] LOG:  database system was shut down at 2026-10-16 00:20:32 UTC
+db-customer-1  | 2026-10-16T00:20:32.314671775Z 2026-10-16 00:20:32.314 UTC [1] LOG:  database system is ready to accept connections
+db-customer-1  | 2026-10-16T00:20:45.760456174Z 2026-10-16 00:20:45.760 UTC [106] LOG:  logical decoding found consistent point at 0/195AF50
+db-customer-1  | 2026-10-16T00:20:45.760468335Z 2026-10-16 00:20:45.760 UTC [106] DETAIL:  There are no running transactions.
+db-customer-1  | 2026-10-16T00:20:45.760470575Z 2026-10-16 00:20:45.760 UTC [106] STATEMENT:  CREATE_REPLICATION_SLOT "crm_customer_subscription" LOGICAL pgoutput (SNAPSHOT 'nothing')
+db-customer-1  | 2026-10-16T00:20:45.774305021Z 2026-10-16 00:20:45.774 UTC [107] LOG:  starting logical decoding for slot "crm_customer_subscription"
+db-customer-1  | 2026-10-16T00:20:45.774317192Z 2026-10-16 00:20:45.774 UTC [107] DETAIL:  Streaming transactions committing after 0/195AF88, reading WAL from 0/195AF50.
+db-customer-1  | 2026-10-16T00:20:45.774319312Z 2026-10-16 00:20:45.774 UTC [107] STATEMENT:  START_REPLICATION SLOT "crm_customer_subscription" LOGICAL 0/0 (proto_version '4', origin 'any', publication_names '"crm_customer_publication"')
+db-customer-1  | 2026-10-16T00:20:45.774321482Z 2026-10-16 00:20:45.774 UTC [107] LOG:  logical decoding found consistent point at 0/195AF50
+db-customer-1  | 2026-10-16T00:20:45.774323242Z 2026-10-16 00:20:45.774 UTC [107] DETAIL:  There are no running transactions.
+db-customer-1  | 2026-10-16T00:20:45.774324882Z 2026-10-16 00:20:45.774 UTC [107] STATEMENT:  START_REPLICATION SLOT "crm_customer_subscription" LOGICAL 0/0 (proto_version '4', origin 'any', publication_names '"crm_customer_publication"')
+db-customer-1  | 2026-10-16T00:20:51.385875207Z 2026-10-16 00:20:51.385 UTC [116] LOG:  logical decoding found consistent point at 0/195AFC0
+db-customer-1  | 2026-10-16T00:20:51.385889998Z 2026-10-16 00:20:51.385 UTC [116] DETAIL:  There are no running transactions.
+db-customer-1  | 2026-10-16T00:20:51.385913929Z 2026-10-16 00:20:51.385 UTC [116] STATEMENT:  CREATE_REPLICATION_SLOT "pg_16445_sync_16411_7697053974164414502" LOGICAL pgoutput (SNAPSHOT 'use')
+db-customer-1  | 2026-10-16T00:20:51.394565368Z 2026-10-16 00:20:51.394 UTC [116] LOG:  starting logical decoding for slot "pg_16445_sync_16411_7697053974164414502"
+db-customer-1  | 2026-10-16T00:20:51.394580169Z 2026-10-16 00:20:51.394 UTC [116] DETAIL:  Streaming transactions committing after 0/195AFF8, reading WAL from 0/195AFC0.
+db-customer-1  | 2026-10-16T00:20:51.394581760Z 2026-10-16 00:20:51.394 UTC [116] STATEMENT:  START_REPLICATION SLOT "pg_16445_sync_16411_7697053974164414502" LOGICAL 0/195AFF8 (proto_version '4', origin 'any', publication_names '"crm_customer_publication"')
+db-customer-1  | 2026-10-16T00:20:51.394583400Z 2026-10-16 00:20:51.394 UTC [116] LOG:  logical decoding found consistent point at 0/195AFC0
+db-customer-1  | 2026-10-16T00:20:51.394585310Z 2026-10-16 00:20:51.394 UTC [116] DETAIL:  There are no running transactions.
+db-customer-1  | 2026-10-16T00:20:51.394586700Z 2026-10-16 00:20:51.394 UTC [116] STATEMENT:  START_REPLICATION SLOT "pg_16445_sync_16411_7697053974164414502" LOGICAL 0/195AFF8 (proto_version '4', origin 'any', publication_names '"crm_customer_publication"')
+db-customer-1  | 2026-10-16T00:25:32.392378924Z 2026-10-16 00:25:32.391 UTC [64] LOG:  checkpoint starting: time
+db-customer-1  | 2026-10-16T00:25:45.353039224Z 2026-10-16 00:25:45.352 UTC [64] LOG:  checkpoint complete: wrote 132 buffers (0.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=12.936 s, sync=0.016 s, total=12.962 s; sync files=67, longest=0.003 s, average=0.001 s; distance=542 kB, estimate=542 kB; lsn=0/19A8808, redo lsn=0/19A87D0

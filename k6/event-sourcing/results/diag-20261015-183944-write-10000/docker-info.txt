@@ -1,0 +1,1 @@
+﻿CPUs=16 Mem=16294768640 Docker=29.8.2 Kernel=6.18.54.1-microsoft-standard-WSL2

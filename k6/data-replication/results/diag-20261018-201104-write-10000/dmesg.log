@@ -1,0 +1,1847 @@
+﻿[ 5584.302413] br-4411dca6f5ad: port 4(vetha9a703e) entered disabled state
+[ 5584.302853] vethbba5ccf: renamed from eth0
+[ 5584.334763] br-4411dca6f5ad: port 4(vetha9a703e) entered disabled state
+[ 5584.335195] vetha9a703e (unregistering): left allmulticast mode
+[ 5584.335445] vetha9a703e (unregistering): left promiscuous mode
+[ 5584.335651] br-4411dca6f5ad: port 4(vetha9a703e) entered disabled state
+[ 5584.430376] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5672, family: 2, errno: 111
+[ 5584.431408] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 15672, family: 2, errno: 111
+[ 5587.632702] br-a3f2cd0a1b58: port 1(veth83f80ca) entered blocking state
+[ 5587.633059] br-a3f2cd0a1b58: port 1(veth83f80ca) entered disabled state
+[ 5587.633341] veth83f80ca: entered allmulticast mode
+[ 5587.633602] veth83f80ca: entered promiscuous mode
+[ 5587.648026] eth0: renamed from veth5bda129
+[ 5587.648796] br-a3f2cd0a1b58: port 1(veth83f80ca) entered blocking state
+[ 5587.649112] br-a3f2cd0a1b58: port 1(veth83f80ca) entered forwarding state
+[ 5587.785445] br-a3f2cd0a1b58: port 2(veth57bb85f) entered blocking state
+[ 5587.785837] br-a3f2cd0a1b58: port 2(veth57bb85f) entered disabled state
+[ 5587.786150] veth57bb85f: entered allmulticast mode
+[ 5587.786459] veth57bb85f: entered promiscuous mode
+[ 5587.800933] eth0: renamed from veth4bc5c95
+[ 5587.801723] br-a3f2cd0a1b58: port 2(veth57bb85f) entered blocking state
+[ 5587.802027] br-a3f2cd0a1b58: port 2(veth57bb85f) entered forwarding state
+[ 5587.937211] br-a3f2cd0a1b58: port 3(vethc0ebec4) entered blocking state
+[ 5587.937541] br-a3f2cd0a1b58: port 3(vethc0ebec4) entered disabled state
+[ 5587.937767] vethc0ebec4: entered allmulticast mode
+[ 5587.937953] vethc0ebec4: entered promiscuous mode
+[ 5587.952360] eth0: renamed from vethf0188a2
+[ 5587.953166] br-a3f2cd0a1b58: port 3(vethc0ebec4) entered blocking state
+[ 5587.953504] br-a3f2cd0a1b58: port 3(vethc0ebec4) entered forwarding state
+[ 5588.083419] br-a3f2cd0a1b58: port 4(veth24ba803) entered blocking state
+[ 5588.083771] br-a3f2cd0a1b58: port 4(veth24ba803) entered disabled state
+[ 5588.084005] veth24ba803: entered allmulticast mode
+[ 5588.084262] veth24ba803: entered promiscuous mode
+[ 5588.100248] eth0: renamed from veth413a87d
+[ 5588.101153] br-a3f2cd0a1b58: port 4(veth24ba803) entered blocking state
+[ 5588.101453] br-a3f2cd0a1b58: port 4(veth24ba803) entered forwarding state
+[ 5588.243415] br-a3f2cd0a1b58: port 5(vethff3c0ea) entered blocking state
+[ 5588.243789] br-a3f2cd0a1b58: port 5(vethff3c0ea) entered disabled state
+[ 5588.244035] vethff3c0ea: entered allmulticast mode
+[ 5588.244301] vethff3c0ea: entered promiscuous mode
+[ 5588.260268] eth0: renamed from veth99460ac
+[ 5588.261072] br-a3f2cd0a1b58: port 5(vethff3c0ea) entered blocking state
+[ 5588.261341] br-a3f2cd0a1b58: port 5(vethff3c0ea) entered forwarding state
+[ 5598.910060] br-a3f2cd0a1b58: port 6(veth919a477) entered blocking state
+[ 5598.910366] br-a3f2cd0a1b58: port 6(veth919a477) entered disabled state
+[ 5598.910599] veth919a477: entered allmulticast mode
+[ 5598.910850] veth919a477: entered promiscuous mode
+[ 5598.923893] eth0: renamed from vethfe03bb9
+[ 5598.924575] br-a3f2cd0a1b58: port 6(veth919a477) entered blocking state
+[ 5598.924843] br-a3f2cd0a1b58: port 6(veth919a477) entered forwarding state
+[ 5599.067004] br-a3f2cd0a1b58: port 7(veth9392065) entered blocking state
+[ 5599.067358] br-a3f2cd0a1b58: port 7(veth9392065) entered disabled state
+[ 5599.067613] veth9392065: entered allmulticast mode
+[ 5599.067859] veth9392065: entered promiscuous mode
+[ 5599.083434] eth0: renamed from vetha76823d
+[ 5599.084336] br-a3f2cd0a1b58: port 7(veth9392065) entered blocking state
+[ 5599.084622] br-a3f2cd0a1b58: port 7(veth9392065) entered forwarding state
+[ 5599.222682] br-a3f2cd0a1b58: port 8(veth260ea5b) entered blocking state
+[ 5599.223090] br-a3f2cd0a1b58: port 8(veth260ea5b) entered disabled state
+[ 5599.223355] veth260ea5b: entered allmulticast mode
+[ 5599.223639] veth260ea5b: entered promiscuous mode
+[ 5599.241039] eth0: renamed from vetha797e3f
+[ 5599.242045] br-a3f2cd0a1b58: port 8(veth260ea5b) entered blocking state
+[ 5599.242399] br-a3f2cd0a1b58: port 8(veth260ea5b) entered forwarding state
+[ 5599.398918] br-a3f2cd0a1b58: port 9(veth48d92cc) entered blocking state
+[ 5599.399376] br-a3f2cd0a1b58: port 9(veth48d92cc) entered disabled state
+[ 5599.399758] veth48d92cc: entered allmulticast mode
+[ 5599.400079] veth48d92cc: entered promiscuous mode
+[ 5599.419520] eth0: renamed from veth5561312
+[ 5599.420467] br-a3f2cd0a1b58: port 9(veth48d92cc) entered blocking state
+[ 5599.420781] br-a3f2cd0a1b58: port 9(veth48d92cc) entered forwarding state
+[ 5671.948549] br-a3f2cd0a1b58: port 10(vetha30d76f) entered blocking state
+[ 5671.949092] br-a3f2cd0a1b58: port 10(vetha30d76f) entered disabled state
+[ 5671.949336] vetha30d76f: entered allmulticast mode
+[ 5671.949538] vetha30d76f: entered promiscuous mode
+[ 5671.966473] eth0: renamed from veth952f655
+[ 5671.967673] br-a3f2cd0a1b58: port 10(vetha30d76f) entered blocking state
+[ 5671.968010] br-a3f2cd0a1b58: port 10(vetha30d76f) entered forwarding state
+[ 5982.823795] br-a3f2cd0a1b58: port 10(vetha30d76f) entered disabled state
+[ 5982.824260] veth952f655: renamed from eth0
+[ 5982.846392] br-a3f2cd0a1b58: port 10(vetha30d76f) entered disabled state
+[ 5982.846839] vetha30d76f (unregistering): left allmulticast mode
+[ 5982.847055] vetha30d76f (unregistering): left promiscuous mode
+[ 5982.847227] br-a3f2cd0a1b58: port 10(vetha30d76f) entered disabled state
+[ 6024.478636] docker0: port 1(veth8f99213) entered blocking state
+[ 6024.478963] docker0: port 1(veth8f99213) entered disabled state
+[ 6024.479163] veth8f99213: entered allmulticast mode
+[ 6024.479399] veth8f99213: entered promiscuous mode
+[ 6024.483583] eth0: renamed from vethb78bc08
+[ 6024.484372] docker0: port 1(veth8f99213) entered blocking state
+[ 6024.484650] docker0: port 1(veth8f99213) entered forwarding state
+[ 6024.562039] docker0: port 1(veth8f99213) entered disabled state
+[ 6024.562421] vethb78bc08: renamed from eth0
+[ 6024.616544] docker0: port 1(veth8f99213) entered disabled state
+[ 6024.617140] veth8f99213 (unregistering): left allmulticast mode
+[ 6024.617432] veth8f99213 (unregistering): left promiscuous mode
+[ 6024.617666] docker0: port 1(veth8f99213) entered disabled state
+[ 6025.114192] br-a3f2cd0a1b58: port 9(veth48d92cc) entered disabled state
+[ 6025.114544] veth5561312: renamed from eth0
+[ 6025.201610] br-a3f2cd0a1b58: port 9(veth48d92cc) entered disabled state
+[ 6025.203019] veth48d92cc (unregistering): left allmulticast mode
+[ 6025.203350] veth48d92cc (unregistering): left promiscuous mode
+[ 6025.203616] br-a3f2cd0a1b58: port 9(veth48d92cc) entered disabled state
+[ 6025.213055] br-a3f2cd0a1b58: port 8(veth260ea5b) entered disabled state
+[ 6025.213400] vetha797e3f: renamed from eth0
+[ 6025.312173] br-a3f2cd0a1b58: port 8(veth260ea5b) entered disabled state
+[ 6025.324019] veth260ea5b (unregistering): left allmulticast mode
+[ 6025.324454] veth260ea5b (unregistering): left promiscuous mode
+[ 6025.324740] br-a3f2cd0a1b58: port 8(veth260ea5b) entered disabled state
+[ 6025.331072] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8082, family: 2, errno: 111
+[ 6025.391504] br-a3f2cd0a1b58: port 6(veth919a477) entered disabled state
+[ 6025.392003] vethfe03bb9: renamed from eth0
+[ 6025.461598] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8084, family: 2, errno: 111
+[ 6025.497991] br-a3f2cd0a1b58: port 6(veth919a477) entered disabled state
+[ 6025.499737] veth919a477 (unregistering): left allmulticast mode
+[ 6025.500088] veth919a477 (unregistering): left promiscuous mode
+[ 6025.500367] br-a3f2cd0a1b58: port 6(veth919a477) entered disabled state
+[ 6025.510476] br-a3f2cd0a1b58: port 4(veth24ba803) entered disabled state
+[ 6025.511665] veth413a87d: renamed from eth0
+[ 6025.560696] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8083, family: 2, errno: 111
+[ 6025.604903] br-a3f2cd0a1b58: port 4(veth24ba803) entered disabled state
+[ 6025.605597] veth24ba803 (unregistering): left allmulticast mode
+[ 6025.605920] veth24ba803 (unregistering): left promiscuous mode
+[ 6025.606216] br-a3f2cd0a1b58: port 4(veth24ba803) entered disabled state
+[ 6025.607039] br-a3f2cd0a1b58: port 7(veth9392065) entered disabled state
+[ 6025.607656] vetha76823d: renamed from eth0
+[ 6025.694564] br-a3f2cd0a1b58: port 7(veth9392065) entered disabled state
+[ 6025.696145] veth9392065 (unregistering): left allmulticast mode
+[ 6025.696429] veth9392065 (unregistering): left promiscuous mode
+[ 6025.696650] br-a3f2cd0a1b58: port 7(veth9392065) entered disabled state
+[ 6025.699726] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5441, family: 2, errno: 111
+[ 6025.703277] br-a3f2cd0a1b58: port 1(veth83f80ca) entered disabled state
+[ 6025.703672] veth5bda129: renamed from eth0
+[ 6025.795158] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8081, family: 2, errno: 111
+[ 6025.808559] br-a3f2cd0a1b58: port 1(veth83f80ca) entered disabled state
+[ 6025.810405] veth83f80ca (unregistering): left allmulticast mode
+[ 6025.810681] veth83f80ca (unregistering): left promiscuous mode
+[ 6025.810943] br-a3f2cd0a1b58: port 1(veth83f80ca) entered disabled state
+[ 6025.818408] br-a3f2cd0a1b58: port 2(veth57bb85f) entered disabled state
+[ 6025.818692] veth4bc5c95: renamed from eth0
+[ 6025.914610] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5443, family: 2, errno: 111
+[ 6025.941929] br-a3f2cd0a1b58: port 2(veth57bb85f) entered disabled state
+[ 6025.943462] veth57bb85f (unregistering): left allmulticast mode
+[ 6025.943790] veth57bb85f (unregistering): left promiscuous mode
+[ 6025.944072] br-a3f2cd0a1b58: port 2(veth57bb85f) entered disabled state
+[ 6025.955459] br-a3f2cd0a1b58: port 3(vethc0ebec4) entered disabled state
+[ 6025.955940] vethf0188a2: renamed from eth0
+[ 6026.030491] br-a3f2cd0a1b58: port 3(vethc0ebec4) entered disabled state
+[ 6026.030962] vethc0ebec4 (unregistering): left allmulticast mode
+[ 6026.031319] vethc0ebec4 (unregistering): left promiscuous mode
+[ 6026.031652] br-a3f2cd0a1b58: port 3(vethc0ebec4) entered disabled state
+[ 6026.037173] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5442, family: 2, errno: 111
+[ 6026.120699] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5440, family: 2, errno: 111
+[ 6027.112369] br-a3f2cd0a1b58: port 5(vethff3c0ea) entered disabled state
+[ 6027.112737] veth99460ac: renamed from eth0
+[ 6027.144737] br-a3f2cd0a1b58: port 5(vethff3c0ea) entered disabled state
+[ 6027.145169] vethff3c0ea (unregistering): left allmulticast mode
+[ 6027.145412] vethff3c0ea (unregistering): left promiscuous mode
+[ 6027.145732] br-a3f2cd0a1b58: port 5(vethff3c0ea) entered disabled state
+[ 6027.243300] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 15672, family: 2, errno: 111
+[ 6027.244040] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5672, family: 2, errno: 111
+[ 6032.748787] br-bee4afbf6aa2: port 1(veth8cf28b0) entered blocking state
+[ 6032.749204] br-bee4afbf6aa2: port 1(veth8cf28b0) entered disabled state
+[ 6032.749503] veth8cf28b0: entered allmulticast mode
+[ 6032.749799] veth8cf28b0: entered promiscuous mode
+[ 6032.766579] eth0: renamed from vethd0f60cc
+[ 6032.767935] br-bee4afbf6aa2: port 1(veth8cf28b0) entered blocking state
+[ 6032.768247] br-bee4afbf6aa2: port 1(veth8cf28b0) entered forwarding state
+[ 6032.911780] br-bee4afbf6aa2: port 2(veth5a6afe1) entered blocking state
+[ 6032.912141] br-bee4afbf6aa2: port 2(veth5a6afe1) entered disabled state
+[ 6032.912367] veth5a6afe1: entered allmulticast mode
+[ 6032.912593] veth5a6afe1: entered promiscuous mode
+[ 6032.926961] eth0: renamed from veth72788da
+[ 6032.927843] br-bee4afbf6aa2: port 2(veth5a6afe1) entered blocking state
+[ 6032.928100] br-bee4afbf6aa2: port 2(veth5a6afe1) entered forwarding state
+[ 6033.078027] br-bee4afbf6aa2: port 3(vethcf37434) entered blocking state
+[ 6033.078392] br-bee4afbf6aa2: port 3(vethcf37434) entered disabled state
+[ 6033.078656] vethcf37434: entered allmulticast mode
+[ 6033.078906] vethcf37434: entered promiscuous mode
+[ 6033.093420] eth0: renamed from vetha58b13b
+[ 6033.094731] br-bee4afbf6aa2: port 3(vethcf37434) entered blocking state
+[ 6033.095070] br-bee4afbf6aa2: port 3(vethcf37434) entered forwarding state
+[ 6033.244071] br-bee4afbf6aa2: port 4(veth4234d31) entered blocking state
+[ 6033.244715] br-bee4afbf6aa2: port 4(veth4234d31) entered disabled state
+[ 6033.245009] veth4234d31: entered allmulticast mode
+[ 6033.245293] veth4234d31: entered promiscuous mode
+[ 6033.261401] eth0: renamed from veth10ff6dc
+[ 6033.262286] br-bee4afbf6aa2: port 4(veth4234d31) entered blocking state
+[ 6033.262624] br-bee4afbf6aa2: port 4(veth4234d31) entered forwarding state
+[ 6038.561236] br-bee4afbf6aa2: port 5(veth84e0f98) entered blocking state
+[ 6038.561521] br-bee4afbf6aa2: port 5(veth84e0f98) entered disabled state
+[ 6038.561742] veth84e0f98: entered allmulticast mode
+[ 6038.561944] veth84e0f98: entered promiscuous mode
+[ 6038.575630] eth0: renamed from veth0e28619
+[ 6038.576385] br-bee4afbf6aa2: port 5(veth84e0f98) entered blocking state
+[ 6038.576671] br-bee4afbf6aa2: port 5(veth84e0f98) entered forwarding state
+[ 6038.723313] br-bee4afbf6aa2: port 6(veth8865a83) entered blocking state
+[ 6038.723674] br-bee4afbf6aa2: port 6(veth8865a83) entered disabled state
+[ 6038.723876] veth8865a83: entered allmulticast mode
+[ 6038.724103] veth8865a83: entered promiscuous mode
+[ 6038.740251] eth0: renamed from vethce4d75f
+[ 6038.741370] br-bee4afbf6aa2: port 6(veth8865a83) entered blocking state
+[ 6038.741724] br-bee4afbf6aa2: port 6(veth8865a83) entered forwarding state
+[ 6038.912308] br-bee4afbf6aa2: port 7(veth4eb8a48) entered blocking state
+[ 6038.912742] br-bee4afbf6aa2: port 7(veth4eb8a48) entered disabled state
+[ 6038.913067] veth4eb8a48: entered allmulticast mode
+[ 6038.913370] veth4eb8a48: entered promiscuous mode
+[ 6038.933636] eth0: renamed from veth2f10759
+[ 6038.934760] br-bee4afbf6aa2: port 7(veth4eb8a48) entered blocking state
+[ 6038.935202] br-bee4afbf6aa2: port 7(veth4eb8a48) entered forwarding state
+[ 6044.583751] br-bee4afbf6aa2: port 8(vethb224c17) entered blocking state
+[ 6044.584109] br-bee4afbf6aa2: port 8(vethb224c17) entered disabled state
+[ 6044.584331] vethb224c17: entered allmulticast mode
+[ 6044.584559] vethb224c17: entered promiscuous mode
+[ 6044.597696] eth0: renamed from veth23a7b07
+[ 6044.598338] br-bee4afbf6aa2: port 8(vethb224c17) entered blocking state
+[ 6044.598617] br-bee4afbf6aa2: port 8(vethb224c17) entered forwarding state
+[ 6116.854678] br-bee4afbf6aa2: port 9(veth0979497) entered blocking state
+[ 6116.855037] br-bee4afbf6aa2: port 9(veth0979497) entered disabled state
+[ 6116.855220] veth0979497: entered allmulticast mode
+[ 6116.855431] veth0979497: entered promiscuous mode
+[ 6116.869064] eth0: renamed from veth777d44e
+[ 6116.869679] br-bee4afbf6aa2: port 9(veth0979497) entered blocking state
+[ 6116.870000] br-bee4afbf6aa2: port 9(veth0979497) entered forwarding state
+[ 6121.488496] br-bee4afbf6aa2: port 9(veth0979497) entered disabled state
+[ 6121.488869] veth777d44e: renamed from eth0
+[ 6121.554871] br-bee4afbf6aa2: port 9(veth0979497) entered disabled state
+[ 6121.555381] veth0979497 (unregistering): left allmulticast mode
+[ 6121.555618] veth0979497 (unregistering): left promiscuous mode
+[ 6121.555820] br-bee4afbf6aa2: port 9(veth0979497) entered disabled state
+[ 6121.888006] br-bee4afbf6aa2: port 9(vethc86d0c7) entered blocking state
+[ 6121.888315] br-bee4afbf6aa2: port 9(vethc86d0c7) entered disabled state
+[ 6121.888551] vethc86d0c7: entered allmulticast mode
+[ 6121.888741] vethc86d0c7: entered promiscuous mode
+[ 6121.902460] eth0: renamed from veth57d2523
+[ 6121.903297] br-bee4afbf6aa2: port 9(vethc86d0c7) entered blocking state
+[ 6121.903591] br-bee4afbf6aa2: port 9(vethc86d0c7) entered forwarding state
+[ 6422.954826] br-bee4afbf6aa2: port 9(vethc86d0c7) entered disabled state
+[ 6422.955254] veth57d2523: renamed from eth0
+[ 6422.984352] br-bee4afbf6aa2: port 9(vethc86d0c7) entered disabled state
+[ 6422.984932] vethc86d0c7 (unregistering): left allmulticast mode
+[ 6422.985209] vethc86d0c7 (unregistering): left promiscuous mode
+[ 6422.985463] br-bee4afbf6aa2: port 9(vethc86d0c7) entered disabled state
+[ 6464.433814] docker0: port 1(veth70a16f1) entered blocking state
+[ 6464.434185] docker0: port 1(veth70a16f1) entered disabled state
+[ 6464.434445] veth70a16f1: entered allmulticast mode
+[ 6464.434665] veth70a16f1: entered promiscuous mode
+[ 6464.438882] eth0: renamed from veth523dd17
+[ 6464.440039] docker0: port 1(veth70a16f1) entered blocking state
+[ 6464.440335] docker0: port 1(veth70a16f1) entered forwarding state
+[ 6464.498293] docker0: port 1(veth70a16f1) entered disabled state
+[ 6464.498651] veth523dd17: renamed from eth0
+[ 6464.555515] docker0: port 1(veth70a16f1) entered disabled state
+[ 6464.556404] veth70a16f1 (unregistering): left allmulticast mode
+[ 6464.556715] veth70a16f1 (unregistering): left promiscuous mode
+[ 6464.556967] docker0: port 1(veth70a16f1) entered disabled state
+[ 6465.115810] br-bee4afbf6aa2: port 8(vethb224c17) entered disabled state
+[ 6465.116414] veth23a7b07: renamed from eth0
+[ 6465.163161] br-bee4afbf6aa2: port 8(vethb224c17) entered disabled state
+[ 6465.163636] vethb224c17 (unregistering): left allmulticast mode
+[ 6465.163907] vethb224c17 (unregistering): left promiscuous mode
+[ 6465.164127] br-bee4afbf6aa2: port 8(vethb224c17) entered disabled state
+[ 6465.223177] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8081, family: 2, errno: 111
+[ 6465.512984] br-bee4afbf6aa2: port 6(veth8865a83) entered disabled state
+[ 6465.513363] vethce4d75f: renamed from eth0
+[ 6465.551351] br-bee4afbf6aa2: port 6(veth8865a83) entered disabled state
+[ 6465.551954] veth8865a83 (unregistering): left allmulticast mode
+[ 6465.552239] veth8865a83 (unregistering): left promiscuous mode
+[ 6465.552482] br-bee4afbf6aa2: port 6(veth8865a83) entered disabled state
+[ 6465.645252] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8082, family: 2, errno: 111
+[ 6465.676136] br-bee4afbf6aa2: port 1(veth8cf28b0) entered disabled state
+[ 6465.676574] vethd0f60cc: renamed from eth0
+[ 6465.752772] br-bee4afbf6aa2: port 1(veth8cf28b0) entered disabled state
+[ 6465.754064] veth8cf28b0 (unregistering): left allmulticast mode
+[ 6465.754322] veth8cf28b0 (unregistering): left promiscuous mode
+[ 6465.754540] br-bee4afbf6aa2: port 1(veth8cf28b0) entered disabled state
+[ 6465.760928] br-bee4afbf6aa2: port 7(veth4eb8a48) entered disabled state
+[ 6465.761247] veth2f10759: renamed from eth0
+[ 6465.859975] br-bee4afbf6aa2: port 7(veth4eb8a48) entered disabled state
+[ 6465.861539] veth4eb8a48 (unregistering): left allmulticast mode
+[ 6465.861893] veth4eb8a48 (unregistering): left promiscuous mode
+[ 6465.862022] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5455, family: 2, errno: 111
+[ 6465.862235] br-bee4afbf6aa2: port 7(veth4eb8a48) entered disabled state
+[ 6465.869663] br-bee4afbf6aa2: port 3(vethcf37434) entered disabled state
+[ 6465.870027] vetha58b13b: renamed from eth0
+[ 6465.943283] br-bee4afbf6aa2: port 3(vethcf37434) entered disabled state
+[ 6465.943809] vethcf37434 (unregistering): left allmulticast mode
+[ 6465.944023] vethcf37434 (unregistering): left promiscuous mode
+[ 6465.944243] br-bee4afbf6aa2: port 3(vethcf37434) entered disabled state
+[ 6465.944847] br-bee4afbf6aa2: port 5(veth84e0f98) entered disabled state
+[ 6465.945169] veth0e28619: renamed from eth0
+[ 6465.955672] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8083, family: 2, errno: 111
+[ 6466.022395] br-bee4afbf6aa2: port 5(veth84e0f98) entered disabled state
+[ 6466.023004] veth84e0f98 (unregistering): left allmulticast mode
+[ 6466.023313] veth84e0f98 (unregistering): left promiscuous mode
+[ 6466.023615] br-bee4afbf6aa2: port 5(veth84e0f98) entered disabled state
+[ 6466.031884] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5457, family: 2, errno: 111
+[ 6466.094212] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8084, family: 2, errno: 111
+[ 6466.117969] br-bee4afbf6aa2: port 4(veth4234d31) entered disabled state
+[ 6466.118433] veth10ff6dc: renamed from eth0
+[ 6466.187862] br-bee4afbf6aa2: port 4(veth4234d31) entered disabled state
+[ 6466.188479] veth4234d31 (unregistering): left allmulticast mode
+[ 6466.188822] veth4234d31 (unregistering): left promiscuous mode
+[ 6466.189141] br-bee4afbf6aa2: port 4(veth4234d31) entered disabled state
+[ 6466.277459] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5458, family: 2, errno: 111
+[ 6466.455475] br-bee4afbf6aa2: port 2(veth5a6afe1) entered disabled state
+[ 6466.455819] veth72788da: renamed from eth0
+[ 6466.503148] br-bee4afbf6aa2: port 2(veth5a6afe1) entered disabled state
+[ 6466.503673] veth5a6afe1 (unregistering): left allmulticast mode
+[ 6466.503886] veth5a6afe1 (unregistering): left promiscuous mode
+[ 6466.504130] br-bee4afbf6aa2: port 2(veth5a6afe1) entered disabled state
+[ 6466.612310] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5459, family: 2, errno: 111
+[ 6469.860013] br-751c4026f328: port 1(veth5b17578) entered blocking state
+[ 6469.860393] br-751c4026f328: port 1(veth5b17578) entered disabled state
+[ 6469.860637] veth5b17578: entered allmulticast mode
+[ 6469.860867] veth5b17578: entered promiscuous mode
+[ 6469.874686] eth0: renamed from vethf6981b8
+[ 6469.875479] br-751c4026f328: port 1(veth5b17578) entered blocking state
+[ 6469.875772] br-751c4026f328: port 1(veth5b17578) entered forwarding state
+[ 6470.023817] br-751c4026f328: port 2(veth4c83b97) entered blocking state
+[ 6470.024118] br-751c4026f328: port 2(veth4c83b97) entered disabled state
+[ 6470.024344] veth4c83b97: entered allmulticast mode
+[ 6470.024584] veth4c83b97: entered promiscuous mode
+[ 6470.038518] eth0: renamed from vethb5c7539
+[ 6470.039323] br-751c4026f328: port 2(veth4c83b97) entered blocking state
+[ 6470.039618] br-751c4026f328: port 2(veth4c83b97) entered forwarding state
+[ 6470.182742] br-751c4026f328: port 3(veth8812d20) entered blocking state
+[ 6470.183113] br-751c4026f328: port 3(veth8812d20) entered disabled state
+[ 6470.183451] veth8812d20: entered allmulticast mode
+[ 6470.183705] veth8812d20: entered promiscuous mode
+[ 6470.199619] eth0: renamed from veth934b31e
+[ 6470.200435] br-751c4026f328: port 3(veth8812d20) entered blocking state
+[ 6470.200663] br-751c4026f328: port 3(veth8812d20) entered forwarding state
+[ 6470.330479] br-751c4026f328: port 4(veth9e69bc6) entered blocking state
+[ 6470.330851] br-751c4026f328: port 4(veth9e69bc6) entered disabled state
+[ 6470.331156] veth9e69bc6: entered allmulticast mode
+[ 6470.331412] veth9e69bc6: entered promiscuous mode
+[ 6470.346066] eth0: renamed from vethf6994a4
+[ 6470.346993] br-751c4026f328: port 4(veth9e69bc6) entered blocking state
+[ 6470.347243] br-751c4026f328: port 4(veth9e69bc6) entered forwarding state
+[ 6475.677828] br-751c4026f328: port 5(veth97f13ef) entered blocking state
+[ 6475.678174] br-751c4026f328: port 5(veth97f13ef) entered disabled state
+[ 6475.678513] veth97f13ef: entered allmulticast mode
+[ 6475.678858] veth97f13ef: entered promiscuous mode
+[ 6475.693039] eth0: renamed from veth3ebd6e1
+[ 6475.693765] br-751c4026f328: port 5(veth97f13ef) entered blocking state
+[ 6475.694087] br-751c4026f328: port 5(veth97f13ef) entered forwarding state
+[ 6475.837957] br-751c4026f328: port 6(vethb14093e) entered blocking state
+[ 6475.838324] br-751c4026f328: port 6(vethb14093e) entered disabled state
+[ 6475.838568] vethb14093e: entered allmulticast mode
+[ 6475.838854] vethb14093e: entered promiscuous mode
+[ 6475.855552] eth0: renamed from vethff4b4ed
+[ 6475.856399] br-751c4026f328: port 6(vethb14093e) entered blocking state
+[ 6475.856686] br-751c4026f328: port 6(vethb14093e) entered forwarding state
+[ 6475.987973] br-751c4026f328: port 7(vethe174014) entered blocking state
+[ 6475.988421] br-751c4026f328: port 7(vethe174014) entered disabled state
+[ 6475.988823] vethe174014: entered allmulticast mode
+[ 6475.989070] vethe174014: entered promiscuous mode
+[ 6476.005068] eth0: renamed from vethef991b3
+[ 6476.005956] br-751c4026f328: port 7(vethe174014) entered blocking state
+[ 6476.006613] br-751c4026f328: port 7(vethe174014) entered forwarding state
+[ 6481.641072] br-751c4026f328: port 8(vethb07ff6f) entered blocking state
+[ 6481.641409] br-751c4026f328: port 8(vethb07ff6f) entered disabled state
+[ 6481.641649] vethb07ff6f: entered allmulticast mode
+[ 6481.641874] vethb07ff6f: entered promiscuous mode
+[ 6481.654974] eth0: renamed from vethd091d1a
+[ 6481.655678] br-751c4026f328: port 8(vethb07ff6f) entered blocking state
+[ 6481.655963] br-751c4026f328: port 8(vethb07ff6f) entered forwarding state
+[ 6553.903744] br-751c4026f328: port 9(vethcda3fd9) entered blocking state
+[ 6553.904035] br-751c4026f328: port 9(vethcda3fd9) entered disabled state
+[ 6553.904312] vethcda3fd9: entered allmulticast mode
+[ 6553.904556] vethcda3fd9: entered promiscuous mode
+[ 6553.918097] eth0: renamed from veth6059f51
+[ 6553.918856] br-751c4026f328: port 9(vethcda3fd9) entered blocking state
+[ 6553.919118] br-751c4026f328: port 9(vethcda3fd9) entered forwarding state
+[ 6566.428452] br-751c4026f328: port 9(vethcda3fd9) entered disabled state
+[ 6566.428846] veth6059f51: renamed from eth0
+[ 6566.459787] br-751c4026f328: port 9(vethcda3fd9) entered disabled state
+[ 6566.460307] vethcda3fd9 (unregistering): left allmulticast mode
+[ 6566.460548] vethcda3fd9 (unregistering): left promiscuous mode
+[ 6566.460753] br-751c4026f328: port 9(vethcda3fd9) entered disabled state
+[ 6566.733162] br-751c4026f328: port 9(veth690e3c6) entered blocking state
+[ 6566.733525] br-751c4026f328: port 9(veth690e3c6) entered disabled state
+[ 6566.733731] veth690e3c6: entered allmulticast mode
+[ 6566.733956] veth690e3c6: entered promiscuous mode
+[ 6566.748165] eth0: renamed from vetha21e451
+[ 6566.748803] br-751c4026f328: port 9(veth690e3c6) entered blocking state
+[ 6566.749104] br-751c4026f328: port 9(veth690e3c6) entered forwarding state
+[ 6868.248826] br-751c4026f328: port 9(veth690e3c6) entered disabled state
+[ 6868.249297] vetha21e451: renamed from eth0
+[ 6868.274210] br-751c4026f328: port 9(veth690e3c6) entered disabled state
+[ 6868.274713] veth690e3c6 (unregistering): left allmulticast mode
+[ 6868.275022] veth690e3c6 (unregistering): left promiscuous mode
+[ 6868.275280] br-751c4026f328: port 9(veth690e3c6) entered disabled state
+[ 6909.715107] docker0: port 1(veth927ca1a) entered blocking state
+[ 6909.715438] docker0: port 1(veth927ca1a) entered disabled state
+[ 6909.715709] veth927ca1a: entered allmulticast mode
+[ 6909.715927] veth927ca1a: entered promiscuous mode
+[ 6909.719718] eth0: renamed from veth1880832
+[ 6909.720329] docker0: port 1(veth927ca1a) entered blocking state
+[ 6909.720636] docker0: port 1(veth927ca1a) entered forwarding state
+[ 6909.790327] docker0: port 1(veth927ca1a) entered disabled state
+[ 6909.790742] veth1880832: renamed from eth0
+[ 6909.832119] docker0: port 1(veth927ca1a) entered disabled state
+[ 6909.832638] veth927ca1a (unregistering): left allmulticast mode
+[ 6909.832927] veth927ca1a (unregistering): left promiscuous mode
+[ 6909.833145] docker0: port 1(veth927ca1a) entered disabled state
+[ 6910.410446] br-751c4026f328: port 8(vethb07ff6f) entered disabled state
+[ 6910.410879] vethd091d1a: renamed from eth0
+[ 6910.440448] br-751c4026f328: port 8(vethb07ff6f) entered disabled state
+[ 6910.440966] vethb07ff6f (unregistering): left allmulticast mode
+[ 6910.441240] vethb07ff6f (unregistering): left promiscuous mode
+[ 6910.441637] br-751c4026f328: port 8(vethb07ff6f) entered disabled state
+[ 6910.510797] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8081, family: 2, errno: 111
+[ 6910.800801] br-751c4026f328: port 5(veth97f13ef) entered disabled state
+[ 6910.801170] veth3ebd6e1: renamed from eth0
+[ 6910.852421] br-751c4026f328: port 5(veth97f13ef) entered disabled state
+[ 6910.852981] veth97f13ef (unregistering): left allmulticast mode
+[ 6910.853251] veth97f13ef (unregistering): left promiscuous mode
+[ 6910.853483] br-751c4026f328: port 5(veth97f13ef) entered disabled state
+[ 6910.949283] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8082, family: 2, errno: 111
+[ 6910.997241] br-751c4026f328: port 1(veth5b17578) entered disabled state
+[ 6910.997951] vethf6981b8: renamed from eth0
+[ 6911.085447] br-751c4026f328: port 1(veth5b17578) entered disabled state
+[ 6911.086782] veth5b17578 (unregistering): left allmulticast mode
+[ 6911.087046] veth5b17578 (unregistering): left promiscuous mode
+[ 6911.087264] br-751c4026f328: port 1(veth5b17578) entered disabled state
+[ 6911.092723] br-751c4026f328: port 7(vethe174014) entered disabled state
+[ 6911.093731] vethef991b3: renamed from eth0
+[ 6911.229389] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5455, family: 2, errno: 111
+[ 6911.240092] br-751c4026f328: port 2(veth4c83b97) entered disabled state
+[ 6911.240511] vethb5c7539: renamed from eth0
+[ 6911.272994] br-751c4026f328: port 7(vethe174014) entered disabled state
+[ 6911.273673] vethe174014 (unregistering): left allmulticast mode
+[ 6911.273998] vethe174014 (unregistering): left promiscuous mode
+[ 6911.274273] br-751c4026f328: port 7(vethe174014) entered disabled state
+[ 6911.277920] br-751c4026f328: port 6(vethb14093e) entered disabled state
+[ 6911.278235] vethff4b4ed: renamed from eth0
+[ 6911.356249] br-751c4026f328: port 2(veth4c83b97) entered disabled state
+[ 6911.357004] veth4c83b97 (unregistering): left allmulticast mode
+[ 6911.357462] veth4c83b97 (unregistering): left promiscuous mode
+[ 6911.357807] br-751c4026f328: port 2(veth4c83b97) entered disabled state
+[ 6911.369979] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8083, family: 2, errno: 111
+[ 6911.480259] br-751c4026f328: port 6(vethb14093e) entered disabled state
+[ 6911.493162] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5457, family: 2, errno: 111
+[ 6911.499979] vethb14093e (unregistering): left allmulticast mode
+[ 6911.500361] vethb14093e (unregistering): left promiscuous mode
+[ 6911.500604] br-751c4026f328: port 6(vethb14093e) entered disabled state
+[ 6911.541248] br-751c4026f328: port 4(veth9e69bc6) entered disabled state
+[ 6911.541684] vethf6994a4: renamed from eth0
+[ 6911.562414] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8084, family: 2, errno: 111
+[ 6911.576554] br-751c4026f328: port 4(veth9e69bc6) entered disabled state
+[ 6911.577447] veth9e69bc6 (unregistering): left allmulticast mode
+[ 6911.577655] veth9e69bc6 (unregistering): left promiscuous mode
+[ 6911.577894] br-751c4026f328: port 4(veth9e69bc6) entered disabled state
+[ 6911.755872] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5458, family: 2, errno: 111
+[ 6911.899562] br-751c4026f328: port 3(veth8812d20) entered disabled state
+[ 6911.899941] veth934b31e: renamed from eth0
+[ 6911.931519] br-751c4026f328: port 3(veth8812d20) entered disabled state
+[ 6911.932039] veth8812d20 (unregistering): left allmulticast mode
+[ 6911.932213] veth8812d20 (unregistering): left promiscuous mode
+[ 6911.932366] br-751c4026f328: port 3(veth8812d20) entered disabled state
+[ 6911.985368] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5459, family: 2, errno: 111
+[ 6915.282615] br-2af8d137d8c4: port 1(vethbad9920) entered blocking state
+[ 6915.283003] br-2af8d137d8c4: port 1(vethbad9920) entered disabled state
+[ 6915.283312] vethbad9920: entered allmulticast mode
+[ 6915.283596] vethbad9920: entered promiscuous mode
+[ 6915.297594] eth0: renamed from vethb83d4de
+[ 6915.298365] br-2af8d137d8c4: port 1(vethbad9920) entered blocking state
+[ 6915.298696] br-2af8d137d8c4: port 1(vethbad9920) entered forwarding state
+[ 6915.436176] br-2af8d137d8c4: port 2(vethcfd507b) entered blocking state
+[ 6915.436667] br-2af8d137d8c4: port 2(vethcfd507b) entered disabled state
+[ 6915.436946] vethcfd507b: entered allmulticast mode
+[ 6915.437163] vethcfd507b: entered promiscuous mode
+[ 6915.451265] eth0: renamed from vethbf1014e
+[ 6915.452061] br-2af8d137d8c4: port 2(vethcfd507b) entered blocking state
+[ 6915.452337] br-2af8d137d8c4: port 2(vethcfd507b) entered forwarding state
+[ 6915.590653] br-2af8d137d8c4: port 3(vethcb2bc7c) entered blocking state
+[ 6915.590991] br-2af8d137d8c4: port 3(vethcb2bc7c) entered disabled state
+[ 6915.591263] vethcb2bc7c: entered allmulticast mode
+[ 6915.591512] vethcb2bc7c: entered promiscuous mode
+[ 6915.605684] eth0: renamed from vethf9bd3f8
+[ 6915.606382] br-2af8d137d8c4: port 3(vethcb2bc7c) entered blocking state
+[ 6915.606690] br-2af8d137d8c4: port 3(vethcb2bc7c) entered forwarding state
+[ 6915.753987] br-2af8d137d8c4: port 4(veth4166b38) entered blocking state
+[ 6915.754326] br-2af8d137d8c4: port 4(veth4166b38) entered disabled state
+[ 6915.754552] veth4166b38: entered allmulticast mode
+[ 6915.754777] veth4166b38: entered promiscuous mode
+[ 6915.771185] eth0: renamed from veth9882856
+[ 6915.772111] br-2af8d137d8c4: port 4(veth4166b38) entered blocking state
+[ 6915.772393] br-2af8d137d8c4: port 4(veth4166b38) entered forwarding state
+[ 6920.923180] br-2af8d137d8c4: port 5(veth71a2a33) entered blocking state
+[ 6920.923540] br-2af8d137d8c4: port 5(veth71a2a33) entered disabled state
+[ 6920.923795] veth71a2a33: entered allmulticast mode
+[ 6920.924008] veth71a2a33: entered promiscuous mode
+[ 6920.938360] eth0: renamed from vethb2b7e08
+[ 6920.938945] br-2af8d137d8c4: port 5(veth71a2a33) entered blocking state
+[ 6920.939216] br-2af8d137d8c4: port 5(veth71a2a33) entered forwarding state
+[ 6921.243323] br-2af8d137d8c4: port 6(veth51dce8d) entered blocking state
+[ 6921.243711] br-2af8d137d8c4: port 6(veth51dce8d) entered disabled state
+[ 6921.244052] veth51dce8d: entered allmulticast mode
+[ 6921.244309] veth51dce8d: entered promiscuous mode
+[ 6921.260891] eth0: renamed from vethe90d227
+[ 6921.262613] br-2af8d137d8c4: port 6(veth51dce8d) entered blocking state
+[ 6921.262904] br-2af8d137d8c4: port 6(veth51dce8d) entered forwarding state
+[ 6921.414894] br-2af8d137d8c4: port 7(veth5b3ccf5) entered blocking state
+[ 6921.415216] br-2af8d137d8c4: port 7(veth5b3ccf5) entered disabled state
+[ 6921.415523] veth5b3ccf5: entered allmulticast mode
+[ 6921.415861] veth5b3ccf5: entered promiscuous mode
+[ 6921.431685] eth0: renamed from vetha52ef63
+[ 6921.432671] br-2af8d137d8c4: port 7(veth5b3ccf5) entered blocking state
+[ 6921.432952] br-2af8d137d8c4: port 7(veth5b3ccf5) entered forwarding state
+[ 6927.082472] br-2af8d137d8c4: port 8(vethdd3a8c1) entered blocking state
+[ 6927.082856] br-2af8d137d8c4: port 8(vethdd3a8c1) entered disabled state
+[ 6927.083110] vethdd3a8c1: entered allmulticast mode
+[ 6927.083423] vethdd3a8c1: entered promiscuous mode
+[ 6927.097529] eth0: renamed from vetha629352
+[ 6927.098209] br-2af8d137d8c4: port 8(vethdd3a8c1) entered blocking state
+[ 6927.098458] br-2af8d137d8c4: port 8(vethdd3a8c1) entered forwarding state
+[ 6996.217587] br-2af8d137d8c4: port 9(vethb453189) entered blocking state
+[ 6996.217929] br-2af8d137d8c4: port 9(vethb453189) entered disabled state
+[ 6996.218184] vethb453189: entered allmulticast mode
+[ 6996.218432] vethb453189: entered promiscuous mode
+[ 6996.232621] eth0: renamed from veth78228fc
+[ 6996.233410] br-2af8d137d8c4: port 9(vethb453189) entered blocking state
+[ 6996.233710] br-2af8d137d8c4: port 9(vethb453189) entered forwarding state
+[ 7304.184499] br-2af8d137d8c4: port 9(vethb453189) entered disabled state
+[ 7304.186008] veth78228fc: renamed from eth0
+[ 7304.227957] br-2af8d137d8c4: port 9(vethb453189) entered disabled state
+[ 7304.228390] vethb453189 (unregistering): left allmulticast mode
+[ 7304.228599] vethb453189 (unregistering): left promiscuous mode
+[ 7304.228862] br-2af8d137d8c4: port 9(vethb453189) entered disabled state
+[ 7345.669469] docker0: port 1(veth9ec9444) entered blocking state
+[ 7345.669838] docker0: port 1(veth9ec9444) entered disabled state
+[ 7345.670075] veth9ec9444: entered allmulticast mode
+[ 7345.670294] veth9ec9444: entered promiscuous mode
+[ 7345.674216] eth0: renamed from veth18b5b9d
+[ 7345.674854] docker0: port 1(veth9ec9444) entered blocking state
+[ 7345.675157] docker0: port 1(veth9ec9444) entered forwarding state
+[ 7345.758232] docker0: port 1(veth9ec9444) entered disabled state
+[ 7345.758589] veth18b5b9d: renamed from eth0
+[ 7345.814535] docker0: port 1(veth9ec9444) entered disabled state
+[ 7345.815204] veth9ec9444 (unregistering): left allmulticast mode
+[ 7345.815527] veth9ec9444 (unregistering): left promiscuous mode
+[ 7345.815803] docker0: port 1(veth9ec9444) entered disabled state
+[ 7346.407092] br-2af8d137d8c4: port 8(vethdd3a8c1) entered disabled state
+[ 7346.407457] vetha629352: renamed from eth0
+[ 7346.461879] br-2af8d137d8c4: port 8(vethdd3a8c1) entered disabled state
+[ 7346.462376] vethdd3a8c1 (unregistering): left allmulticast mode
+[ 7346.462632] vethdd3a8c1 (unregistering): left promiscuous mode
+[ 7346.462895] br-2af8d137d8c4: port 8(vethdd3a8c1) entered disabled state
+[ 7346.533698] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8081, family: 2, errno: 111
+[ 7346.725866] br-2af8d137d8c4: port 2(vethcfd507b) entered disabled state
+[ 7346.726292] vethbf1014e: renamed from eth0
+[ 7346.827159] br-2af8d137d8c4: port 2(vethcfd507b) entered disabled state
+[ 7346.828543] vethcfd507b (unregistering): left allmulticast mode
+[ 7346.828767] vethcfd507b (unregistering): left promiscuous mode
+[ 7346.828999] br-2af8d137d8c4: port 2(vethcfd507b) entered disabled state
+[ 7346.839888] br-2af8d137d8c4: port 5(veth71a2a33) entered disabled state
+[ 7346.840199] vethb2b7e08: renamed from eth0
+[ 7346.940662] br-2af8d137d8c4: port 5(veth71a2a33) entered disabled state
+[ 7346.941295] veth71a2a33 (unregistering): left allmulticast mode
+[ 7346.941535] veth71a2a33 (unregistering): left promiscuous mode
+[ 7346.941823] br-2af8d137d8c4: port 5(veth71a2a33) entered disabled state
+[ 7346.950993] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5455, family: 2, errno: 111
+[ 7347.013045] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8082, family: 2, errno: 111
+[ 7347.067567] br-2af8d137d8c4: port 6(veth51dce8d) entered disabled state
+[ 7347.067964] vethe90d227: renamed from eth0
+[ 7347.151360] br-2af8d137d8c4: port 6(veth51dce8d) entered disabled state
+[ 7347.152612] veth51dce8d (unregistering): left allmulticast mode
+[ 7347.152863] veth51dce8d (unregistering): left promiscuous mode
+[ 7347.153084] br-2af8d137d8c4: port 6(veth51dce8d) entered disabled state
+[ 7347.158185] br-2af8d137d8c4: port 7(veth5b3ccf5) entered disabled state
+[ 7347.158503] vetha52ef63: renamed from eth0
+[ 7347.233971] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8083, family: 2, errno: 111
+[ 7347.250940] br-2af8d137d8c4: port 7(veth5b3ccf5) entered disabled state
+[ 7347.252284] veth5b3ccf5 (unregistering): left allmulticast mode
+[ 7347.252607] veth5b3ccf5 (unregistering): left promiscuous mode
+[ 7347.252841] br-2af8d137d8c4: port 7(veth5b3ccf5) entered disabled state
+[ 7347.259003] br-2af8d137d8c4: port 1(vethbad9920) entered disabled state
+[ 7347.259410] vethb83d4de: renamed from eth0
+[ 7347.381950] br-2af8d137d8c4: port 1(vethbad9920) entered disabled state
+[ 7347.394982] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8084, family: 2, errno: 111
+[ 7347.397753] vethbad9920 (unregistering): left allmulticast mode
+[ 7347.398046] vethbad9920 (unregistering): left promiscuous mode
+[ 7347.398316] br-2af8d137d8c4: port 1(vethbad9920) entered disabled state
+[ 7347.409869] br-2af8d137d8c4: port 3(vethcb2bc7c) entered disabled state
+[ 7347.410254] vethf9bd3f8: renamed from eth0
+[ 7347.448256] br-2af8d137d8c4: port 3(vethcb2bc7c) entered disabled state
+[ 7347.448847] vethcb2bc7c (unregistering): left allmulticast mode
+[ 7347.449150] vethcb2bc7c (unregistering): left promiscuous mode
+[ 7347.449449] br-2af8d137d8c4: port 3(vethcb2bc7c) entered disabled state
+[ 7347.457201] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5457, family: 2, errno: 111
+[ 7347.518092] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5458, family: 2, errno: 111
+[ 7347.569557] br-2af8d137d8c4: port 4(veth4166b38) entered disabled state
+[ 7347.569937] veth9882856: renamed from eth0
+[ 7347.654179] br-2af8d137d8c4: port 4(veth4166b38) entered disabled state
+[ 7347.654695] veth4166b38 (unregistering): left allmulticast mode
+[ 7347.654944] veth4166b38 (unregistering): left promiscuous mode
+[ 7347.655144] br-2af8d137d8c4: port 4(veth4166b38) entered disabled state
+[ 7347.725917] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5459, family: 2, errno: 111
+[ 7351.437414] br-ab0d7d3940f6: port 1(veth600aef0) entered blocking state
+[ 7351.437797] br-ab0d7d3940f6: port 1(veth600aef0) entered disabled state
+[ 7351.438078] veth600aef0: entered allmulticast mode
+[ 7351.438362] veth600aef0: entered promiscuous mode
+[ 7351.452127] eth0: renamed from veth41e9196
+[ 7351.452839] br-ab0d7d3940f6: port 1(veth600aef0) entered blocking state
+[ 7351.453169] br-ab0d7d3940f6: port 1(veth600aef0) entered forwarding state
+[ 7351.592652] br-ab0d7d3940f6: port 2(veth2d8497e) entered blocking state
+[ 7351.593200] br-ab0d7d3940f6: port 2(veth2d8497e) entered disabled state
+[ 7351.593592] veth2d8497e: entered allmulticast mode
+[ 7351.593877] veth2d8497e: entered promiscuous mode
+[ 7351.609113] eth0: renamed from vethcf324d6
+[ 7351.610026] br-ab0d7d3940f6: port 2(veth2d8497e) entered blocking state
+[ 7351.610332] br-ab0d7d3940f6: port 2(veth2d8497e) entered forwarding state
+[ 7351.742273] br-ab0d7d3940f6: port 3(vethb5f7723) entered blocking state
+[ 7351.742628] br-ab0d7d3940f6: port 3(vethb5f7723) entered disabled state
+[ 7351.742899] vethb5f7723: entered allmulticast mode
+[ 7351.743130] vethb5f7723: entered promiscuous mode
+[ 7351.759641] eth0: renamed from veth79aeade
+[ 7351.760416] br-ab0d7d3940f6: port 3(vethb5f7723) entered blocking state
+[ 7351.760708] br-ab0d7d3940f6: port 3(vethb5f7723) entered forwarding state
+[ 7351.895190] br-ab0d7d3940f6: port 4(veth2e20b56) entered blocking state
+[ 7351.895601] br-ab0d7d3940f6: port 4(veth2e20b56) entered disabled state
+[ 7351.895854] veth2e20b56: entered allmulticast mode
+[ 7351.896105] veth2e20b56: entered promiscuous mode
+[ 7351.912409] eth0: renamed from veth7c1cfe3
+[ 7351.913283] br-ab0d7d3940f6: port 4(veth2e20b56) entered blocking state
+[ 7351.913601] br-ab0d7d3940f6: port 4(veth2e20b56) entered forwarding state
+[ 7357.080833] br-ab0d7d3940f6: port 5(veth8165a29) entered blocking state
+[ 7357.081171] br-ab0d7d3940f6: port 5(veth8165a29) entered disabled state
+[ 7357.081385] veth8165a29: entered allmulticast mode
+[ 7357.081613] veth8165a29: entered promiscuous mode
+[ 7357.094444] eth0: renamed from vethaaa8299
+[ 7357.095154] br-ab0d7d3940f6: port 5(veth8165a29) entered blocking state
+[ 7357.095431] br-ab0d7d3940f6: port 5(veth8165a29) entered forwarding state
+[ 7357.389040] br-ab0d7d3940f6: port 6(veth3cf8918) entered blocking state
+[ 7357.389607] br-ab0d7d3940f6: port 6(veth3cf8918) entered disabled state
+[ 7357.390018] veth3cf8918: entered allmulticast mode
+[ 7357.390290] veth3cf8918: entered promiscuous mode
+[ 7357.404524] eth0: renamed from veth04d7cd8
+[ 7357.405361] br-ab0d7d3940f6: port 6(veth3cf8918) entered blocking state
+[ 7357.405665] br-ab0d7d3940f6: port 6(veth3cf8918) entered forwarding state
+[ 7357.560695] br-ab0d7d3940f6: port 7(vethe14a41f) entered blocking state
+[ 7357.561194] br-ab0d7d3940f6: port 7(vethe14a41f) entered disabled state
+[ 7357.561501] vethe14a41f: entered allmulticast mode
+[ 7357.561793] vethe14a41f: entered promiscuous mode
+[ 7357.578043] eth0: renamed from vetha18bdeb
+[ 7357.579008] br-ab0d7d3940f6: port 7(vethe14a41f) entered blocking state
+[ 7357.579341] br-ab0d7d3940f6: port 7(vethe14a41f) entered forwarding state
+[ 7363.213665] br-ab0d7d3940f6: port 8(vetha96dcaf) entered blocking state
+[ 7363.213986] br-ab0d7d3940f6: port 8(vetha96dcaf) entered disabled state
+[ 7363.214226] vetha96dcaf: entered allmulticast mode
+[ 7363.214485] vetha96dcaf: entered promiscuous mode
+[ 7363.232042] eth0: renamed from veth76c98be
+[ 7363.233093] br-ab0d7d3940f6: port 8(vetha96dcaf) entered blocking state
+[ 7363.233399] br-ab0d7d3940f6: port 8(vetha96dcaf) entered forwarding state
+[ 7432.281523] br-ab0d7d3940f6: port 9(veth61848f5) entered blocking state
+[ 7432.281859] br-ab0d7d3940f6: port 9(veth61848f5) entered disabled state
+[ 7432.282055] veth61848f5: entered allmulticast mode
+[ 7432.282267] veth61848f5: entered promiscuous mode
+[ 7432.296714] eth0: renamed from vethb63c5b4
+[ 7432.297587] br-ab0d7d3940f6: port 9(veth61848f5) entered blocking state
+[ 7432.297862] br-ab0d7d3940f6: port 9(veth61848f5) entered forwarding state
+[ 7740.490465] br-ab0d7d3940f6: port 9(veth61848f5) entered disabled state
+[ 7740.490807] vethb63c5b4: renamed from eth0
+[ 7740.529866] br-ab0d7d3940f6: port 9(veth61848f5) entered disabled state
+[ 7740.530455] veth61848f5 (unregistering): left allmulticast mode
+[ 7740.530719] veth61848f5 (unregistering): left promiscuous mode
+[ 7740.530982] br-ab0d7d3940f6: port 9(veth61848f5) entered disabled state
+[ 7781.940586] docker0: port 1(veth26fbdd4) entered blocking state
+[ 7781.940942] docker0: port 1(veth26fbdd4) entered disabled state
+[ 7781.941178] veth26fbdd4: entered allmulticast mode
+[ 7781.941423] veth26fbdd4: entered promiscuous mode
+[ 7781.945468] eth0: renamed from vethdc19952
+[ 7781.946172] docker0: port 1(veth26fbdd4) entered blocking state
+[ 7781.946444] docker0: port 1(veth26fbdd4) entered forwarding state
+[ 7782.027468] docker0: port 1(veth26fbdd4) entered disabled state
+[ 7782.027818] vethdc19952: renamed from eth0
+[ 7782.055538] docker0: port 1(veth26fbdd4) entered disabled state
+[ 7782.056049] veth26fbdd4 (unregistering): left allmulticast mode
+[ 7782.056324] veth26fbdd4 (unregistering): left promiscuous mode
+[ 7782.056548] docker0: port 1(veth26fbdd4) entered disabled state
+[ 7782.637054] br-ab0d7d3940f6: port 8(vetha96dcaf) entered disabled state
+[ 7782.638494] veth76c98be: renamed from eth0
+[ 7782.671321] br-ab0d7d3940f6: port 8(vetha96dcaf) entered disabled state
+[ 7782.671782] vetha96dcaf (unregistering): left allmulticast mode
+[ 7782.672055] vetha96dcaf (unregistering): left promiscuous mode
+[ 7782.672313] br-ab0d7d3940f6: port 8(vetha96dcaf) entered disabled state
+[ 7782.747148] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8081, family: 2, errno: 111
+[ 7782.936188] br-ab0d7d3940f6: port 2(veth2d8497e) entered disabled state
+[ 7782.936574] vethcf324d6: renamed from eth0
+[ 7783.044680] br-ab0d7d3940f6: port 2(veth2d8497e) entered disabled state
+[ 7783.046056] veth2d8497e (unregistering): left allmulticast mode
+[ 7783.046318] veth2d8497e (unregistering): left promiscuous mode
+[ 7783.046534] br-ab0d7d3940f6: port 2(veth2d8497e) entered disabled state
+[ 7783.055605] br-ab0d7d3940f6: port 7(vethe14a41f) entered disabled state
+[ 7783.055903] vetha18bdeb: renamed from eth0
+[ 7783.134647] br-ab0d7d3940f6: port 7(vethe14a41f) entered disabled state
+[ 7783.135368] vethe14a41f (unregistering): left allmulticast mode
+[ 7783.135600] vethe14a41f (unregistering): left promiscuous mode
+[ 7783.135839] br-ab0d7d3940f6: port 7(vethe14a41f) entered disabled state
+[ 7783.144153] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5455, family: 2, errno: 111
+[ 7783.271480] br-ab0d7d3940f6: port 5(veth8165a29) entered disabled state
+[ 7783.271854] vethaaa8299: renamed from eth0
+[ 7783.281716] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8082, family: 2, errno: 111
+[ 7783.356229] br-ab0d7d3940f6: port 5(veth8165a29) entered disabled state
+[ 7783.357607] veth8165a29 (unregistering): left allmulticast mode
+[ 7783.357879] veth8165a29 (unregistering): left promiscuous mode
+[ 7783.358123] br-ab0d7d3940f6: port 5(veth8165a29) entered disabled state
+[ 7783.363692] br-ab0d7d3940f6: port 6(veth3cf8918) entered disabled state
+[ 7783.363989] veth04d7cd8: renamed from eth0
+[ 7783.436333] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8084, family: 2, errno: 111
+[ 7783.452623] br-ab0d7d3940f6: port 6(veth3cf8918) entered disabled state
+[ 7783.454149] veth3cf8918 (unregistering): left allmulticast mode
+[ 7783.454385] veth3cf8918 (unregistering): left promiscuous mode
+[ 7783.454599] br-ab0d7d3940f6: port 6(veth3cf8918) entered disabled state
+[ 7783.459834] br-ab0d7d3940f6: port 4(veth2e20b56) entered disabled state
+[ 7783.460185] veth7c1cfe3: renamed from eth0
+[ 7783.510201] br-ab0d7d3940f6: port 4(veth2e20b56) entered disabled state
+[ 7783.510750] veth2e20b56 (unregistering): left allmulticast mode
+[ 7783.511085] veth2e20b56 (unregistering): left promiscuous mode
+[ 7783.511403] br-ab0d7d3940f6: port 4(veth2e20b56) entered disabled state
+[ 7783.517980] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8083, family: 2, errno: 111
+[ 7783.599051] br-ab0d7d3940f6: port 1(veth600aef0) entered disabled state
+[ 7783.599543] veth41e9196: renamed from eth0
+[ 7783.695998] br-ab0d7d3940f6: port 1(veth600aef0) entered disabled state
+[ 7783.697271] veth600aef0 (unregistering): left allmulticast mode
+[ 7783.697596] veth600aef0 (unregistering): left promiscuous mode
+[ 7783.697847] br-ab0d7d3940f6: port 1(veth600aef0) entered disabled state
+[ 7783.704615] br-ab0d7d3940f6: port 3(vethb5f7723) entered disabled state
+[ 7783.704934] veth79aeade: renamed from eth0
+[ 7783.770577] br-ab0d7d3940f6: port 3(vethb5f7723) entered disabled state
+[ 7783.771378] vethb5f7723 (unregistering): left allmulticast mode
+[ 7783.771696] vethb5f7723 (unregistering): left promiscuous mode
+[ 7783.771929] br-ab0d7d3940f6: port 3(vethb5f7723) entered disabled state
+[ 7783.776443] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5459, family: 2, errno: 111
+[ 7783.839411] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5458, family: 2, errno: 111
+[ 7786.998601] br-c42f26ce5b86: port 1(vethb07b312) entered blocking state
+[ 7786.999000] br-c42f26ce5b86: port 1(vethb07b312) entered disabled state
+[ 7786.999266] vethb07b312: entered allmulticast mode
+[ 7786.999498] vethb07b312: entered promiscuous mode
+[ 7787.015792] eth0: renamed from veth048d508
+[ 7787.016595] br-c42f26ce5b86: port 1(vethb07b312) entered blocking state
+[ 7787.016936] br-c42f26ce5b86: port 1(vethb07b312) entered forwarding state
+[ 7787.158618] br-c42f26ce5b86: port 2(vethc5b0714) entered blocking state
+[ 7787.159003] br-c42f26ce5b86: port 2(vethc5b0714) entered disabled state
+[ 7787.159285] vethc5b0714: entered allmulticast mode
+[ 7787.159528] vethc5b0714: entered promiscuous mode
+[ 7787.173375] eth0: renamed from vethf505355
+[ 7787.174143] br-c42f26ce5b86: port 2(vethc5b0714) entered blocking state
+[ 7787.174388] br-c42f26ce5b86: port 2(vethc5b0714) entered forwarding state
+[ 7787.309387] br-c42f26ce5b86: port 3(veth57a20e8) entered blocking state
+[ 7787.309751] br-c42f26ce5b86: port 3(veth57a20e8) entered disabled state
+[ 7787.309983] veth57a20e8: entered allmulticast mode
+[ 7787.310214] veth57a20e8: entered promiscuous mode
+[ 7787.324653] eth0: renamed from vetha691431
+[ 7787.325447] br-c42f26ce5b86: port 3(veth57a20e8) entered blocking state
+[ 7787.325728] br-c42f26ce5b86: port 3(veth57a20e8) entered forwarding state
+[ 7787.451700] br-c42f26ce5b86: port 4(veth846ebba) entered blocking state
+[ 7787.452109] br-c42f26ce5b86: port 4(veth846ebba) entered disabled state
+[ 7787.452362] veth846ebba: entered allmulticast mode
+[ 7787.452530] veth846ebba: entered promiscuous mode
+[ 7787.467070] eth0: renamed from vethb45aec8
+[ 7787.467829] br-c42f26ce5b86: port 4(veth846ebba) entered blocking state
+[ 7787.468072] br-c42f26ce5b86: port 4(veth846ebba) entered forwarding state
+[ 7792.645524] br-c42f26ce5b86: port 5(vethee2f773) entered blocking state
+[ 7792.645830] br-c42f26ce5b86: port 5(vethee2f773) entered disabled state
+[ 7792.646066] vethee2f773: entered allmulticast mode
+[ 7792.646302] vethee2f773: entered promiscuous mode
+[ 7792.659551] eth0: renamed from veth1e7e07f
+[ 7792.660230] br-c42f26ce5b86: port 5(vethee2f773) entered blocking state
+[ 7792.660497] br-c42f26ce5b86: port 5(vethee2f773) entered forwarding state
+[ 7792.799395] br-c42f26ce5b86: port 6(veth4462607) entered blocking state
+[ 7792.799768] br-c42f26ce5b86: port 6(veth4462607) entered disabled state
+[ 7792.800020] veth4462607: entered allmulticast mode
+[ 7792.800263] veth4462607: entered promiscuous mode
+[ 7792.814736] eth0: renamed from veth359e5be
+[ 7792.815546] br-c42f26ce5b86: port 6(veth4462607) entered blocking state
+[ 7792.815819] br-c42f26ce5b86: port 6(veth4462607) entered forwarding state
+[ 7793.119139] br-c42f26ce5b86: port 7(veth1b5f932) entered blocking state
+[ 7793.119482] br-c42f26ce5b86: port 7(veth1b5f932) entered disabled state
+[ 7793.119767] veth1b5f932: entered allmulticast mode
+[ 7793.119984] veth1b5f932: entered promiscuous mode
+[ 7793.134829] eth0: renamed from vetha461872
+[ 7793.135657] br-c42f26ce5b86: port 7(veth1b5f932) entered blocking state
+[ 7793.135953] br-c42f26ce5b86: port 7(veth1b5f932) entered forwarding state
+[ 7798.773019] br-c42f26ce5b86: port 8(vethb9ddc69) entered blocking state
+[ 7798.773313] br-c42f26ce5b86: port 8(vethb9ddc69) entered disabled state
+[ 7798.773571] vethb9ddc69: entered allmulticast mode
+[ 7798.773816] vethb9ddc69: entered promiscuous mode
+[ 7798.787364] eth0: renamed from veth5686285
+[ 7798.788096] br-c42f26ce5b86: port 8(vethb9ddc69) entered blocking state
+[ 7798.788394] br-c42f26ce5b86: port 8(vethb9ddc69) entered forwarding state
+[ 7871.020465] br-c42f26ce5b86: port 9(vethafc3862) entered blocking state
+[ 7871.020756] br-c42f26ce5b86: port 9(vethafc3862) entered disabled state
+[ 7871.021019] vethafc3862: entered allmulticast mode
+[ 7871.021249] vethafc3862: entered promiscuous mode
+[ 7871.035065] eth0: renamed from veth13c0e34
+[ 7871.035692] br-c42f26ce5b86: port 9(vethafc3862) entered blocking state
+[ 7871.035930] br-c42f26ce5b86: port 9(vethafc3862) entered forwarding state
+[ 7875.680296] br-c42f26ce5b86: port 9(vethafc3862) entered disabled state
+[ 7875.680654] veth13c0e34: renamed from eth0
+[ 7875.715110] br-c42f26ce5b86: port 9(vethafc3862) entered disabled state
+[ 7875.715612] vethafc3862 (unregistering): left allmulticast mode
+[ 7875.715857] vethafc3862 (unregistering): left promiscuous mode
+[ 7875.716055] br-c42f26ce5b86: port 9(vethafc3862) entered disabled state
+[ 7875.990385] br-c42f26ce5b86: port 9(veth8cc4580) entered blocking state
+[ 7875.990769] br-c42f26ce5b86: port 9(veth8cc4580) entered disabled state
+[ 7875.991035] veth8cc4580: entered allmulticast mode
+[ 7875.991226] veth8cc4580: entered promiscuous mode
+[ 7876.005426] eth0: renamed from veth013590d
+[ 7876.006181] br-c42f26ce5b86: port 9(veth8cc4580) entered blocking state
+[ 7876.006550] br-c42f26ce5b86: port 9(veth8cc4580) entered forwarding state
+[ 8177.067295] br-c42f26ce5b86: port 9(veth8cc4580) entered disabled state
+[ 8177.067691] veth013590d: renamed from eth0
+[ 8177.099540] br-c42f26ce5b86: port 9(veth8cc4580) entered disabled state
+[ 8177.099935] veth8cc4580 (unregistering): left allmulticast mode
+[ 8177.100164] veth8cc4580 (unregistering): left promiscuous mode
+[ 8177.100341] br-c42f26ce5b86: port 9(veth8cc4580) entered disabled state
+[ 8218.536666] docker0: port 1(veth9aa006a) entered blocking state
+[ 8218.536985] docker0: port 1(veth9aa006a) entered disabled state
+[ 8218.537259] veth9aa006a: entered allmulticast mode
+[ 8218.537487] veth9aa006a: entered promiscuous mode
+[ 8218.541430] eth0: renamed from veth7c6b9bd
+[ 8218.542297] docker0: port 1(veth9aa006a) entered blocking state
+[ 8218.543120] docker0: port 1(veth9aa006a) entered forwarding state
+[ 8218.604205] docker0: port 1(veth9aa006a) entered disabled state
+[ 8218.604591] veth7c6b9bd: renamed from eth0
+[ 8218.654712] docker0: port 1(veth9aa006a) entered disabled state
+[ 8218.655241] veth9aa006a (unregistering): left allmulticast mode
+[ 8218.655411] veth9aa006a (unregistering): left promiscuous mode
+[ 8218.655625] docker0: port 1(veth9aa006a) entered disabled state
+[ 8219.174206] br-c42f26ce5b86: port 8(vethb9ddc69) entered disabled state
+[ 8219.174599] veth5686285: renamed from eth0
+[ 8219.217104] br-c42f26ce5b86: port 8(vethb9ddc69) entered disabled state
+[ 8219.217613] vethb9ddc69 (unregistering): left allmulticast mode
+[ 8219.217897] vethb9ddc69 (unregistering): left promiscuous mode
+[ 8219.218107] br-c42f26ce5b86: port 8(vethb9ddc69) entered disabled state
+[ 8219.312934] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8081, family: 2, errno: 111
+[ 8219.613891] br-c42f26ce5b86: port 7(veth1b5f932) entered disabled state
+[ 8219.614279] vetha461872: renamed from eth0
+[ 8219.646888] br-c42f26ce5b86: port 7(veth1b5f932) entered disabled state
+[ 8219.647393] veth1b5f932 (unregistering): left allmulticast mode
+[ 8219.647714] veth1b5f932 (unregistering): left promiscuous mode
+[ 8219.647987] br-c42f26ce5b86: port 7(veth1b5f932) entered disabled state
+[ 8219.728019] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8082, family: 2, errno: 111
+[ 8219.793933] br-c42f26ce5b86: port 3(veth57a20e8) entered disabled state
+[ 8219.794472] vetha691431: renamed from eth0
+[ 8219.878527] br-c42f26ce5b86: port 3(veth57a20e8) entered disabled state
+[ 8219.879842] veth57a20e8 (unregistering): left allmulticast mode
+[ 8219.880102] veth57a20e8 (unregistering): left promiscuous mode
+[ 8219.880341] br-c42f26ce5b86: port 3(veth57a20e8) entered disabled state
+[ 8219.886050] br-c42f26ce5b86: port 6(veth4462607) entered disabled state
+[ 8219.886393] veth359e5be: renamed from eth0
+[ 8219.987823] br-c42f26ce5b86: port 4(veth846ebba) entered disabled state
+[ 8219.988239] vethb45aec8: renamed from eth0
+[ 8219.999184] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5455, family: 2, errno: 111
+[ 8220.041875] br-c42f26ce5b86: port 6(veth4462607) entered disabled state
+[ 8220.042548] veth4462607 (unregistering): left allmulticast mode
+[ 8220.042887] veth4462607 (unregistering): left promiscuous mode
+[ 8220.043237] br-c42f26ce5b86: port 6(veth4462607) entered disabled state
+[ 8220.086817] br-c42f26ce5b86: port 5(vethee2f773) entered disabled state
+[ 8220.087202] veth1e7e07f: renamed from eth0
+[ 8220.128729] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8083, family: 2, errno: 111
+[ 8220.158117] br-c42f26ce5b86: port 4(veth846ebba) entered disabled state
+[ 8220.158824] veth846ebba (unregistering): left allmulticast mode
+[ 8220.159137] veth846ebba (unregistering): left promiscuous mode
+[ 8220.159461] br-c42f26ce5b86: port 4(veth846ebba) entered disabled state
+[ 8220.241481] br-c42f26ce5b86: port 5(vethee2f773) entered disabled state
+[ 8220.255087] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5457, family: 2, errno: 111
+[ 8220.265337] vethee2f773 (unregistering): left allmulticast mode
+[ 8220.265674] vethee2f773 (unregistering): left promiscuous mode
+[ 8220.265919] br-c42f26ce5b86: port 5(vethee2f773) entered disabled state
+[ 8220.305834] br-c42f26ce5b86: port 2(vethc5b0714) entered disabled state
+[ 8220.306242] vethf505355: renamed from eth0
+[ 8220.337107] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8084, family: 2, errno: 111
+[ 8220.371461] br-c42f26ce5b86: port 2(vethc5b0714) entered disabled state
+[ 8220.372192] vethc5b0714 (unregistering): left allmulticast mode
+[ 8220.372500] vethc5b0714 (unregistering): left promiscuous mode
+[ 8220.372785] br-c42f26ce5b86: port 2(vethc5b0714) entered disabled state
+[ 8220.493367] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5458, family: 2, errno: 111
+[ 8220.716842] br-c42f26ce5b86: port 1(vethb07b312) entered disabled state
+[ 8220.717269] veth048d508: renamed from eth0
+[ 8220.752885] br-c42f26ce5b86: port 1(vethb07b312) entered disabled state
+[ 8220.753365] vethb07b312 (unregistering): left allmulticast mode
+[ 8220.753629] vethb07b312 (unregistering): left promiscuous mode
+[ 8220.753897] br-c42f26ce5b86: port 1(vethb07b312) entered disabled state
+[ 8220.818394] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5459, family: 2, errno: 111
+[ 8224.026788] br-abf670462261: port 1(veth590eded) entered blocking state
+[ 8224.027231] br-abf670462261: port 1(veth590eded) entered disabled state
+[ 8224.027521] veth590eded: entered allmulticast mode
+[ 8224.027777] veth590eded: entered promiscuous mode
+[ 8224.041456] eth0: renamed from veth5d9f703
+[ 8224.042170] br-abf670462261: port 1(veth590eded) entered blocking state
+[ 8224.042427] br-abf670462261: port 1(veth590eded) entered forwarding state
+[ 8224.179737] br-abf670462261: port 2(vethc559651) entered blocking state
+[ 8224.180081] br-abf670462261: port 2(vethc559651) entered disabled state
+[ 8224.180352] vethc559651: entered allmulticast mode
+[ 8224.180566] vethc559651: entered promiscuous mode
+[ 8224.194846] eth0: renamed from veth5cbfb95
+[ 8224.195671] br-abf670462261: port 2(vethc559651) entered blocking state
+[ 8224.195931] br-abf670462261: port 2(vethc559651) entered forwarding state
+[ 8224.334018] br-abf670462261: port 3(veth3041f40) entered blocking state
+[ 8224.334313] br-abf670462261: port 3(veth3041f40) entered disabled state
+[ 8224.334534] veth3041f40: entered allmulticast mode
+[ 8224.334724] veth3041f40: entered promiscuous mode
+[ 8224.348233] eth0: renamed from veth0558f73
+[ 8224.348967] br-abf670462261: port 3(veth3041f40) entered blocking state
+[ 8224.349209] br-abf670462261: port 3(veth3041f40) entered forwarding state
+[ 8224.503444] br-abf670462261: port 4(vethf61624e) entered blocking state
+[ 8224.503787] br-abf670462261: port 4(vethf61624e) entered disabled state
+[ 8224.504030] vethf61624e: entered allmulticast mode
+[ 8224.504286] vethf61624e: entered promiscuous mode
+[ 8224.518668] eth0: renamed from veth21f52db
+[ 8224.519495] br-abf670462261: port 4(vethf61624e) entered blocking state
+[ 8224.519731] br-abf670462261: port 4(vethf61624e) entered forwarding state
+[ 8229.672723] br-abf670462261: port 5(veth1b5480f) entered blocking state
+[ 8229.673026] br-abf670462261: port 5(veth1b5480f) entered disabled state
+[ 8229.673272] veth1b5480f: entered allmulticast mode
+[ 8229.673490] veth1b5480f: entered promiscuous mode
+[ 8229.686967] eth0: renamed from veth8eef082
+[ 8229.687546] br-abf670462261: port 5(veth1b5480f) entered blocking state
+[ 8229.687785] br-abf670462261: port 5(veth1b5480f) entered forwarding state
+[ 8229.972883] br-abf670462261: port 6(veth5c76f33) entered blocking state
+[ 8229.973237] br-abf670462261: port 6(veth5c76f33) entered disabled state
+[ 8229.973495] veth5c76f33: entered allmulticast mode
+[ 8229.973752] veth5c76f33: entered promiscuous mode
+[ 8229.987807] eth0: renamed from veth0531bda
+[ 8229.988640] br-abf670462261: port 6(veth5c76f33) entered blocking state
+[ 8229.988910] br-abf670462261: port 6(veth5c76f33) entered forwarding state
+[ 8230.152316] br-abf670462261: port 7(vethdc874f1) entered blocking state
+[ 8230.152796] br-abf670462261: port 7(vethdc874f1) entered disabled state
+[ 8230.153138] vethdc874f1: entered allmulticast mode
+[ 8230.153427] vethdc874f1: entered promiscuous mode
+[ 8230.171767] eth0: renamed from veth29e0a2f
+[ 8230.172721] br-abf670462261: port 7(vethdc874f1) entered blocking state
+[ 8230.172986] br-abf670462261: port 7(vethdc874f1) entered forwarding state
+[ 8235.817082] br-abf670462261: port 8(vethd11de34) entered blocking state
+[ 8235.817411] br-abf670462261: port 8(vethd11de34) entered disabled state
+[ 8235.817668] vethd11de34: entered allmulticast mode
+[ 8235.817917] vethd11de34: entered promiscuous mode
+[ 8235.831938] eth0: renamed from vethe4cd9c8
+[ 8235.832748] br-abf670462261: port 8(vethd11de34) entered blocking state
+[ 8235.833012] br-abf670462261: port 8(vethd11de34) entered forwarding state
+[ 8308.062084] br-abf670462261: port 9(veth429356b) entered blocking state
+[ 8308.062414] br-abf670462261: port 9(veth429356b) entered disabled state
+[ 8308.062679] veth429356b: entered allmulticast mode
+[ 8308.062916] veth429356b: entered promiscuous mode
+[ 8308.077724] eth0: renamed from vethfb4dfe6
+[ 8308.078463] br-abf670462261: port 9(veth429356b) entered blocking state
+[ 8308.078750] br-abf670462261: port 9(veth429356b) entered forwarding state
+[ 8320.728290] br-abf670462261: port 9(veth429356b) entered disabled state
+[ 8320.728693] vethfb4dfe6: renamed from eth0
+[ 8320.783866] br-abf670462261: port 9(veth429356b) entered disabled state
+[ 8320.784298] veth429356b (unregistering): left allmulticast mode
+[ 8320.784554] veth429356b (unregistering): left promiscuous mode
+[ 8320.784776] br-abf670462261: port 9(veth429356b) entered disabled state
+[ 8321.057225] br-abf670462261: port 9(veth5444466) entered blocking state
+[ 8321.057563] br-abf670462261: port 9(veth5444466) entered disabled state
+[ 8321.057836] veth5444466: entered allmulticast mode
+[ 8321.058064] veth5444466: entered promiscuous mode
+[ 8321.072088] eth0: renamed from vethc166004
+[ 8321.072830] br-abf670462261: port 9(veth5444466) entered blocking state
+[ 8321.073102] br-abf670462261: port 9(veth5444466) entered forwarding state
+[ 8622.615433] br-abf670462261: port 9(veth5444466) entered disabled state
+[ 8622.616135] vethc166004: renamed from eth0
+[ 8622.646933] br-abf670462261: port 9(veth5444466) entered disabled state
+[ 8622.647493] veth5444466 (unregistering): left allmulticast mode
+[ 8622.647729] veth5444466 (unregistering): left promiscuous mode
+[ 8622.647974] br-abf670462261: port 9(veth5444466) entered disabled state
+[ 8664.122684] docker0: port 1(veth5a91cf5) entered blocking state
+[ 8664.123001] docker0: port 1(veth5a91cf5) entered disabled state
+[ 8664.123216] veth5a91cf5: entered allmulticast mode
+[ 8664.123425] veth5a91cf5: entered promiscuous mode
+[ 8664.128331] eth0: renamed from vetha44d143
+[ 8664.129019] docker0: port 1(veth5a91cf5) entered blocking state
+[ 8664.129299] docker0: port 1(veth5a91cf5) entered forwarding state
+[ 8664.188780] docker0: port 1(veth5a91cf5) entered disabled state
+[ 8664.189193] vetha44d143: renamed from eth0
+[ 8664.226812] docker0: port 1(veth5a91cf5) entered disabled state
+[ 8664.227370] veth5a91cf5 (unregistering): left allmulticast mode
+[ 8664.227614] veth5a91cf5 (unregistering): left promiscuous mode
+[ 8664.227800] docker0: port 1(veth5a91cf5) entered disabled state
+[ 8664.804266] br-abf670462261: port 8(vethd11de34) entered disabled state
+[ 8664.804636] vethe4cd9c8: renamed from eth0
+[ 8664.830155] br-abf670462261: port 8(vethd11de34) entered disabled state
+[ 8664.830589] vethd11de34 (unregistering): left allmulticast mode
+[ 8664.830793] vethd11de34 (unregistering): left promiscuous mode
+[ 8664.830978] br-abf670462261: port 8(vethd11de34) entered disabled state
+[ 8664.917369] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8081, family: 2, errno: 111
+[ 8665.212129] br-abf670462261: port 6(veth5c76f33) entered disabled state
+[ 8665.212566] veth0531bda: renamed from eth0
+[ 8665.308330] br-abf670462261: port 6(veth5c76f33) entered disabled state
+[ 8665.309817] veth5c76f33 (unregistering): left allmulticast mode
+[ 8665.310088] veth5c76f33 (unregistering): left promiscuous mode
+[ 8665.310414] br-abf670462261: port 6(veth5c76f33) entered disabled state
+[ 8665.319339] br-abf670462261: port 2(vethc559651) entered disabled state
+[ 8665.319639] veth5cbfb95: renamed from eth0
+[ 8665.452389] br-abf670462261: port 2(vethc559651) entered disabled state
+[ 8665.453652] vethc559651 (unregistering): left allmulticast mode
+[ 8665.454169] vethc559651 (unregistering): left promiscuous mode
+[ 8665.454534] br-abf670462261: port 2(vethc559651) entered disabled state
+[ 8665.456198] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8082, family: 2, errno: 111
+[ 8665.464486] br-abf670462261: port 7(vethdc874f1) entered disabled state
+[ 8665.464921] veth29e0a2f: renamed from eth0
+[ 8665.582675] br-abf670462261: port 7(vethdc874f1) entered disabled state
+[ 8665.596247] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5455, family: 2, errno: 111
+[ 8665.598365] vethdc874f1 (unregistering): left allmulticast mode
+[ 8665.598695] vethdc874f1 (unregistering): left promiscuous mode
+[ 8665.598943] br-abf670462261: port 7(vethdc874f1) entered disabled state
+[ 8665.614716] br-abf670462261: port 5(veth1b5480f) entered disabled state
+[ 8665.615117] veth8eef082: renamed from eth0
+[ 8665.669478] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8083, family: 2, errno: 111
+[ 8665.688244] br-abf670462261: port 5(veth1b5480f) entered disabled state
+[ 8665.689775] veth1b5480f (unregistering): left allmulticast mode
+[ 8665.690167] veth1b5480f (unregistering): left promiscuous mode
+[ 8665.690463] br-abf670462261: port 5(veth1b5480f) entered disabled state
+[ 8665.702219] br-abf670462261: port 3(veth3041f40) entered disabled state
+[ 8665.702662] veth0558f73: renamed from eth0
+[ 8665.842530] br-abf670462261: port 3(veth3041f40) entered disabled state
+[ 8665.854370] veth3041f40 (unregistering): left allmulticast mode
+[ 8665.854760] veth3041f40 (unregistering): left promiscuous mode
+[ 8665.854794] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8084, family: 2, errno: 111
+[ 8665.855113] br-abf670462261: port 3(veth3041f40) entered disabled state
+[ 8665.869175] br-abf670462261: port 4(vethf61624e) entered disabled state
+[ 8665.869627] veth21f52db: renamed from eth0
+[ 8665.955266] br-abf670462261: port 4(vethf61624e) entered disabled state
+[ 8665.955764] vethf61624e (unregistering): left allmulticast mode
+[ 8665.955980] vethf61624e (unregistering): left promiscuous mode
+[ 8665.956193] br-abf670462261: port 4(vethf61624e) entered disabled state
+[ 8665.970474] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5457, family: 2, errno: 111
+[ 8666.069106] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5458, family: 2, errno: 111
+[ 8666.226243] br-abf670462261: port 1(veth590eded) entered disabled state
+[ 8666.226627] veth5d9f703: renamed from eth0
+[ 8666.275530] br-abf670462261: port 1(veth590eded) entered disabled state
+[ 8666.276022] veth590eded (unregistering): left allmulticast mode
+[ 8666.276290] veth590eded (unregistering): left promiscuous mode
+[ 8666.276510] br-abf670462261: port 1(veth590eded) entered disabled state
+[ 8666.360384] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5459, family: 2, errno: 111
+[ 8669.597053] br-043c219e5d4c: port 1(vethf2c2ced) entered blocking state
+[ 8669.597457] br-043c219e5d4c: port 1(vethf2c2ced) entered disabled state
+[ 8669.597731] vethf2c2ced: entered allmulticast mode
+[ 8669.598028] vethf2c2ced: entered promiscuous mode
+[ 8669.613053] eth0: renamed from vethf57ec97
+[ 8669.613820] br-043c219e5d4c: port 1(vethf2c2ced) entered blocking state
+[ 8669.614113] br-043c219e5d4c: port 1(vethf2c2ced) entered forwarding state
+[ 8669.743820] br-043c219e5d4c: port 2(vethfaed8fb) entered blocking state
+[ 8669.744240] br-043c219e5d4c: port 2(vethfaed8fb) entered disabled state
+[ 8669.744521] vethfaed8fb: entered allmulticast mode
+[ 8669.744748] vethfaed8fb: entered promiscuous mode
+[ 8669.759602] eth0: renamed from veth52b4b38
+[ 8669.760450] br-043c219e5d4c: port 2(vethfaed8fb) entered blocking state
+[ 8669.760761] br-043c219e5d4c: port 2(vethfaed8fb) entered forwarding state
+[ 8669.910552] br-043c219e5d4c: port 3(vethbc78a7c) entered blocking state
+[ 8669.910962] br-043c219e5d4c: port 3(vethbc78a7c) entered disabled state
+[ 8669.911222] vethbc78a7c: entered allmulticast mode
+[ 8669.911471] vethbc78a7c: entered promiscuous mode
+[ 8669.927830] eth0: renamed from vethbcb554a
+[ 8669.929422] br-043c219e5d4c: port 3(vethbc78a7c) entered blocking state
+[ 8669.929792] br-043c219e5d4c: port 3(vethbc78a7c) entered forwarding state
+[ 8670.083767] br-043c219e5d4c: port 4(veth5037f9f) entered blocking state
+[ 8670.084129] br-043c219e5d4c: port 4(veth5037f9f) entered disabled state
+[ 8670.084400] veth5037f9f: entered allmulticast mode
+[ 8670.084644] veth5037f9f: entered promiscuous mode
+[ 8670.101087] eth0: renamed from veth0258fac
+[ 8670.101924] br-043c219e5d4c: port 4(veth5037f9f) entered blocking state
+[ 8670.102205] br-043c219e5d4c: port 4(veth5037f9f) entered forwarding state
+[ 8675.254080] br-043c219e5d4c: port 5(vethdd98e8b) entered blocking state
+[ 8675.254431] br-043c219e5d4c: port 5(vethdd98e8b) entered disabled state
+[ 8675.254670] vethdd98e8b: entered allmulticast mode
+[ 8675.254881] vethdd98e8b: entered promiscuous mode
+[ 8675.269199] eth0: renamed from vetheba43b6
+[ 8675.270046] br-043c219e5d4c: port 5(vethdd98e8b) entered blocking state
+[ 8675.270269] br-043c219e5d4c: port 5(vethdd98e8b) entered forwarding state
+[ 8675.561362] br-043c219e5d4c: port 6(veth41e3ab0) entered blocking state
+[ 8675.561691] br-043c219e5d4c: port 6(veth41e3ab0) entered disabled state
+[ 8675.561942] veth41e3ab0: entered allmulticast mode
+[ 8675.562158] veth41e3ab0: entered promiscuous mode
+[ 8675.576742] eth0: renamed from veth05da872
+[ 8675.577493] br-043c219e5d4c: port 6(veth41e3ab0) entered blocking state
+[ 8675.577785] br-043c219e5d4c: port 6(veth41e3ab0) entered forwarding state
+[ 8675.745055] br-043c219e5d4c: port 7(veth461553c) entered blocking state
+[ 8675.745440] br-043c219e5d4c: port 7(veth461553c) entered disabled state
+[ 8675.745775] veth461553c: entered allmulticast mode
+[ 8675.746093] veth461553c: entered promiscuous mode
+[ 8675.763521] eth0: renamed from vethf945b00
+[ 8675.764386] br-043c219e5d4c: port 7(veth461553c) entered blocking state
+[ 8675.764692] br-043c219e5d4c: port 7(veth461553c) entered forwarding state
+[ 8681.410506] br-043c219e5d4c: port 8(veth6beafb7) entered blocking state
+[ 8681.410842] br-043c219e5d4c: port 8(veth6beafb7) entered disabled state
+[ 8681.411061] veth6beafb7: entered allmulticast mode
+[ 8681.411287] veth6beafb7: entered promiscuous mode
+[ 8681.424766] eth0: renamed from veth983eeab
+[ 8681.425511] br-043c219e5d4c: port 8(veth6beafb7) entered blocking state
+[ 8681.425814] br-043c219e5d4c: port 8(veth6beafb7) entered forwarding state
+[ 8753.634225] br-043c219e5d4c: port 9(vethd76f195) entered blocking state
+[ 8753.634556] br-043c219e5d4c: port 9(vethd76f195) entered disabled state
+[ 8753.634750] vethd76f195: entered allmulticast mode
+[ 8753.634996] vethd76f195: entered promiscuous mode
+[ 8753.650310] eth0: renamed from vethc3ece7c
+[ 8753.651083] br-043c219e5d4c: port 9(vethd76f195) entered blocking state
+[ 8753.651398] br-043c219e5d4c: port 9(vethd76f195) entered forwarding state
+[ 9061.558221] br-043c219e5d4c: port 9(vethd76f195) entered disabled state
+[ 9061.558702] vethc3ece7c: renamed from eth0
+[ 9061.591157] br-043c219e5d4c: port 9(vethd76f195) entered disabled state
+[ 9061.591643] vethd76f195 (unregistering): left allmulticast mode
+[ 9061.591831] vethd76f195 (unregistering): left promiscuous mode
+[ 9061.592043] br-043c219e5d4c: port 9(vethd76f195) entered disabled state
+[ 9102.968814] docker0: port 1(veth279e499) entered blocking state
+[ 9102.969086] docker0: port 1(veth279e499) entered disabled state
+[ 9102.969306] veth279e499: entered allmulticast mode
+[ 9102.969495] veth279e499: entered promiscuous mode
+[ 9102.973287] eth0: renamed from veth08d418e
+[ 9102.973874] docker0: port 1(veth279e499) entered blocking state
+[ 9102.974164] docker0: port 1(veth279e499) entered forwarding state
+[ 9103.053178] docker0: port 1(veth279e499) entered disabled state
+[ 9103.053511] veth08d418e: renamed from eth0
+[ 9103.105376] docker0: port 1(veth279e499) entered disabled state
+[ 9103.106009] veth279e499 (unregistering): left allmulticast mode
+[ 9103.106257] veth279e499 (unregistering): left promiscuous mode
+[ 9103.106468] docker0: port 1(veth279e499) entered disabled state
+[ 9103.686500] br-043c219e5d4c: port 8(veth6beafb7) entered disabled state
+[ 9103.687733] veth983eeab: renamed from eth0
+[ 9103.724757] br-043c219e5d4c: port 8(veth6beafb7) entered disabled state
+[ 9103.725209] veth6beafb7 (unregistering): left allmulticast mode
+[ 9103.725420] veth6beafb7 (unregistering): left promiscuous mode
+[ 9103.725602] br-043c219e5d4c: port 8(veth6beafb7) entered disabled state
+[ 9103.820420] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8081, family: 2, errno: 111
+[ 9104.016717] br-043c219e5d4c: port 2(vethfaed8fb) entered disabled state
+[ 9104.017066] veth52b4b38: renamed from eth0
+[ 9104.094376] br-043c219e5d4c: port 2(vethfaed8fb) entered disabled state
+[ 9104.095678] vethfaed8fb (unregistering): left allmulticast mode
+[ 9104.095950] vethfaed8fb (unregistering): left promiscuous mode
+[ 9104.096195] br-043c219e5d4c: port 2(vethfaed8fb) entered disabled state
+[ 9104.105335] br-043c219e5d4c: port 7(veth461553c) entered disabled state
+[ 9104.105677] vethf945b00: renamed from eth0
+[ 9104.183703] br-043c219e5d4c: port 7(veth461553c) entered disabled state
+[ 9104.184247] veth461553c (unregistering): left allmulticast mode
+[ 9104.184493] veth461553c (unregistering): left promiscuous mode
+[ 9104.184794] br-043c219e5d4c: port 7(veth461553c) entered disabled state
+[ 9104.192953] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5455, family: 2, errno: 111
+[ 9104.255916] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8082, family: 2, errno: 111
+[ 9104.313946] br-043c219e5d4c: port 5(vethdd98e8b) entered disabled state
+[ 9104.314401] vetheba43b6: renamed from eth0
+[ 9104.414499] br-043c219e5d4c: port 5(vethdd98e8b) entered disabled state
+[ 9104.415144] vethdd98e8b (unregistering): left allmulticast mode
+[ 9104.415428] vethdd98e8b (unregistering): left promiscuous mode
+[ 9104.415662] br-043c219e5d4c: port 5(vethdd98e8b) entered disabled state
+[ 9104.416875] br-043c219e5d4c: port 6(veth41e3ab0) entered disabled state
+[ 9104.417144] veth05da872: renamed from eth0
+[ 9104.509955] br-043c219e5d4c: port 6(veth41e3ab0) entered disabled state
+[ 9104.510489] veth41e3ab0 (unregistering): left allmulticast mode
+[ 9104.510736] veth41e3ab0 (unregistering): left promiscuous mode
+[ 9104.510955] br-043c219e5d4c: port 6(veth41e3ab0) entered disabled state
+[ 9104.512541] br-043c219e5d4c: port 4(veth5037f9f) entered disabled state
+[ 9104.512811] veth0258fac: renamed from eth0
+[ 9104.518425] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8083, family: 2, errno: 111
+[ 9104.637196] br-043c219e5d4c: port 4(veth5037f9f) entered disabled state
+[ 9104.640831] veth5037f9f (unregistering): left allmulticast mode
+[ 9104.641161] veth5037f9f (unregistering): left promiscuous mode
+[ 9104.641443] br-043c219e5d4c: port 4(veth5037f9f) entered disabled state
+[ 9104.650826] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8084, family: 2, errno: 111
+[ 9104.705687] br-043c219e5d4c: port 1(vethf2c2ced) entered disabled state
+[ 9104.706084] vethf57ec97: renamed from eth0
+[ 9104.731470] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5457, family: 2, errno: 111
+[ 9104.801278] br-043c219e5d4c: port 1(vethf2c2ced) entered disabled state
+[ 9104.801957] vethf2c2ced (unregistering): left allmulticast mode
+[ 9104.802193] vethf2c2ced (unregistering): left promiscuous mode
+[ 9104.802404] br-043c219e5d4c: port 1(vethf2c2ced) entered disabled state
+[ 9104.848553] br-043c219e5d4c: port 3(vethbc78a7c) entered disabled state
+[ 9104.848990] vethbcb554a: renamed from eth0
+[ 9104.888257] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5458, family: 2, errno: 111
+[ 9104.916858] br-043c219e5d4c: port 3(vethbc78a7c) entered disabled state
+[ 9104.917412] vethbc78a7c (unregistering): left allmulticast mode
+[ 9104.917698] vethbc78a7c (unregistering): left promiscuous mode
+[ 9104.917991] br-043c219e5d4c: port 3(vethbc78a7c) entered disabled state
+[ 9104.988258] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5459, family: 2, errno: 111
+[ 9108.226215] br-507618be2b48: port 1(veth18526e2) entered blocking state
+[ 9108.226611] br-507618be2b48: port 1(veth18526e2) entered disabled state
+[ 9108.226852] veth18526e2: entered allmulticast mode
+[ 9108.227081] veth18526e2: entered promiscuous mode
+[ 9108.241312] eth0: renamed from vethac793b1
+[ 9108.242090] br-507618be2b48: port 1(veth18526e2) entered blocking state
+[ 9108.242366] br-507618be2b48: port 1(veth18526e2) entered forwarding state
+[ 9108.402373] br-507618be2b48: port 2(vethbd2312f) entered blocking state
+[ 9108.402700] br-507618be2b48: port 2(vethbd2312f) entered disabled state
+[ 9108.402967] vethbd2312f: entered allmulticast mode
+[ 9108.403182] vethbd2312f: entered promiscuous mode
+[ 9108.417205] eth0: renamed from veth015ea48
+[ 9108.417925] br-507618be2b48: port 2(vethbd2312f) entered blocking state
+[ 9108.418182] br-507618be2b48: port 2(vethbd2312f) entered forwarding state
+[ 9108.546217] br-507618be2b48: port 3(veth069609e) entered blocking state
+[ 9108.546505] br-507618be2b48: port 3(veth069609e) entered disabled state
+[ 9108.546755] veth069609e: entered allmulticast mode
+[ 9108.547000] veth069609e: entered promiscuous mode
+[ 9108.561575] eth0: renamed from veth297b8c1
+[ 9108.562366] br-507618be2b48: port 3(veth069609e) entered blocking state
+[ 9108.562669] br-507618be2b48: port 3(veth069609e) entered forwarding state
+[ 9108.700831] br-507618be2b48: port 4(veth28fcb18) entered blocking state
+[ 9108.701217] br-507618be2b48: port 4(veth28fcb18) entered disabled state
+[ 9108.701488] veth28fcb18: entered allmulticast mode
+[ 9108.701771] veth28fcb18: entered promiscuous mode
+[ 9108.716741] eth0: renamed from veth0e4e248
+[ 9108.717585] br-507618be2b48: port 4(veth28fcb18) entered blocking state
+[ 9108.717926] br-507618be2b48: port 4(veth28fcb18) entered forwarding state
+[ 9113.871613] br-507618be2b48: port 5(veth12fb112) entered blocking state
+[ 9113.871967] br-507618be2b48: port 5(veth12fb112) entered disabled state
+[ 9113.872276] veth12fb112: entered allmulticast mode
+[ 9113.872524] veth12fb112: entered promiscuous mode
+[ 9113.886071] eth0: renamed from veth7619928
+[ 9113.886763] br-507618be2b48: port 5(veth12fb112) entered blocking state
+[ 9113.887166] br-507618be2b48: port 5(veth12fb112) entered forwarding state
+[ 9114.052535] br-507618be2b48: port 6(vethc8a7157) entered blocking state
+[ 9114.052871] br-507618be2b48: port 6(vethc8a7157) entered disabled state
+[ 9114.053091] vethc8a7157: entered allmulticast mode
+[ 9114.053318] vethc8a7157: entered promiscuous mode
+[ 9114.067071] eth0: renamed from veth51522b3
+[ 9114.067865] br-507618be2b48: port 6(vethc8a7157) entered blocking state
+[ 9114.068118] br-507618be2b48: port 6(vethc8a7157) entered forwarding state
+[ 9114.205865] br-507618be2b48: port 7(veth4074703) entered blocking state
+[ 9114.206264] br-507618be2b48: port 7(veth4074703) entered disabled state
+[ 9114.206502] veth4074703: entered allmulticast mode
+[ 9114.206782] veth4074703: entered promiscuous mode
+[ 9114.222806] eth0: renamed from vethf46ca0e
+[ 9114.223768] br-507618be2b48: port 7(veth4074703) entered blocking state
+[ 9114.224163] br-507618be2b48: port 7(veth4074703) entered forwarding state
+[ 9119.871106] br-507618be2b48: port 8(veth2d5cbf9) entered blocking state
+[ 9119.871452] br-507618be2b48: port 8(veth2d5cbf9) entered disabled state
+[ 9119.871716] veth2d5cbf9: entered allmulticast mode
+[ 9119.872073] veth2d5cbf9: entered promiscuous mode
+[ 9119.885758] eth0: renamed from vethec0f24a
+[ 9119.886471] br-507618be2b48: port 8(veth2d5cbf9) entered blocking state
+[ 9119.886768] br-507618be2b48: port 8(veth2d5cbf9) entered forwarding state
+[ 9188.963682] br-507618be2b48: port 9(veth102e812) entered blocking state
+[ 9188.963988] br-507618be2b48: port 9(veth102e812) entered disabled state
+[ 9188.964176] veth102e812: entered allmulticast mode
+[ 9188.964409] veth102e812: entered promiscuous mode
+[ 9188.978687] eth0: renamed from vethfdc4491
+[ 9188.979540] br-507618be2b48: port 9(veth102e812) entered blocking state
+[ 9188.979861] br-507618be2b48: port 9(veth102e812) entered forwarding state
+[ 9497.298086] br-507618be2b48: port 9(veth102e812) entered disabled state
+[ 9497.298484] vethfdc4491: renamed from eth0
+[ 9497.333459] br-507618be2b48: port 9(veth102e812) entered disabled state
+[ 9497.333979] veth102e812 (unregistering): left allmulticast mode
+[ 9497.334208] veth102e812 (unregistering): left promiscuous mode
+[ 9497.334388] br-507618be2b48: port 9(veth102e812) entered disabled state
+[ 9538.685207] docker0: port 1(veth085cafe) entered blocking state
+[ 9538.685542] docker0: port 1(veth085cafe) entered disabled state
+[ 9538.685749] veth085cafe: entered allmulticast mode
+[ 9538.686042] veth085cafe: entered promiscuous mode
+[ 9538.690505] eth0: renamed from veth034d86c
+[ 9538.691263] docker0: port 1(veth085cafe) entered blocking state
+[ 9538.691590] docker0: port 1(veth085cafe) entered forwarding state
+[ 9538.775287] docker0: port 1(veth085cafe) entered disabled state
+[ 9538.775748] veth034d86c: renamed from eth0
+[ 9538.823918] docker0: port 1(veth085cafe) entered disabled state
+[ 9538.824486] veth085cafe (unregistering): left allmulticast mode
+[ 9538.824708] veth085cafe (unregistering): left promiscuous mode
+[ 9538.824921] docker0: port 1(veth085cafe) entered disabled state
+[ 9539.333715] br-507618be2b48: port 8(veth2d5cbf9) entered disabled state
+[ 9539.334077] vethec0f24a: renamed from eth0
+[ 9539.384693] br-507618be2b48: port 8(veth2d5cbf9) entered disabled state
+[ 9539.385169] veth2d5cbf9 (unregistering): left allmulticast mode
+[ 9539.385385] veth2d5cbf9 (unregistering): left promiscuous mode
+[ 9539.385575] br-507618be2b48: port 8(veth2d5cbf9) entered disabled state
+[ 9539.451989] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8081, family: 2, errno: 111
+[ 9539.644327] br-507618be2b48: port 4(veth28fcb18) entered disabled state
+[ 9539.644714] veth0e4e248: renamed from eth0
+[ 9539.725077] br-507618be2b48: port 4(veth28fcb18) entered disabled state
+[ 9539.726360] veth28fcb18 (unregistering): left allmulticast mode
+[ 9539.726605] veth28fcb18 (unregistering): left promiscuous mode
+[ 9539.726847] br-507618be2b48: port 4(veth28fcb18) entered disabled state
+[ 9539.735642] br-507618be2b48: port 7(veth4074703) entered disabled state
+[ 9539.735948] vethf46ca0e: renamed from eth0
+[ 9539.813819] br-507618be2b48: port 7(veth4074703) entered disabled state
+[ 9539.814339] veth4074703 (unregistering): left allmulticast mode
+[ 9539.814570] veth4074703 (unregistering): left promiscuous mode
+[ 9539.814895] br-507618be2b48: port 7(veth4074703) entered disabled state
+[ 9539.823050] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5455, family: 2, errno: 111
+[ 9539.928100] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8082, family: 2, errno: 111
+[ 9539.966148] br-507618be2b48: port 6(vethc8a7157) entered disabled state
+[ 9539.966640] veth51522b3: renamed from eth0
+[ 9540.048810] br-507618be2b48: port 6(vethc8a7157) entered disabled state
+[ 9540.050140] vethc8a7157 (unregistering): left allmulticast mode
+[ 9540.050436] vethc8a7157 (unregistering): left promiscuous mode
+[ 9540.050667] br-507618be2b48: port 6(vethc8a7157) entered disabled state
+[ 9540.056134] br-507618be2b48: port 5(veth12fb112) entered disabled state
+[ 9540.056389] veth7619928: renamed from eth0
+[ 9540.128668] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8083, family: 2, errno: 111
+[ 9540.138437] br-507618be2b48: port 5(veth12fb112) entered disabled state
+[ 9540.140027] veth12fb112 (unregistering): left allmulticast mode
+[ 9540.140283] veth12fb112 (unregistering): left promiscuous mode
+[ 9540.140497] br-507618be2b48: port 5(veth12fb112) entered disabled state
+[ 9540.145230] br-507618be2b48: port 3(veth069609e) entered disabled state
+[ 9540.145537] veth297b8c1: renamed from eth0
+[ 9540.271949] br-507618be2b48: port 3(veth069609e) entered disabled state
+[ 9540.285365] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8084, family: 2, errno: 111
+[ 9540.295586] veth069609e (unregistering): left allmulticast mode
+[ 9540.295895] veth069609e (unregistering): left promiscuous mode
+[ 9540.296154] br-507618be2b48: port 3(veth069609e) entered disabled state
+[ 9540.307545] br-507618be2b48: port 2(vethbd2312f) entered disabled state
+[ 9540.307866] veth015ea48: renamed from eth0
+[ 9540.356356] br-507618be2b48: port 2(vethbd2312f) entered disabled state
+[ 9540.357562] vethbd2312f (unregistering): left allmulticast mode
+[ 9540.357883] vethbd2312f (unregistering): left promiscuous mode
+[ 9540.358158] br-507618be2b48: port 2(vethbd2312f) entered disabled state
+[ 9540.368918] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5457, family: 2, errno: 111
+[ 9540.435532] br-507618be2b48: port 1(veth18526e2) entered disabled state
+[ 9540.435836] vethac793b1: renamed from eth0
+[ 9540.440494] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5458, family: 2, errno: 111
+[ 9540.493106] br-507618be2b48: port 1(veth18526e2) entered disabled state
+[ 9540.493761] veth18526e2 (unregistering): left allmulticast mode
+[ 9540.494087] veth18526e2 (unregistering): left promiscuous mode
+[ 9540.494392] br-507618be2b48: port 1(veth18526e2) entered disabled state
+[ 9540.564431] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5459, family: 2, errno: 111
+[ 9543.947345] br-2d89530a8622: port 1(veth737172a) entered blocking state
+[ 9543.947769] br-2d89530a8622: port 1(veth737172a) entered disabled state
+[ 9543.948023] veth737172a: entered allmulticast mode
+[ 9543.948279] veth737172a: entered promiscuous mode
+[ 9543.962661] eth0: renamed from veth6543306
+[ 9543.963409] br-2d89530a8622: port 1(veth737172a) entered blocking state
+[ 9543.963779] br-2d89530a8622: port 1(veth737172a) entered forwarding state
+[ 9544.093226] br-2d89530a8622: port 2(veth69902e7) entered blocking state
+[ 9544.093623] br-2d89530a8622: port 2(veth69902e7) entered disabled state
+[ 9544.093926] veth69902e7: entered allmulticast mode
+[ 9544.094185] veth69902e7: entered promiscuous mode
+[ 9544.110635] eth0: renamed from veth04d3ea3
+[ 9544.111476] br-2d89530a8622: port 2(veth69902e7) entered blocking state
+[ 9544.111765] br-2d89530a8622: port 2(veth69902e7) entered forwarding state
+[ 9544.264638] br-2d89530a8622: port 3(veth095fb69) entered blocking state
+[ 9544.264963] br-2d89530a8622: port 3(veth095fb69) entered disabled state
+[ 9544.265203] veth095fb69: entered allmulticast mode
+[ 9544.265464] veth095fb69: entered promiscuous mode
+[ 9544.279500] eth0: renamed from veth68468c7
+[ 9544.280248] br-2d89530a8622: port 3(veth095fb69) entered blocking state
+[ 9544.280516] br-2d89530a8622: port 3(veth095fb69) entered forwarding state
+[ 9544.428753] br-2d89530a8622: port 4(veth12b54b8) entered blocking state
+[ 9544.429125] br-2d89530a8622: port 4(veth12b54b8) entered disabled state
+[ 9544.429395] veth12b54b8: entered allmulticast mode
+[ 9544.429664] veth12b54b8: entered promiscuous mode
+[ 9544.446747] eth0: renamed from veth6853e0d
+[ 9544.447648] br-2d89530a8622: port 4(veth12b54b8) entered blocking state
+[ 9544.447944] br-2d89530a8622: port 4(veth12b54b8) entered forwarding state
+[ 9544.588776] br-2d89530a8622: port 5(vethd5b801f) entered blocking state
+[ 9544.589212] br-2d89530a8622: port 5(vethd5b801f) entered disabled state
+[ 9544.589517] vethd5b801f: entered allmulticast mode
+[ 9544.589817] vethd5b801f: entered promiscuous mode
+[ 9544.606108] eth0: renamed from vethd14c7e2
+[ 9544.606891] br-2d89530a8622: port 5(vethd5b801f) entered blocking state
+[ 9544.607216] br-2d89530a8622: port 5(vethd5b801f) entered forwarding state
+[ 9555.245917] br-2d89530a8622: port 6(vethf3283a3) entered blocking state
+[ 9555.246331] br-2d89530a8622: port 6(vethf3283a3) entered disabled state
+[ 9555.246580] vethf3283a3: entered allmulticast mode
+[ 9555.246872] vethf3283a3: entered promiscuous mode
+[ 9555.260793] eth0: renamed from veth7b0a42d
+[ 9555.261517] br-2d89530a8622: port 6(vethf3283a3) entered blocking state
+[ 9555.261814] br-2d89530a8622: port 6(vethf3283a3) entered forwarding state
+[ 9555.391836] br-2d89530a8622: port 7(vethe6624a5) entered blocking state
+[ 9555.392191] br-2d89530a8622: port 7(vethe6624a5) entered disabled state
+[ 9555.392406] vethe6624a5: entered allmulticast mode
+[ 9555.392629] vethe6624a5: entered promiscuous mode
+[ 9555.407735] eth0: renamed from veth4856c38
+[ 9555.408587] br-2d89530a8622: port 7(vethe6624a5) entered blocking state
+[ 9555.408871] br-2d89530a8622: port 7(vethe6624a5) entered forwarding state
+[ 9555.550781] br-2d89530a8622: port 8(veth77a543c) entered blocking state
+[ 9555.551156] br-2d89530a8622: port 8(veth77a543c) entered disabled state
+[ 9555.551380] veth77a543c: entered allmulticast mode
+[ 9555.551616] veth77a543c: entered promiscuous mode
+[ 9555.566973] eth0: renamed from vethf0e3f10
+[ 9555.567913] br-2d89530a8622: port 8(veth77a543c) entered blocking state
+[ 9555.568180] br-2d89530a8622: port 8(veth77a543c) entered forwarding state
+[ 9555.724369] br-2d89530a8622: port 9(veth86f5a5c) entered blocking state
+[ 9555.724876] br-2d89530a8622: port 9(veth86f5a5c) entered disabled state
+[ 9555.725262] veth86f5a5c: entered allmulticast mode
+[ 9555.725557] veth86f5a5c: entered promiscuous mode
+[ 9555.743739] eth0: renamed from veth99642b1
+[ 9555.744855] br-2d89530a8622: port 9(veth86f5a5c) entered blocking state
+[ 9555.745249] br-2d89530a8622: port 9(veth86f5a5c) entered forwarding state
+[ 9628.383612] br-2d89530a8622: port 10(veth16e204b) entered blocking state
+[ 9628.384044] br-2d89530a8622: port 10(veth16e204b) entered disabled state
+[ 9628.384341] veth16e204b: entered allmulticast mode
+[ 9628.384615] veth16e204b: entered promiscuous mode
+[ 9628.400953] eth0: renamed from vethca7447d
+[ 9628.401810] br-2d89530a8622: port 10(veth16e204b) entered blocking state
+[ 9628.402056] br-2d89530a8622: port 10(veth16e204b) entered forwarding state
+[ 9940.072142] br-2d89530a8622: port 10(veth16e204b) entered disabled state
+[ 9940.072612] vethca7447d: renamed from eth0
+[ 9940.117651] br-2d89530a8622: port 10(veth16e204b) entered disabled state
+[ 9940.118102] veth16e204b (unregistering): left allmulticast mode
+[ 9940.118387] veth16e204b (unregistering): left promiscuous mode
+[ 9940.118626] br-2d89530a8622: port 10(veth16e204b) entered disabled state
+[ 9981.625007] docker0: port 1(veth93d7e2e) entered blocking state
+[ 9981.625337] docker0: port 1(veth93d7e2e) entered disabled state
+[ 9981.625543] veth93d7e2e: entered allmulticast mode
+[ 9981.625744] veth93d7e2e: entered promiscuous mode
+[ 9981.629559] eth0: renamed from vetha7eaf96
+[ 9981.630230] docker0: port 1(veth93d7e2e) entered blocking state
+[ 9981.630605] docker0: port 1(veth93d7e2e) entered forwarding state
+[ 9981.711378] docker0: port 1(veth93d7e2e) entered disabled state
+[ 9981.711777] vetha7eaf96: renamed from eth0
+[ 9981.759028] docker0: port 1(veth93d7e2e) entered disabled state
+[ 9981.759613] veth93d7e2e (unregistering): left allmulticast mode
+[ 9981.759912] veth93d7e2e (unregistering): left promiscuous mode
+[ 9981.760173] docker0: port 1(veth93d7e2e) entered disabled state
+[ 9982.225934] br-2d89530a8622: port 6(vethf3283a3) entered disabled state
+[ 9982.226393] veth7b0a42d: renamed from eth0
+[ 9982.258404] br-2d89530a8622: port 6(vethf3283a3) entered disabled state
+[ 9982.258856] vethf3283a3 (unregistering): left allmulticast mode
+[ 9982.259102] vethf3283a3 (unregistering): left promiscuous mode
+[ 9982.259329] br-2d89530a8622: port 6(vethf3283a3) entered disabled state
+[ 9982.348482] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8082, family: 2, errno: 111
+[ 9982.490458] br-2d89530a8622: port 7(vethe6624a5) entered disabled state
+[ 9982.490866] veth4856c38: renamed from eth0
+[ 9982.596345] br-2d89530a8622: port 7(vethe6624a5) entered disabled state
+[ 9982.597990] vethe6624a5 (unregistering): left allmulticast mode
+[ 9982.598371] vethe6624a5 (unregistering): left promiscuous mode
+[ 9982.598622] br-2d89530a8622: port 7(vethe6624a5) entered disabled state
+[ 9982.607464] br-2d89530a8622: port 4(veth12b54b8) entered disabled state
+[ 9982.607805] veth6853e0d: renamed from eth0
+[ 9982.717565] br-2d89530a8622: port 9(veth86f5a5c) entered disabled state
+[ 9982.717933] veth99642b1: renamed from eth0
+[ 9982.755917] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8081, family: 2, errno: 111
+[ 9982.801226] br-2d89530a8622: port 4(veth12b54b8) entered disabled state
+[ 9982.803187] veth12b54b8 (unregistering): left allmulticast mode
+[ 9982.803495] veth12b54b8 (unregistering): left promiscuous mode
+[ 9982.803793] br-2d89530a8622: port 4(veth12b54b8) entered disabled state
+[ 9982.813382] br-2d89530a8622: port 8(veth77a543c) entered disabled state
+[ 9982.813800] vethf0e3f10: renamed from eth0
+[ 9982.894847] br-2d89530a8622: port 9(veth86f5a5c) entered disabled state
+[ 9982.895458] veth86f5a5c (unregistering): left allmulticast mode
+[ 9982.895947] veth86f5a5c (unregistering): left promiscuous mode
+[ 9982.896247] br-2d89530a8622: port 9(veth86f5a5c) entered disabled state
+[ 9982.910283] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5441, family: 2, errno: 111
+[ 9982.927245] br-2d89530a8622: port 1(veth737172a) entered disabled state
+[ 9982.927628] veth6543306: renamed from eth0
+[ 9983.010786] br-2d89530a8622: port 8(veth77a543c) entered disabled state
+[ 9983.011370] veth77a543c (unregistering): left allmulticast mode
+[ 9983.011685] veth77a543c (unregistering): left promiscuous mode
+[ 9983.011950] br-2d89530a8622: port 8(veth77a543c) entered disabled state
+[ 9983.022431] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8083, family: 2, errno: 111
+[ 9983.062524] br-2d89530a8622: port 1(veth737172a) entered disabled state
+[ 9983.063135] veth737172a (unregistering): left allmulticast mode
+[ 9983.063463] veth737172a (unregistering): left promiscuous mode
+[ 9983.063763] br-2d89530a8622: port 1(veth737172a) entered disabled state
+[ 9983.076428] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8084, family: 2, errno: 111
+[ 9983.143508] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5440, family: 2, errno: 111
+[ 9983.205050] br-2d89530a8622: port 3(veth095fb69) entered disabled state
+[ 9983.205450] veth68468c7: renamed from eth0
+[ 9983.272104] br-2d89530a8622: port 3(veth095fb69) entered disabled state
+[ 9983.273549] veth095fb69 (unregistering): left allmulticast mode
+[ 9983.273829] veth095fb69 (unregistering): left promiscuous mode
+[ 9983.274039] br-2d89530a8622: port 3(veth095fb69) entered disabled state
+[ 9983.282879] br-2d89530a8622: port 2(veth69902e7) entered disabled state
+[ 9983.283220] veth04d3ea3: renamed from eth0
+[ 9983.366604] br-2d89530a8622: port 2(veth69902e7) entered disabled state
+[ 9983.367141] veth69902e7 (unregistering): left allmulticast mode
+[ 9983.367399] veth69902e7 (unregistering): left promiscuous mode
+[ 9983.367599] br-2d89530a8622: port 2(veth69902e7) entered disabled state
+[ 9983.377511] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5442, family: 2, errno: 111
+[ 9983.418763] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5443, family: 2, errno: 111
+[ 9984.414745] br-2d89530a8622: port 5(vethd5b801f) entered disabled state
+[ 9984.415116] vethd14c7e2: renamed from eth0
+[ 9984.449874] br-2d89530a8622: port 5(vethd5b801f) entered disabled state
+[ 9984.450330] vethd5b801f (unregistering): left allmulticast mode
+[ 9984.450599] vethd5b801f (unregistering): left promiscuous mode
+[ 9984.450905] br-2d89530a8622: port 5(vethd5b801f) entered disabled state
+[ 9984.561800] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5672, family: 2, errno: 111
+[ 9984.563884] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 15672, family: 2, errno: 111
+[ 9987.844754] br-0a6a2a7d41c3: port 1(veth5782e95) entered blocking state
+[ 9987.845126] br-0a6a2a7d41c3: port 1(veth5782e95) entered disabled state
+[ 9987.845390] veth5782e95: entered allmulticast mode
+[ 9987.845981] veth5782e95: entered promiscuous mode
+[ 9987.860532] eth0: renamed from veth9063d44
+[ 9987.861256] br-0a6a2a7d41c3: port 1(veth5782e95) entered blocking state
+[ 9987.861564] br-0a6a2a7d41c3: port 1(veth5782e95) entered forwarding state
+[ 9987.995336] br-0a6a2a7d41c3: port 2(vethaf732e8) entered blocking state
+[ 9987.995995] br-0a6a2a7d41c3: port 2(vethaf732e8) entered disabled state
+[ 9987.996220] vethaf732e8: entered allmulticast mode
+[ 9987.996443] vethaf732e8: entered promiscuous mode
+[ 9988.010390] eth0: renamed from vethddb19b6
+[ 9988.011274] br-0a6a2a7d41c3: port 2(vethaf732e8) entered blocking state
+[ 9988.011549] br-0a6a2a7d41c3: port 2(vethaf732e8) entered forwarding state
+[ 9988.147502] br-0a6a2a7d41c3: port 3(veth8d22934) entered blocking state
+[ 9988.147839] br-0a6a2a7d41c3: port 3(veth8d22934) entered disabled state
+[ 9988.148082] veth8d22934: entered allmulticast mode
+[ 9988.148284] veth8d22934: entered promiscuous mode
+[ 9988.162407] eth0: renamed from veth2e43f8b
+[ 9988.163173] br-0a6a2a7d41c3: port 3(veth8d22934) entered blocking state
+[ 9988.163447] br-0a6a2a7d41c3: port 3(veth8d22934) entered forwarding state
+[ 9988.301491] br-0a6a2a7d41c3: port 4(vethff7d604) entered blocking state
+[ 9988.301899] br-0a6a2a7d41c3: port 4(vethff7d604) entered disabled state
+[ 9988.302203] vethff7d604: entered allmulticast mode
+[ 9988.302479] vethff7d604: entered promiscuous mode
+[ 9988.318238] eth0: renamed from veth77a3628
+[ 9988.319049] br-0a6a2a7d41c3: port 4(vethff7d604) entered blocking state
+[ 9988.319311] br-0a6a2a7d41c3: port 4(vethff7d604) entered forwarding state
+[ 9993.493042] br-0a6a2a7d41c3: port 5(veth7a9bb5e) entered blocking state
+[ 9993.493355] br-0a6a2a7d41c3: port 5(veth7a9bb5e) entered disabled state
+[ 9993.493578] veth7a9bb5e: entered allmulticast mode
+[ 9993.493842] veth7a9bb5e: entered promiscuous mode
+[ 9993.507207] eth0: renamed from vethdb74fa2
+[ 9993.507853] br-0a6a2a7d41c3: port 5(veth7a9bb5e) entered blocking state
+[ 9993.508152] br-0a6a2a7d41c3: port 5(veth7a9bb5e) entered forwarding state
+[ 9993.650638] br-0a6a2a7d41c3: port 6(veth81dbf0e) entered blocking state
+[ 9993.651041] br-0a6a2a7d41c3: port 6(veth81dbf0e) entered disabled state
+[ 9993.651327] veth81dbf0e: entered allmulticast mode
+[ 9993.651565] veth81dbf0e: entered promiscuous mode
+[ 9993.667326] eth0: renamed from vethaf0ad6b
+[ 9993.668165] br-0a6a2a7d41c3: port 6(veth81dbf0e) entered blocking state
+[ 9993.668463] br-0a6a2a7d41c3: port 6(veth81dbf0e) entered forwarding state
+[ 9993.971002] br-0a6a2a7d41c3: port 7(vethc2cf600) entered blocking state
+[ 9993.971408] br-0a6a2a7d41c3: port 7(vethc2cf600) entered disabled state
+[ 9993.971679] vethc2cf600: entered allmulticast mode
+[ 9993.971906] vethc2cf600: entered promiscuous mode
+[ 9993.993968] eth0: renamed from vethf916580
+[ 9993.994780] br-0a6a2a7d41c3: port 7(vethc2cf600) entered blocking state
+[ 9993.995028] br-0a6a2a7d41c3: port 7(vethc2cf600) entered forwarding state
+[ 9999.646107] br-0a6a2a7d41c3: port 8(veth5ffd9de) entered blocking state
+[ 9999.646487] br-0a6a2a7d41c3: port 8(veth5ffd9de) entered disabled state
+[ 9999.646738] veth5ffd9de: entered allmulticast mode
+[ 9999.646945] veth5ffd9de: entered promiscuous mode
+[ 9999.661294] eth0: renamed from vethe7c115f
+[ 9999.662103] br-0a6a2a7d41c3: port 8(veth5ffd9de) entered blocking state
+[ 9999.662403] br-0a6a2a7d41c3: port 8(veth5ffd9de) entered forwarding state
+[10071.894044] br-0a6a2a7d41c3: port 9(veth5d89cd6) entered blocking state
+[10071.894350] br-0a6a2a7d41c3: port 9(veth5d89cd6) entered disabled state
+[10071.894605] veth5d89cd6: entered allmulticast mode
+[10071.894836] veth5d89cd6: entered promiscuous mode
+[10071.909320] eth0: renamed from veth7057585
+[10071.910114] br-0a6a2a7d41c3: port 9(veth5d89cd6) entered blocking state
+[10071.910453] br-0a6a2a7d41c3: port 9(veth5d89cd6) entered forwarding state
+[10092.026617] br-0a6a2a7d41c3: port 9(veth5d89cd6) entered disabled state
+[10092.027057] veth7057585: renamed from eth0
+[10092.077538] br-0a6a2a7d41c3: port 9(veth5d89cd6) entered disabled state
+[10092.077948] veth5d89cd6 (unregistering): left allmulticast mode
+[10092.078136] veth5d89cd6 (unregistering): left promiscuous mode
+[10092.078305] br-0a6a2a7d41c3: port 9(veth5d89cd6) entered disabled state
+[10092.388047] br-0a6a2a7d41c3: port 9(vethdeafce1) entered blocking state
+[10092.388453] br-0a6a2a7d41c3: port 9(vethdeafce1) entered disabled state
+[10092.388759] vethdeafce1: entered allmulticast mode
+[10092.389080] vethdeafce1: entered promiscuous mode
+[10092.403815] eth0: renamed from vethfd634b3
+[10092.404655] br-0a6a2a7d41c3: port 9(vethdeafce1) entered blocking state
+[10092.404952] br-0a6a2a7d41c3: port 9(vethdeafce1) entered forwarding state
+[10394.644505] br-0a6a2a7d41c3: port 9(vethdeafce1) entered disabled state
+[10394.644938] vethfd634b3: renamed from eth0
+[10394.683615] br-0a6a2a7d41c3: port 9(vethdeafce1) entered disabled state
+[10394.684090] vethdeafce1 (unregistering): left allmulticast mode
+[10394.684378] vethdeafce1 (unregistering): left promiscuous mode
+[10394.684646] br-0a6a2a7d41c3: port 9(vethdeafce1) entered disabled state
+[10436.765210] docker0: port 1(veth7260ec2) entered blocking state
+[10436.765511] docker0: port 1(veth7260ec2) entered disabled state
+[10436.765728] veth7260ec2: entered allmulticast mode
+[10436.765960] veth7260ec2: entered promiscuous mode
+[10436.769904] eth0: renamed from veth9237b29
+[10436.770563] docker0: port 1(veth7260ec2) entered blocking state
+[10436.770880] docker0: port 1(veth7260ec2) entered forwarding state
+[10436.832431] docker0: port 1(veth7260ec2) entered disabled state
+[10436.832823] veth9237b29: renamed from eth0
+[10436.885637] docker0: port 1(veth7260ec2) entered disabled state
+[10436.886205] veth7260ec2 (unregistering): left allmulticast mode
+[10436.886444] veth7260ec2 (unregistering): left promiscuous mode
+[10436.886711] docker0: port 1(veth7260ec2) entered disabled state
+[10437.459098] br-0a6a2a7d41c3: port 8(veth5ffd9de) entered disabled state
+[10437.459548] vethe7c115f: renamed from eth0
+[10437.489846] br-0a6a2a7d41c3: port 8(veth5ffd9de) entered disabled state
+[10437.490306] veth5ffd9de (unregistering): left allmulticast mode
+[10437.490561] veth5ffd9de (unregistering): left promiscuous mode
+[10437.490750] br-0a6a2a7d41c3: port 8(veth5ffd9de) entered disabled state
+[10437.564054] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8081, family: 2, errno: 111
+[10437.851545] br-0a6a2a7d41c3: port 7(vethc2cf600) entered disabled state
+[10437.851951] vethf916580: renamed from eth0
+[10437.909112] br-0a6a2a7d41c3: port 7(vethc2cf600) entered disabled state
+[10437.909735] vethc2cf600 (unregistering): left allmulticast mode
+[10437.910022] vethc2cf600 (unregistering): left promiscuous mode
+[10437.910272] br-0a6a2a7d41c3: port 7(vethc2cf600) entered disabled state
+[10437.954654] br-0a6a2a7d41c3: port 3(veth8d22934) entered disabled state
+[10437.955048] veth2e43f8b: renamed from eth0
+[10438.002978] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8082, family: 2, errno: 111
+[10438.032628] br-0a6a2a7d41c3: port 3(veth8d22934) entered disabled state
+[10438.033300] veth8d22934 (unregistering): left allmulticast mode
+[10438.033658] veth8d22934 (unregistering): left promiscuous mode
+[10438.033952] br-0a6a2a7d41c3: port 3(veth8d22934) entered disabled state
+[10438.111460] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5455, family: 2, errno: 111
+[10438.143728] br-0a6a2a7d41c3: port 6(veth81dbf0e) entered disabled state
+[10438.144121] vethaf0ad6b: renamed from eth0
+[10438.229806] br-0a6a2a7d41c3: port 6(veth81dbf0e) entered disabled state
+[10438.231102] veth81dbf0e (unregistering): left allmulticast mode
+[10438.231342] veth81dbf0e (unregistering): left promiscuous mode
+[10438.231568] br-0a6a2a7d41c3: port 6(veth81dbf0e) entered disabled state
+[10438.237672] br-0a6a2a7d41c3: port 4(vethff7d604) entered disabled state
+[10438.239183] veth77a3628: renamed from eth0
+[10438.327507] br-0a6a2a7d41c3: port 4(vethff7d604) entered disabled state
+[10438.329747] vethff7d604 (unregistering): left allmulticast mode
+[10438.330106] vethff7d604 (unregistering): left promiscuous mode
+[10438.330338] br-0a6a2a7d41c3: port 4(vethff7d604) entered disabled state
+[10438.330758] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8083, family: 2, errno: 111
+[10438.337736] br-0a6a2a7d41c3: port 5(veth7a9bb5e) entered disabled state
+[10438.338120] vethdb74fa2: renamed from eth0
+[10438.428966] br-0a6a2a7d41c3: port 5(veth7a9bb5e) entered disabled state
+[10438.436799] veth7a9bb5e (unregistering): left allmulticast mode
+[10438.437116] veth7a9bb5e (unregistering): left promiscuous mode
+[10438.437365] br-0a6a2a7d41c3: port 5(veth7a9bb5e) entered disabled state
+[10438.442407] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5457, family: 2, errno: 111
+[10438.519174] br-0a6a2a7d41c3: port 2(vethaf732e8) entered disabled state
+[10438.520577] vethddb19b6: renamed from eth0
+[10438.532103] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8084, family: 2, errno: 111
+[10438.620884] br-0a6a2a7d41c3: port 2(vethaf732e8) entered disabled state
+[10438.621485] vethaf732e8 (unregistering): left allmulticast mode
+[10438.621783] vethaf732e8 (unregistering): left promiscuous mode
+[10438.622074] br-0a6a2a7d41c3: port 2(vethaf732e8) entered disabled state
+[10438.737390] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5458, family: 2, errno: 111
+[10438.916942] br-0a6a2a7d41c3: port 1(veth5782e95) entered disabled state
+[10438.917313] veth9063d44: renamed from eth0
+[10438.953062] br-0a6a2a7d41c3: port 1(veth5782e95) entered disabled state
+[10438.953535] veth5782e95 (unregistering): left allmulticast mode
+[10438.953773] veth5782e95 (unregistering): left promiscuous mode
+[10438.953962] br-0a6a2a7d41c3: port 1(veth5782e95) entered disabled state
+[10439.023247] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5459, family: 2, errno: 111
+[10442.293148] br-dd726af9e3de: port 1(vethb3b5f32) entered blocking state
+[10442.293593] br-dd726af9e3de: port 1(vethb3b5f32) entered disabled state
+[10442.293936] vethb3b5f32: entered allmulticast mode
+[10442.294204] vethb3b5f32: entered promiscuous mode
+[10442.310367] eth0: renamed from veth6cf8685
+[10442.311239] br-dd726af9e3de: port 1(vethb3b5f32) entered blocking state
+[10442.311547] br-dd726af9e3de: port 1(vethb3b5f32) entered forwarding state
+[10442.480201] br-dd726af9e3de: port 2(vethd49b8ea) entered blocking state
+[10442.480630] br-dd726af9e3de: port 2(vethd49b8ea) entered disabled state
+[10442.480893] vethd49b8ea: entered allmulticast mode
+[10442.481110] vethd49b8ea: entered promiscuous mode
+[10442.500607] eth0: renamed from veth802506f
+[10442.501383] br-dd726af9e3de: port 2(vethd49b8ea) entered blocking state
+[10442.501720] br-dd726af9e3de: port 2(vethd49b8ea) entered forwarding state
+[10442.636416] br-dd726af9e3de: port 3(veth41b1500) entered blocking state
+[10442.636782] br-dd726af9e3de: port 3(veth41b1500) entered disabled state
+[10442.637034] veth41b1500: entered allmulticast mode
+[10442.637368] veth41b1500: entered promiscuous mode
+[10442.654531] eth0: renamed from veth7498a42
+[10442.655340] br-dd726af9e3de: port 3(veth41b1500) entered blocking state
+[10442.655610] br-dd726af9e3de: port 3(veth41b1500) entered forwarding state
+[10442.804484] br-dd726af9e3de: port 4(veth7815d12) entered blocking state
+[10442.804844] br-dd726af9e3de: port 4(veth7815d12) entered disabled state
+[10442.805134] veth7815d12: entered allmulticast mode
+[10442.805388] veth7815d12: entered promiscuous mode
+[10442.830775] eth0: renamed from vethfa03b8c
+[10442.831894] br-dd726af9e3de: port 4(veth7815d12) entered blocking state
+[10442.832240] br-dd726af9e3de: port 4(veth7815d12) entered forwarding state
+[10447.956677] br-dd726af9e3de: port 5(vethfac9c87) entered blocking state
+[10447.957062] br-dd726af9e3de: port 5(vethfac9c87) entered disabled state
+[10447.957277] vethfac9c87: entered allmulticast mode
+[10447.957513] vethfac9c87: entered promiscuous mode
+[10447.985628] eth0: renamed from veth363236c
+[10447.986417] br-dd726af9e3de: port 5(vethfac9c87) entered blocking state
+[10447.986672] br-dd726af9e3de: port 5(vethfac9c87) entered forwarding state
+[10448.297961] br-dd726af9e3de: port 6(veth925f564) entered blocking state
+[10448.298305] br-dd726af9e3de: port 6(veth925f564) entered disabled state
+[10448.298549] veth925f564: entered allmulticast mode
+[10448.298763] veth925f564: entered promiscuous mode
+[10448.324474] eth0: renamed from vethb7e88f0
+[10448.325399] br-dd726af9e3de: port 6(veth925f564) entered blocking state
+[10448.325784] br-dd726af9e3de: port 6(veth925f564) entered forwarding state
+[10448.492286] br-dd726af9e3de: port 7(vethf3298f5) entered blocking state
+[10448.492686] br-dd726af9e3de: port 7(vethf3298f5) entered disabled state
+[10448.492991] vethf3298f5: entered allmulticast mode
+[10448.493302] vethf3298f5: entered promiscuous mode
+[10448.510911] eth0: renamed from veth61997a8
+[10448.511863] br-dd726af9e3de: port 7(vethf3298f5) entered blocking state
+[10448.512210] br-dd726af9e3de: port 7(vethf3298f5) entered forwarding state
+[10454.130979] br-dd726af9e3de: port 8(vethde8cf60) entered blocking state
+[10454.131352] br-dd726af9e3de: port 8(vethde8cf60) entered disabled state
+[10454.131568] vethde8cf60: entered allmulticast mode
+[10454.131831] vethde8cf60: entered promiscuous mode
+[10454.145463] eth0: renamed from veth2d69edc
+[10454.146175] br-dd726af9e3de: port 8(vethde8cf60) entered blocking state
+[10454.146462] br-dd726af9e3de: port 8(vethde8cf60) entered forwarding state
+[10526.368148] br-dd726af9e3de: port 9(vetha28d53c) entered blocking state
+[10526.368551] br-dd726af9e3de: port 9(vetha28d53c) entered disabled state
+[10526.368837] vetha28d53c: entered allmulticast mode
+[10526.369025] vetha28d53c: entered promiscuous mode
+[10526.383059] eth0: renamed from veth34d62c1
+[10526.383852] br-dd726af9e3de: port 9(vetha28d53c) entered blocking state
+[10526.384158] br-dd726af9e3de: port 9(vetha28d53c) entered forwarding state
+[10834.975642] br-dd726af9e3de: port 9(vetha28d53c) entered disabled state
+[10834.976125] veth34d62c1: renamed from eth0
+[10835.014267] br-dd726af9e3de: port 9(vetha28d53c) entered disabled state
+[10835.014806] vetha28d53c (unregistering): left allmulticast mode
+[10835.015064] vetha28d53c (unregistering): left promiscuous mode
+[10835.015287] br-dd726af9e3de: port 9(vetha28d53c) entered disabled state
+[10876.391047] docker0: port 1(veth7aa376e) entered blocking state
+[10876.391348] docker0: port 1(veth7aa376e) entered disabled state
+[10876.391553] veth7aa376e: entered allmulticast mode
+[10876.391798] veth7aa376e: entered promiscuous mode
+[10876.395829] eth0: renamed from veth5f4bd9e
+[10876.396452] docker0: port 1(veth7aa376e) entered blocking state
+[10876.396704] docker0: port 1(veth7aa376e) entered forwarding state
+[10876.480165] docker0: port 1(veth7aa376e) entered disabled state
+[10876.480506] veth5f4bd9e: renamed from eth0
+[10876.526214] docker0: port 1(veth7aa376e) entered disabled state
+[10876.526725] veth7aa376e (unregistering): left allmulticast mode
+[10876.526906] veth7aa376e (unregistering): left promiscuous mode
+[10876.527105] docker0: port 1(veth7aa376e) entered disabled state
+[10877.174091] br-dd726af9e3de: port 8(vethde8cf60) entered disabled state
+[10877.174549] veth2d69edc: renamed from eth0
+[10877.219779] br-dd726af9e3de: port 8(vethde8cf60) entered disabled state
+[10877.220238] vethde8cf60 (unregistering): left allmulticast mode
+[10877.220469] vethde8cf60 (unregistering): left promiscuous mode
+[10877.220674] br-dd726af9e3de: port 8(vethde8cf60) entered disabled state
+[10877.295280] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8081, family: 2, errno: 111
+[10877.451594] br-dd726af9e3de: port 2(vethd49b8ea) entered disabled state
+[10877.452066] veth802506f: renamed from eth0
+[10877.533596] br-dd726af9e3de: port 2(vethd49b8ea) entered disabled state
+[10877.534886] vethd49b8ea (unregistering): left allmulticast mode
+[10877.535142] vethd49b8ea (unregistering): left promiscuous mode
+[10877.535384] br-dd726af9e3de: port 2(vethd49b8ea) entered disabled state
+[10877.544202] br-dd726af9e3de: port 7(vethf3298f5) entered disabled state
+[10877.544521] veth61997a8: renamed from eth0
+[10877.636047] br-dd726af9e3de: port 7(vethf3298f5) entered disabled state
+[10877.636542] vethf3298f5 (unregistering): left allmulticast mode
+[10877.636815] vethf3298f5 (unregistering): left promiscuous mode
+[10877.637032] br-dd726af9e3de: port 7(vethf3298f5) entered disabled state
+[10877.649871] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5455, family: 2, errno: 111
+[10877.705669] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8082, family: 2, errno: 111
+[10877.825062] br-dd726af9e3de: port 6(veth925f564) entered disabled state
+[10877.825507] vethb7e88f0: renamed from eth0
+[10877.925369] br-dd726af9e3de: port 6(veth925f564) entered disabled state
+[10877.926693] veth925f564 (unregistering): left allmulticast mode
+[10877.927011] veth925f564 (unregistering): left promiscuous mode
+[10877.927287] br-dd726af9e3de: port 6(veth925f564) entered disabled state
+[10877.936305] br-dd726af9e3de: port 5(vethfac9c87) entered disabled state
+[10877.936697] veth363236c: renamed from eth0
+[10878.029186] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8084, family: 2, errno: 111
+[10878.029724] br-dd726af9e3de: port 5(vethfac9c87) entered disabled state
+[10878.031005] vethfac9c87 (unregistering): left allmulticast mode
+[10878.031244] vethfac9c87 (unregistering): left promiscuous mode
+[10878.031463] br-dd726af9e3de: port 5(vethfac9c87) entered disabled state
+[10878.035908] br-dd726af9e3de: port 4(veth7815d12) entered disabled state
+[10878.036160] vethfa03b8c: renamed from eth0
+[10878.172222] br-dd726af9e3de: port 4(veth7815d12) entered disabled state
+[10878.172773] veth7815d12 (unregistering): left allmulticast mode
+[10878.173043] veth7815d12 (unregistering): left promiscuous mode
+[10878.173283] br-dd726af9e3de: port 4(veth7815d12) entered disabled state
+[10878.176563] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 8083, family: 2, errno: 111
+[10878.209101] br-dd726af9e3de: port 3(veth41b1500) entered disabled state
+[10878.209497] veth7498a42: renamed from eth0
+[10878.249566] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5457, family: 2, errno: 111
+[10878.340415] br-dd726af9e3de: port 3(veth41b1500) entered disabled state
+[10878.341035] veth41b1500 (unregistering): left allmulticast mode
+[10878.341316] veth41b1500 (unregistering): left promiscuous mode
+[10878.341697] br-dd726af9e3de: port 3(veth41b1500) entered disabled state
+[10878.380384] br-dd726af9e3de: port 1(vethb3b5f32) entered disabled state
+[10878.380765] veth6cf8685: renamed from eth0
+[10878.456172] br-dd726af9e3de: port 1(vethb3b5f32) entered disabled state
+[10878.456706] vethb3b5f32 (unregistering): left allmulticast mode
+[10878.456986] vethb3b5f32 (unregistering): left promiscuous mode
+[10878.457227] br-dd726af9e3de: port 1(vethb3b5f32) entered disabled state
+[10878.468809] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5459, family: 2, errno: 111
+[10878.559901] WSL (193 - ) ERROR: operator():325: Failed to connect to port: 5458, family: 2, errno: 111
+[10881.693458] br-010f9c12f4af: port 1(vethd49c6e5) entered blocking state
+[10881.693912] br-010f9c12f4af: port 1(vethd49c6e5) entered disabled state
+[10881.694185] vethd49c6e5: entered allmulticast mode
+[10881.694442] vethd49c6e5: entered promiscuous mode
+[10881.708477] eth0: renamed from veth236f7a9
+[10881.709224] br-010f9c12f4af: port 1(vethd49c6e5) entered blocking state
+[10881.709520] br-010f9c12f4af: port 1(vethd49c6e5) entered forwarding state
+[10881.842042] br-010f9c12f4af: port 2(vethb5262c9) entered blocking state
+[10881.842367] br-010f9c12f4af: port 2(vethb5262c9) entered disabled state
+[10881.842552] vethb5262c9: entered allmulticast mode
+[10881.842765] vethb5262c9: entered promiscuous mode
+[10881.858038] eth0: renamed from veth62dedab
+[10881.858878] br-010f9c12f4af: port 2(vethb5262c9) entered blocking state
+[10881.859186] br-010f9c12f4af: port 2(vethb5262c9) entered forwarding state
+[10881.987005] br-010f9c12f4af: port 3(vethf077931) entered blocking state
+[10881.987306] br-010f9c12f4af: port 3(vethf077931) entered disabled state
+[10881.987903] vethf077931: entered allmulticast mode
+[10881.988136] vethf077931: entered promiscuous mode
+[10882.002234] eth0: renamed from veth7602a5c
+[10882.003035] br-010f9c12f4af: port 3(vethf077931) entered blocking state
+[10882.003342] br-010f9c12f4af: port 3(vethf077931) entered forwarding state
+[10882.136137] br-010f9c12f4af: port 4(vetha1dbb94) entered blocking state
+[10882.136589] br-010f9c12f4af: port 4(vetha1dbb94) entered disabled state
+[10882.136841] vetha1dbb94: entered allmulticast mode
+[10882.137047] vetha1dbb94: entered promiscuous mode
+[10882.153188] eth0: renamed from veth196a26b
+[10882.153958] br-010f9c12f4af: port 4(vetha1dbb94) entered blocking state
+[10882.154254] br-010f9c12f4af: port 4(vetha1dbb94) entered forwarding state
+[10887.326438] br-010f9c12f4af: port 5(vetha630c2c) entered blocking state
+[10887.326765] br-010f9c12f4af: port 5(vetha630c2c) entered disabled state
+[10887.326980] vetha630c2c: entered allmulticast mode
+[10887.327189] vetha630c2c: entered promiscuous mode
+[10887.341282] eth0: renamed from veth19c4f4a
+[10887.342002] br-010f9c12f4af: port 5(vetha630c2c) entered blocking state
+[10887.342288] br-010f9c12f4af: port 5(vetha630c2c) entered forwarding state
+[10887.647140] br-010f9c12f4af: port 6(vethb98a75d) entered blocking state
+[10887.647559] br-010f9c12f4af: port 6(vethb98a75d) entered disabled state
+[10887.647846] vethb98a75d: entered allmulticast mode
+[10887.648109] vethb98a75d: entered promiscuous mode
+[10887.662162] eth0: renamed from veth278c703
+[10887.662965] br-010f9c12f4af: port 6(vethb98a75d) entered blocking state
+[10887.663212] br-010f9c12f4af: port 6(vethb98a75d) entered forwarding state
+[10887.785737] br-010f9c12f4af: port 7(veth893fe51) entered blocking state
+[10887.786061] br-010f9c12f4af: port 7(veth893fe51) entered disabled state
+[10887.786283] veth893fe51: entered allmulticast mode
+[10887.786509] veth893fe51: entered promiscuous mode
+[10887.801551] eth0: renamed from vethc1b6dba
+[10887.802404] br-010f9c12f4af: port 7(veth893fe51) entered blocking state
+[10887.802707] br-010f9c12f4af: port 7(veth893fe51) entered forwarding state
+[10893.450192] br-010f9c12f4af: port 8(veth9f73f25) entered blocking state
+[10893.450562] br-010f9c12f4af: port 8(veth9f73f25) entered disabled state
+[10893.450838] veth9f73f25: entered allmulticast mode
+[10893.451153] veth9f73f25: entered promiscuous mode
+[10893.465127] eth0: renamed from vethb5842cd
+[10893.465853] br-010f9c12f4af: port 8(veth9f73f25) entered blocking state
+[10893.466146] br-010f9c12f4af: port 8(veth9f73f25) entered forwarding state
+[10965.681016] br-010f9c12f4af: port 9(vethc57b52d) entered blocking state
+[10965.681338] br-010f9c12f4af: port 9(vethc57b52d) entered disabled state
+[10965.681542] vethc57b52d: entered allmulticast mode
+[10965.681816] vethc57b52d: entered promiscuous mode
+[10965.696436] eth0: renamed from vethc41afba
+[10965.697177] br-010f9c12f4af: port 9(vethc57b52d) entered blocking state
+[10965.697476] br-010f9c12f4af: port 9(vethc57b52d) entered forwarding state
+[10985.920973] br-010f9c12f4af: port 9(vethc57b52d) entered disabled state
+[10985.921405] vethc41afba: renamed from eth0
+[10985.971002] br-010f9c12f4af: port 9(vethc57b52d) entered disabled state
+[10985.971480] vethc57b52d (unregistering): left allmulticast mode
+[10985.971713] vethc57b52d (unregistering): left promiscuous mode
+[10985.971956] br-010f9c12f4af: port 9(vethc57b52d) entered disabled state
+[10986.263218] br-010f9c12f4af: port 9(veth21185a0) entered blocking state
+[10986.263574] br-010f9c12f4af: port 9(veth21185a0) entered disabled state
+[10986.263887] veth21185a0: entered allmulticast mode
+[10986.264171] veth21185a0: entered promiscuous mode
+[10986.278546] eth0: renamed from vethca94b77
+[10986.279345] br-010f9c12f4af: port 9(veth21185a0) entered blocking state
+[10986.279647] br-010f9c12f4af: port 9(veth21185a0) entered forwarding state
+[11288.527328] br-010f9c12f4af: port 9(veth21185a0) entered disabled state
+[11288.527735] vethca94b77: renamed from eth0
+[11288.563485] br-010f9c12f4af: port 9(veth21185a0) entered disabled state
+[11288.564034] veth21185a0 (unregistering): left allmulticast mode
+[11288.564286] veth21185a0 (unregistering): left promiscuous mode
+[11288.564497] br-010f9c12f4af: port 9(veth21185a0) entered disabled state
+[11329.970303] docker0: port 1(veth5a4a0b0) entered blocking state
+[11329.970632] docker0: port 1(veth5a4a0b0) entered disabled state
+[11329.970950] veth5a4a0b0: entered allmulticast mode
+[11329.971179] veth5a4a0b0: entered promiscuous mode
+[11329.975822] eth0: renamed from veth6776573
+[11329.976511] docker0: port 1(veth5a4a0b0) entered blocking state
+[11329.976763] docker0: port 1(veth5a4a0b0) entered forwarding state

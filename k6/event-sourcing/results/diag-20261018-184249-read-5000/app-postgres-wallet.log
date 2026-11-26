@@ -1,0 +1,58 @@
+﻿postgres-wallet-1  | 2026-10-18T21:42:55.886697067Z The files belonging to this database system will be owned by user "postgres".
+postgres-wallet-1  | 2026-10-18T21:42:55.886714309Z This user must also own the server process.
+postgres-wallet-1  | 2026-10-18T21:42:55.886716189Z 
+postgres-wallet-1  | 2026-10-18T21:42:55.886829834Z The database cluster will be initialized with locale "en_US.utf8".
+postgres-wallet-1  | 2026-10-18T21:42:55.886834045Z The default database encoding has accordingly been set to "UTF8".
+postgres-wallet-1  | 2026-10-18T21:42:55.886835555Z The default text search configuration will be set to "english".
+postgres-wallet-1  | 2026-10-18T21:42:55.886837075Z 
+postgres-wallet-1  | 2026-10-18T21:42:55.886838775Z Data page checksums are disabled.
+postgres-wallet-1  | 2026-10-18T21:42:55.886840515Z 
+postgres-wallet-1  | 2026-10-18T21:42:55.886918666Z fixing permissions on existing directory /var/lib/postgresql/data ... ok
+postgres-wallet-1  | 2026-10-18T21:42:55.893146658Z creating subdirectories ... ok
+postgres-wallet-1  | 2026-10-18T21:42:55.893255606Z selecting dynamic shared memory implementation ... posix
+postgres-wallet-1  | 2026-10-18T21:42:55.907502313Z selecting default max_connections ... 100
+postgres-wallet-1  | 2026-10-18T21:42:55.923187169Z selecting default shared_buffers ... 128MB
+postgres-wallet-1  | 2026-10-18T21:42:55.946916445Z selecting default time zone ... Etc/UTC
+postgres-wallet-1  | 2026-10-18T21:42:55.947451185Z creating configuration files ... ok
+postgres-wallet-1  | 2026-10-18T21:42:56.044313509Z running bootstrap script ... ok
+postgres-wallet-1  | 2026-10-18T21:42:56.255714162Z performing post-bootstrap initialization ... ok
+postgres-wallet-1  | 2026-10-18T21:42:56.485441917Z syncing data to disk ... ok
+postgres-wallet-1  | 2026-10-18T21:42:56.485455848Z 
+postgres-wallet-1  | 2026-10-18T21:42:56.485457618Z 
+postgres-wallet-1  | 2026-10-18T21:42:56.485459189Z Success. You can now start the database server using:
+postgres-wallet-1  | 2026-10-18T21:42:56.485461139Z 
+postgres-wallet-1  | 2026-10-18T21:42:56.485462619Z     pg_ctl -D /var/lib/postgresql/data -l logfile start
+postgres-wallet-1  | 2026-10-18T21:42:56.485464169Z 
+postgres-wallet-1  | 2026-10-18T21:42:56.485666324Z initdb: warning: enabling "trust" authentication for local connections
+postgres-wallet-1  | 2026-10-18T21:42:56.485675335Z initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+postgres-wallet-1  | 2026-10-18T21:42:56.523456453Z waiting for server to start....2026-10-18 21:42:56.523 UTC [48] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+postgres-wallet-1  | 2026-10-18T21:42:56.525115748Z 2026-10-18 21:42:56.525 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-wallet-1  | 2026-10-18T21:42:56.531320547Z 2026-10-18 21:42:56.531 UTC [51] LOG:  database system was shut down at 2026-10-18 21:42:56 UTC
+postgres-wallet-1  | 2026-10-18T21:42:56.536163513Z 2026-10-18 21:42:56.536 UTC [48] LOG:  database system is ready to accept connections
+postgres-wallet-1  | 2026-10-18T21:42:56.605286962Z  done
+postgres-wallet-1  | 2026-10-18T21:42:56.605304483Z server started
+postgres-wallet-1  | 2026-10-18T21:42:56.691556167Z CREATE DATABASE
+postgres-wallet-1  | 2026-10-18T21:42:56.692067520Z 
+postgres-wallet-1  | 2026-10-18T21:42:56.692078611Z 
+postgres-wallet-1  | 2026-10-18T21:42:56.692163642Z /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+postgres-wallet-1  | 2026-10-18T21:42:56.692168083Z 
+postgres-wallet-1  | 2026-10-18T21:42:56.693027548Z 2026-10-18 21:42:56.692 UTC [48] LOG:  received fast shutdown request
+postgres-wallet-1  | 2026-10-18T21:42:56.695666538Z waiting for server to shut down....2026-10-18 21:42:56.695 UTC [48] LOG:  aborting any active transactions
+postgres-wallet-1  | 2026-10-18T21:42:56.696970667Z 2026-10-18 21:42:56.696 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+postgres-wallet-1  | 2026-10-18T21:42:56.697051988Z 2026-10-18 21:42:56.696 UTC [49] LOG:  shutting down
+postgres-wallet-1  | 2026-10-18T21:42:56.698665285Z 2026-10-18 21:42:56.698 UTC [49] LOG:  checkpoint starting: shutdown immediate
+postgres-wallet-1  | 2026-10-18T21:42:56.816519079Z 2026-10-18 21:42:56.816 UTC [49] LOG:  checkpoint complete: wrote 926 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.024 s, sync=0.083 s, total=0.120 s; sync files=301, longest=0.004 s, average=0.001 s; distance=4273 kB, estimate=4273 kB; lsn=0/191F0E8, redo lsn=0/191F0E8
+postgres-wallet-1  | 2026-10-18T21:42:56.822088790Z 2026-10-18 21:42:56.821 UTC [48] LOG:  database system is shut down
+postgres-wallet-1  | 2026-10-18T21:42:56.893334498Z  done
+postgres-wallet-1  | 2026-10-18T21:42:56.893345629Z server stopped
+postgres-wallet-1  | 2026-10-18T21:42:56.894180073Z 
+postgres-wallet-1  | 2026-10-18T21:42:56.894188103Z PostgreSQL init process complete; ready for start up.
+postgres-wallet-1  | 2026-10-18T21:42:56.894191023Z 
+postgres-wallet-1  | 2026-10-18T21:42:56.909968788Z 2026-10-18 21:42:56.909 UTC [1] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+postgres-wallet-1  | 2026-10-18T21:42:56.910123059Z 2026-10-18 21:42:56.910 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-wallet-1  | 2026-10-18T21:42:56.910128560Z 2026-10-18 21:42:56.910 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-wallet-1  | 2026-10-18T21:42:56.913746423Z 2026-10-18 21:42:56.913 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-wallet-1  | 2026-10-18T21:42:56.920539726Z 2026-10-18 21:42:56.920 UTC [64] LOG:  database system was shut down at 2026-10-18 21:42:56 UTC
+postgres-wallet-1  | 2026-10-18T21:42:56.924327148Z 2026-10-18 21:42:56.924 UTC [1] LOG:  database system is ready to accept connections
+postgres-wallet-1  | 2026-10-18T21:47:57.002101181Z 2026-10-18 21:47:57.001 UTC [62] LOG:  checkpoint starting: time
+postgres-wallet-1  | 2026-10-18T21:48:13.264806861Z 2026-10-18 21:48:13.263 UTC [62] LOG:  checkpoint complete: wrote 165 buffers (1.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=16.240 s, sync=0.016 s, total=16.262 s; sync files=76, longest=0.002 s, average=0.001 s; distance=854 kB, estimate=854 kB; lsn=0/19F4A90, redo lsn=0/19F4A58

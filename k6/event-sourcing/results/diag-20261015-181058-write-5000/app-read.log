@@ -1,0 +1,16 @@
+﻿read-1  | 2026-10-15T21:11:20.630209745Z 
+read-1  | 2026-10-15T21:11:20.630261089Z   .   ____          _            __ _ _
+read-1  | 2026-10-15T21:11:20.630265169Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+read-1  | 2026-10-15T21:11:20.630267019Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+read-1  | 2026-10-15T21:11:20.630268839Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+read-1  | 2026-10-15T21:11:20.630270629Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+read-1  | 2026-10-15T21:11:20.630272290Z  =========|_|==============|___/=/_/_/_/
+read-1  | 2026-10-15T21:11:20.630274010Z 
+read-1  | 2026-10-15T21:11:20.630514471Z  :: Spring Boot ::                (v4.0.6)
+read-1  | 2026-10-15T21:11:20.630520341Z 
+read-1  | 2026-10-15T21:11:20.739192528Z 21:11:20.736 [main] INFO  [read] com.cqrs.Application - Starting Application v0.0.1-SNAPSHOT using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+read-1  | 2026-10-15T21:11:20.740761871Z 21:11:20.740 [main] INFO  [read] com.cqrs.Application - No active profile set, falling back to 1 default profile: "default"
+read-1  | 2026-10-15T21:11:23.846336423Z 21:11:23.845 [main] WARN  [read] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+read-1  | 2026-10-15T21:11:25.970262788Z 21:11:25.969 [main] INFO  [read] o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+read-1  | 2026-10-15T21:11:26.004725079Z 21:11:26.004 [main] INFO  [read] o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#69c53b72:0/SimpleConnection@a479c0c [delegate=amqp://guest@172.18.0.3:5672/, localPort=54788]
+read-1  | 2026-10-15T21:11:26.076581467Z 21:11:26.076 [main] INFO  [read] com.cqrs.Application - Started Application in 5.986 seconds (process running for 6.542)

@@ -1,0 +1,92 @@
+﻿db-wallet-1  | 2026-10-18T21:57:38.439253714Z The files belonging to this database system will be owned by user "postgres".
+db-wallet-1  | 2026-10-18T21:57:38.439270735Z This user must also own the server process.
+db-wallet-1  | 2026-10-18T21:57:38.439272995Z 
+db-wallet-1  | 2026-10-18T21:57:38.439274425Z The database cluster will be initialized with locale "en_US.utf8".
+db-wallet-1  | 2026-10-18T21:57:38.439275775Z The default database encoding has accordingly been set to "UTF8".
+db-wallet-1  | 2026-10-18T21:57:38.439277035Z The default text search configuration will be set to "english".
+db-wallet-1  | 2026-10-18T21:57:38.439278795Z 
+db-wallet-1  | 2026-10-18T21:57:38.439280075Z Data page checksums are disabled.
+db-wallet-1  | 2026-10-18T21:57:38.439312767Z 
+db-wallet-1  | 2026-10-18T21:57:38.439318137Z fixing permissions on existing directory /var/lib/postgresql/data ... ok
+db-wallet-1  | 2026-10-18T21:57:38.445461429Z creating subdirectories ... ok
+db-wallet-1  | 2026-10-18T21:57:38.445527323Z selecting dynamic shared memory implementation ... posix
+db-wallet-1  | 2026-10-18T21:57:38.457829221Z selecting default max_connections ... 100
+db-wallet-1  | 2026-10-18T21:57:38.472924230Z selecting default shared_buffers ... 128MB
+db-wallet-1  | 2026-10-18T21:57:38.493364148Z selecting default time zone ... Etc/UTC
+db-wallet-1  | 2026-10-18T21:57:38.493661919Z creating configuration files ... ok
+db-wallet-1  | 2026-10-18T21:57:38.590079622Z running bootstrap script ... ok
+db-wallet-1  | 2026-10-18T21:57:38.785759480Z performing post-bootstrap initialization ... ok
+db-wallet-1  | 2026-10-18T21:57:39.102674851Z initdb: warning: enabling "trust" authentication for local connections
+db-wallet-1  | 2026-10-18T21:57:39.102685292Z initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+db-wallet-1  | 2026-10-18T21:57:39.102698382Z syncing data to disk ... ok
+db-wallet-1  | 2026-10-18T21:57:39.102702802Z 
+db-wallet-1  | 2026-10-18T21:57:39.102704623Z 
+db-wallet-1  | 2026-10-18T21:57:39.102706143Z Success. You can now start the database server using:
+db-wallet-1  | 2026-10-18T21:57:39.102708523Z 
+db-wallet-1  | 2026-10-18T21:57:39.102710183Z     pg_ctl -D /var/lib/postgresql/data -l logfile start
+db-wallet-1  | 2026-10-18T21:57:39.102711973Z 
+db-wallet-1  | 2026-10-18T21:57:39.137747504Z waiting for server to start....2026-10-18 21:57:39.137 UTC [48] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+db-wallet-1  | 2026-10-18T21:57:39.139512504Z 2026-10-18 21:57:39.139 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-wallet-1  | 2026-10-18T21:57:39.146854495Z 2026-10-18 21:57:39.146 UTC [51] LOG:  database system was shut down at 2026-10-18 21:57:38 UTC
+db-wallet-1  | 2026-10-18T21:57:39.152220485Z 2026-10-18 21:57:39.152 UTC [48] LOG:  database system is ready to accept connections
+db-wallet-1  | 2026-10-18T21:57:39.217503037Z  done
+db-wallet-1  | 2026-10-18T21:57:39.217515628Z server started
+db-wallet-1  | 2026-10-18T21:57:39.288420172Z CREATE DATABASE
+db-wallet-1  | 2026-10-18T21:57:39.288925300Z 
+db-wallet-1  | 2026-10-18T21:57:39.288988833Z 
+db-wallet-1  | 2026-10-18T21:57:39.288992793Z /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/init.sql
+db-wallet-1  | 2026-10-18T21:57:39.312557427Z DO
+db-wallet-1  | 2026-10-18T21:57:39.313401842Z GRANT
+db-wallet-1  | 2026-10-18T21:57:39.314194105Z GRANT
+db-wallet-1  | 2026-10-18T21:57:39.316954053Z DO
+db-wallet-1  | 2026-10-18T21:57:39.317773077Z ALTER DEFAULT PRIVILEGES
+db-wallet-1  | 2026-10-18T21:57:39.318331037Z 
+db-wallet-1  | 2026-10-18T21:57:39.318335538Z 
+db-wallet-1  | 2026-10-18T21:57:39.319242547Z 2026-10-18 21:57:39.319 UTC [48] LOG:  received fast shutdown request
+db-wallet-1  | 2026-10-18T21:57:39.320577328Z waiting for server to shut down....2026-10-18 21:57:39.320 UTC [48] LOG:  aborting any active transactions
+db-wallet-1  | 2026-10-18T21:57:39.321744102Z 2026-10-18 21:57:39.321 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+db-wallet-1  | 2026-10-18T21:57:39.321941603Z 2026-10-18 21:57:39.321 UTC [49] LOG:  shutting down
+db-wallet-1  | 2026-10-18T21:57:39.323102413Z 2026-10-18 21:57:39.322 UTC [49] LOG:  checkpoint starting: shutdown immediate
+db-wallet-1  | 2026-10-18T21:57:39.383919735Z 2026-10-18 21:57:39.383 UTC [49] LOG:  checkpoint complete: wrote 938 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.016 s, sync=0.042 s, total=0.062 s; sync files=308, longest=0.003 s, average=0.001 s; distance=4280 kB, estimate=4280 kB; lsn=0/1920E48, redo lsn=0/1920E48
+db-wallet-1  | 2026-10-18T21:57:39.390073179Z 2026-10-18 21:57:39.389 UTC [48] LOG:  database system is shut down
+db-wallet-1  | 2026-10-18T21:57:39.419383031Z  done
+db-wallet-1  | 2026-10-18T21:57:39.419391622Z server stopped
+db-wallet-1  | 2026-10-18T21:57:39.420211816Z 
+db-wallet-1  | 2026-10-18T21:57:39.420217206Z PostgreSQL init process complete; ready for start up.
+db-wallet-1  | 2026-10-18T21:57:39.420219556Z 
+db-wallet-1  | 2026-10-18T21:57:39.437379322Z 2026-10-18 21:57:39.437 UTC [1] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+db-wallet-1  | 2026-10-18T21:57:39.437463756Z 2026-10-18 21:57:39.437 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-wallet-1  | 2026-10-18T21:57:39.437468926Z 2026-10-18 21:57:39.437 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-wallet-1  | 2026-10-18T21:57:39.440000234Z 2026-10-18 21:57:39.439 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-wallet-1  | 2026-10-18T21:57:39.447141824Z 2026-10-18 21:57:39.447 UTC [66] LOG:  database system was shut down at 2026-10-18 21:57:39 UTC
+db-wallet-1  | 2026-10-18T21:57:39.452294046Z 2026-10-18 21:57:39.452 UTC [1] LOG:  database system is ready to accept connections
+db-wallet-1  | 2026-10-18T21:57:52.822631518Z 2026-10-18 21:57:52.822 UTC [106] LOG:  logical decoding found consistent point at 0/1961CC0
+db-wallet-1  | 2026-10-18T21:57:52.822642019Z 2026-10-18 21:57:52.822 UTC [106] DETAIL:  There are no running transactions.
+db-wallet-1  | 2026-10-18T21:57:52.822644399Z 2026-10-18 21:57:52.822 UTC [106] STATEMENT:  CREATE_REPLICATION_SLOT "crm_wallet_subscription" LOGICAL pgoutput (SNAPSHOT 'nothing')
+db-wallet-1  | 2026-10-18T21:57:57.839950915Z 2026-10-18 21:57:57.839 UTC [115] LOG:  starting logical decoding for slot "crm_wallet_subscription"
+db-wallet-1  | 2026-10-18T21:57:57.839965036Z 2026-10-18 21:57:57.839 UTC [115] DETAIL:  Streaming transactions committing after 0/1961CF8, reading WAL from 0/1961CC0.
+db-wallet-1  | 2026-10-18T21:57:57.839968016Z 2026-10-18 21:57:57.839 UTC [115] STATEMENT:  START_REPLICATION SLOT "crm_wallet_subscription" LOGICAL 0/0 (proto_version '4', origin 'any', publication_names '"crm_wallet_publication"')
+db-wallet-1  | 2026-10-18T21:57:57.839970686Z 2026-10-18 21:57:57.839 UTC [115] LOG:  logical decoding found consistent point at 0/1961CC0
+db-wallet-1  | 2026-10-18T21:57:57.839973036Z 2026-10-18 21:57:57.839 UTC [115] DETAIL:  There are no running transactions.
+db-wallet-1  | 2026-10-18T21:57:57.839975666Z 2026-10-18 21:57:57.839 UTC [115] STATEMENT:  START_REPLICATION SLOT "crm_wallet_subscription" LOGICAL 0/0 (proto_version '4', origin 'any', publication_names '"crm_wallet_publication"')
+db-wallet-1  | 2026-10-18T21:57:57.857239022Z 2026-10-18 21:57:57.857 UTC [116] LOG:  logical decoding found consistent point at 0/1961D30
+db-wallet-1  | 2026-10-18T21:57:57.857249643Z 2026-10-18 21:57:57.857 UTC [116] DETAIL:  There are no running transactions.
+db-wallet-1  | 2026-10-18T21:57:57.857252403Z 2026-10-18 21:57:57.857 UTC [116] STATEMENT:  CREATE_REPLICATION_SLOT "pg_16446_sync_16424_7698130409514967078" LOGICAL pgoutput (SNAPSHOT 'use')
+db-wallet-1  | 2026-10-18T21:57:57.863972717Z 2026-10-18 21:57:57.863 UTC [116] LOG:  starting logical decoding for slot "pg_16446_sync_16424_7698130409514967078"
+db-wallet-1  | 2026-10-18T21:57:57.863983758Z 2026-10-18 21:57:57.863 UTC [116] DETAIL:  Streaming transactions committing after 0/1961D68, reading WAL from 0/1961D30.
+db-wallet-1  | 2026-10-18T21:57:57.863988648Z 2026-10-18 21:57:57.863 UTC [116] STATEMENT:  START_REPLICATION SLOT "pg_16446_sync_16424_7698130409514967078" LOGICAL 0/1961D68 (proto_version '4', origin 'any', publication_names '"crm_wallet_publication"')
+db-wallet-1  | 2026-10-18T21:57:57.863991318Z 2026-10-18 21:57:57.863 UTC [116] LOG:  logical decoding found consistent point at 0/1961D30
+db-wallet-1  | 2026-10-18T21:57:57.863993658Z 2026-10-18 21:57:57.863 UTC [116] DETAIL:  There are no running transactions.
+db-wallet-1  | 2026-10-18T21:57:57.863996079Z 2026-10-18 21:57:57.863 UTC [116] STATEMENT:  START_REPLICATION SLOT "pg_16446_sync_16424_7698130409514967078" LOGICAL 0/1961D68 (proto_version '4', origin 'any', publication_names '"crm_wallet_publication"')
+db-wallet-1  | 2026-10-18T21:58:02.891234037Z 2026-10-18 21:58:02.891 UTC [126] LOG:  logical decoding found consistent point at 0/1961D68
+db-wallet-1  | 2026-10-18T21:58:02.891244848Z 2026-10-18 21:58:02.891 UTC [126] DETAIL:  There are no running transactions.
+db-wallet-1  | 2026-10-18T21:58:02.891247518Z 2026-10-18 21:58:02.891 UTC [126] STATEMENT:  CREATE_REPLICATION_SLOT "pg_16446_sync_16418_7698130409514967078" LOGICAL pgoutput (SNAPSHOT 'use')
+db-wallet-1  | 2026-10-18T21:58:02.897906851Z 2026-10-18 21:58:02.897 UTC [126] LOG:  starting logical decoding for slot "pg_16446_sync_16418_7698130409514967078"
+db-wallet-1  | 2026-10-18T21:58:02.897915792Z 2026-10-18 21:58:02.897 UTC [126] DETAIL:  Streaming transactions committing after 0/1961DA0, reading WAL from 0/1961D68.
+db-wallet-1  | 2026-10-18T21:58:02.897924122Z 2026-10-18 21:58:02.897 UTC [126] STATEMENT:  START_REPLICATION SLOT "pg_16446_sync_16418_7698130409514967078" LOGICAL 0/1961DA0 (proto_version '4', origin 'any', publication_names '"crm_wallet_publication"')
+db-wallet-1  | 2026-10-18T21:58:02.897927552Z 2026-10-18 21:58:02.897 UTC [126] LOG:  logical decoding found consistent point at 0/1961D68
+db-wallet-1  | 2026-10-18T21:58:02.897929392Z 2026-10-18 21:58:02.897 UTC [126] DETAIL:  There are no running transactions.
+db-wallet-1  | 2026-10-18T21:58:02.897931023Z 2026-10-18 21:58:02.897 UTC [126] STATEMENT:  START_REPLICATION SLOT "pg_16446_sync_16418_7698130409514967078" LOGICAL 0/1961DA0 (proto_version '4', origin 'any', publication_names '"crm_wallet_publication"')
+db-wallet-1  | 2026-10-18T22:01:38.755839916Z 2026-10-18 22:01:38.755 UTC [64] LOG:  checkpoint starting: wal
+db-wallet-1  | 2026-10-18T22:04:01.326106680Z 2026-10-18 22:04:01.325 UTC [64] LOG:  checkpoint complete: wrote 13580 buffers (82.9%); 0 WAL file(s) added, 0 removed, 32 recycled; write=142.179 s, sync=0.048 s, total=142.571 s; sync files=85, longest=0.005 s, average=0.001 s; distance=531329 kB, estimate=531329 kB; lsn=0/3FBA3D38, redo lsn=0/22001358
+db-wallet-1  | 2026-10-18T22:04:13.100501064Z 2026-10-18 22:04:13.100 UTC [64] LOG:  checkpoint starting: wal

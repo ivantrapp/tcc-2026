@@ -1,0 +1,18 @@
+﻿wallet-1  | 2026-10-15T21:16:22.495747866Z 
+wallet-1  | 2026-10-15T21:16:22.496718455Z   .   ____          _            __ _ _
+wallet-1  | 2026-10-15T21:16:22.496737477Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+wallet-1  | 2026-10-15T21:16:22.496740877Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+wallet-1  | 2026-10-15T21:16:22.496743047Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+wallet-1  | 2026-10-15T21:16:22.496744987Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+wallet-1  | 2026-10-15T21:16:22.496749068Z  =========|_|==============|___/=/_/_/_/
+wallet-1  | 2026-10-15T21:16:22.496750678Z 
+wallet-1  | 2026-10-15T21:16:22.497092890Z  :: Spring Boot ::                (v4.0.6)
+wallet-1  | 2026-10-15T21:16:22.497098760Z 
+wallet-1  | 2026-10-15T21:16:22.561181511Z 21:16:22.558 [main] INFO  [wallet] com.cqrs.Application - Starting Application v0.0.1-SNAPSHOT using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+wallet-1  | 2026-10-15T21:16:22.562297382Z 21:16:22.562 [main] INFO  [wallet] com.cqrs.Application - No active profile set, falling back to 1 default profile: "default"
+wallet-1  | 2026-10-15T21:16:25.369615207Z 21:16:25.369 [main] WARN  [wallet] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+wallet-1  | 2026-10-15T21:16:27.649506038Z 21:16:27.648 [main] INFO  [wallet] com.cqrs.Application - Started Application in 5.643 seconds (process running for 6.056)
+wallet-1  | 2026-10-15T21:17:39.051880861Z 21:17:39.051 [tomcat-handler-6] INFO  [wallet] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+wallet-1  | 2026-10-15T21:17:39.053064113Z 21:17:39.052 [tomcat-handler-6] INFO  [wallet] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+wallet-1  | 2026-10-15T21:17:39.261294058Z 21:17:39.261 [tomcat-handler-1] INFO  [wallet] o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+wallet-1  | 2026-10-15T21:17:39.297326909Z 21:17:39.296 [tomcat-handler-1] INFO  [wallet] o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#26398f67:0/SimpleConnection@33e52b8d [delegate=amqp://guest@172.18.0.2:5672/, localPort=57992]

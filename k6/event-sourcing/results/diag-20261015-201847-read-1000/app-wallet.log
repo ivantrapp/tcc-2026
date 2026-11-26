@@ -1,0 +1,18 @@
+﻿wallet-1  | 2026-10-15T23:19:06.270205413Z 
+wallet-1  | 2026-10-15T23:19:06.270252386Z   .   ____          _            __ _ _
+wallet-1  | 2026-10-15T23:19:06.270255606Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+wallet-1  | 2026-10-15T23:19:06.270257416Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+wallet-1  | 2026-10-15T23:19:06.270259317Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+wallet-1  | 2026-10-15T23:19:06.270261137Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+wallet-1  | 2026-10-15T23:19:06.270263357Z  =========|_|==============|___/=/_/_/_/
+wallet-1  | 2026-10-15T23:19:06.270265157Z 
+wallet-1  | 2026-10-15T23:19:06.270273127Z  :: Spring Boot ::                (v4.0.6)
+wallet-1  | 2026-10-15T23:19:06.270278318Z 
+wallet-1  | 2026-10-15T23:19:06.338662660Z 23:19:06.336 [main] INFO  [wallet] com.cqrs.Application - Starting Application v0.0.1-SNAPSHOT using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+wallet-1  | 2026-10-15T23:19:06.339757234Z 23:19:06.339 [main] INFO  [wallet] com.cqrs.Application - No active profile set, falling back to 1 default profile: "default"
+wallet-1  | 2026-10-15T23:19:09.190914518Z 23:19:09.189 [main] WARN  [wallet] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+wallet-1  | 2026-10-15T23:19:11.408103892Z 23:19:11.404 [main] INFO  [wallet] com.cqrs.Application - Started Application in 5.558 seconds (process running for 5.971)
+wallet-1  | 2026-10-15T23:20:22.380425373Z 23:20:22.380 [http-nio-8084-exec-5] INFO  [wallet] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+wallet-1  | 2026-10-15T23:20:22.381354219Z 23:20:22.381 [http-nio-8084-exec-5] INFO  [wallet] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+wallet-1  | 2026-10-15T23:20:22.536824578Z 23:20:22.536 [http-nio-8084-exec-4] INFO  [wallet] o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+wallet-1  | 2026-10-15T23:20:22.563760335Z 23:20:22.563 [http-nio-8084-exec-4] INFO  [wallet] o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#1bd6bfb0:0/SimpleConnection@30f021e8 [delegate=amqp://guest@172.18.0.6:5672/, localPort=52992]

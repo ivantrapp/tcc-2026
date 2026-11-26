@@ -1,0 +1,16 @@
+﻿wallet-app-1  | 2026-10-18T22:05:10.575159017Z 
+wallet-app-1  | 2026-10-18T22:05:10.575201240Z   .   ____          _            __ _ _
+wallet-app-1  | 2026-10-18T22:05:10.575206460Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+wallet-app-1  | 2026-10-18T22:05:10.575211261Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+wallet-app-1  | 2026-10-18T22:05:10.575213131Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+wallet-app-1  | 2026-10-18T22:05:10.575215081Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+wallet-app-1  | 2026-10-18T22:05:10.575216691Z  =========|_|==============|___/=/_/_/_/
+wallet-app-1  | 2026-10-18T22:05:10.575218231Z 
+wallet-app-1  | 2026-10-18T22:05:10.575407983Z  :: Spring Boot ::                (v4.0.6)
+wallet-app-1  | 2026-10-18T22:05:10.575415234Z 
+wallet-app-1  | 2026-10-18T22:05:10.664865348Z 22:05:10.662 [main] INFO  [wallet] com.cqrs.Application - Starting Application v0.0.1-SNAPSHOT using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+wallet-app-1  | 2026-10-18T22:05:10.666499508Z 22:05:10.666 [main] INFO  [wallet] com.cqrs.Application - No active profile set, falling back to 1 default profile: "default"
+wallet-app-1  | 2026-10-18T22:05:12.938868637Z 22:05:12.938 [main] WARN  [wallet] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+wallet-app-1  | 2026-10-18T22:05:14.654876799Z 22:05:14.654 [main] INFO  [wallet] com.cqrs.Application - Started Application in 4.509 seconds (process running for 5.014)
+wallet-app-1  | 2026-10-18T22:06:25.510726332Z 22:06:25.510 [http-nio-8084-exec-7] INFO  [wallet] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+wallet-app-1  | 2026-10-18T22:06:25.511678377Z 22:06:25.511 [http-nio-8084-exec-7] INFO  [wallet] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
